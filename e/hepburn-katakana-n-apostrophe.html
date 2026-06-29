@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katakana ン loses the syllabic-n apostrophe before vowels and Y - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="hepburn: Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN&#39;YOU), so it collides with シニョウ.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/hepburn-katakana-n-apostrophe.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Katakana ン loses the syllabic-n apostrophe before vowels and Y - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="hepburn: Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN&#39;YOU), so it collides with シニョウ.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/hepburn-katakana-n-apostrophe.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Katakana ン loses the syllabic-n apostrophe before vowels and Y - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="hepburn: Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN&#39;YOU), so it collides with シニョウ.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Katakana ン loses the syllabic-n apostrophe before vowels and Y","about":"Kana / romaji","description":"hepburn: Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN'YOU), so it collides with シニョウ.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/hepburn-katakana-n-apostrophe.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Kana / romaji</p>
+    <a class="detail-back" href="../#hepburn-katakana-n-apostrophe">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="hepburn-katakana-n-apostrophe" data-cat="kana-romaji" data-lib="hepburn" data-search="katakana ン loses the syllabic-n apostrophe before vowels and y hepburn lovell/hepburn katakana ン before a vowel or y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes shinyou (should be shin&#39;you), so it collides with シニョウ. const { fromkana } = require(&#39;hepburn&#39;)
+fromkana(&#39;しんよう&#39;) // shin&#39;you
+fromkana(&#39;シンヨウ&#39;) // shinyou  &lt;- apostrophe dropped map katakana ン to n&#39; (matching hiragana) and add the ンー long-vowel digraph as n&#39;, so n is never a katakana map key and tokatakana still round-trips (pan to パン). kana / romaji js">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Katakana ン loses the syllabic-n apostrophe before vowels and Y</h1>
+  <p class="lib-line"><span class="lib">hepburn</span> &middot; <a href="https://github.com/lovell/hepburn">lovell/hepburn</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN'YOU), so it collides with シニョウ.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">const { fromKana } = require('hepburn')
+fromKana('しんよう') // SHIN'YOU
+fromKana('シンヨウ') // SHINYOU  &lt;- apostrophe dropped</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Map katakana ン to N' (matching hiragana) and add the ンー long-vowel digraph as N', so N is never a katakana map key and toKatakana still round-trips (PAN to パン).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/lovell/hepburn/pull/28">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#hepburn-katakana-n-apostrophe">#hepburn-katakana-n-apostrophe</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

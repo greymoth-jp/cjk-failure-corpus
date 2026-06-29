@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="jaco-js: The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/jaco-js-wo-voiced-mark.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="jaco-js: The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/jaco-js-wo-voiced-mark.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="jaco-js: The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks","about":"Kana / romaji","description":"jaco-js: The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jaco-js-wo-voiced-mark.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Kana / romaji</p>
+    <a class="detail-back" href="../#jaco-js-wo-voiced-mark">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="jaco-js-wo-voiced-mark" data-cat="kana-romaji" data-lib="jaco-js" data-search="reversed ヲ/ヺ voiced-mark mapping in addvoicedmarks and combinesoundmarks jaco-js yusukehirao/jaco-js the ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character. add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed. correct the reversed ヲ/ヺ entry in both addvoicedmarks and combinesoundmarks. kana / romaji js">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks</h1>
+  <p class="lib-line"><span class="lib">jaco-js</span> &middot; <a href="https://github.com/YusukeHirao/jaco-js">YusukeHirao/jaco-js</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Correct the reversed ヲ/ヺ entry in both addVoicedMarks and combineSoundMarks.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/YusukeHirao/jaco-js/pull/15">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#jaco-js-wo-voiced-mark">#jaco-js-wo-voiced-mark</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

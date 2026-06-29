@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJK / Unicode Failure Corpus</title>
+<meta name="description" content="27 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CJK / Unicode Failure Corpus">
+<meta property="og:description" content="27 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="27 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"27 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">A field guide to the Japan-shaped holes</p>
+    <h1 class="title">CJK / Unicode<br>Failure Corpus</h1>
+    <p class="lede">Real CJK, IME, and Unicode/text-handling bugs in open-source libraries. Repro, affected libs, and the fix. Each entry links to its fix and to <a class="fixtures-link" href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>, the CI fixtures that keep these regressions from coming back.</p>
+    <p class="counts"><b>27</b> entries &nbsp;/&nbsp; <b>26</b> libraries &nbsp;/&nbsp; <b>5</b> already merged</p>
+    <p class="source-note">Every entry maps to a real pull request authored by greymoth-jp. Titles, repos, URLs, and statuses are taken verbatim from the GitHub API.</p>
+  </div>
+</header>
+<div class="rule"></div>
+
+<div class="controls">
+  <div class="wrap">
+    <input id="q" type="search" placeholder="Search symptom, library, repro, fix..." aria-label="Search the corpus" autocomplete="off">
+    <select id="f-cat" class="filter" aria-label="Filter by category">
+      <option value="">All categories</option>
+      <option value="ime-composition">IME composition</option><option value="kana-romaji">Kana / romaji</option><option value="width-normalization">Width / normalization</option><option value="numeral">Numerals</option><option value="locale-leftover">Locale data</option><option value="regex-roundtrip">Regex roundtrip</option><option value="codegen-escape">Codegen escape</option>
+    </select>
+    <select id="f-lib" class="filter" aria-label="Filter by library">
+      <option value="">All libraries</option>
+      <option value="ant-design">ant-design</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="element-plus">element-plus</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="Kanjize">Kanjize</option><option value="llm-x">llm-x</option><option value="markdoc">markdoc</option><option value="moji">moji</option><option value="naive-ui">naive-ui</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="pykakasi">pykakasi</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="surf">surf</option><option value="timeago.js">timeago.js</option><option value="vuetify">vuetify</option><option value="zag">zag</option>
+    </select>
+    <span class="result-count" id="rc"></span>
+  </div>
+</div>
+
+<main>
+<section class="cat-section" data-cat-section="ime-composition">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-ime-composition">IME composition</h2>
+      <span class="cat-n">12 entries</span>
+    </div>
+    <p class="cat-blurb">When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji candidate). That same Enter often fires the component's own keydown / submit / select handler, so the form sends or an item is selected with half-finished text. The guard is one line: skip the handler while the composition is active (event.isComposing, or keyCode 229; in React read event.nativeEvent.isComposing).</p>
+    <article class="entry" id="naive-ui-dynamic-tags-ime" data-cat="ime-composition" data-lib="naive-ui" data-search="n-dynamic-tags commits a tag on the enter that confirms an ime conversion naive-ui tusen-ai/naive-ui pressing enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion. 1. render &lt;n-dynamic-tags&gt; and focus its input.
+2. switch to a japanese ime, type &quot;とうきょう&quot;, press space to convert to 東京.
+3. press enter to pick the candidate.
+4. a tag is added from the unconfirmed text before the conversion commits. skip tag creation while e.iscomposing is true; only act on the enter that fires after compositionend. ime composition vue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h3 class="entry-title"><a href="e/naive-ui-dynamic-tags-ime.html">n-dynamic-tags commits a tag on the Enter that confirms an IME conversion</a></h3>
+  <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Pressing Enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Render &lt;n-dynamic-tags&gt; and focus its input.
+2. Switch to a Japanese IME, type &quot;とうきょう&quot;, press Space to convert to 東京.
+3. Press Enter to pick the candidate.
+4. A tag is added from the unconfirmed text before the conversion commits.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip tag creation while e.isComposing is true; only act on the Enter that fires after compositionend.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/tusen-ai/naive-ui/pull/8115">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#naive-ui-dynamic-tags-ime">#naive-ui-dynamic-tags-ime</a>
+  </div>
+</article>
+<article class="entry" id="llm-x-chat-enter-ime" data-cat="ime-composition" data-lib="llm-x" data-search="chat box sends the message on the enter that confirms an ime candidate llm-x mrdjohnson/llm-x confirming a japanese ime candidate with enter in the chat box sends the message instead of committing the conversion. 1. open the chat input.
+2. with a cjk ime, type a phrase and press space to get conversion candidates.
+3. press enter to choose a candidate.
+4. the message sends with the unconfirmed text. return early when e.nativeevent.iscomposing is true. react&#39;s synthetic keyboardevent has no iscomposing field, so read it off nativeevent (the dom event), not e.iscomposing. ime composition react">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/llm-x-chat-enter-ime.html">Chat box sends the message on the Enter that confirms an IME candidate</a></h3>
+  <p class="lib-line"><span class="lib">llm-x</span> &middot; <a href="https://github.com/mrdjohnson/llm-x">mrdjohnson/llm-x</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Confirming a Japanese IME candidate with Enter in the chat box sends the message instead of committing the conversion.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open the chat input.
+2. With a CJK IME, type a phrase and press Space to get conversion candidates.
+3. Press Enter to choose a candidate.
+4. The message sends with the unconfirmed text.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Return early when e.nativeEvent.isComposing is true. React's synthetic KeyboardEvent has no isComposing field, so read it off nativeEvent (the DOM event), not e.isComposing.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/mrdjohnson/llm-x/pull/53">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#llm-x-chat-enter-ime">#llm-x-chat-enter-ime</a>
+  </div>
+</article>
+<article class="entry" id="surf-command-palette-ime" data-cat="ime-composition" data-lib="surf" data-search="command palette runs the highlighted command on the ime confirm enter surf deta/surf typing a cjk query in the command palette and pressing enter to confirm the ime runs the highlighted command instead of finishing the conversion. 1. open the command palette.
+2. compose a japanese search term with the ime.
+3. press enter to commit the conversion.
+4. the first/highlighted command fires prematurely. add `if (e.iscomposing) return` at the top of the palette input keydown handler. svelte exposes the native keyboardevent, so e.iscomposing works directly. ime composition svelte">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Svelte</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/surf-command-palette-ime.html">Command palette runs the highlighted command on the IME confirm Enter</a></h3>
+  <p class="lib-line"><span class="lib">surf</span> &middot; <a href="https://github.com/deta/surf">deta/surf</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Typing a CJK query in the command palette and pressing Enter to confirm the IME runs the highlighted command instead of finishing the conversion.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open the command palette.
+2. Compose a Japanese search term with the IME.
+3. Press Enter to commit the conversion.
+4. The first/highlighted command fires prematurely.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add `if (e.isComposing) return` at the top of the palette input keydown handler. Svelte exposes the native KeyboardEvent, so e.isComposing works directly.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/deta/surf/pull/184">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#surf-command-palette-ime">#surf-command-palette-ime</a>
+  </div>
+</article>
+<article class="entry" id="rc-mentions-safari-ime-select" data-cat="ime-composition" data-lib="rc-mentions" data-search="confirming a cjk @-mention with enter replaces it with the highlighted option (safari) rc-mentions react-component/mentions on safari/webkit, composing an @-mention name in cjk and pressing enter to confirm the ime replaces the text with whatever mention is highlighted. 1. in safari, type @ then compose a japanese name with the ime.
+2. press enter to confirm the kanji conversion.
+3. the composing text is replaced by the highlighted mention option. in the enter branch, return early on event.nativeevent.iscomposing before preventdefault. webkit reports the commit keydown as which===enter + iscomposing:true; chromium reports keycode 229 and never enters this branch. ime composition react safari">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span><span class="tag tag--stack">Safari</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/rc-mentions-safari-ime-select.html">Confirming a CJK @-mention with Enter replaces it with the highlighted option (Safari)</a></h3>
+  <p class="lib-line"><span class="lib">rc-mentions</span> &middot; <a href="https://github.com/react-component/mentions">react-component/mentions</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>On Safari/WebKit, composing an @-mention name in CJK and pressing Enter to confirm the IME replaces the text with whatever mention is highlighted.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. In Safari, type @ then compose a Japanese name with the IME.
+2. Press Enter to confirm the kanji conversion.
+3. The composing text is replaced by the highlighted mention option.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>In the ENTER branch, return early on event.nativeEvent.isComposing before preventDefault. WebKit reports the commit keydown as which===Enter + isComposing:true; Chromium reports keyCode 229 and never enters this branch.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/react-component/mentions/pull/325">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#rc-mentions-safari-ime-select">#rc-mentions-safari-ime-select</a>
+  </div>
+</article>
+<article class="entry" id="rc-select-enter-ime-option" data-cat="ime-composition" data-lib="rc-select" data-search="enter that confirms an ime composition also selects the active option rc-select react-component/select the enter used to commit an ime composition also selects the currently highlighted option in a searchable select. 1. open a searchable &lt;select&gt;.
+2. type a cjk query with the ime and press enter to confirm the conversion.
+3. the active option is selected with the unfinished query. track composition state (compositionstart/compositionend) and skip option selection while composing. ime composition react">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/rc-select-enter-ime-option.html">Enter that confirms an IME composition also selects the active option</a></h3>
+  <p class="lib-line"><span class="lib">rc-select</span> &middot; <a href="https://github.com/react-component/select">react-component/select</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open a searchable &lt;Select&gt;.
+2. Type a CJK query with the IME and press Enter to confirm the conversion.
+3. The active option is selected with the unfinished query.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Track composition state (compositionstart/compositionend) and skip option selection while composing.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/react-component/select/pull/1236">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#rc-select-enter-ime-option">#rc-select-enter-ime-option</a>
+  </div>
+</article>
+<article class="entry" id="element-plus-time-picker-ime" data-cat="ime-composition" data-lib="element-plus" data-search="time-picker handles keys during ime composition element-plus element-plus/element-plus the time-picker&#39;s key handler fires while an ime composition is active, so keystrokes meant for the ime mutate the time value. 1. focus the time-picker input.
+2. begin an ime composition.
+3. composition keystrokes are intercepted by the picker&#39;s key handler instead of the ime. skip the picker&#39;s keydown handling while the composition is active (iscomposing guard). ime composition vue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/element-plus-time-picker-ime.html">time-picker handles keys during IME composition</a></h3>
+  <p class="lib-line"><span class="lib">element-plus</span> &middot; <a href="https://github.com/element-plus/element-plus">element-plus/element-plus</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The time-picker's key handler fires while an IME composition is active, so keystrokes meant for the IME mutate the time value.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Focus the time-picker input.
+2. Begin an IME composition.
+3. Composition keystrokes are intercepted by the picker's key handler instead of the IME.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip the picker's keydown handling while the composition is active (isComposing guard).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/element-plus/element-plus/pull/24496">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#element-plus-time-picker-ime">#element-plus-time-picker-ime</a>
+  </div>
+</article>
+<article class="entry" id="vuetify-autocomplete-ime" data-cat="ime-composition" data-lib="vuetify" data-search="vautocomplete keydown listener fires during ime composition vuetify vuetifyjs/vuetify vautocomplete&#39;s keydown listener triggers during ime composition, so confirming a cjk query navigates or selects options. 1. open a vautocomplete.
+2. compose a japanese query, press enter/arrow to confirm.
+3. the keydown listener acts on the composing keys. bail out of the keydown listener when e.iscomposing is true. ime composition vue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/vuetify-autocomplete-ime.html">VAutocomplete keydown listener fires during IME composition</a></h3>
+  <p class="lib-line"><span class="lib">vuetify</span> &middot; <a href="https://github.com/vuetifyjs/vuetify">vuetifyjs/vuetify</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>VAutocomplete's keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open a VAutocomplete.
+2. Compose a Japanese query, press Enter/arrow to confirm.
+3. The keydown listener acts on the composing keys.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Bail out of the keydown listener when e.isComposing is true.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/vuetifyjs/vuetify/pull/22974">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#vuetify-autocomplete-ime">#vuetify-autocomplete-ime</a>
+  </div>
+</article>
+<article class="entry" id="nuxt-ui-shortcuts-ime" data-cat="ime-composition" data-lib="nuxt/ui" data-search="defineshortcuts fires global shortcuts while typing with an ime nuxt/ui nuxt/ui single-key shortcuts registered with defineshortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition. 1. register a single-key shortcut (e.g. &#39;g&#39;).
+2. in an input, compose japanese text whose romaji includes that key.
+3. the shortcut fires during composition. ignore key events when e.iscomposing (or keycode 229) before dispatching shortcuts. ime composition vue nuxt">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span><span class="tag tag--stack">Nuxt</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/nuxt-ui-shortcuts-ime.html">defineShortcuts fires global shortcuts while typing with an IME</a></h3>
+  <p class="lib-line"><span class="lib">nuxt/ui</span> &middot; <a href="https://github.com/nuxt/ui">nuxt/ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Register a single-key shortcut (e.g. 'g').
+2. In an input, compose Japanese text whose romaji includes that key.
+3. The shortcut fires during composition.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Ignore key events when e.isComposing (or keyCode 229) before dispatching shortcuts.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/nuxt/ui/pull/6659">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#nuxt-ui-shortcuts-ime">#nuxt-ui-shortcuts-ime</a>
+  </div>
+</article>
+<article class="entry" id="zag-color-picker-channel-ime" data-cat="ime-composition" data-lib="zag" data-search="color-picker channel input handles enter during ime composition zag chakra-ui/zag a color-picker channel input runs its enter handler while an ime composition is active, committing before the composition ends. 1. focus a color channel input.
+2. trigger an ime composition and press enter.
+3. the channel commit fires before compositionend. guard the channel input&#39;s enter handler with iscomposing. ime composition headless">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">headless</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/zag-color-picker-channel-ime.html">color-picker channel input handles Enter during IME composition</a></h3>
+  <p class="lib-line"><span class="lib">zag</span> &middot; <a href="https://github.com/chakra-ui/zag">chakra-ui/zag</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Focus a color channel input.
+2. Trigger an IME composition and press Enter.
+3. The channel commit fires before compositionend.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Guard the channel input's Enter handler with isComposing.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/chakra-ui/zag/pull/3198">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#zag-color-picker-channel-ime">#zag-color-picker-channel-ime</a>
+  </div>
+</article>
+<article class="entry" id="cherry-studio-rename-ime" data-cat="ime-composition" data-lib="cherry-studio" data-search="inline file rename submits while the ime is composing cherry-studio cherryhq/cherry-studio renaming a file inline and pressing enter to confirm a cjk name submits the rename mid-composition. 1. start an inline file rename.
+2. compose a japanese filename with the ime.
+3. press enter to confirm the conversion; the rename submits with the unfinished name. skip the rename submit while the ime is composing (iscomposing guard). ime composition react electron">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span><span class="tag tag--stack">Electron</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/cherry-studio-rename-ime.html">Inline file rename submits while the IME is composing</a></h3>
+  <p class="lib-line"><span class="lib">cherry-studio</span> &middot; <a href="https://github.com/CherryHQ/cherry-studio">CherryHQ/cherry-studio</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Start an inline file rename.
+2. Compose a Japanese filename with the IME.
+3. Press Enter to confirm the conversion; the rename submits with the unfinished name.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip the rename submit while the IME is composing (isComposing guard).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/CherryHQ/cherry-studio/pull/16582">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#cherry-studio-rename-ime">#cherry-studio-rename-ime</a>
+  </div>
+</article>
+<article class="entry" id="copilotkit-angular-chat-ime" data-cat="ime-composition" data-lib="CopilotKit" data-search="angular chat input submits on the ime confirm enter copilotkit copilotkit/copilotkit the angular chat input submits the message on the enter that confirms an ime composition. 1. type a cjk message in the angular chat input.
+2. press enter to confirm the ime conversion; the message sends early. check event.iscomposing (angular passes the native keyboardevent) before submitting. ime composition angular">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Angular</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/copilotkit-angular-chat-ime.html">Angular chat input submits on the IME confirm Enter</a></h3>
+  <p class="lib-line"><span class="lib">CopilotKit</span> &middot; <a href="https://github.com/CopilotKit/CopilotKit">CopilotKit/CopilotKit</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Angular chat input submits the message on the Enter that confirms an IME composition.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Type a CJK message in the Angular chat input.
+2. Press Enter to confirm the IME conversion; the message sends early.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Check event.isComposing (Angular passes the native KeyboardEvent) before submitting.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/CopilotKit/CopilotKit/pull/5764">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#copilotkit-angular-chat-ime">#copilotkit-angular-chat-ime</a>
+  </div>
+</article>
+<article class="entry" id="chatui-composer-ime" data-cat="ime-composition" data-lib="ChatUI" data-search="composer sends on the enter that confirms an ime composition chatui alibaba/chatui the composer sends the message on the enter used to confirm an ime composition. 1. compose cjk text in the composer.
+2. press enter to pick a candidate; the message sends instead of committing. skip send when e.nativeevent.iscomposing is true. ime composition react">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/chatui-composer-ime.html">Composer sends on the Enter that confirms an IME composition</a></h3>
+  <p class="lib-line"><span class="lib">ChatUI</span> &middot; <a href="https://github.com/alibaba/ChatUI">alibaba/ChatUI</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Composer sends the message on the Enter used to confirm an IME composition.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Compose CJK text in the Composer.
+2. Press Enter to pick a candidate; the message sends instead of committing.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip send when e.nativeEvent.isComposing is true.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/alibaba/ChatUI/pull/212">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#chatui-composer-ime">#chatui-composer-ime</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="kana-romaji">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-kana-romaji">Kana / romaji</h2>
+      <span class="cat-n">5 entries</span>
+    </div>
+    <p class="cat-blurb">Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back should be stable, and a sibling (hiragana vs katakana) usually already does it right.</p>
+    <article class="entry" id="hepburn-katakana-n-apostrophe" data-cat="kana-romaji" data-lib="hepburn" data-search="katakana ン loses the syllabic-n apostrophe before vowels and y hepburn lovell/hepburn katakana ン before a vowel or y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes shinyou (should be shin&#39;you), so it collides with シニョウ. const { fromkana } = require(&#39;hepburn&#39;)
+fromkana(&#39;しんよう&#39;) // shin&#39;you
+fromkana(&#39;シンヨウ&#39;) // shinyou  &lt;- apostrophe dropped map katakana ン to n&#39; (matching hiragana) and add the ンー long-vowel digraph as n&#39;, so n is never a katakana map key and tokatakana still round-trips (pan to パン). kana / romaji js">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe before vowels and Y</a></h3>
+  <p class="lib-line"><span class="lib">hepburn</span> &middot; <a href="https://github.com/lovell/hepburn">lovell/hepburn</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN'YOU), so it collides with シニョウ.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">const { fromKana } = require('hepburn')
+fromKana('しんよう') // SHIN'YOU
+fromKana('シンヨウ') // SHINYOU  &lt;- apostrophe dropped</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Map katakana ン to N' (matching hiragana) and add the ンー long-vowel digraph as N', so N is never a katakana map key and toKatakana still round-trips (PAN to パン).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/lovell/hepburn/pull/28">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#hepburn-katakana-n-apostrophe">#hepburn-katakana-n-apostrophe</a>
+  </div>
+</article>
+<article class="entry" id="pykakasi-ddi-sokuon" data-cat="kana-romaji" data-lib="pykakasi" data-search="missing っでぃ (ddi) sokuon entry for hepburn and kunrei pykakasi miurahr/pykakasi the geminated d + small i sequence っでぃ (ddi) has no hepburn or kunrei entry, so loanword spellings that use it romanize incorrectly. convert a word containing っでぃ; the doubled d before the small i is not produced. add the missing っでぃ (ddi) sokuon entry to both the hepburn and kunrei tables. kana / romaji python">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">Python</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/pykakasi-ddi-sokuon.html">Missing っでぃ (ddi) sokuon entry for Hepburn and Kunrei</a></h3>
+  <p class="lib-line"><span class="lib">pykakasi</span> &middot; <a href="https://github.com/miurahr/pykakasi">miurahr/pykakasi</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The geminated d + small i sequence っでぃ (ddi) has no Hepburn or Kunrei entry, so loanword spellings that use it romanize incorrectly.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Convert a word containing っでぃ; the doubled d before the small i is not produced.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the missing っでぃ (ddi) sokuon entry to both the Hepburn and Kunrei tables.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/miurahr/pykakasi/pull/160">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#pykakasi-ddi-sokuon">#pykakasi-ddi-sokuon</a>
+  </div>
+</article>
+<article class="entry" id="romaji-conv-wi-we-kana" data-cat="kana-romaji" data-lib="romaji-conv" data-search="historical kana ゐ/ゑ missing from the hiragana/katakana mapping romaji-conv koozaki/romaji-conv the historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted. convert text containing ゐ or ゑ (or katakana ヰ/ヱ); the characters pass through unmapped. add ゐ/ゑ and their katakana counterparts to the kana mapping. kana / romaji js">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ missing from the hiragana/katakana mapping</a></h3>
+  <p class="lib-line"><span class="lib">romaji-conv</span> &middot; <a href="https://github.com/koozaki/romaji-conv">koozaki/romaji-conv</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Convert text containing ゐ or ゑ (or katakana ヰ/ヱ); the characters pass through unmapped.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add ゐ/ゑ and their katakana counterparts to the kana mapping.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/koozaki/romaji-conv/pull/23">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#romaji-conv-wi-we-kana">#romaji-conv-wi-we-kana</a>
+  </div>
+</article>
+<article class="entry" id="jaconv-small-ka-ke" data-cat="kana-romaji" data-lib="jaconv" data-search="kana2alphabet does not romanize small katakana ヵ/ヶ jaconv ikegami-yukino/jaconv kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized. import jaconv
+jaconv.kana2alphabet(&#39;ヶ&#39;)  # small ke not handled add the small ka/ke mappings to kana2alphabet. kana / romaji python">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">Python</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/jaconv-small-ka-ke.html">kana2alphabet does not romanize small katakana ヵ/ヶ</a></h3>
+  <p class="lib-line"><span class="lib">jaconv</span> &middot; <a href="https://github.com/ikegami-yukino/jaconv">ikegami-yukino/jaconv</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">import jaconv
+jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the small ka/ke mappings to kana2alphabet.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/ikegami-yukino/jaconv/pull/51">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#jaconv-small-ka-ke">#jaconv-small-ka-ke</a>
+  </div>
+</article>
+<article class="entry" id="jaco-js-wo-voiced-mark" data-cat="kana-romaji" data-lib="jaco-js" data-search="reversed ヲ/ヺ voiced-mark mapping in addvoicedmarks and combinesoundmarks jaco-js yusukehirao/jaco-js the ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character. add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed. correct the reversed ヲ/ヺ entry in both addvoicedmarks and combinesoundmarks. kana / romaji js">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks</a></h3>
+  <p class="lib-line"><span class="lib">jaco-js</span> &middot; <a href="https://github.com/YusukeHirao/jaco-js">YusukeHirao/jaco-js</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Correct the reversed ヲ/ヺ entry in both addVoicedMarks and combineSoundMarks.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/YusukeHirao/jaco-js/pull/15">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#jaco-js-wo-voiced-mark">#jaco-js-wo-voiced-mark</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="width-normalization">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-width-normalization">Width / normalization</h2>
+      <span class="cat-n">2 entries</span>
+    </div>
+    <p class="cat-blurb">Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables and missing digraphs silently corrupt text.</p>
+    <article class="entry" id="normal-jp-choonpu-hi-bi" data-cat="width-normalization" data-lib="normal-jp" data-search="ー (long-vowel mark) expands incorrectly after katakana ヒ and ビ normal-jp birchill/normal-jp during normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ. normalize ヒー / ビー; the long-vowel expansion produces the wrong vowel for these two kana. fix the ー-expansion table entries for ヒ and ビ. width / normalization js">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/normal-jp-choonpu-hi-bi.html">ー (long-vowel mark) expands incorrectly after katakana ヒ and ビ</a></h3>
+  <p class="lib-line"><span class="lib">normal-jp</span> &middot; <a href="https://github.com/birchill/normal-jp">birchill/normal-jp</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>During normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Normalize ヒー / ビー; the long-vowel expansion produces the wrong vowel for these two kana.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Fix the ー-expansion table entries for ヒ and ビ.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/birchill/normal-jp/pull/94">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#normal-jp-choonpu-hi-bi">#normal-jp-choonpu-hi-bi</a>
+  </div>
+</article>
+<article class="entry" id="moji-range-boundaries" data-cat="width-normalization" data-lib="moji" data-search="width/kana conversion drops the first and last character of each range moji niwaringo/moji full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (u+ff01) are not converted. moji(&#39;！～&#39;).convert(&#39;ze&#39;, &#39;he&#39;).tostring()  // boundary chars at range edges are skipped convert the first and last character of each range, not just the interior. width / normalization js">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/moji-range-boundaries.html">Width/kana conversion drops the first and last character of each range</a></h3>
+  <p class="lib-line"><span class="lib">moji</span> &middot; <a href="https://github.com/niwaringo/moji">niwaringo/moji</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">moji('！～').convert('ZE', 'HE').toString()  // boundary chars at range edges are skipped</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Convert the first and last character of each range, not just the interior.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/niwaringo/moji/pull/22">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#moji-range-boundaries">#moji-range-boundaries</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="numeral">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-numeral">Numerals</h2>
+      <span class="cat-n">1 entry</span>
+    </div>
+    <p class="cat-blurb">Kanji numerals, including the daiji (traditional) forms used in legal and financial documents.</p>
+    <article class="entry" id="kanjize-daiji-man" data-cat="numeral" data-lib="Kanjize" data-search="kanji2number cannot parse 萬 (daiji form of 万) kanjize nagataaaas/kanjize kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert. from kanjize import kanji2number
+kanji2number(&#39;萬&#39;)  # not recognized as 10000 map 萬 to 万 (10,000) in kanji2number. numerals python">
+  <div class="entry-top">
+    <span class="tag">Numerals</span>
+    <span class="tag tag--stack">Python</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/kanjize-daiji-man.html">kanji2number cannot parse 萬 (daiji form of 万)</a></h3>
+  <p class="lib-line"><span class="lib">Kanjize</span> &middot; <a href="https://github.com/nagataaaas/Kanjize">nagataaaas/Kanjize</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">from kanjize import kanji2number
+kanji2number('萬')  # not recognized as 10000</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Map 萬 to 万 (10,000) in kanji2number.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/nagataaaas/Kanjize/pull/10">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#kanjize-daiji-man">#kanjize-daiji-man</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="locale-leftover">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-locale-leftover">Locale data</h2>
+      <span class="cat-n">4 entries</span>
+    </div>
+    <p class="cat-blurb">Missing or wrong ja-JP strings: untranslated placeholders, mistranslations that flip meaning, labels left in English.</p>
+    <article class="entry" id="ant-design-typography-ja-labels" data-cat="locale-leftover" data-lib="ant-design" data-search="wrong ja-jp typography expand/collapse labels ant-design ant-design/ant-design the ja-jp labels for typography&#39;s expand/collapse control were incorrect, so japanese users saw the wrong 展開/折りたたみ text. 1. set configprovider locale to ja_jp.
+2. render &lt;typography.paragraph ellipsis={{ expandable: true }}&gt;.
+3. the expand/collapse label is wrong. correct the ja-jp expand/collapse label strings. locale data react">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">React</span>
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h3 class="entry-title"><a href="e/ant-design-typography-ja-labels.html">Wrong ja-JP Typography expand/collapse labels</a></h3>
+  <p class="lib-line"><span class="lib">ant-design</span> &middot; <a href="https://github.com/ant-design/ant-design">ant-design/ant-design</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The ja-JP labels for Typography's expand/collapse control were incorrect, so Japanese users saw the wrong 展開/折りたたみ text.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Set ConfigProvider locale to ja_JP.
+2. Render &lt;Typography.Paragraph ellipsis={{ expandable: true }}&gt;.
+3. The expand/collapse label is wrong.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Correct the ja-JP expand/collapse label strings.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/ant-design/ant-design/pull/58563">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#ant-design-typography-ja-labels">#ant-design-typography-ja-labels</a>
+  </div>
+</article>
+<article class="entry" id="naive-ui-week-placeholder-ja" data-cat="locale-leftover" data-lib="naive-ui" data-search="weekplaceholder left untranslated in the japanese locale naive-ui tusen-ai/naive-ui weekplaceholder was missing from the japanese locale, so the week date-picker showed an english placeholder. use the date picker in week mode with the ja locale; the placeholder renders in english. add the japanese weekplaceholder translation. locale data vue">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">Vue</span>
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h3 class="entry-title"><a href="e/naive-ui-week-placeholder-ja.html">weekPlaceholder left untranslated in the Japanese locale</a></h3>
+  <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>weekPlaceholder was missing from the Japanese locale, so the week date-picker showed an English placeholder.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Use the date picker in week mode with the ja locale; the placeholder renders in English.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the Japanese weekPlaceholder translation.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/tusen-ai/naive-ui/pull/8114">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#naive-ui-week-placeholder-ja">#naive-ui-week-placeholder-ja</a>
+  </div>
+</article>
+<article class="entry" id="timeago-ja-future-go" data-cat="locale-leftover" data-lib="timeago.js" data-search="japanese future times used 以内 (within) instead of 後 (later) timeago.js hustcc/timeago.js future timestamps in the ja locale used 以内 (within) instead of 後 (later), so &#39;3 minutes from now&#39; rendered as 3分以内 (within 3 minutes), which means the opposite. timeago a future timestamp with the ja locale; it renders &#39;3分以内&#39; instead of &#39;3分後&#39;. use 後 for future time strings in the ja locale. locale data js">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h3 class="entry-title"><a href="e/timeago-ja-future-go.html">Japanese future times used 以内 (within) instead of 後 (later)</a></h3>
+  <p class="lib-line"><span class="lib">timeago.js</span> &middot; <a href="https://github.com/hustcc/timeago.js">hustcc/timeago.js</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Future timestamps in the ja locale used 以内 (within) instead of 後 (later), so '3 minutes from now' rendered as 3分以内 (within 3 minutes), which means the opposite.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">timeago a future timestamp with the ja locale; it renders '3分以内' instead of '3分後'.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Use 後 for future time strings in the ja locale.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/hustcc/timeago.js/pull/285">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#timeago-ja-future-go">#timeago-ja-future-go</a>
+  </div>
+</article>
+<article class="entry" id="cronstrue-ja-day-of-month-step" data-cat="locale-leftover" data-lib="cronstrue" data-search="japanese day-of-month step description not scoped to a month cronstrue bradymholt/cronstrue the japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description. cronstrue.tostring(&#39;0 0 1-31/3 * *&#39;, { locale: &#39;ja&#39; }); the description is not scoped to the month. scope the ja day-of-month step description to a month. locale data js">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h3 class="entry-title"><a href="e/cronstrue-ja-day-of-month-step.html">Japanese day-of-month step description not scoped to a month</a></h3>
+  <p class="lib-line"><span class="lib">cronstrue</span> &middot; <a href="https://github.com/bradymholt/cRonstrue">bradymholt/cRonstrue</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">cronstrue.toString('0 0 1-31/3 * *', { locale: 'ja' }); the description is not scoped to the month.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Scope the ja day-of-month step description to a month.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/bradymholt/cRonstrue/pull/397">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#cronstrue-ja-day-of-month-step">#cronstrue-ja-day-of-month-step</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="regex-roundtrip">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-regex-roundtrip">Regex roundtrip</h2>
+      <span class="cat-n">1 entry</span>
+    </div>
+    <p class="cat-blurb">Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be emitted unescaped and change what the pattern matches.</p>
+    <article class="entry" id="regexp-tree-leading-caret" data-cat="regex-roundtrip" data-lib="regexp-tree" data-search="generator emits a leading ^ unescaped, inverting [a^] into [^a] regexp-tree dmitrysoshnikov/regexp-tree optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class). const rt = require(&#39;regexp-tree&#39;)
+rt.optimize(&#39;/[a^]/&#39;).tostring() // &#39;/[^a]/&#39;  &lt;- now matches the negation in the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning. regex roundtrip js">
+  <div class="entry-top">
+    <span class="tag">Regex roundtrip</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/regexp-tree-leading-caret.html">Generator emits a leading ^ unescaped, inverting [a^] into [^a]</a></h3>
+  <p class="lib-line"><span class="lib">regexp-tree</span> &middot; <a href="https://github.com/DmitrySoshnikov/regexp-tree">DmitrySoshnikov/regexp-tree</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class).</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">const rt = require('regexp-tree')
+rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>In the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/DmitrySoshnikov/regexp-tree/pull/280">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#regexp-tree-leading-caret">#regexp-tree-leading-caret</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="codegen-escape">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-codegen-escape">Codegen escape</h2>
+      <span class="cat-n">2 entries</span>
+    </div>
+    <p class="cat-blurb">Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII identifiers) leak into the output and break it.</p>
+    <article class="entry" id="json-schema-to-typescript-enum-escape" data-cat="codegen-escape" data-lib="json-schema-to-typescript" data-search="enum member names with special characters produce invalid typescript json-schema-to-typescript bcherny/json-schema-to-typescript enum member names containing special characters (including non-ascii / cjk) are emitted unescaped, so the generated enum does not compile. generate types from a schema whose enum values contain quotes or special characters; the emitted enum has invalid member identifiers and tsc errors. escape enum member names so special characters produce valid output. codegen escape ts">
+  <div class="entry-top">
+    <span class="tag">Codegen escape</span>
+    <span class="tag tag--stack">TS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/json-schema-to-typescript-enum-escape.html">Enum member names with special characters produce invalid TypeScript</a></h3>
+  <p class="lib-line"><span class="lib">json-schema-to-typescript</span> &middot; <a href="https://github.com/bcherny/json-schema-to-typescript">bcherny/json-schema-to-typescript</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Enum member names containing special characters (including non-ASCII / CJK) are emitted unescaped, so the generated enum does not compile.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Generate types from a schema whose enum values contain quotes or special characters; the emitted enum has invalid member identifiers and tsc errors.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Escape enum member names so special characters produce valid output.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/bcherny/json-schema-to-typescript/pull/685">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#json-schema-to-typescript-enum-escape">#json-schema-to-typescript-enum-escape</a>
+  </div>
+</article>
+<article class="entry" id="markdoc-mid-line-hash-escape" data-cat="codegen-escape" data-lib="markdoc" data-search="formatter over-escapes a mid-line # (c# becomes c\#) markdoc markdoc/markdoc the formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: &#39;c# is a language&#39; becomes &#39;c\# is a language&#39;. format(parse(&#39;c# is a language&#39;)) // &#39;c\# is a language&#39; - the &#39;#&#39; is escaped mid-sentence anchor the heading alternative: change #+\s to ^#+\s, mirroring the already-anchored ^* and ^&gt; cases. codegen escape js">
+  <div class="entry-top">
+    <span class="tag">Codegen escape</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/markdoc-mid-line-hash-escape.html">Formatter over-escapes a mid-line # (C# becomes C\#)</a></h3>
+  <p class="lib-line"><span class="lib">markdoc</span> &middot; <a href="https://github.com/markdoc/markdoc">markdoc/markdoc</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: 'C# is a language' becomes 'C\# is a language'.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">format(parse('C# is a language')) // 'C\# is a language' - the '#' is escaped mid-sentence</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Anchor the heading alternative: change #+\s to ^#+\s, mirroring the already-anchored ^* and ^&gt; cases.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/markdoc/markdoc/pull/627">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#markdoc-mid-line-hash-escape">#markdoc-mid-line-hash-escape</a>
+  </div>
+</article>
+  </div>
+</section>
+  <div class="wrap"><p class="empty" id="empty">No entries match. Try a shorter query.</p></div>
+</main>
+
+<div class="rule"></div>
+<footer>
+  <div class="wrap">
+    <p class="mark">greymoth</p>
+    <p>A running corpus of CJK, IME, and Unicode/text-handling failures found while reading global open-source code with a Japanese lens. Every entry is a real pull request. Data: <a href="data/corpus.json">corpus.json</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var fc = document.getElementById('f-cat');
+  var fl = document.getElementById('f-lib');
+  var rc = document.getElementById('rc');
+  var empty = document.getElementById('empty');
+  var entries = Array.prototype.slice.call(document.querySelectorAll('.entry'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('[data-cat-section]'));
+  var total = entries.length;
+
+  function apply(){
+    var term = q.value.trim().toLowerCase();
+    var cat = fc.value;
+    var lib = fl.value;
+    var shown = 0;
+    entries.forEach(function(el){
+      var ok = true;
+      if (cat && el.getAttribute('data-cat') !== cat) ok = false;
+      if (ok && lib && el.getAttribute('data-lib') !== lib) ok = false;
+      if (ok && term && el.getAttribute('data-search').indexOf(term) === -1) ok = false;
+      el.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    sections.forEach(function(sec){
+      var any = sec.querySelectorAll('.entry').length &&
+        Array.prototype.some.call(sec.querySelectorAll('.entry'), function(e){ return e.style.display !== 'none'; });
+      sec.style.display = any ? '' : 'none';
+    });
+    empty.style.display = shown === 0 ? 'block' : 'none';
+    rc.textContent = shown === total ? (total + ' entries') : (shown + ' / ' + total);
+  }
+  q.addEventListener('input', apply);
+  fc.addEventListener('change', apply);
+  fl.addEventListener('change', apply);
+  apply();
+})();
+</script>
+</body>
+</html>

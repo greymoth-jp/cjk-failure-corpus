@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Width/kana conversion drops the first and last character of each range - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="moji: Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Width/kana conversion drops the first and last character of each range - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="moji: Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Width/kana conversion drops the first and last character of each range - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="moji: Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Width/kana conversion drops the first and last character of each range","about":"Width / normalization","description":"moji: Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Width / normalization</p>
+    <a class="detail-back" href="../#moji-range-boundaries">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="moji-range-boundaries" data-cat="width-normalization" data-lib="moji" data-search="width/kana conversion drops the first and last character of each range moji niwaringo/moji full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (u+ff01) are not converted. moji(&#39;！～&#39;).convert(&#39;ze&#39;, &#39;he&#39;).tostring()  // boundary chars at range edges are skipped convert the first and last character of each range, not just the interior. width / normalization js">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Width/kana conversion drops the first and last character of each range</h1>
+  <p class="lib-line"><span class="lib">moji</span> &middot; <a href="https://github.com/niwaringo/moji">niwaringo/moji</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">moji('！～').convert('ZE', 'HE').toString()  // boundary chars at range edges are skipped</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Convert the first and last character of each range, not just the interior.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/niwaringo/moji/pull/22">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#moji-range-boundaries">#moji-range-boundaries</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

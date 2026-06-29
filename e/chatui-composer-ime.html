@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composer sends on the Enter that confirms an IME composition - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="ChatUI: The Composer sends the message on the Enter used to confirm an IME composition.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/chatui-composer-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Composer sends on the Enter that confirms an IME composition - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="ChatUI: The Composer sends the message on the Enter used to confirm an IME composition.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/chatui-composer-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Composer sends on the Enter that confirms an IME composition - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="ChatUI: The Composer sends the message on the Enter used to confirm an IME composition.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Composer sends on the Enter that confirms an IME composition","about":"IME composition","description":"ChatUI: The Composer sends the message on the Enter used to confirm an IME composition.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/chatui-composer-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#chatui-composer-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="chatui-composer-ime" data-cat="ime-composition" data-lib="ChatUI" data-search="composer sends on the enter that confirms an ime composition chatui alibaba/chatui the composer sends the message on the enter used to confirm an ime composition. 1. compose cjk text in the composer.
+2. press enter to pick a candidate; the message sends instead of committing. skip send when e.nativeevent.iscomposing is true. ime composition react">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Composer sends on the Enter that confirms an IME composition</h1>
+  <p class="lib-line"><span class="lib">ChatUI</span> &middot; <a href="https://github.com/alibaba/ChatUI">alibaba/ChatUI</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Composer sends the message on the Enter used to confirm an IME composition.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Compose CJK text in the Composer.
+2. Press Enter to pick a candidate; the message sends instead of committing.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip send when e.nativeEvent.isComposing is true.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/alibaba/ChatUI/pull/212">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#chatui-composer-ime">#chatui-composer-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

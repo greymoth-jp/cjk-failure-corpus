@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VAutocomplete keydown listener fires during IME composition - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="vuetify: VAutocomplete&#39;s keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/vuetify-autocomplete-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VAutocomplete keydown listener fires during IME composition - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="vuetify: VAutocomplete&#39;s keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/vuetify-autocomplete-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VAutocomplete keydown listener fires during IME composition - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="vuetify: VAutocomplete&#39;s keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"VAutocomplete keydown listener fires during IME composition","about":"IME composition","description":"vuetify: VAutocomplete's keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/vuetify-autocomplete-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#vuetify-autocomplete-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="vuetify-autocomplete-ime" data-cat="ime-composition" data-lib="vuetify" data-search="vautocomplete keydown listener fires during ime composition vuetify vuetifyjs/vuetify vautocomplete&#39;s keydown listener triggers during ime composition, so confirming a cjk query navigates or selects options. 1. open a vautocomplete.
+2. compose a japanese query, press enter/arrow to confirm.
+3. the keydown listener acts on the composing keys. bail out of the keydown listener when e.iscomposing is true. ime composition vue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">VAutocomplete keydown listener fires during IME composition</h1>
+  <p class="lib-line"><span class="lib">vuetify</span> &middot; <a href="https://github.com/vuetifyjs/vuetify">vuetifyjs/vuetify</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>VAutocomplete's keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open a VAutocomplete.
+2. Compose a Japanese query, press Enter/arrow to confirm.
+3. The keydown listener acts on the composing keys.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Bail out of the keydown listener when e.isComposing is true.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/vuetifyjs/vuetify/pull/22974">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#vuetify-autocomplete-ime">#vuetify-autocomplete-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

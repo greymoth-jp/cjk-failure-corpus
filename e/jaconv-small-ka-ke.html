@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kana2alphabet does not romanize small katakana ヵ/ヶ - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="jaconv: kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/jaconv-small-ka-ke.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kana2alphabet does not romanize small katakana ヵ/ヶ - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="jaconv: kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/jaconv-small-ka-ke.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kana2alphabet does not romanize small katakana ヵ/ヶ - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="jaconv: kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"kana2alphabet does not romanize small katakana ヵ/ヶ","about":"Kana / romaji","description":"jaconv: kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jaconv-small-ka-ke.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Kana / romaji</p>
+    <a class="detail-back" href="../#jaconv-small-ka-ke">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="jaconv-small-ka-ke" data-cat="kana-romaji" data-lib="jaconv" data-search="kana2alphabet does not romanize small katakana ヵ/ヶ jaconv ikegami-yukino/jaconv kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized. import jaconv
+jaconv.kana2alphabet(&#39;ヶ&#39;)  # small ke not handled add the small ka/ke mappings to kana2alphabet. kana / romaji python">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">Python</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">kana2alphabet does not romanize small katakana ヵ/ヶ</h1>
+  <p class="lib-line"><span class="lib">jaconv</span> &middot; <a href="https://github.com/ikegami-yukino/jaconv">ikegami-yukino/jaconv</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">import jaconv
+jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the small ka/ke mappings to kana2alphabet.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/ikegami-yukino/jaconv/pull/51">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#jaconv-small-ka-ke">#jaconv-small-ka-ke</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

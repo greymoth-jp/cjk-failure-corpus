@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>color-picker channel input handles Enter during IME composition - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="zag: A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/zag-color-picker-channel-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="color-picker channel input handles Enter during IME composition - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="zag: A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/zag-color-picker-channel-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="color-picker channel input handles Enter during IME composition - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="zag: A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"color-picker channel input handles Enter during IME composition","about":"IME composition","description":"zag: A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zag-color-picker-channel-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#zag-color-picker-channel-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="zag-color-picker-channel-ime" data-cat="ime-composition" data-lib="zag" data-search="color-picker channel input handles enter during ime composition zag chakra-ui/zag a color-picker channel input runs its enter handler while an ime composition is active, committing before the composition ends. 1. focus a color channel input.
+2. trigger an ime composition and press enter.
+3. the channel commit fires before compositionend. guard the channel input&#39;s enter handler with iscomposing. ime composition headless">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">headless</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">color-picker channel input handles Enter during IME composition</h1>
+  <p class="lib-line"><span class="lib">zag</span> &middot; <a href="https://github.com/chakra-ui/zag">chakra-ui/zag</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Focus a color channel input.
+2. Trigger an IME composition and press Enter.
+3. The channel commit fires before compositionend.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Guard the channel input's Enter handler with isComposing.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/chakra-ui/zag/pull/3198">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#zag-color-picker-channel-ime">#zag-color-picker-channel-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 27 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://greymoth-jp.github.io/cjk-failure-corpus/sitemap.xml
