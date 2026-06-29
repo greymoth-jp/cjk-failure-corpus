@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Matches a character followed by a text variation selector (U+FE0E)","about":"Surrogate & grapheme","description":"emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
+    <a class="detail-back" href="../#emoji-regex-text-vs15">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="emoji-regex-text-vs15" data-cat="surrogate-emoji" data-lib="emoji-regex" data-search="matches a character followed by a text variation selector (u+fe0e) emoji-regex mathiasbynens/emoji-regex emoji-regex matches a base character even when it is followed by u+fe0e (the text variation selector), so text-presentation characters are wrongly classified as emoji. emojiregex().test(&#39;\u2757\ufe0e&#39;) returns true even though u+fe0e requests text presentation. exclude a match followed by vs-15 (u+fe0e); treat only a trailing vs-16 (u+fe0f) or no selector as emoji. surrogate &amp; grapheme js cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Matches a character followed by a text variation selector (U+FE0E)</h1>
+  <p class="lib-line"><span class="lib">emoji-regex</span> &middot; <a href="https://github.com/mathiasbynens/emoji-regex">mathiasbynens/emoji-regex</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">emojiRegex().test('\u2757\uFE0E') returns true even though U+FE0E requests text presentation.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Exclude a match followed by VS-15 (U+FE0E); treat only a trailing VS-16 (U+FE0F) or no selector as emoji.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/mathiasbynens/emoji-regex/issues/61">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#emoji-regex-text-vs15">#emoji-regex-text-vs15</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

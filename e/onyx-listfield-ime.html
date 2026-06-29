@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fix(web): ignore IME composition Enter in ListFieldInput - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="onyx: ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/onyx-listfield-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fix(web): ignore IME composition Enter in ListFieldInput - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="onyx: ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/onyx-listfield-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fix(web): ignore IME composition Enter in ListFieldInput - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="onyx: ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix(web): ignore IME composition Enter in ListFieldInput","about":"IME composition","description":"onyx: ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/onyx-listfield-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#onyx-listfield-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="onyx-listfield-ime" data-cat="ime-composition" data-lib="onyx" data-search="fix(web): ignore ime composition enter in listfieldinput onyx onyx-dot-app/onyx listfieldinput in onyx web accepts a list entry on the ime confirmation enter, adding an empty or partial item. listfieldinput with cjk ime → enter to confirm → list item added prematurely. skip enter action when event.nativeevent.iscomposing is true. ime composition react pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h1 class="entry-title">fix(web): ignore IME composition Enter in ListFieldInput</h1>
+  <p class="lib-line"><span class="lib">onyx</span> &middot; <a href="https://github.com/onyx-dot-app/onyx">onyx-dot-app/onyx</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">ListFieldInput with CJK IME → Enter to confirm → list item added prematurely.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Skip Enter action when event.nativeEvent.isComposing is true.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/onyx-dot-app/onyx/pull/12511">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#onyx-listfield-ime">#onyx-listfield-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

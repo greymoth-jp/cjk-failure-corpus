@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c) - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="slate: Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/slate-indic-conjunct-grapheme.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c) - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="slate: Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/slate-indic-conjunct-grapheme.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c) - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="slate: Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c)","about":"Surrogate & grapheme","description":"slate: Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/slate-indic-conjunct-grapheme.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
+    <a class="detail-back" href="../#slate-indic-conjunct-grapheme">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="slate-indic-conjunct-grapheme" data-cat="surrogate-emoji" data-lib="slate" data-search="treat indic conjunct clusters as a single grapheme (uax #29 gb9c) slate ianstormtaylor/slate slate rich-text editor does not implement unicode uax #29 gb9c rule, splitting indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in hindi, bengali, tamil, etc. type a conjunct consonant in hindi (e.g., &#39;क्ष&#39;) in slate; press backspace; only one codepoint is deleted instead of the full cluster. apply unicode gb9c rule: treat &lt;indic_conjunct_break=linker&gt; sequences as a single grapheme cluster. surrogate &amp; grapheme js pull request">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c)</h1>
+  <p class="lib-line"><span class="lib">slate</span> &middot; <a href="https://github.com/ianstormtaylor/slate">ianstormtaylor/slate</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Type a conjunct consonant in Hindi (e.g., 'क्ष') in Slate; press Backspace; only one codepoint is deleted instead of the full cluster.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Apply Unicode GB9c rule: treat &lt;Indic_Conjunct_Break=Linker&gt; sequences as a single grapheme cluster.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/ianstormtaylor/slate/pull/6074">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#slate-indic-conjunct-grapheme">#slate-indic-conjunct-grapheme</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

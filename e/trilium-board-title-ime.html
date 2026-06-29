@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fix(board): ignore IME composition Enter when editing card and column titles - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="Trilium: Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/trilium-board-title-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fix(board): ignore IME composition Enter when editing card and column titles - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="Trilium: Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/trilium-board-title-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fix(board): ignore IME composition Enter when editing card and column titles - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="Trilium: Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix(board): ignore IME composition Enter when editing card and column titles","about":"IME composition","description":"Trilium: Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/trilium-board-title-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#trilium-board-title-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="trilium-board-title-ime" data-cat="ime-composition" data-lib="Trilium" data-search="fix(board): ignore ime composition enter when editing card and column titles trilium triliumnext/trilium trilium kanban card and column title editing commits on ime enter, saving partial cjk text. trilium board → edit card title → cjk ime → enter to confirm → title saved with partial text. check iscomposing before committing title edits on enter. ime composition  pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    
+    
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h1 class="entry-title">fix(board): ignore IME composition Enter when editing card and column titles</h1>
+  <p class="lib-line"><span class="lib">Trilium</span> &middot; <a href="https://github.com/TriliumNext/Trilium">TriliumNext/Trilium</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Trilium board → edit card title → CJK IME → Enter to confirm → title saved with partial text.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Check isComposing before committing title edits on Enter.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/TriliumNext/Trilium/pull/10315">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#trilium-board-title-ime">#trilium-board-title-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

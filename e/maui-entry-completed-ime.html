@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Entry.Completed fires on the Enter that confirms an IME candidate","about":"IME composition","description":"dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#maui-entry-completed-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="maui-entry-completed-ime" data-cat="ime-composition" data-lib="dotnet/maui" data-search="entry.completed fires on the enter that confirms an ime candidate dotnet/maui dotnet/maui on windows, entry.completed is raised when the user presses enter inside the ime conversion candidate window, so completion fires before the cjk conversion is committed. focus a maui entry on windows, use a chinese/japanese ime, press enter to pick a candidate; completed fires mid-conversion. do not raise completed while the ime conversion window is open; fire only once the composition is fully committed. ime composition maui windows cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">MAUI</span><span class="tag tag--stack">Windows</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Entry.Completed fires on the Enter that confirms an IME candidate</h1>
+  <p class="lib-line"><span class="lib">dotnet/maui</span> &middot; <a href="https://github.com/dotnet/maui">dotnet/maui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Focus a MAUI Entry on Windows, use a Chinese/Japanese IME, press Enter to pick a candidate; Completed fires mid-conversion.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Do not raise Completed while the IME conversion window is open; fire only once the composition is fully committed.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/dotnet/maui/issues/36179">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#maui-entry-completed-ime">#maui-entry-completed-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

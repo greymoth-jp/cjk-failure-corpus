@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>insertCompositionText and isComposing cannot single out the commit input event - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="w3c/input-events: Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/input-events-insertcompositiontext.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="insertCompositionText and isComposing cannot single out the commit input event - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="w3c/input-events: Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/input-events-insertcompositiontext.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="insertCompositionText and isComposing cannot single out the commit input event - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="w3c/input-events: Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"insertCompositionText and isComposing cannot single out the commit input event","about":"IME composition","description":"w3c/input-events: Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/input-events-insertcompositiontext.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#input-events-insertcompositiontext">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="input-events-insertcompositiontext" data-cat="ime-composition" data-lib="w3c/input-events" data-search="insertcompositiontext and iscomposing cannot single out the commit input event w3c/input-events w3c/input-events every input event during a composition, including the one that commits it on enter, carries iscomposing=true and inputtype insertcompositiontext, so code cannot detect the commit without also listening for compositionend. type s, i, space to convert to a kanji, change the candidate, then press enter to commit; the input events for each step are indistinguishable. assign a distinct inputtype (or property) to the input event that commits the composition. ime composition spec cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">spec</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">insertCompositionText and isComposing cannot single out the commit input event</h1>
+  <p class="lib-line"><span class="lib">w3c/input-events</span> &middot; <a href="https://github.com/w3c/input-events">w3c/input-events</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Type s, i, Space to convert to a kanji, change the candidate, then press Enter to commit; the input events for each step are indistinguishable.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Assign a distinct inputType (or property) to the input event that commits the composition.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/w3c/input-events/issues/176">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#input-events-insertcompositiontext">#input-events-insertcompositiontext</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

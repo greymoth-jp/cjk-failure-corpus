@@ -28,10 +28,11 @@
 <main>
   <div class="wrap">
     <article class="entry" id="regexp-tree-leading-caret" data-cat="regex-roundtrip" data-lib="regexp-tree" data-search="generator emits a leading ^ unescaped, inverting [a^] into [^a] regexp-tree dmitrysoshnikov/regexp-tree optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class). const rt = require(&#39;regexp-tree&#39;)
-rt.optimize(&#39;/[a^]/&#39;).tostring() // &#39;/[^a]/&#39;  &lt;- now matches the negation in the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning. regex roundtrip js">
+rt.optimize(&#39;/[a^]/&#39;).tostring() // &#39;/[^a]/&#39;  &lt;- now matches the negation in the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning. regex roundtrip js pull request">
   <div class="entry-top">
     <span class="tag">Regex roundtrip</span>
     <span class="tag tag--stack">JS</span>
+    
     <span class="badge badge--open">open</span>
   </div>
   <h1 class="entry-title">Generator emits a leading ^ unescaped, inverting [a^] into [^a]</h1>
@@ -54,7 +55,7 @@ rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pr
     <a class="anchor-link" href="#regexp-tree-leading-caret">#regexp-tree-leading-caret</a>
   </div>
 </article>
-    <a class="detail-back" href="../">&larr; all 27 entries</a>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
   </div>
 </main>
 <div class="rule"></div>

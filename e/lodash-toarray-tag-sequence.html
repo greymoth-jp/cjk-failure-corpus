@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>toArray splits a tag-sequence flag emoji into code points - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="lodash: _.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/lodash-toarray-tag-sequence.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="toArray splits a tag-sequence flag emoji into code points - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="lodash: _.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/lodash-toarray-tag-sequence.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="toArray splits a tag-sequence flag emoji into code points - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="lodash: _.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"toArray splits a tag-sequence flag emoji into code points","about":"Surrogate & grapheme","description":"lodash: _.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/lodash-toarray-tag-sequence.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
+    <a class="detail-back" href="../#lodash-toarray-tag-sequence">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="lodash-toarray-tag-sequence" data-cat="surrogate-emoji" data-lib="lodash" data-search="toarray splits a tag-sequence flag emoji into code points lodash lodash/lodash _.toarray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element. _.toarray for the england flag emoji (a base flag plus tag characters) returns seven pieces instead of one. use a unicode-aware iterator such as intl.segmenter that handles tag sequences when converting a string to an array. surrogate &amp; grapheme js cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--closed">closed</span>
+  </div>
+  <h1 class="entry-title">toArray splits a tag-sequence flag emoji into code points</h1>
+  <p class="lib-line"><span class="lib">lodash</span> &middot; <a href="https://github.com/lodash/lodash">lodash/lodash</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>_.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">_.toArray for the England flag emoji (a base flag plus tag characters) returns seven pieces instead of one.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Use a Unicode-aware iterator such as Intl.Segmenter that handles tag sequences when converting a string to an array.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/lodash/lodash/issues/5112">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#lodash-toarray-tag-sequence">#lodash-toarray-tag-sequence</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

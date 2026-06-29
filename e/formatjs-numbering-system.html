@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fix(@formatjs/intl-relativetimeformat): honor numberingSystem option - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="formatjs: formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing Latin numerals in relative time strings.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/formatjs-numbering-system.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fix(@formatjs/intl-relativetimeformat): honor numberingSystem option - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="formatjs: formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing Latin numerals in relative time strings.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/formatjs-numbering-system.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fix(@formatjs/intl-relativetimeformat): honor numberingSystem option - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="formatjs: formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing Latin numerals in relative time strings.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix(@formatjs/intl-relativetimeformat): honor numberingSystem option","about":"Numerals","description":"formatjs: formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., 'jpan', 'arab'), always producing Latin numerals in relative time strings.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/formatjs-numbering-system.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Numerals</p>
+    <a class="detail-back" href="../#formatjs-numbering-system">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="formatjs-numbering-system" data-cat="numeral" data-lib="formatjs" data-search="fix(@formatjs/intl-relativetimeformat): honor numberingsystem option formatjs formatjs/formatjs formatjs intl-relativetimeformat ignores the numberingsystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing latin numerals in relative time strings. new intl.relativetimeformat(&#39;ja-jp-u-nu-jpan&#39;, {}).format(-1, &#39;day&#39;) returns &#39;1日前&#39; with latin &#39;1&#39; instead of japanese numeral &#39;一日前&#39;. apply the numberingsystem extension from the locale tag when formatting relative time numbers. numerals js pull request">
+  <div class="entry-top">
+    <span class="tag">Numerals</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">fix(@formatjs/intl-relativetimeformat): honor numberingSystem option</h1>
+  <p class="lib-line"><span class="lib">formatjs</span> &middot; <a href="https://github.com/formatjs/formatjs">formatjs/formatjs</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., 'jpan', 'arab'), always producing Latin numerals in relative time strings.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">new Intl.RelativeTimeFormat('ja-JP-u-nu-jpan', {}).format(-1, 'day') returns '1日前' with Latin '1' instead of Japanese numeral '一日前'.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Apply the numberingSystem extension from the locale tag when formatting relative time numbers.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/formatjs/formatjs/pull/6835">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#formatjs-numbering-system">#formatjs-numbering-system</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

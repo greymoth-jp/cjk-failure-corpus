@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keep combining marks with their base grapheme in Width::wrap - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="tabled: tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keep combining marks with their base grapheme in Width::wrap - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="tabled: tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keep combining marks with their base grapheme in Width::wrap - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="tabled: tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Keep combining marks with their base grapheme in Width::wrap","about":"Width / normalization","description":"tabled: tabled's text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Width / normalization</p>
+    <a class="detail-back" href="../#tabled-combining-mark-wrap">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="tabled-combining-mark-wrap" data-cat="width-normalization" data-lib="tabled" data-search="keep combining marks with their base grapheme in width::wrap tabled zhiburt/tabled tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells. create a tabled table with text containing combining marks (e.g., &#39;が&#39; as &#39;か&#39; + combining voiced mark u+3099); wrapping separates the base and combining mark onto different lines. use a grapheme cluster iterator (unicode uax #29) when wrapping, never splitting within a grapheme cluster. width / normalization rust pull request">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">Rust</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Keep combining marks with their base grapheme in Width::wrap</h1>
+  <p class="lib-line"><span class="lib">tabled</span> &middot; <a href="https://github.com/zhiburt/tabled">zhiburt/tabled</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>tabled's text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Create a tabled table with text containing combining marks (e.g., 'が' as 'か' + combining voiced mark U+3099); wrapping separates the base and combining mark onto different lines.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Use a grapheme cluster iterator (Unicode UAX #29) when wrapping, never splitting within a grapheme cluster.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/zhiburt/tabled/pull/585">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#tabled-combining-mark-wrap">#tabled-combining-mark-wrap</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

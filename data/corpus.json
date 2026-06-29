@@ -3,7 +3,7 @@
     "title": "CJK / Unicode Failure Corpus",
     "tagline": "Real CJK, IME, and Unicode/text-handling bugs in open-source libraries. Repro, affected libs, and the fix.",
     "fixturesRepo": "https://github.com/greymoth-jp/cjk-agent-fixtures",
-    "sourceNote": "Every entry maps to a real pull request authored by greymoth-jp. Titles, repos, URLs, and statuses are taken verbatim from the GitHub API."
+    "sourceNote": "Most entries are pull requests authored by greymoth, taken verbatim from the GitHub API. A few are cited upstream issues from the wider ecosystem that document the same failures; those are marked cited and link to the original report."
   },
   "categories": {
     "ime-composition": {
@@ -33,6 +33,10 @@
     "regex-roundtrip": {
       "label": "Regex roundtrip",
       "blurb": "Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be emitted unescaped and change what the pattern matches."
+    },
+    "surrogate-emoji": {
+      "label": "Surrogate & grapheme",
+      "blurb": "Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surrogate pairs and non-BMP characters get split, ZWJ emoji and variation selectors are mis-detected, and combining marks or conjunct clusters drift away from their base."
     }
   },
   "entries": [
@@ -44,7 +48,9 @@
       "url": "https://github.com/tusen-ai/naive-ui/pull/8115",
       "status": "merged",
       "category": "ime-composition",
-      "stack": ["Vue"],
+      "stack": [
+        "Vue"
+      ],
       "symptom": "Pressing Enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion.",
       "repro": "1. Render <n-dynamic-tags> and focus its input.\n2. Switch to a Japanese IME, type \"とうきょう\", press Space to convert to 東京.\n3. Press Enter to pick the candidate.\n4. A tag is added from the unconfirmed text before the conversion commits.",
       "fix": "Skip tag creation while e.isComposing is true; only act on the Enter that fires after compositionend."
@@ -57,7 +63,9 @@
       "url": "https://github.com/mrdjohnson/llm-x/pull/53",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["React"],
+      "stack": [
+        "React"
+      ],
       "symptom": "Confirming a Japanese IME candidate with Enter in the chat box sends the message instead of committing the conversion.",
       "repro": "1. Open the chat input.\n2. With a CJK IME, type a phrase and press Space to get conversion candidates.\n3. Press Enter to choose a candidate.\n4. The message sends with the unconfirmed text.",
       "fix": "Return early when e.nativeEvent.isComposing is true. React's synthetic KeyboardEvent has no isComposing field, so read it off nativeEvent (the DOM event), not e.isComposing."
@@ -70,7 +78,9 @@
       "url": "https://github.com/deta/surf/pull/184",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["Svelte"],
+      "stack": [
+        "Svelte"
+      ],
       "symptom": "Typing a CJK query in the command palette and pressing Enter to confirm the IME runs the highlighted command instead of finishing the conversion.",
       "repro": "1. Open the command palette.\n2. Compose a Japanese search term with the IME.\n3. Press Enter to commit the conversion.\n4. The first/highlighted command fires prematurely.",
       "fix": "Add `if (e.isComposing) return` at the top of the palette input keydown handler. Svelte exposes the native KeyboardEvent, so e.isComposing works directly."
@@ -83,7 +93,10 @@
       "url": "https://github.com/react-component/mentions/pull/325",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["React", "Safari"],
+      "stack": [
+        "React",
+        "Safari"
+      ],
       "symptom": "On Safari/WebKit, composing an @-mention name in CJK and pressing Enter to confirm the IME replaces the text with whatever mention is highlighted.",
       "repro": "1. In Safari, type @ then compose a Japanese name with the IME.\n2. Press Enter to confirm the kanji conversion.\n3. The composing text is replaced by the highlighted mention option.",
       "fix": "In the ENTER branch, return early on event.nativeEvent.isComposing before preventDefault. WebKit reports the commit keydown as which===Enter + isComposing:true; Chromium reports keyCode 229 and never enters this branch."
@@ -96,7 +109,9 @@
       "url": "https://github.com/react-component/select/pull/1236",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["React"],
+      "stack": [
+        "React"
+      ],
       "symptom": "The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.",
       "repro": "1. Open a searchable <Select>.\n2. Type a CJK query with the IME and press Enter to confirm the conversion.\n3. The active option is selected with the unfinished query.",
       "fix": "Track composition state (compositionstart/compositionend) and skip option selection while composing."
@@ -109,7 +124,9 @@
       "url": "https://github.com/element-plus/element-plus/pull/24496",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["Vue"],
+      "stack": [
+        "Vue"
+      ],
       "symptom": "The time-picker's key handler fires while an IME composition is active, so keystrokes meant for the IME mutate the time value.",
       "repro": "1. Focus the time-picker input.\n2. Begin an IME composition.\n3. Composition keystrokes are intercepted by the picker's key handler instead of the IME.",
       "fix": "Skip the picker's keydown handling while the composition is active (isComposing guard)."
@@ -122,7 +139,9 @@
       "url": "https://github.com/vuetifyjs/vuetify/pull/22974",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["Vue"],
+      "stack": [
+        "Vue"
+      ],
       "symptom": "VAutocomplete's keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.",
       "repro": "1. Open a VAutocomplete.\n2. Compose a Japanese query, press Enter/arrow to confirm.\n3. The keydown listener acts on the composing keys.",
       "fix": "Bail out of the keydown listener when e.isComposing is true."
@@ -135,7 +154,10 @@
       "url": "https://github.com/nuxt/ui/pull/6659",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["Vue", "Nuxt"],
+      "stack": [
+        "Vue",
+        "Nuxt"
+      ],
       "symptom": "Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.",
       "repro": "1. Register a single-key shortcut (e.g. 'g').\n2. In an input, compose Japanese text whose romaji includes that key.\n3. The shortcut fires during composition.",
       "fix": "Ignore key events when e.isComposing (or keyCode 229) before dispatching shortcuts."
@@ -148,7 +170,9 @@
       "url": "https://github.com/chakra-ui/zag/pull/3198",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["headless"],
+      "stack": [
+        "headless"
+      ],
       "symptom": "A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.",
       "repro": "1. Focus a color channel input.\n2. Trigger an IME composition and press Enter.\n3. The channel commit fires before compositionend.",
       "fix": "Guard the channel input's Enter handler with isComposing."
@@ -161,7 +185,10 @@
       "url": "https://github.com/CherryHQ/cherry-studio/pull/16582",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["React", "Electron"],
+      "stack": [
+        "React",
+        "Electron"
+      ],
       "symptom": "Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.",
       "repro": "1. Start an inline file rename.\n2. Compose a Japanese filename with the IME.\n3. Press Enter to confirm the conversion; the rename submits with the unfinished name.",
       "fix": "Skip the rename submit while the IME is composing (isComposing guard)."
@@ -174,7 +201,9 @@
       "url": "https://github.com/CopilotKit/CopilotKit/pull/5764",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["Angular"],
+      "stack": [
+        "Angular"
+      ],
       "symptom": "The Angular chat input submits the message on the Enter that confirms an IME composition.",
       "repro": "1. Type a CJK message in the Angular chat input.\n2. Press Enter to confirm the IME conversion; the message sends early.",
       "fix": "Check event.isComposing (Angular passes the native KeyboardEvent) before submitting."
@@ -187,7 +216,9 @@
       "url": "https://github.com/alibaba/ChatUI/pull/212",
       "status": "open",
       "category": "ime-composition",
-      "stack": ["React"],
+      "stack": [
+        "React"
+      ],
       "symptom": "The Composer sends the message on the Enter used to confirm an IME composition.",
       "repro": "1. Compose CJK text in the Composer.\n2. Press Enter to pick a candidate; the message sends instead of committing.",
       "fix": "Skip send when e.nativeEvent.isComposing is true."
@@ -200,7 +231,9 @@
       "url": "https://github.com/lovell/hepburn/pull/28",
       "status": "open",
       "category": "kana-romaji",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN'YOU), so it collides with シニョウ.",
       "repro": "const { fromKana } = require('hepburn')\nfromKana('しんよう') // SHIN'YOU\nfromKana('シンヨウ') // SHINYOU  <- apostrophe dropped",
       "fix": "Map katakana ン to N' (matching hiragana) and add the ンー long-vowel digraph as N', so N is never a katakana map key and toKatakana still round-trips (PAN to パン)."
@@ -213,7 +246,9 @@
       "url": "https://github.com/miurahr/pykakasi/pull/160",
       "status": "open",
       "category": "kana-romaji",
-      "stack": ["Python"],
+      "stack": [
+        "Python"
+      ],
       "symptom": "The geminated d + small i sequence っでぃ (ddi) has no Hepburn or Kunrei entry, so loanword spellings that use it romanize incorrectly.",
       "repro": "Convert a word containing っでぃ; the doubled d before the small i is not produced.",
       "fix": "Add the missing っでぃ (ddi) sokuon entry to both the Hepburn and Kunrei tables."
@@ -226,7 +261,9 @@
       "url": "https://github.com/koozaki/romaji-conv/pull/23",
       "status": "open",
       "category": "kana-romaji",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "The historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted.",
       "repro": "Convert text containing ゐ or ゑ (or katakana ヰ/ヱ); the characters pass through unmapped.",
       "fix": "Add ゐ/ゑ and their katakana counterparts to the kana mapping."
@@ -239,7 +276,9 @@
       "url": "https://github.com/ikegami-yukino/jaconv/pull/51",
       "status": "open",
       "category": "kana-romaji",
-      "stack": ["Python"],
+      "stack": [
+        "Python"
+      ],
       "symptom": "kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.",
       "repro": "import jaconv\njaconv.kana2alphabet('ヶ')  # small ke not handled",
       "fix": "Add the small ka/ke mappings to kana2alphabet."
@@ -252,7 +291,9 @@
       "url": "https://github.com/YusukeHirao/jaco-js/pull/15",
       "status": "open",
       "category": "kana-romaji",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.",
       "repro": "Add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed.",
       "fix": "Correct the reversed ヲ/ヺ entry in both addVoicedMarks and combineSoundMarks."
@@ -265,7 +306,9 @@
       "url": "https://github.com/birchill/normal-jp/pull/94",
       "status": "open",
       "category": "width-normalization",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "During normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ.",
       "repro": "Normalize ヒー / ビー; the long-vowel expansion produces the wrong vowel for these two kana.",
       "fix": "Fix the ー-expansion table entries for ヒ and ビ."
@@ -278,7 +321,9 @@
       "url": "https://github.com/niwaringo/moji/pull/22",
       "status": "open",
       "category": "width-normalization",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.",
       "repro": "moji('！～').convert('ZE', 'HE').toString()  // boundary chars at range edges are skipped",
       "fix": "Convert the first and last character of each range, not just the interior."
@@ -291,7 +336,9 @@
       "url": "https://github.com/nagataaaas/Kanjize/pull/10",
       "status": "open",
       "category": "numeral",
-      "stack": ["Python"],
+      "stack": [
+        "Python"
+      ],
       "symptom": "kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert.",
       "repro": "from kanjize import kanji2number\nkanji2number('萬')  # not recognized as 10000",
       "fix": "Map 萬 to 万 (10,000) in kanji2number."
@@ -304,7 +351,9 @@
       "url": "https://github.com/ant-design/ant-design/pull/58563",
       "status": "merged",
       "category": "locale-leftover",
-      "stack": ["React"],
+      "stack": [
+        "React"
+      ],
       "symptom": "The ja-JP labels for Typography's expand/collapse control were incorrect, so Japanese users saw the wrong 展開/折りたたみ text.",
       "repro": "1. Set ConfigProvider locale to ja_JP.\n2. Render <Typography.Paragraph ellipsis={{ expandable: true }}>.\n3. The expand/collapse label is wrong.",
       "fix": "Correct the ja-JP expand/collapse label strings."
@@ -317,7 +366,9 @@
       "url": "https://github.com/tusen-ai/naive-ui/pull/8114",
       "status": "merged",
       "category": "locale-leftover",
-      "stack": ["Vue"],
+      "stack": [
+        "Vue"
+      ],
       "symptom": "weekPlaceholder was missing from the Japanese locale, so the week date-picker showed an English placeholder.",
       "repro": "Use the date picker in week mode with the ja locale; the placeholder renders in English.",
       "fix": "Add the Japanese weekPlaceholder translation."
@@ -330,7 +381,9 @@
       "url": "https://github.com/hustcc/timeago.js/pull/285",
       "status": "merged",
       "category": "locale-leftover",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "Future timestamps in the ja locale used 以内 (within) instead of 後 (later), so '3 minutes from now' rendered as 3分以内 (within 3 minutes), which means the opposite.",
       "repro": "timeago a future timestamp with the ja locale; it renders '3分以内' instead of '3分後'.",
       "fix": "Use 後 for future time strings in the ja locale."
@@ -343,7 +396,9 @@
       "url": "https://github.com/bradymholt/cRonstrue/pull/397",
       "status": "merged",
       "category": "locale-leftover",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "The Japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description.",
       "repro": "cronstrue.toString('0 0 1-31/3 * *', { locale: 'ja' }); the description is not scoped to the month.",
       "fix": "Scope the ja day-of-month step description to a month."
@@ -356,7 +411,9 @@
       "url": "https://github.com/DmitrySoshnikov/regexp-tree/pull/280",
       "status": "open",
       "category": "regex-roundtrip",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "Optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class).",
       "repro": "const rt = require('regexp-tree')\nrt.optimize('/[a^]/').toString() // '/[^a]/'  <- now matches the negation",
       "fix": "In the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning."
@@ -369,7 +426,9 @@
       "url": "https://github.com/bcherny/json-schema-to-typescript/pull/685",
       "status": "open",
       "category": "codegen-escape",
-      "stack": ["TS"],
+      "stack": [
+        "TS"
+      ],
       "symptom": "Enum member names containing special characters (including non-ASCII / CJK) are emitted unescaped, so the generated enum does not compile.",
       "repro": "Generate types from a schema whose enum values contain quotes or special characters; the emitted enum has invalid member identifiers and tsc errors.",
       "fix": "Escape enum member names so special characters produce valid output."
@@ -382,10 +441,921 @@
       "url": "https://github.com/markdoc/markdoc/pull/627",
       "status": "open",
       "category": "codegen-escape",
-      "stack": ["JS"],
+      "stack": [
+        "JS"
+      ],
       "symptom": "The formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: 'C# is a language' becomes 'C\\# is a language'.",
       "repro": "format(parse('C# is a language')) // 'C\\# is a language' - the '#' is escaped mid-sentence",
       "fix": "Anchor the heading alternative: change #+\\s to ^#+\\s, mirroring the already-anchored ^* and ^> cases."
+    },
+    {
+      "id": "siyuan-session-rename-ime",
+      "title": "Guard IME composition in the agent session rename input",
+      "library": "siyuan",
+      "repo": "siyuan-note/siyuan",
+      "url": "https://github.com/siyuan-note/siyuan/pull/17988",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [],
+      "symptom": "Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.",
+      "repro": "Use Japanese/Chinese/Korean IME in siyuan's session rename field; press Enter to confirm composition; rename fires before composition is complete.",
+      "fix": "Check event.isComposing (and event.keyCode===229 for legacy browsers) before acting on keydown/keyup Enter. Ignore Enter events during composition.",
+      "authored": true
+    },
+    {
+      "id": "llmchat-chat-enter-ime",
+      "title": "fix: ignore Enter that confirms IME composition in chat input",
+      "library": "llmchat",
+      "repo": "trendy-design/llmchat",
+      "url": "https://github.com/trendy-design/llmchat/pull/103",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.",
+      "repro": "Type Japanese in llmchat chat input using IME; press Enter to select a candidate; message sends immediately.",
+      "fix": "Guard Enter keydown handler with if (event.isComposing || event.nativeEvent?.isComposing) return.",
+      "authored": true
+    },
+    {
+      "id": "aiaw-chat-enter-ime",
+      "title": "fix: ignore Enter that confirms IME composition in chat input",
+      "library": "AIaW",
+      "repo": "NitroRCr/AIaW",
+      "url": "https://github.com/NitroRCr/AIaW/pull/173",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "Vue"
+      ],
+      "symptom": "Confirming CJK IME candidate with Enter in AIaW chat input simultaneously submits the message.",
+      "repro": "Japanese IME → type → Enter to confirm → message sent before input complete.",
+      "fix": "Ignore Enter keydown when isComposing is true.",
+      "authored": true
+    },
+    {
+      "id": "obsidian-smart-composer-chat-ime",
+      "title": "fix: ignore Enter during IME composition in chat input",
+      "library": "obsidian-smart-composer",
+      "repo": "glowingjade/obsidian-smart-composer",
+      "url": "https://github.com/glowingjade/obsidian-smart-composer/pull/562",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Obsidian Smart Composer chat submits messages on IME Enter key in macOS/Windows with CJK input methods.",
+      "repro": "Use Japanese IME in Obsidian Smart Composer chat; confirm composition with Enter; chat sends.",
+      "fix": "Check isComposing flag before processing Enter keydown.",
+      "authored": true
+    },
+    {
+      "id": "onyx-listfield-ime",
+      "title": "fix(web): ignore IME composition Enter in ListFieldInput",
+      "library": "onyx",
+      "repo": "onyx-dot-app/onyx",
+      "url": "https://github.com/onyx-dot-app/onyx/pull/12511",
+      "status": "merged",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.",
+      "repro": "ListFieldInput with CJK IME → Enter to confirm → list item added prematurely.",
+      "fix": "Skip Enter action when event.nativeEvent.isComposing is true.",
+      "authored": true
+    },
+    {
+      "id": "rsuite-inputpicker-ime",
+      "title": "fix(InputPicker): ignore Enter during IME composition when selecting an item",
+      "library": "rsuite",
+      "repo": "rsuite/rsuite",
+      "url": "https://github.com/rsuite/rsuite/pull/4585",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "RSuite InputPicker selects the focused item when CJK IME confirmation Enter is pressed, skipping intended input.",
+      "repro": "RSuite InputPicker with CJK IME → search → Enter to confirm composition → list item selected prematurely.",
+      "fix": "Guard item selection Enter handler with isComposing check.",
+      "authored": true
+    },
+    {
+      "id": "dify-tag-input-ime",
+      "title": "fix(web): guard IME composition in tag input Enter handler",
+      "library": "dify",
+      "repo": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify/pull/38119",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Dify tag input adds a tag on IME confirmation Enter, creating malformed tags for CJK users.",
+      "repro": "Dify web tag input → Japanese IME → Enter to confirm → tag added prematurely.",
+      "fix": "Check isComposing before handling Enter in tag input.",
+      "authored": true
+    },
+    {
+      "id": "flowise-text-inputs-ime",
+      "title": "fix: ignore Enter during IME composition in remaining text inputs",
+      "library": "Flowise",
+      "repo": "FlowiseAI/Flowise",
+      "url": "https://github.com/FlowiseAI/Flowise/pull/6575",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Multiple Flowise text inputs fire on IME Enter, interrupting CJK text composition.",
+      "repro": "Flowise text inputs with CJK IME → Enter to confirm → premature action fired.",
+      "fix": "Add isComposing guard to all remaining Enter keydown handlers.",
+      "authored": true
+    },
+    {
+      "id": "langflow-inline-rename-ime",
+      "title": "fix(frontend): guard IME composition in inline rename Enter handlers",
+      "library": "langflow",
+      "repo": "langflow-ai/langflow",
+      "url": "https://github.com/langflow-ai/langflow/pull/13887",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Langflow inline rename inputs commit the rename on IME Enter, saving partial CJK names.",
+      "repro": "Langflow node rename → CJK IME → Enter to confirm composition → rename saved with partial text.",
+      "fix": "Guard Enter handler in inline rename with event.nativeEvent?.isComposing check.",
+      "authored": true
+    },
+    {
+      "id": "plane-select-dropdown-ime",
+      "title": "fix(ui): ignore Enter during IME composition in select dropdowns",
+      "library": "plane",
+      "repo": "makeplane/plane",
+      "url": "https://github.com/makeplane/plane/pull/9331",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Plane select dropdowns pick an item on IME confirmation Enter, making it impossible for CJK users to search.",
+      "repro": "Plane dropdown search → Japanese IME → Enter to confirm → item picked mid-composition.",
+      "fix": "Skip item selection when event.nativeEvent.isComposing is true.",
+      "authored": true
+    },
+    {
+      "id": "twenty-chat-rename-ime",
+      "title": "fix: ignore IME composition Enter in chat-thread and attachment rename inputs",
+      "library": "twenty",
+      "repo": "twentyhq/twenty",
+      "url": "https://github.com/twentyhq/twenty/pull/22270",
+      "status": "merged",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Twenty CRM chat-thread send and attachment rename both fire on IME Enter, breaking CJK workflows.",
+      "repro": "Twenty CRM chat or attachment rename → CJK IME → Enter to confirm → send/rename triggered.",
+      "fix": "Check event.nativeEvent?.isComposing before handling Enter.",
+      "authored": true
+    },
+    {
+      "id": "excalidraw-search-nav-ime",
+      "title": "fix(editor): ignore IME composition keys in search navigation",
+      "library": "excalidraw",
+      "repo": "excalidraw/excalidraw",
+      "url": "https://github.com/excalidraw/excalidraw/pull/11573",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Excalidraw search navigation (arrow keys, Enter) fires during CJK IME composition, moving selection mid-composition.",
+      "repro": "Excalidraw search → CJK IME → type → Arrow/Enter during composition → result navigation fires.",
+      "fix": "Guard navigation key handlers with event.isComposing check.",
+      "authored": true
+    },
+    {
+      "id": "payload-searchinput-ime",
+      "title": "fix(ui): ignore the IME composition Enter in SearchInput",
+      "library": "payload",
+      "repo": "payloadcms/payload",
+      "url": "https://github.com/payloadcms/payload/pull/17138",
+      "status": "merged",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Payload CMS SearchInput submits on IME confirmation Enter, bypassing the intended search query.",
+      "repro": "Payload admin search → CJK IME → Enter to confirm → search fires with partial query.",
+      "fix": "Ignore Enter in SearchInput when event.nativeEvent?.isComposing is true.",
+      "authored": true
+    },
+    {
+      "id": "trilium-board-title-ime",
+      "title": "fix(board): ignore IME composition Enter when editing card and column titles",
+      "library": "Trilium",
+      "repo": "TriliumNext/Trilium",
+      "url": "https://github.com/TriliumNext/Trilium/pull/10315",
+      "status": "merged",
+      "category": "ime-composition",
+      "stack": [],
+      "symptom": "Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.",
+      "repro": "Trilium board → edit card title → CJK IME → Enter to confirm → title saved with partial text.",
+      "fix": "Check isComposing before committing title edits on Enter.",
+      "authored": true
+    },
+    {
+      "id": "big-agi-custom-instruction-ime",
+      "title": "Diagrams: skip IME composition Enter in custom instruction",
+      "library": "big-AGI",
+      "repo": "enricoros/big-AGI",
+      "url": "https://github.com/enricoros/big-AGI/pull/1145",
+      "status": "merged",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "big-AGI custom instruction field fires on IME Enter, submitting partial CJK instructions.",
+      "repro": "big-AGI custom instruction → CJK IME → Enter to confirm → instruction submitted prematurely.",
+      "fix": "Skip Enter action when event.nativeEvent?.isComposing is true.",
+      "authored": true
+    },
+    {
+      "id": "librechat-prompt-tags-ime",
+      "title": "fix: guard IME composition on Enter in prompt name/labels and dynamic tag inputs",
+      "library": "LibreChat",
+      "repo": "danny-avila/LibreChat",
+      "url": "https://github.com/danny-avila/LibreChat/pull/13996",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "LibreChat prompt name, label, and tag inputs all trigger on IME Enter, causing broken CJK input across multiple components.",
+      "repro": "LibreChat prompt editor → tag or name field → CJK IME → Enter to confirm → submit fires.",
+      "fix": "isComposing guard across prompt name, label, and dynamic-tag Enter handlers.",
+      "authored": true
+    },
+    {
+      "id": "jan-rename-dialog-ime",
+      "title": "fix: ignore IME composition Enter in rename and project dialogs",
+      "library": "jan",
+      "repo": "janhq/jan",
+      "url": "https://github.com/janhq/jan/pull/8359",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Jan AI assistant rename and project dialogs accept partial CJK names when Enter confirms IME composition.",
+      "repro": "Jan rename dialog → CJK IME → Enter to confirm → dialog committed with partial name.",
+      "fix": "Guard Enter submit with event.nativeEvent?.isComposing check.",
+      "authored": true
+    },
+    {
+      "id": "kana-romaji-zu-dropped",
+      "title": "Romanize づ as zu (the consonant was being dropped)",
+      "library": "kana-romaji",
+      "repo": "mtomim/kana-romaji",
+      "url": "https://github.com/mtomim/kana-romaji/pull/21",
+      "status": "open",
+      "category": "kana-romaji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "kana-romaji library drops the 'z' consonant when romanizing づ, outputting 'u' instead of 'zu'.",
+      "repro": "romanize('づ') returns 'u' instead of 'zu'.",
+      "fix": "づ should romanize as 'zu' (Hepburn). Map づ→zu in the kana table.",
+      "authored": true
+    },
+    {
+      "id": "charabia-halfwidth-katakana-script",
+      "title": "Fix script detection of halfwidth katakana and fullwidth forms",
+      "library": "charabia",
+      "repo": "meilisearch/charabia",
+      "url": "https://github.com/meilisearch/charabia/pull/376",
+      "status": "open",
+      "category": "width-normalization",
+      "stack": [
+        "Rust"
+      ],
+      "symptom": "Meilisearch's charabia tokenizer incorrectly classifies halfwidth katakana (U+FF65-U+FF9F) and some fullwidth forms as wrong scripts, causing them to be processed by the wrong tokenizer and failing Japanese search.",
+      "repro": "Index halfwidth katakana text in Meilisearch; search for the same terms; results missing because script detection classifies halfwidth katakana as non-Japanese.",
+      "fix": "Extend script detection to recognize U+FF65–U+FF9F (halfwidth katakana) as Japanese script.",
+      "authored": true
+    },
+    {
+      "id": "tabled-combining-mark-wrap",
+      "title": "Keep combining marks with their base grapheme in Width::wrap",
+      "library": "tabled",
+      "repo": "zhiburt/tabled",
+      "url": "https://github.com/zhiburt/tabled/pull/585",
+      "status": "open",
+      "category": "width-normalization",
+      "stack": [
+        "Rust"
+      ],
+      "symptom": "tabled's text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.",
+      "repro": "Create a tabled table with text containing combining marks (e.g., 'が' as 'か' + combining voiced mark U+3099); wrapping separates the base and combining mark onto different lines.",
+      "fix": "Use a grapheme cluster iterator (Unicode UAX #29) when wrapping, never splitting within a grapheme cluster.",
+      "authored": true
+    },
+    {
+      "id": "zed-block-cursor-ambiguous-width",
+      "title": "editor: Center the block cursor glyph for ambiguous-width characters",
+      "library": "zed",
+      "repo": "zed-industries/zed",
+      "url": "https://github.com/zed-industries/zed/pull/60017",
+      "status": "open",
+      "category": "width-normalization",
+      "stack": [
+        "Rust"
+      ],
+      "symptom": "In Zed editor, the block cursor over Unicode ambiguous-width characters (East Asian Width 'A' category, e.g., some symbols, box-drawing) is misaligned — the cursor glyph is not centered in the cell.",
+      "repro": "Open Zed with a CJK font; position cursor on an ambiguous-width character; block cursor appears shifted or misaligned.",
+      "fix": "Center the block cursor glyph using the rendered cell width rather than the glyph's intrinsic width for ambiguous-width characters.",
+      "authored": true
+    },
+    {
+      "id": "cli-table3-surrogate-truncate",
+      "title": "fix: avoid splitting surrogate pairs when truncating wide characters",
+      "library": "cli-table3",
+      "repo": "cli-table/cli-table3",
+      "url": "https://github.com/cli-table/cli-table3/pull/360",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.",
+      "repro": "Create a cli-table3 table with a column containing emoji (e.g., 🎉) or supplementary CJK characters; set a column width that truncates mid-emoji; output shows garbled characters.",
+      "fix": "Use a Unicode-aware splitter (spread operator or Array.from) to iterate code points rather than code units when truncating.",
+      "authored": true
+    },
+    {
+      "id": "clerk-truncate-surrogate",
+      "title": "fix(ui): keep truncateWithEndVisible code-point-safe in short-width fallback",
+      "library": "clerk",
+      "repo": "clerk/javascript",
+      "url": "https://github.com/clerk/javascript/pull/9029",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "TS"
+      ],
+      "symptom": "Clerk UI's truncateWithEndVisible function uses substring/slice on raw code units in its short-width fallback, splitting surrogate pairs in emoji or non-BMP characters.",
+      "repro": "A Clerk UI component displaying an email/name containing emoji in the short-width fallback path; the truncated string ends mid-surrogate-pair, showing '?' or garbled chars.",
+      "fix": "Use Array.from() or spread to split by code points, or use Intl.Segmenter, before truncating.",
+      "authored": true
+    },
+    {
+      "id": "opentype-cmap-clamp",
+      "title": "fix(cmap): clamp format 12/13 character codes to the Unicode maximum",
+      "library": "opentype.js",
+      "repo": "opentypejs/opentype.js",
+      "url": "https://github.com/opentypejs/opentype.js/pull/858",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "opentype.js does not clamp cmap format 12/13 character codes to U+10FFFF; malformed fonts with out-of-range codes cause incorrect glyph lookups for supplementary characters.",
+      "repro": "Load a font with a cmap subtable containing entries beyond U+10FFFF; glyph lookup for supplementary characters (emoji, CJK Extension B+) returns wrong glyph.",
+      "fix": "Clamp all format 12/13 startCharCode/endCharCode values to 0x10FFFF during parsing.",
+      "authored": true
+    },
+    {
+      "id": "markdown-it-nonbmp-smartquotes",
+      "title": "fix: handle non-BMP punctuation and symbols in smart quotes",
+      "library": "markdown-it",
+      "repo": "markdown-it/markdown-it",
+      "url": "https://github.com/markdown-it/markdown-it/pull/1186",
+      "status": "closed",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "markdown-it's smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.",
+      "repro": "markdown-it smartquotes on text adjacent to emoji or supplementary Unicode symbols (e.g., '𝕳ello'); smart quote pairing is incorrect.",
+      "fix": "Use a regex that is Unicode-aware for the 'whitespace' and 'punctuation' character class checks, or use Array.from for code-point iteration.",
+      "authored": true
+    },
+    {
+      "id": "slate-indic-conjunct-grapheme",
+      "title": "Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c)",
+      "library": "slate",
+      "repo": "ianstormtaylor/slate",
+      "url": "https://github.com/ianstormtaylor/slate/pull/6074",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.",
+      "repro": "Type a conjunct consonant in Hindi (e.g., 'क्ष') in Slate; press Backspace; only one codepoint is deleted instead of the full cluster.",
+      "fix": "Apply Unicode GB9c rule: treat <Indic_Conjunct_Break=Linker> sequences as a single grapheme cluster.",
+      "authored": true
+    },
+    {
+      "id": "wenmode-emphasis-flanking-marks",
+      "title": "Fix emphasis flanking for Unicode marks and format characters",
+      "library": "wenmode",
+      "repo": "lepture/wenmode",
+      "url": "https://github.com/lepture/wenmode/pull/1",
+      "status": "merged",
+      "category": "surrogate-emoji",
+      "stack": [],
+      "symptom": "wenmode's is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.",
+      "repro": "Markdown text using emphasis (* or _) adjacent to a combining mark or ZWJ character; emphasis fails to render because combining marks are classified as punctuation.",
+      "fix": "Exclude Unicode General Categories Mn, Mc, Cf from the punctuation classification; add ASCII fast-path to avoid performance regression.",
+      "authored": true
+    },
+    {
+      "id": "formatjs-numbering-system",
+      "title": "fix(@formatjs/intl-relativetimeformat): honor numberingSystem option",
+      "library": "formatjs",
+      "repo": "formatjs/formatjs",
+      "url": "https://github.com/formatjs/formatjs/pull/6835",
+      "status": "open",
+      "category": "numeral",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "formatjs intl-relativetimeformat ignores the numberingSystem locale option (e.g., 'jpan', 'arab'), always producing Latin numerals in relative time strings.",
+      "repro": "new Intl.RelativeTimeFormat('ja-JP-u-nu-jpan', {}).format(-1, 'day') returns '1日前' with Latin '1' instead of Japanese numeral '一日前'.",
+      "fix": "Apply the numberingSystem extension from the locale tag when formatting relative time numbers.",
+      "authored": true
+    },
+    {
+      "id": "primelocale-ja-filterconstraint",
+      "title": "Fix ja aria filterConstraint translation (成約 → 制約)",
+      "library": "primelocale",
+      "repo": "primefaces/primelocale",
+      "url": "https://github.com/primefaces/primelocale/pull/266",
+      "status": "merged",
+      "category": "locale-leftover",
+      "stack": [
+        "i18n"
+      ],
+      "symptom": "PrimeLocale Japanese (ja) locale uses 成約 (meaning 'conclusion of a contract') for 'filterConstraint' aria label, which should be 制約 ('constraint/restriction').",
+      "repro": "PrimeFaces component with aria-label for filter constraint in Japanese reads '成約' (contract) instead of '制約' (constraint).",
+      "fix": "Change filterConstraint value from '成約' to '制約' in the ja.json locale file.",
+      "authored": true
+    },
+    {
+      "id": "vant-ja-jp-locale",
+      "title": "fix(locale): correct Japanese (ja-JP) translations",
+      "library": "vant",
+      "repo": "youzan/vant",
+      "url": "https://github.com/youzan/vant/pull/13862",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "Vue"
+      ],
+      "symptom": "Vant component library Japanese (ja-JP) locale contains incorrect translations for multiple UI strings.",
+      "repro": "Vant components with ja-JP locale display mistranslated strings for picker, datetime, and other components.",
+      "fix": "Correct multiple mistranslated strings in vant/src/locale/lang/ja-JP.ts.",
+      "authored": true
+    },
+    {
+      "id": "mui-x-ja-jp-locale",
+      "title": "[l10n] Improve Japanese (ja-JP) locale",
+      "library": "mui-x",
+      "repo": "mui/mui-x",
+      "url": "https://github.com/mui/mui-x/pull/23001",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "MUI X Japanese (ja-JP) locale has incomplete or incorrect translations for data grid, date picker, and time picker components.",
+      "repro": "MUI X components with jaJP locale show untranslated English strings or incorrect Japanese.",
+      "fix": "Improve Japanese translations across multiple MUI X locale strings.",
+      "authored": true
+    },
+    {
+      "id": "semi-design-ja-upload-crop",
+      "title": "fix(locale): add missing Japanese Upload crop modal text",
+      "library": "semi-design",
+      "repo": "DouyinFE/semi-design",
+      "url": "https://github.com/DouyinFE/semi-design/pull/3313",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Semi Design's Japanese locale is missing translation strings for the Upload component's crop modal UI.",
+      "repro": "Semi Design Upload component with crop modal in Japanese locale shows untranslated (English) strings in the crop modal.",
+      "fix": "Add missing Japanese translation keys for Upload crop modal to ja-JP locale.",
+      "authored": true
+    },
+    {
+      "id": "ng-zorro-ja-quarter-placeholders",
+      "title": "fix(module:i18n): add missing quarter placeholders to ja_JP",
+      "library": "ng-zorro-antd",
+      "repo": "NG-ZORRO/ng-zorro-antd",
+      "url": "https://github.com/NG-ZORRO/ng-zorro-antd/pull/9857",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "Angular"
+      ],
+      "symptom": "NG-ZORRO Angular Japanese (ja_JP) locale is missing quarter placeholder strings, causing runtime errors or blank UI for date range pickers.",
+      "repro": "NG-ZORRO DatePicker quarter mode with ja_JP locale throws error or shows blank quarter placeholders.",
+      "fix": "Add missing quarter i18n keys to ja_JP locale file.",
+      "authored": true
+    },
+    {
+      "id": "filepond-ja-file-processing-label",
+      "title": "Fix ja-ja labelFileProcessing (読込中 -> アップロード中)",
+      "library": "filepond",
+      "repo": "pqina/filepond",
+      "url": "https://github.com/pqina/filepond/pull/1076",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "FilePond Japanese locale uses '読込中' (loading/reading) for the file processing label, which should be 'アップロード中' (uploading) to accurately describe the action.",
+      "repro": "FilePond with Japanese locale shows '読込中' during file upload, misleading users into thinking a read is occurring.",
+      "fix": "Change labelFileProcessing from '読込中' to 'アップロード中' in the Japanese locale.",
+      "authored": true
+    },
+    {
+      "id": "arco-design-ja-jp-locale",
+      "title": "fix(locale): correct ja-JP translation errors",
+      "library": "arco-design",
+      "repo": "arco-design/arco-design",
+      "url": "https://github.com/arco-design/arco-design/pull/3188",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Arco Design Japanese (ja-JP) locale contains multiple translation errors across component strings.",
+      "repro": "Arco Design components with ja-JP locale show incorrect Japanese translations.",
+      "fix": "Correct translation errors in arco-design/arco-design/components/_utils/locale/ja-JP.ts.",
+      "authored": true
+    },
+    {
+      "id": "jsoneditor-ja-incomplete",
+      "title": "fix(i18n): complete Japanese (ja) translation",
+      "library": "jsoneditor",
+      "repo": "josdejong/jsoneditor",
+      "url": "https://github.com/josdejong/jsoneditor/pull/1758",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "jsoneditor's Japanese locale is incomplete; many UI strings remain in English when ja locale is selected.",
+      "repro": "jsoneditor with locale:'ja' shows English strings for missing Japanese translations.",
+      "fix": "Fill all missing Japanese translation keys in the ja locale file.",
+      "authored": true
+    },
+    {
+      "id": "quasar-ja-editor-tree-labels",
+      "title": "fix(lang): correct Japanese (ja) mistranslations in editor/tree labels",
+      "library": "quasar",
+      "repo": "quasarframework/quasar",
+      "url": "https://github.com/quasarframework/quasar/pull/18336",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "Vue"
+      ],
+      "symptom": "Quasar Framework Japanese locale has mistranslations in editor toolbar labels and tree component strings.",
+      "repro": "Quasar editor toolbar or tree component in Japanese shows incorrect label text.",
+      "fix": "Correct mistranslated Japanese strings in quasar/lang/ja.js.",
+      "authored": true
+    },
+    {
+      "id": "uppy-ja-smartcount-folderadded",
+      "title": "fix(@uppy/locales): repair smart_count placeholder in ja_JP folderAdded",
+      "library": "uppy",
+      "repo": "transloadit/uppy",
+      "url": "https://github.com/transloadit/uppy/pull/6367",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "Uppy's Japanese (ja_JP) locale has a broken smart_count plural placeholder in the 'folderAdded' string, causing pluralization to fail and show a raw placeholder.",
+      "repro": "Uppy file picker in Japanese displays 'folderAdded' with a visible placeholder token instead of correct plural text.",
+      "fix": "Fix the smart_count placeholder syntax in ja_JP's folderAdded locale string.",
+      "authored": true
+    },
+    {
+      "id": "videojs-ja-pip-label",
+      "title": "fix(lang): add missing Japanese (ja) translation for 'Playing in Picture-in-Picture'",
+      "library": "video.js",
+      "repo": "videojs/video.js",
+      "url": "https://github.com/videojs/video.js/pull/9209",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "Video.js Japanese (ja) locale is missing the translation for the 'Playing in Picture-in-Picture' accessibility string, falling back to English.",
+      "repro": "Video.js in Japanese locale; PiP mode accessible label shows 'Playing in Picture-in-Picture' in English.",
+      "fix": "Add 'ピクチャーインピクチャーで再生中' or equivalent to the ja.json locale.",
+      "authored": true
+    },
+    {
+      "id": "memos-ja-missing-keys",
+      "title": "i18n(ja): complete Japanese translations — fill 24 missing keys",
+      "library": "memos",
+      "repo": "usememos/memos",
+      "url": "https://github.com/usememos/memos/pull/6048",
+      "status": "merged",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Memos Japanese (ja) locale has 24 missing translation keys; these fall back to English in the UI.",
+      "repro": "Memos with Japanese locale selected; 24 UI strings display in English.",
+      "fix": "Fill all 24 missing Japanese translation keys in locales/ja.json.",
+      "authored": true
+    },
+    {
+      "id": "appwrite-ja-email-keys",
+      "title": "i18n(ja): fill 48 missing email translation keys",
+      "library": "appwrite",
+      "repo": "appwrite/appwrite",
+      "url": "https://github.com/appwrite/appwrite/pull/12677",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "i18n"
+      ],
+      "symptom": "Appwrite Japanese email templates have 48 missing translation keys, causing emails to be sent in English to Japanese users.",
+      "repro": "Appwrite with Japanese locale; email notifications contain 48 English fallback strings.",
+      "fix": "Translate all 48 missing keys in app/config/locale/translations/ja.json email templates.",
+      "authored": true
+    },
+    {
+      "id": "medusa-ja-dashboard-keys",
+      "title": "i18n(ja): complete dashboard translations — fill 511 missing keys",
+      "library": "medusa",
+      "repo": "medusajs/medusa",
+      "url": "https://github.com/medusajs/medusa/pull/15839",
+      "status": "merged",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "Medusa dashboard Japanese (ja) locale has 511 missing translation keys, leaving most of the admin UI in English for Japanese users.",
+      "repro": "Medusa admin dashboard with Japanese locale; majority of UI strings display in English.",
+      "fix": "Translate all 511 missing keys in packages/admin-ui/ui/src/i18n/translations/ja.json.",
+      "authored": true
+    },
+    {
+      "id": "clerk-ja-oauth-consent",
+      "title": "feat(localizations): translate oauthConsent section to Japanese",
+      "library": "clerk",
+      "repo": "clerk/javascript",
+      "url": "https://github.com/clerk/javascript/pull/9028",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "TS"
+      ],
+      "symptom": "Clerk's oauthConsent UI section lacks Japanese translations, showing English strings to Japanese users during OAuth authorization.",
+      "repro": "Clerk OAuth consent page with Japanese locale; consent section displays in English.",
+      "fix": "Add Japanese translations for all oauthConsent locale keys.",
+      "authored": true
+    },
+    {
+      "id": "jp-prefectures-aichi-enname",
+      "title": "fix: correct enName of 愛知県 (Aichi) from 'ehime' to 'aichi'",
+      "library": "jp-prefectures.js",
+      "repo": "hatsu38/jp-prefectures.js",
+      "url": "https://github.com/hatsu38/jp-prefectures.js/pull/162",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "jp-prefectures.js has the English name of Aichi prefecture (愛知県) set to 'ehime' (which is Ehime prefecture / 愛媛県), causing incorrect prefecture mapping.",
+      "repro": "jpPrefectures.findByCode(23).enName returns 'ehime' instead of 'aichi'.",
+      "fix": "Change enName for 愛知県 (code 23) from 'ehime' to 'aichi'.",
+      "authored": true
+    },
+    {
+      "id": "react-controlled-ime-onchange",
+      "title": "onChange fires during IME composition in controlled components",
+      "library": "React",
+      "repo": "facebook/react",
+      "url": "https://github.com/facebook/react/issues/8683",
+      "status": "closed",
+      "category": "ime-composition",
+      "stack": [
+        "React"
+      ],
+      "symptom": "In a controlled <input>/<textarea>, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.",
+      "repro": "Type Chinese/Japanese through an IME into a controlled input that filters on onChange; the handler runs on every uncommitted composition keystroke.",
+      "fix": "Track compositionstart/compositionend and suppress onChange handling while a composition is active.",
+      "authored": false
+    },
+    {
+      "id": "maui-entry-completed-ime",
+      "title": "Entry.Completed fires on the Enter that confirms an IME candidate",
+      "library": "dotnet/maui",
+      "repo": "dotnet/maui",
+      "url": "https://github.com/dotnet/maui/issues/36179",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "MAUI",
+        "Windows"
+      ],
+      "symptom": "On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.",
+      "repro": "Focus a MAUI Entry on Windows, use a Chinese/Japanese IME, press Enter to pick a candidate; Completed fires mid-conversion.",
+      "fix": "Do not raise Completed while the IME conversion window is open; fire only once the composition is fully committed.",
+      "authored": false
+    },
+    {
+      "id": "uievents-compositionend-input-order",
+      "title": "Event order between compositionend and input is inconsistent across browsers",
+      "library": "w3c/uievents",
+      "repo": "w3c/uievents",
+      "url": "https://github.com/w3c/uievents/issues/202",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "spec"
+      ],
+      "symptom": "The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.",
+      "repro": "Log the input and compositionend events while committing a CJK composition in Chrome versus Firefox; their relative order differs.",
+      "fix": "Define a canonical order in the spec; frameworks should not assume input fires before compositionend.",
+      "authored": false
+    },
+    {
+      "id": "input-events-insertcompositiontext",
+      "title": "insertCompositionText and isComposing cannot single out the commit input event",
+      "library": "w3c/input-events",
+      "repo": "w3c/input-events",
+      "url": "https://github.com/w3c/input-events/issues/176",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "spec"
+      ],
+      "symptom": "Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.",
+      "repro": "Type s, i, Space to convert to a kanji, change the candidate, then press Enter to commit; the input events for each step are indistinguishable.",
+      "fix": "Assign a distinct inputType (or property) to the input event that commits the composition.",
+      "authored": false
+    },
+    {
+      "id": "zed-vim-jk-escape-ime",
+      "title": "Vim jk escape depends on the CJK IME input mode",
+      "library": "zed",
+      "repo": "zed-industries/zed",
+      "url": "https://github.com/zed-industries/zed/issues/53630",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "Zed"
+      ],
+      "symptom": "With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.",
+      "repro": "Enable Vim mode, map jk to escape, use a CJK IME such as macOS Pinyin; jk escapes while composing in Chinese mode but not in English mode.",
+      "fix": "Detect the jk key sequence consistently regardless of the IME composition state.",
+      "authored": false
+    },
+    {
+      "id": "zed-chinese-ime-text-shift",
+      "title": "Text shifts vertically while composing with a Chinese IME on Windows",
+      "library": "zed",
+      "repo": "zed-industries/zed",
+      "url": "https://github.com/zed-industries/zed/issues/59193",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "Zed",
+        "Windows"
+      ],
+      "symptom": "While composing Chinese text with an IME on Windows, the line of text jumps vertically as the composition updates, which disrupts reading and editing.",
+      "repro": "Open Zed (Vim mode) on Windows 11 and type Chinese characters through an IME; the text shifts vertically during composition.",
+      "fix": "Keep the line baseline stable while updating the IME marked-text region during composition.",
+      "authored": false
+    },
+    {
+      "id": "warp-marked-text-ime",
+      "title": "Marked text (IME preedit) is not rendered, so composition is blind",
+      "library": "Warp",
+      "repo": "warpdotdev/warp",
+      "url": "https://github.com/warpdotdev/warp/issues/320",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "Warp",
+        "macOS"
+      ],
+      "symptom": "Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.",
+      "repro": "In Warp on macOS, press Option+E (or start a CJK composition); no marked text is shown to indicate the in-progress input.",
+      "fix": "Render marked text inline via the platform IME API (NSTextInputClient on macOS) so the preedit is visible at the cursor.",
+      "authored": false
+    },
+    {
+      "id": "grapheme-splitter-zwj-emoji",
+      "title": "ZWJ-joined emoji are split into pieces",
+      "library": "grapheme-splitter",
+      "repo": "orling/grapheme-splitter",
+      "url": "https://github.com/orling/grapheme-splitter/issues/7",
+      "status": "closed",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.",
+      "repro": "new GraphemeSplitter().splitGraphemes('🏳️‍🌈') returns two elements instead of one.",
+      "fix": "Implement the Unicode emoji ZWJ sequence rules (UTS #51) so a ZWJ-joined emoji stays a single cluster.",
+      "authored": false
+    },
+    {
+      "id": "lodash-toarray-tag-sequence",
+      "title": "toArray splits a tag-sequence flag emoji into code points",
+      "library": "lodash",
+      "repo": "lodash/lodash",
+      "url": "https://github.com/lodash/lodash/issues/5112",
+      "status": "closed",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "_.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.",
+      "repro": "_.toArray for the England flag emoji (a base flag plus tag characters) returns seven pieces instead of one.",
+      "fix": "Use a Unicode-aware iterator such as Intl.Segmenter that handles tag sequences when converting a string to an array.",
+      "authored": false
+    },
+    {
+      "id": "pykakasi-halfwidth-katakana",
+      "title": "Half-width katakana fails to romanize, especially with voiced marks",
+      "library": "pykakasi",
+      "repo": "miurahr/pykakasi",
+      "url": "https://github.com/miurahr/pykakasi/issues/87",
+      "status": "closed",
+      "category": "kana-romaji",
+      "stack": [
+        "Python"
+      ],
+      "symptom": "pykakasi does not romanize half-width katakana correctly, particularly when a half-width voiced or semi-voiced mark (U+FF9E / U+FF9F) follows the base kana.",
+      "repro": "Convert half-width katakana such as a half-width ka followed by a half-width dakuten; the output is wrong instead of 'ga'.",
+      "fix": "NFKC-normalize half-width katakana and combining voiced marks to their full-width equivalents before romanization.",
+      "authored": false
+    },
+    {
+      "id": "unidecode-halfwidth-dakuten",
+      "title": "Faulty transliteration of half-width katakana with dakuten and handakuten",
+      "library": "unidecode",
+      "repo": "avian2/unidecode",
+      "url": "https://github.com/avian2/unidecode/issues/51",
+      "status": "closed",
+      "category": "kana-romaji",
+      "stack": [
+        "Python"
+      ],
+      "symptom": "Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.",
+      "repro": "unidecode on half-width ba bi bu be bo returns a wrong string instead of 'babibubebo'.",
+      "fix": "Pre-compose half-width katakana plus combining voiced marks (NFKC) before the transliteration lookup.",
+      "authored": false
+    },
+    {
+      "id": "windows-terminal-vs15",
+      "title": "Variation Selector-15 (U+FE0E) is ignored, forcing emoji style",
+      "library": "microsoft/terminal",
+      "repo": "microsoft/terminal",
+      "url": "https://github.com/microsoft/terminal/issues/20073",
+      "status": "closed",
+      "category": "surrogate-emoji",
+      "stack": [
+        "Windows Terminal"
+      ],
+      "symptom": "Windows Terminal ignores the text-presentation variation selector U+FE0E, rendering the color-emoji form even when text style is explicitly requested.",
+      "repro": "Print a text-style sequence such as U+23CF followed by U+FE0E; it renders as a color emoji instead of the text glyph.",
+      "fix": "Honor VS-15 (U+FE0E) for text presentation and VS-16 (U+FE0F) for emoji presentation, per the Unicode emoji variation sequences.",
+      "authored": false
+    },
+    {
+      "id": "emoji-regex-text-vs15",
+      "title": "Matches a character followed by a text variation selector (U+FE0E)",
+      "library": "emoji-regex",
+      "repo": "mathiasbynens/emoji-regex",
+      "url": "https://github.com/mathiasbynens/emoji-regex/issues/61",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.",
+      "repro": "emojiRegex().test('\\u2757\\uFE0E') returns true even though U+FE0E requests text presentation.",
+      "fix": "Exclude a match followed by VS-15 (U+FE0E); treat only a trailing VS-16 (U+FE0F) or no selector as emoji.",
+      "authored": false
     }
   ]
 }

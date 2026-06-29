@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romanize づ as zu (the consonant was being dropped) - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="kana-romaji: kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/kana-romaji-zu-dropped.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Romanize づ as zu (the consonant was being dropped) - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="kana-romaji: kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/kana-romaji-zu-dropped.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Romanize づ as zu (the consonant was being dropped) - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="kana-romaji: kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Romanize づ as zu (the consonant was being dropped)","about":"Kana / romaji","description":"kana-romaji: kana-romaji library drops the 'z' consonant when romanizing づ, outputting 'u' instead of 'zu'.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/kana-romaji-zu-dropped.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Kana / romaji</p>
+    <a class="detail-back" href="../#kana-romaji-zu-dropped">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="kana-romaji-zu-dropped" data-cat="kana-romaji" data-lib="kana-romaji" data-search="romanize づ as zu (the consonant was being dropped) kana-romaji mtomim/kana-romaji kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;. romanize(&#39;づ&#39;) returns &#39;u&#39; instead of &#39;zu&#39;. づ should romanize as &#39;zu&#39; (hepburn). map づ→zu in the kana table. kana / romaji js pull request">
+  <div class="entry-top">
+    <span class="tag">Kana / romaji</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Romanize づ as zu (the consonant was being dropped)</h1>
+  <p class="lib-line"><span class="lib">kana-romaji</span> &middot; <a href="https://github.com/mtomim/kana-romaji">mtomim/kana-romaji</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>kana-romaji library drops the 'z' consonant when romanizing づ, outputting 'u' instead of 'zu'.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">romanize('づ') returns 'u' instead of 'zu'.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>づ should romanize as 'zu' (Hepburn). Map づ→zu in the kana table.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/mtomim/kana-romaji/pull/21">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#kana-romaji-zu-dropped">#kana-romaji-zu-dropped</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

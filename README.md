@@ -8,11 +8,12 @@ Most of these are the same handful of mistakes, made over and over, in libraries
 
 ## What's in it
 
-Every entry maps to a real pull request. Titles, repos, URLs, and merge status are taken from the GitHub API, not written from memory. The categories so far:
+Most entries are pull requests authored by greymoth; their titles, repos, URLs, and merge status are taken from the GitHub API, not written from memory. A few are cited upstream issues from the wider ecosystem that document the same failures — these are marked `cited` and link to the original report. The categories so far:
 
 - **IME composition** — the Enter that confirms a kana-to-kanji conversion also fires a submit/select handler. The fix is one guard (`event.isComposing`, or `keyCode 229`; in React, `event.nativeEvent.isComposing`). It is endemic: the corpus tracks it across React, Vue, Svelte, Angular, and headless component libraries.
 - **Kana / romaji** — transliteration tables that drop or reverse kana. Round-trip is the oracle.
 - **Width / normalization** — full-width to half-width, long-vowel marks, kana range boundaries.
+- **Surrogate & grapheme** — code that walks text by code unit instead of grapheme cluster, so surrogate pairs split, ZWJ emoji and variation selectors are mis-detected, and combining marks drift from their base.
 - **Numerals** — kanji numbers, including the daiji forms used in legal and financial text.
 - **Locale data** — missing or wrong `ja-JP` strings, including mistranslations that flip meaning.
 - **Regex roundtrip / codegen escape** — characters that are special in one position leaking into generated output and breaking it.

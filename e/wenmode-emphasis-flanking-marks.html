@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix emphasis flanking for Unicode marks and format characters - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="wenmode: wenmode&#39;s is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/wenmode-emphasis-flanking-marks.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fix emphasis flanking for Unicode marks and format characters - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="wenmode: wenmode&#39;s is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/wenmode-emphasis-flanking-marks.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fix emphasis flanking for Unicode marks and format characters - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="wenmode: wenmode&#39;s is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fix emphasis flanking for Unicode marks and format characters","about":"Surrogate & grapheme","description":"wenmode: wenmode's is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/wenmode-emphasis-flanking-marks.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
+    <a class="detail-back" href="../#wenmode-emphasis-flanking-marks">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="wenmode-emphasis-flanking-marks" data-cat="surrogate-emoji" data-lib="wenmode" data-search="fix emphasis flanking for unicode marks and format characters wenmode lepture/wenmode wenmode&#39;s is_punctuation function treats unicode combining marks (mn category) and format characters (cf/zwj) as punctuation per the commonmark spec, incorrectly suppressing valid emphasis around cjk text with diacritics or zwj sequences. markdown text using emphasis (* or _) adjacent to a combining mark or zwj character; emphasis fails to render because combining marks are classified as punctuation. exclude unicode general categories mn, mc, cf from the punctuation classification; add ascii fast-path to avoid performance regression. surrogate &amp; grapheme  pull request">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    
+    
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h1 class="entry-title">Fix emphasis flanking for Unicode marks and format characters</h1>
+  <p class="lib-line"><span class="lib">wenmode</span> &middot; <a href="https://github.com/lepture/wenmode">lepture/wenmode</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>wenmode's is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Markdown text using emphasis (* or _) adjacent to a combining mark or ZWJ character; emphasis fails to render because combining marks are classified as punctuation.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Exclude Unicode General Categories Mn, Mc, Cf from the punctuation classification; add ASCII fast-path to avoid performance regression.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/lepture/wenmode/pull/1">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#wenmode-emphasis-flanking-marks">#wenmode-emphasis-flanking-marks</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

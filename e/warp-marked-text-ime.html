@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marked text (IME preedit) is not rendered, so composition is blind - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="Warp: Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/warp-marked-text-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marked text (IME preedit) is not rendered, so composition is blind - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="Warp: Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/warp-marked-text-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Marked text (IME preedit) is not rendered, so composition is blind - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="Warp: Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Marked text (IME preedit) is not rendered, so composition is blind","about":"IME composition","description":"Warp: Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/warp-marked-text-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#warp-marked-text-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="warp-marked-text-ime" data-cat="ime-composition" data-lib="Warp" data-search="marked text (ime preedit) is not rendered, so composition is blind warp warpdotdev/warp warp does not render ime marked (preedit) text, so dead keys and cjk composition show nothing until committed and the user composes blind. in warp on macos, press option+e (or start a cjk composition); no marked text is shown to indicate the in-progress input. render marked text inline via the platform ime api (nstextinputclient on macos) so the preedit is visible at the cursor. ime composition warp macos cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Warp</span><span class="tag tag--stack">macOS</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Marked text (IME preedit) is not rendered, so composition is blind</h1>
+  <p class="lib-line"><span class="lib">Warp</span> &middot; <a href="https://github.com/warpdotdev/warp">warpdotdev/warp</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">In Warp on macOS, press Option+E (or start a CJK composition); no marked text is shown to indicate the in-progress input.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Render marked text inline via the platform IME API (NSTextInputClient on macOS) so the preedit is visible at the cursor.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/warpdotdev/warp/issues/320">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#warp-marked-text-ime">#warp-marked-text-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

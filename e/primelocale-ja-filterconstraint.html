@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix ja aria filterConstraint translation (成約 → 制約) - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="primelocale: PrimeLocale Japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterConstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;).">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fix ja aria filterConstraint translation (成約 → 制約) - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="primelocale: PrimeLocale Japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterConstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;).">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fix ja aria filterConstraint translation (成約 → 制約) - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="primelocale: PrimeLocale Japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterConstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;).">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fix ja aria filterConstraint translation (成約 → 制約)","about":"Locale data","description":"primelocale: PrimeLocale Japanese (ja) locale uses 成約 (meaning 'conclusion of a contract') for 'filterConstraint' aria label, which should be 制約 ('constraint/restriction').","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Locale data</p>
+    <a class="detail-back" href="../#primelocale-ja-filterconstraint">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="primelocale-ja-filterconstraint" data-cat="locale-leftover" data-lib="primelocale" data-search="fix ja aria filterconstraint translation (成約 → 制約) primelocale primefaces/primelocale primelocale japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterconstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;). primefaces component with aria-label for filter constraint in japanese reads &#39;成約&#39; (contract) instead of &#39;制約&#39; (constraint). change filterconstraint value from &#39;成約&#39; to &#39;制約&#39; in the ja.json locale file. locale data i18n pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">i18n</span>
+    
+    <span class="badge badge--merged">merged</span>
+  </div>
+  <h1 class="entry-title">Fix ja aria filterConstraint translation (成約 → 制約)</h1>
+  <p class="lib-line"><span class="lib">primelocale</span> &middot; <a href="https://github.com/primefaces/primelocale">primefaces/primelocale</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>PrimeLocale Japanese (ja) locale uses 成約 (meaning 'conclusion of a contract') for 'filterConstraint' aria label, which should be 制約 ('constraint/restriction').</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">PrimeFaces component with aria-label for filter constraint in Japanese reads '成約' (contract) instead of '制約' (constraint).</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Change filterConstraint value from '成約' to '制約' in the ja.json locale file.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/primefaces/primelocale/pull/266">Merged PR &rarr;</a>
+    <a class="anchor-link" href="#primelocale-ja-filterconstraint">#primelocale-ja-filterconstraint</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

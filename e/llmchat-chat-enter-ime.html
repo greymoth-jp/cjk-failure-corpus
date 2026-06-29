@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fix: ignore Enter that confirms IME composition in chat input - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="llmchat: CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/llmchat-chat-enter-ime.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fix: ignore Enter that confirms IME composition in chat input - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="llmchat: CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/llmchat-chat-enter-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fix: ignore Enter that confirms IME composition in chat input - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="llmchat: CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix: ignore Enter that confirms IME composition in chat input","about":"IME composition","description":"llmchat: CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/llmchat-chat-enter-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#llmchat-chat-enter-ime">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="llmchat-chat-enter-ime" data-cat="ime-composition" data-lib="llmchat" data-search="fix: ignore enter that confirms ime composition in chat input llmchat trendy-design/llmchat cjk users pressing enter to accept an ime candidate also submits the chat message, sending an empty or partial message. type japanese in llmchat chat input using ime; press enter to select a candidate; message sends immediately. guard enter keydown handler with if (event.iscomposing || event.nativeevent?.iscomposing) return. ime composition react pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">fix: ignore Enter that confirms IME composition in chat input</h1>
+  <p class="lib-line"><span class="lib">llmchat</span> &middot; <a href="https://github.com/trendy-design/llmchat">trendy-design/llmchat</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Type Japanese in llmchat chat input using IME; press Enter to select a candidate; message sends immediately.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Guard Enter keydown handler with if (event.isComposing || event.nativeEvent?.isComposing) return.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/trendy-design/llmchat/pull/103">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#llmchat-chat-enter-ime">#llmchat-chat-enter-ime</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

@@ -18,6 +18,7 @@ const CAT_ORDER = [
   "ime-composition",
   "kana-romaji",
   "width-normalization",
+  "surrogate-emoji",
   "numeral",
   "locale-leftover",
   "regex-roundtrip",
@@ -42,7 +43,7 @@ for (const e of entries) {
   }
   if (!categories[e.category]) throw new Error(`entry ${e.id} has unknown category: ${e.category}`);
   if (!/^https:\/\/github\.com\/.+\/(pull|issues)\/\d+$/.test(e.url)) throw new Error(`entry ${e.id} has a non-PR url: ${e.url}`);
-  if (e.status !== "open" && e.status !== "merged") throw new Error(`entry ${e.id} bad status: ${e.status}`);
+  if (!["open", "merged", "closed"].includes(e.status)) throw new Error(`entry ${e.id} bad status: ${e.status}`);
   if (seen.has(e.id)) throw new Error(`duplicate id: ${e.id}`);
   seen.add(e.id);
 }
@@ -86,9 +87,14 @@ function entryCard(e, { heading = "h3", link = true } = {}) {
   const titleInner = link
     ? `<a href="e/${esc(e.id)}.html">${esc(e.title)}</a>`
     : esc(e.title);
+  const authored = e.authored !== false;
+  const citedTag = authored ? "" : `<span class="tag tag--cited">cited</span>`;
+  const linkLabel = authored
+    ? (e.status === "merged" ? "Merged PR" : e.status === "closed" ? "Closed PR" : "Fix PR")
+    : "Upstream issue";
   const repoUrl = `https://github.com/${esc(e.repo)}`;
   const searchHay = attr(
-    [e.title, e.library, e.repo, e.symptom, e.repro, e.fix, categories[e.category].label, (e.stack || []).join(" ")]
+    [e.title, e.library, e.repo, e.symptom, e.repro, e.fix, categories[e.category].label, (e.stack || []).join(" "), authored ? "pull request" : "cited upstream issue"]
       .join(" ")
       .toLowerCase()
   );
@@ -96,6 +102,7 @@ function entryCard(e, { heading = "h3", link = true } = {}) {
   <div class="entry-top">
     <span class="tag">${esc(categories[e.category].label)}</span>
     ${stackTags}
+    ${citedTag}
     ${statusBadge(e.status)}
   </div>
   <${heading} class="entry-title">${titleInner}</${heading}>
@@ -113,7 +120,7 @@ function entryCard(e, { heading = "h3", link = true } = {}) {
     <p>${esc(e.fix)}</p>
   </div>
   <div class="entry-foot">
-    <a class="pr-link" href="${esc(e.url)}">${e.status === "merged" ? "Merged PR" : "Fix PR"} &rarr;</a>
+    <a class="pr-link" href="${esc(e.url)}">${linkLabel} &rarr;</a>
     <a class="anchor-link" href="#${esc(e.id)}">#${esc(e.id)}</a>
   </div>
 </article>`;
@@ -192,7 +199,7 @@ ${catSections}
 <footer>
   <div class="wrap">
     <p class="mark">greymoth</p>
-    <p>A running corpus of CJK, IME, and Unicode/text-handling failures found while reading global open-source code with a Japanese lens. Every entry is a real pull request. Data: <a href="data/corpus.json">corpus.json</a>. CI fixtures: <a href="${esc(meta.fixturesRepo)}">cjk-agent-fixtures</a>.</p>
+    <p>A running corpus of CJK, IME, and Unicode/text-handling failures found while reading global open-source code with a Japanese lens. Most entries are greymoth's own pull requests; a few are cited upstream issues that document the same failures. Data: <a href="data/corpus.json">corpus.json</a>. CI fixtures: <a href="${esc(meta.fixturesRepo)}">cjk-agent-fixtures</a>.</p>
   </div>
 </footer>
 

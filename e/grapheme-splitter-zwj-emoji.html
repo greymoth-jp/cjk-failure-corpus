@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZWJ-joined emoji are split into pieces - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="grapheme-splitter: grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/grapheme-splitter-zwj-emoji.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZWJ-joined emoji are split into pieces - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="grapheme-splitter: grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/grapheme-splitter-zwj-emoji.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZWJ-joined emoji are split into pieces - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="grapheme-splitter: grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"ZWJ-joined emoji are split into pieces","about":"Surrogate & grapheme","description":"grapheme-splitter: grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/grapheme-splitter-zwj-emoji.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
+    <a class="detail-back" href="../#grapheme-splitter-zwj-emoji">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="grapheme-splitter-zwj-emoji" data-cat="surrogate-emoji" data-lib="grapheme-splitter" data-search="zwj-joined emoji are split into pieces grapheme-splitter orling/grapheme-splitter grapheme-splitter breaks zwj-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart. new graphemesplitter().splitgraphemes(&#39;🏳️‍🌈&#39;) returns two elements instead of one. implement the unicode emoji zwj sequence rules (uts #51) so a zwj-joined emoji stays a single cluster. surrogate &amp; grapheme js cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    <span class="tag tag--stack">JS</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--closed">closed</span>
+  </div>
+  <h1 class="entry-title">ZWJ-joined emoji are split into pieces</h1>
+  <p class="lib-line"><span class="lib">grapheme-splitter</span> &middot; <a href="https://github.com/orling/grapheme-splitter">orling/grapheme-splitter</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">new GraphemeSplitter().splitGraphemes('🏳️‍🌈') returns two elements instead of one.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Implement the Unicode emoji ZWJ sequence rules (UTS #51) so a ZWJ-joined emoji stays a single cluster.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/orling/grapheme-splitter/issues/7">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#grapheme-splitter-zwj-emoji">#grapheme-splitter-zwj-emoji</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

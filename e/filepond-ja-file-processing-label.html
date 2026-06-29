@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix ja-ja labelFileProcessing (読込中 -&gt; アップロード中) - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="filepond: FilePond Japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/filepond-ja-file-processing-label.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fix ja-ja labelFileProcessing (読込中 -&gt; アップロード中) - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="filepond: FilePond Japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/filepond-ja-file-processing-label.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fix ja-ja labelFileProcessing (読込中 -&gt; アップロード中) - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="filepond: FilePond Japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Fix ja-ja labelFileProcessing (読込中 -> アップロード中)","about":"Locale data","description":"filepond: FilePond Japanese locale uses '読込中' (loading/reading) for the file processing label, which should be 'アップロード中' (uploading) to accurately describe the action.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/filepond-ja-file-processing-label.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Locale data</p>
+    <a class="detail-back" href="../#filepond-ja-file-processing-label">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="filepond-ja-file-processing-label" data-cat="locale-leftover" data-lib="filepond" data-search="fix ja-ja labelfileprocessing (読込中 -&gt; アップロード中) filepond pqina/filepond filepond japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action. filepond with japanese locale shows &#39;読込中&#39; during file upload, misleading users into thinking a read is occurring. change labelfileprocessing from &#39;読込中&#39; to &#39;アップロード中&#39; in the japanese locale. locale data js pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Fix ja-ja labelFileProcessing (読込中 -&gt; アップロード中)</h1>
+  <p class="lib-line"><span class="lib">filepond</span> &middot; <a href="https://github.com/pqina/filepond">pqina/filepond</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>FilePond Japanese locale uses '読込中' (loading/reading) for the file processing label, which should be 'アップロード中' (uploading) to accurately describe the action.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">FilePond with Japanese locale shows '読込中' during file upload, misleading users into thinking a read is occurring.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Change labelFileProcessing from '読込中' to 'アップロード中' in the Japanese locale.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/pqina/filepond/pull/1076">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#filepond-ja-file-processing-label">#filepond-ja-file-processing-label</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

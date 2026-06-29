@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>onChange fires during IME composition in controlled components - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="React: In a controlled &lt;input&gt;/&lt;textarea&gt;, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/react-controlled-ime-onchange.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="onChange fires during IME composition in controlled components - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="React: In a controlled &lt;input&gt;/&lt;textarea&gt;, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/react-controlled-ime-onchange.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="onChange fires during IME composition in controlled components - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="React: In a controlled &lt;input&gt;/&lt;textarea&gt;, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"onChange fires during IME composition in controlled components","about":"IME composition","description":"React: In a controlled <input>/<textarea>, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/react-controlled-ime-onchange.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
+    <a class="detail-back" href="../#react-controlled-ime-onchange">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="react-controlled-ime-onchange" data-cat="ime-composition" data-lib="React" data-search="onchange fires during ime composition in controlled components react facebook/react in a controlled &lt;input&gt;/&lt;textarea&gt;, onchange fires for the intermediate keystrokes of an ime composition, so any onchange-driven search or filter runs on half-finished cjk text. type chinese/japanese through an ime into a controlled input that filters on onchange; the handler runs on every uncommitted composition keystroke. track compositionstart/compositionend and suppress onchange handling while a composition is active. ime composition react cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--closed">closed</span>
+  </div>
+  <h1 class="entry-title">onChange fires during IME composition in controlled components</h1>
+  <p class="lib-line"><span class="lib">React</span> &middot; <a href="https://github.com/facebook/react">facebook/react</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>In a controlled &lt;input&gt;/&lt;textarea&gt;, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Type Chinese/Japanese through an IME into a controlled input that filters on onChange; the handler runs on every uncommitted composition keystroke.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Track compositionstart/compositionend and suppress onChange handling while a composition is active.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/facebook/react/issues/8683">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#react-controlled-ime-onchange">#react-controlled-ime-onchange</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 84 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>
