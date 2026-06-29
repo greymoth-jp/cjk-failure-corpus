@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MUI Pagination aria-labels fall back to English in the zh-CN locale — CJK Failure Corpus</title>
+<meta name="description" content="material-ui: The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though eve…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/material-ui-zhcn-pagination.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MUI Pagination aria-labels fall back to English in the zh-CN locale — CJK Failure Corpus">
+<meta property="og:description" content="material-ui: The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though eve…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/material-ui-zhcn-pagination.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MUI Pagination aria-labels fall back to English in the zh-CN locale — CJK Failure Corpus">
+<meta name="twitter:description" content="material-ui: The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though eve…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"MUI Pagination aria-labels fall back to English in the zh-CN locale","alternativeHeadline":"[l10n] Add missing MuiPagination localization to zh-CN locale","name":"MUI Pagination aria-labels fall back to English in the zh-CN locale","about":"Locale data","articleSection":"Locale data","keywords":"React, material-ui, Locale data, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"material-ui: The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though eve…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/material-ui-zhcn-pagination.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/material-ui-zhcn-pagination.html","dateModified":"2026-06-29","citation":"https://github.com/mui/material-ui/pull/48741","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Locale data","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html"},{"@type":"ListItem","position":3,"name":"MUI Pagination aria-labels fall back to English in the zh-CN locale","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/material-ui-zhcn-pagination.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/locale-leftover.html">Locale data</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="material-ui-zhcn-pagination" data-cat="locale-leftover" data-lib="material-ui" data-search="mui pagination aria-labels fall back to english in the zh-cn locale [l10n] add missing muipagination localization to zh-cn locale material-ui mui/material-ui the zh-cn locale is missing the muipagination block, so the pagination aria-label and getitemarialabel text fall back to english even though every other component in the file is localized. among all locales only the three chinese ones omit it; ja-jp and ko-kr already localize this block. render a mui &lt;pagination&gt; under the zhcn locale and inspect it with a screen reader; the navigation aria-label and per-page item labels are announced in english. add the muipagination block to zhcn, reusing the noun phrases already in this file&#39;s muitablepagination.getitemarialabel (第一页 / 最后一页 / 下一页 / 上一页) plus 转到 (&quot;go to&quot;) to match the english source. locale data react pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">React</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">MUI Pagination aria-labels fall back to English in the zh-CN locale</h1>
+  <p class="entry-subtitle">[l10n] Add missing MuiPagination localization to zh-CN locale</p>
+  <p class="lib-line"><span class="lib">material-ui</span> &middot; <a href="https://github.com/mui/material-ui">mui/material-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though every other component in the file is localized. Among all locales only the three Chinese ones omit it; ja-JP and ko-KR already localize this block.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Render a MUI &lt;Pagination&gt; under the zhCN locale and inspect it with a screen reader; the navigation aria-label and per-page item labels are announced in English.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the MuiPagination block to zhCN, reusing the noun phrases already in this file's MuiTablePagination.getItemAriaLabel (第一页 / 最后一页 / 下一页 / 上一页) plus 转到 (&quot;Go to&quot;) to match the English source.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/mui/material-ui/pull/48741">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#material-ui-zhcn-pagination">#material-ui-zhcn-pagination</a>
+  </div>
+</article>
+    <p class="also-in">Also in: <a href="../stack/react.html">React</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+      <li><a href="../e/cherry-studio-rename-ime.html">Inline file rename submits during IME composition (Cherry Studio, Electron)</a></li>
+      <li><a href="../e/chatui-composer-ime.html">ChatUI composer sends on the Enter that confirms IME composition</a></li>
+    </ul>
+  </section>
+    <a class="detail-back" href="../">&larr; all 93 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

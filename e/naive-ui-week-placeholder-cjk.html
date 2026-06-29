@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week) — CJK Failure Corpus</title>
+<meta name="description" content="naive-ui: weekPlaceholder was left as the English fallback &quot;Select Week&quot; in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-cjk.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week) — CJK Failure Corpus">
+<meta property="og:description" content="naive-ui: weekPlaceholder was left as the English fallback &quot;Select Week&quot; in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-cjk.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week) — CJK Failure Corpus">
+<meta name="twitter:description" content="naive-ui: weekPlaceholder was left as the English fallback &quot;Select Week&quot; in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)","alternativeHeadline":"fix(locale): translate weekPlaceholder in the Korean and Traditional Chinese locales","name":"naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)","about":"Locale data","articleSection":"Locale data","keywords":"Vue, naive-ui, Locale data, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"naive-ui: weekPlaceholder was left as the English fallback \"Select Week\" in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-cjk.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-cjk.html","dateModified":"2026-06-29","citation":"https://github.com/tusen-ai/naive-ui/pull/8116","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Locale data","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html"},{"@type":"ListItem","position":3,"name":"naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-cjk.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/locale-leftover.html">Locale data</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="naive-ui-week-placeholder-cjk" data-cat="locale-leftover" data-lib="naive-ui" data-search="naive-ui weekplaceholder untranslated in korean and traditional chinese (select week) fix(locale): translate weekplaceholder in the korean and traditional chinese locales naive-ui tusen-ai/naive-ui weekplaceholder was left as the english fallback &quot;select week&quot; in the korean (kokr) and traditional chinese (zhtw) datepicker locales, so the week-mode date picker showed an english placeholder. zhcn and jajp were already translated; these were the remaining cjk locales still showing the fallback. use the date picker in week mode under the kokr or zhtw locale; the placeholder renders &quot;select week&quot; in english. translate weekplaceholder to 주 선택 (kokr, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhtw, the traditional form of zhcn&#39;s 选择周), propagating the jajp fix from #8114 to the remaining cjk locales. locale data vue pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">Vue</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)</h1>
+  <p class="entry-subtitle">fix(locale): translate weekPlaceholder in the Korean and Traditional Chinese locales</p>
+  <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>weekPlaceholder was left as the English fallback &quot;Select Week&quot; in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-mode date picker showed an English placeholder. zhCN and jaJP were already translated; these were the remaining CJK locales still showing the fallback.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Use the date picker in week mode under the koKR or zhTW locale; the placeholder renders &quot;Select Week&quot; in English.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Translate weekPlaceholder to 주 선택 (koKR, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhTW, the Traditional form of zhCN's 选择周), propagating the jaJP fix from #8114 to the remaining CJK locales.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/tusen-ai/naive-ui/pull/8116">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#naive-ui-week-placeholder-cjk">#naive-ui-week-placeholder-cjk</a>
+  </div>
+</article>
+    <p class="also-in">Also in: <a href="../stack/vue.html">Vue</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/element-plus-time-picker-ime.html">Element Plus time-picker reacts to keystrokes during IME composition</a></li>
+      <li><a href="../e/vuetify-autocomplete-ime.html">Vuetify VAutocomplete keydown fires during IME composition</a></li>
+      <li><a href="../e/nuxt-ui-shortcuts-ime.html">Nuxt UI defineShortcuts fire while typing with a Japanese IME</a></li>
+      <li><a href="../e/ant-design-typography-ja-labels.html">Wrong Japanese expand/collapse labels in Ant Design Typography</a></li>
+    </ul>
+  </section>
+    <a class="detail-back" href="../">&larr; all 93 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CJK / Unicode Failure Corpus</title>
-<meta name="description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta name="description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CJK / Unicode Failure Corpus">
-<meta property="og:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta property="og:description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta name="twitter:description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
     <p class="kicker">A field guide to the Japan-shaped holes</p>
     <h1 class="title">CJK / Unicode<br>Failure Corpus</h1>
     <p class="lede">Real CJK, IME, and Unicode/text-handling bugs in open-source libraries. Repro, affected libs, and the fix. Each entry links to its fix and to <a class="fixtures-link" href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>, the CI fixtures that keep these regressions from coming back.</p>
-    <p class="counts"><b>89</b> entries &nbsp;/&nbsp; <b>84</b> libraries &nbsp;/&nbsp; <b>15</b> already merged</p>
+    <p class="counts"><b>93</b> entries &nbsp;/&nbsp; <b>87</b> libraries &nbsp;/&nbsp; <b>15</b> already merged</p>
     <p class="source-note">Most entries are pull requests authored by greymoth, taken verbatim from the GitHub API. A few are cited upstream issues from the wider ecosystem that document the same failures; those are marked cited and link to the original report.</p>
   </div>
 </header>
@@ -33,9 +33,9 @@
 <nav class="browse" aria-label="Browse the corpus">
   <div class="wrap">
     <p class="browse-h">Browse by category</p>
-    <div class="chips"><a class="chip" href="category/ime-composition.html">IME composition <span class="chip-n">36</span></a><a class="chip" href="category/kana-romaji.html">Kana / romaji <span class="chip-n">8</span></a><a class="chip" href="category/width-normalization.html">Width / normalization <span class="chip-n">5</span></a><a class="chip" href="category/surrogate-emoji.html">Surrogate &amp; grapheme <span class="chip-n">10</span></a><a class="chip" href="category/segmentation.html">Segmentation / word count <span class="chip-n">2</span></a><a class="chip" href="category/numeral.html">Numerals <span class="chip-n">2</span></a><a class="chip" href="category/locale-leftover.html">Locale data <span class="chip-n">21</span></a><a class="chip" href="category/unicode-range.html">Unicode range <span class="chip-n">1</span></a><a class="chip" href="category/regex-roundtrip.html">Regex roundtrip <span class="chip-n">1</span></a><a class="chip" href="category/codegen-escape.html">Codegen escape <span class="chip-n">2</span></a><a class="chip" href="category/encoding.html">Encoding &amp; BOM <span class="chip-n">1</span></a></div>
+    <div class="chips"><a class="chip" href="category/ime-composition.html">IME composition <span class="chip-n">36</span></a><a class="chip" href="category/kana-romaji.html">Kana / romaji <span class="chip-n">8</span></a><a class="chip" href="category/width-normalization.html">Width / normalization <span class="chip-n">5</span></a><a class="chip" href="category/surrogate-emoji.html">Surrogate &amp; grapheme <span class="chip-n">11</span></a><a class="chip" href="category/segmentation.html">Segmentation / word count <span class="chip-n">2</span></a><a class="chip" href="category/numeral.html">Numerals <span class="chip-n">2</span></a><a class="chip" href="category/locale-leftover.html">Locale data <span class="chip-n">24</span></a><a class="chip" href="category/unicode-range.html">Unicode range <span class="chip-n">1</span></a><a class="chip" href="category/regex-roundtrip.html">Regex roundtrip <span class="chip-n">1</span></a><a class="chip" href="category/codegen-escape.html">Codegen escape <span class="chip-n">2</span></a><a class="chip" href="category/encoding.html">Encoding &amp; BOM <span class="chip-n">1</span></a></div>
     <p class="browse-h">Browse by stack</p>
-    <div class="chips"><a class="chip" href="stack/react.html">React <span class="chip-n">26</span></a><a class="chip" href="stack/javascript.html">JavaScript <span class="chip-n">25</span></a><a class="chip" href="stack/vue.html">Vue <span class="chip-n">8</span></a><a class="chip" href="stack/python.html">Python <span class="chip-n">6</span></a><a class="chip" href="stack/typescript.html">TypeScript <span class="chip-n">4</span></a><a class="chip" href="stack/rust.html">Rust <span class="chip-n">3</span></a><a class="chip" href="stack/angular.html">Angular <span class="chip-n">2</span></a><a class="chip" href="stack/i18n.html">Localization (i18n) <span class="chip-n">2</span></a><a class="chip" href="stack/windows.html">Windows <span class="chip-n">2</span></a><a class="chip" href="stack/web-platform.html">Web platform specs <span class="chip-n">2</span></a><a class="chip" href="stack/zed.html">Zed <span class="chip-n">2</span></a></div>
+    <div class="chips"><a class="chip" href="stack/react.html">React <span class="chip-n">27</span></a><a class="chip" href="stack/javascript.html">JavaScript <span class="chip-n">26</span></a><a class="chip" href="stack/vue.html">Vue <span class="chip-n">9</span></a><a class="chip" href="stack/python.html">Python <span class="chip-n">6</span></a><a class="chip" href="stack/typescript.html">TypeScript <span class="chip-n">5</span></a><a class="chip" href="stack/rust.html">Rust <span class="chip-n">3</span></a><a class="chip" href="stack/angular.html">Angular <span class="chip-n">2</span></a><a class="chip" href="stack/i18n.html">Localization (i18n) <span class="chip-n">2</span></a><a class="chip" href="stack/windows.html">Windows <span class="chip-n">2</span></a><a class="chip" href="stack/web-platform.html">Web platform specs <span class="chip-n">2</span></a><a class="chip" href="stack/zed.html">Zed <span class="chip-n">2</span></a></div>
   </div>
 </nav>
 <div class="rule"></div>
@@ -49,7 +49,7 @@
     </select>
     <select id="f-lib" class="filter" aria-label="Filter by library">
       <option value="">All libraries</option>
-      <option value="@std/csv">@std/csv</option><option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="date-fns">date-fns</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emdash">emdash</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="microsoft/terminal">microsoft/terminal</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="omi">omi</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="validator.js">validator.js</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
+      <option value="@std/csv">@std/csv</option><option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="date-fns">date-fns</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emdash">emdash</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="kaplay">kaplay</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="material-ui">material-ui</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="microsoft/terminal">microsoft/terminal</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="omi">omi</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="select2">select2</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="validator.js">validator.js</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
     </select>
     <span class="result-count" id="rc"></span>
   </div>
@@ -1469,7 +1469,7 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-surrogate-emoji"><a href="category/surrogate-emoji.html">Surrogate &amp; grapheme</a></h2>
-      <span class="cat-n">10 entries</span>
+      <span class="cat-n">11 entries</span>
       <a class="cat-all" href="category/surrogate-emoji.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surrogate pairs and non-BMP characters get split, ZWJ emoji and variation selectors are mis-detected, and combining marks or conjunct clusters drift away from their base.</p>
@@ -1743,6 +1743,33 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#emoji-regex-text-vs15">#emoji-regex-text-vs15</a>
   </div>
 </article>
+<article class="entry" id="kaplay-styled-text-grapheme" data-cat="surrogate-emoji" data-lib="kaplay" data-search="kaplay styled-text styles desync after emoji / astral cjk (grapheme vs utf-16) fix: align styled-text style positions with grapheme clusters kaplay kaplayjs/kaplay compilestyledtext builds charstylemap keyed by utf-16 code-unit length, but formattext later applies the styles by grapheme index (via runes()). the two indexings match for ascii, but drift apart after any character longer than one code unit: an emoji, a zwj sequence, or an astral-plane cjk ideograph (cjk extension b, e.g. names written with 𠮷). every style after such a character lands on the wrong grapheme or is dropped. in styled text, &quot;😀[c]x[/c]&quot; keys the colour style at code unit 2, but runes(&quot;😀x&quot;) puts x at grapheme index 1, so the style is lost. make compilestyledtext walk grapheme clusters with the same runes() helper formattext already uses, keying charstylemap by grapheme index. normalize the input to nfc up front and consume a whole grapheme per escape so the slice lengths stay consistent. surrogate &amp; grapheme ts pull request">
+  <div class="entry-top">
+    <span class="tag">Surrogate &amp; grapheme</span>
+    <span class="tag tag--stack">TS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/kaplay-styled-text-grapheme.html">kaplay styled-text styles desync after emoji / astral CJK (grapheme vs UTF-16)</a></h3>
+  
+  <p class="lib-line"><span class="lib">kaplay</span> &middot; <a href="https://github.com/kaplayjs/kaplay">kaplayjs/kaplay</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>compileStyledText builds charStyleMap keyed by UTF-16 code-unit length, but formatText later applies the styles by grapheme index (via runes()). The two indexings match for ASCII, but drift apart after any character longer than one code unit: an emoji, a ZWJ sequence, or an astral-plane CJK ideograph (CJK Extension B, e.g. names written with 𠮷). Every style after such a character lands on the wrong grapheme or is dropped.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">In styled text, &quot;😀[c]x[/c]&quot; keys the colour style at code unit 2, but runes(&quot;😀x&quot;) puts x at grapheme index 1, so the style is lost.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Make compileStyledText walk grapheme clusters with the same runes() helper formatText already uses, keying charStyleMap by grapheme index. Normalize the input to NFC up front and consume a whole grapheme per escape so the slice lengths stay consistent.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/kaplayjs/kaplay/pull/1115">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#kaplay-styled-text-grapheme">#kaplay-styled-text-grapheme</a>
+  </div>
+</article>
   </div>
 </section>
 <section class="cat-section" data-cat-section="segmentation">
@@ -1879,7 +1906,7 @@ kanji2number('萬')  # not recognized as 10000</pre>
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-locale-leftover"><a href="category/locale-leftover.html">Locale data</a></h2>
-      <span class="cat-n">21 entries</span>
+      <span class="cat-n">24 entries</span>
       <a class="cat-all" href="category/locale-leftover.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back.</p>
@@ -2454,6 +2481,87 @@ parse(s, 'MMMM', new Date(), { locale: gl });               // Invalid Date</pre
   <div class="entry-foot">
     <a class="pr-link" href="https://github.com/date-fns/date-fns/pull/4231">Fix PR &rarr;</a>
     <a class="anchor-link" href="#date-fns-gl-xuno-month-parse">#date-fns-gl-xuno-month-parse</a>
+  </div>
+</article>
+<article class="entry" id="material-ui-zhcn-pagination" data-cat="locale-leftover" data-lib="material-ui" data-search="mui pagination aria-labels fall back to english in the zh-cn locale [l10n] add missing muipagination localization to zh-cn locale material-ui mui/material-ui the zh-cn locale is missing the muipagination block, so the pagination aria-label and getitemarialabel text fall back to english even though every other component in the file is localized. among all locales only the three chinese ones omit it; ja-jp and ko-kr already localize this block. render a mui &lt;pagination&gt; under the zhcn locale and inspect it with a screen reader; the navigation aria-label and per-page item labels are announced in english. add the muipagination block to zhcn, reusing the noun phrases already in this file&#39;s muitablepagination.getitemarialabel (第一页 / 最后一页 / 下一页 / 上一页) plus 转到 (&quot;go to&quot;) to match the english source. locale data react pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">React</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/material-ui-zhcn-pagination.html">MUI Pagination aria-labels fall back to English in the zh-CN locale</a></h3>
+  
+  <p class="lib-line"><span class="lib">material-ui</span> &middot; <a href="https://github.com/mui/material-ui">mui/material-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though every other component in the file is localized. Among all locales only the three Chinese ones omit it; ja-JP and ko-KR already localize this block.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Render a MUI &lt;Pagination&gt; under the zhCN locale and inspect it with a screen reader; the navigation aria-label and per-page item labels are announced in English.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add the MuiPagination block to zhCN, reusing the noun phrases already in this file's MuiTablePagination.getItemAriaLabel (第一页 / 最后一页 / 下一页 / 上一页) plus 转到 (&quot;Go to&quot;) to match the English source.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/mui/material-ui/pull/48741">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#material-ui-zhcn-pagination">#material-ui-zhcn-pagination</a>
+  </div>
+</article>
+<article class="entry" id="select2-ja-removeitem-search" data-cat="locale-leftover" data-lib="select2" data-search="select2 japanese locale is missing the removeitem / search aria labels add missing ja (japanese) translations for removeitem and search select2 select2/select2 the japanese (ja) locale is missing the removeitem and search keys, so japanese users get the english fallback for two aria labels: the per-item remove button (used in selection/multiple.js) and the search field (used in selection/search.js and dropdown/search.js). both are part of the canonical set in en.js. use a multi-select select2 under the ja locale with a screen reader; the remove-item button and the search field announce their english fallback labels. add removeitem (アイテムを削除) and search (検索) to the ja locale, following the existing removeallitems wording (すべてのアイテムを削除). locale data js pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/select2-ja-removeitem-search.html">Select2 Japanese locale is missing the removeItem / search ARIA labels</a></h3>
+  
+  <p class="lib-line"><span class="lib">select2</span> &middot; <a href="https://github.com/select2/select2">select2/select2</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The Japanese (ja) locale is missing the removeItem and search keys, so Japanese users get the English fallback for two ARIA labels: the per-item remove button (used in selection/multiple.js) and the search field (used in selection/search.js and dropdown/search.js). Both are part of the canonical set in en.js.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Use a multi-select Select2 under the ja locale with a screen reader; the remove-item button and the search field announce their English fallback labels.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Add removeItem (アイテムを削除) and search (検索) to the ja locale, following the existing removeAllItems wording (すべてのアイテムを削除).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/select2/select2/pull/6434">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#select2-ja-removeitem-search">#select2-ja-removeitem-search</a>
+  </div>
+</article>
+<article class="entry" id="naive-ui-week-placeholder-cjk" data-cat="locale-leftover" data-lib="naive-ui" data-search="naive-ui weekplaceholder untranslated in korean and traditional chinese (select week) fix(locale): translate weekplaceholder in the korean and traditional chinese locales naive-ui tusen-ai/naive-ui weekplaceholder was left as the english fallback &quot;select week&quot; in the korean (kokr) and traditional chinese (zhtw) datepicker locales, so the week-mode date picker showed an english placeholder. zhcn and jajp were already translated; these were the remaining cjk locales still showing the fallback. use the date picker in week mode under the kokr or zhtw locale; the placeholder renders &quot;select week&quot; in english. translate weekplaceholder to 주 선택 (kokr, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhtw, the traditional form of zhcn&#39;s 选择周), propagating the jajp fix from #8114 to the remaining cjk locales. locale data vue pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">Vue</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/naive-ui-week-placeholder-cjk.html">naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)</a></h3>
+  
+  <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>weekPlaceholder was left as the English fallback &quot;Select Week&quot; in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-mode date picker showed an English placeholder. zhCN and jaJP were already translated; these were the remaining CJK locales still showing the fallback.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Use the date picker in week mode under the koKR or zhTW locale; the placeholder renders &quot;Select Week&quot; in English.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Translate weekPlaceholder to 주 선택 (koKR, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhTW, the Traditional form of zhCN's 选择周), propagating the jaJP fix from #8114 to the remaining CJK locales.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/tusen-ai/naive-ui/pull/8116">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#naive-ui-week-placeholder-cjk">#naive-ui-week-placeholder-cjk</a>
   </div>
 </article>
   </div>

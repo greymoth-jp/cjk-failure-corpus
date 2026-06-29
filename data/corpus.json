@@ -1449,6 +1449,70 @@
       "repro": "const src = ReadableStream.from(['\\uFEFFname,age\\n', 'Alice,34\\n']);\nawait Array.fromAsync(src.pipeThrough(new CsvParseStream({ skipFirstRow: true })));\n// [{ '\\uFEFFname': 'Alice', age: '34' }]  <- BOM leaked into the key",
       "fix": "Strip the BOM from the first line read by StreamLineReader, matching what parse() already does via its BYTE_ORDER_MARK constant.",
       "authored": false
+    },
+    {
+      "id": "kaplay-styled-text-grapheme",
+      "title": "fix: align styled-text style positions with grapheme clusters",
+      "library": "kaplay",
+      "repo": "kaplayjs/kaplay",
+      "url": "https://github.com/kaplayjs/kaplay/pull/1115",
+      "status": "open",
+      "category": "surrogate-emoji",
+      "stack": [
+        "TS"
+      ],
+      "symptom": "compileStyledText builds charStyleMap keyed by UTF-16 code-unit length, but formatText later applies the styles by grapheme index (via runes()). The two indexings match for ASCII, but drift apart after any character longer than one code unit: an emoji, a ZWJ sequence, or an astral-plane CJK ideograph (CJK Extension B, e.g. names written with 𠮷). Every style after such a character lands on the wrong grapheme or is dropped.",
+      "repro": "In styled text, \"😀[c]x[/c]\" keys the colour style at code unit 2, but runes(\"😀x\") puts x at grapheme index 1, so the style is lost.",
+      "fix": "Make compileStyledText walk grapheme clusters with the same runes() helper formatText already uses, keying charStyleMap by grapheme index. Normalize the input to NFC up front and consume a whole grapheme per escape so the slice lengths stay consistent.",
+      "authored": true
+    },
+    {
+      "id": "material-ui-zhcn-pagination",
+      "title": "[l10n] Add missing MuiPagination localization to zh-CN locale",
+      "library": "material-ui",
+      "repo": "mui/material-ui",
+      "url": "https://github.com/mui/material-ui/pull/48741",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "React"
+      ],
+      "symptom": "The zh-CN locale is missing the MuiPagination block, so the pagination aria-label and getItemAriaLabel text fall back to English even though every other component in the file is localized. Among all locales only the three Chinese ones omit it; ja-JP and ko-KR already localize this block.",
+      "repro": "Render a MUI <Pagination> under the zhCN locale and inspect it with a screen reader; the navigation aria-label and per-page item labels are announced in English.",
+      "fix": "Add the MuiPagination block to zhCN, reusing the noun phrases already in this file's MuiTablePagination.getItemAriaLabel (第一页 / 最后一页 / 下一页 / 上一页) plus 转到 (\"Go to\") to match the English source.",
+      "authored": true
+    },
+    {
+      "id": "select2-ja-removeitem-search",
+      "title": "Add missing ja (Japanese) translations for removeItem and search",
+      "library": "select2",
+      "repo": "select2/select2",
+      "url": "https://github.com/select2/select2/pull/6434",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "The Japanese (ja) locale is missing the removeItem and search keys, so Japanese users get the English fallback for two ARIA labels: the per-item remove button (used in selection/multiple.js) and the search field (used in selection/search.js and dropdown/search.js). Both are part of the canonical set in en.js.",
+      "repro": "Use a multi-select Select2 under the ja locale with a screen reader; the remove-item button and the search field announce their English fallback labels.",
+      "fix": "Add removeItem (アイテムを削除) and search (検索) to the ja locale, following the existing removeAllItems wording (すべてのアイテムを削除).",
+      "authored": true
+    },
+    {
+      "id": "naive-ui-week-placeholder-cjk",
+      "title": "fix(locale): translate weekPlaceholder in the Korean and Traditional Chinese locales",
+      "library": "naive-ui",
+      "repo": "tusen-ai/naive-ui",
+      "url": "https://github.com/tusen-ai/naive-ui/pull/8116",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "Vue"
+      ],
+      "symptom": "weekPlaceholder was left as the English fallback \"Select Week\" in the Korean (koKR) and Traditional Chinese (zhTW) DatePicker locales, so the week-mode date picker showed an English placeholder. zhCN and jaJP were already translated; these were the remaining CJK locales still showing the fallback.",
+      "repro": "Use the date picker in week mode under the koKR or zhTW locale; the placeholder renders \"Select Week\" in English.",
+      "fix": "Translate weekPlaceholder to 주 선택 (koKR, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhTW, the Traditional form of zhCN's 选择周), propagating the jaJP fix from #8114 to the remaining CJK locales.",
+      "authored": true
     }
   ]
 }

@@ -89,6 +89,10 @@
     "emdash-readingtime-cjk-wordcount": "TipTap word count treats a whole CJK paragraph as 1 word / 1 min read",
     "validatorjs-el-gr-alphanumeric-range": "validator.js isAlphanumeric el-GR rejects accented Greek that isAlpha accepts",
     "date-fns-gl-xuno-month-parse": "date-fns Galician formats June as xuño but cannot parse it back",
-    "deno-std-csv-bom-stream": "Deno @std/csv CsvParseStream leaves a BOM glued to the first header key"
+    "deno-std-csv-bom-stream": "Deno @std/csv CsvParseStream leaves a BOM glued to the first header key",
+    "kaplay-styled-text-grapheme": "kaplay styled-text styles desync after emoji / astral CJK (grapheme vs UTF-16)",
+    "material-ui-zhcn-pagination": "MUI Pagination aria-labels fall back to English in the zh-CN locale",
+    "select2-ja-removeitem-search": "Select2 Japanese locale is missing the removeItem / search ARIA labels",
+    "naive-ui-week-placeholder-cjk": "naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)"
   }
 }
