@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/segmentation.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/numeral.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/unicode-range.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/regex-roundtrip.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/codegen-escape.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/react.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/javascript.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/vue.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/python.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/typescript.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/rust.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/angular.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/windows.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/web-platform.html</loc><lastmod>2026-06-29</lastmod></url>
+  <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/stack/zed.html</loc><lastmod>2026-06-29</lastmod></url>
   <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-dynamic-tags-ime.html</loc><lastmod>2026-06-29</lastmod></url>
   <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/e/llm-x-chat-enter-ime.html</loc><lastmod>2026-06-29</lastmod></url>
   <url><loc>https://greymoth-jp.github.io/cjk-failure-corpus/e/surf-command-palette-ime.html</loc><lastmod>2026-06-29</lastmod></url>

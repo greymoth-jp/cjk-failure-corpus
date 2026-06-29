@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guard IME composition in the agent session rename input - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.">
+<title>SiYuan session rename input submits during IME composition (Enter) — CJK Failure Corpus</title>
+<meta name="description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting p…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Guard IME composition in the agent session rename input - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SiYuan session rename input submits during IME composition (Enter) — CJK Failure Corpus">
+<meta property="og:description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting p…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guard IME composition in the agent session rename input - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.">
+<meta name="twitter:title" content="SiYuan session rename input submits during IME composition (Enter) — CJK Failure Corpus">
+<meta name="twitter:description" content="siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting p…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Guard IME composition in the agent session rename input","about":"IME composition","description":"siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SiYuan session rename input submits during IME composition (Enter)","alternativeHeadline":"Guard IME composition in the agent session rename input","name":"SiYuan session rename input submits during IME composition (Enter)","about":"IME composition","articleSection":"IME composition","keywords":"siyuan, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"siyuan: Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting p…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html","dateModified":"2026-06-29","citation":"https://github.com/siyuan-note/siyuan/pull/17988","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"SiYuan session rename input submits during IME composition (Enter)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#siyuan-session-rename-ime">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="siyuan-session-rename-ime" data-cat="ime-composition" data-lib="siyuan" data-search="guard ime composition in the agent session rename input siyuan siyuan-note/siyuan pressing enter to confirm cjk composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely. use japanese/chinese/korean ime in siyuan&#39;s session rename field; press enter to confirm composition; rename fires before composition is complete. check event.iscomposing (and event.keycode===229 for legacy browsers) before acting on keydown/keyup enter. ignore enter events during composition. ime composition  pull request">
+    <article class="entry" id="siyuan-session-rename-ime" data-cat="ime-composition" data-lib="siyuan" data-search="siyuan session rename input submits during ime composition (enter) guard ime composition in the agent session rename input siyuan siyuan-note/siyuan pressing enter to confirm cjk composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely. use japanese/chinese/korean ime in siyuan&#39;s session rename field; press enter to confirm composition; rename fires before composition is complete. check event.iscomposing (and event.keycode===229 for legacy browsers) before acting on keydown/keyup enter. ignore enter events during composition. ime composition  pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     
     
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Guard IME composition in the agent session rename input</h1>
+  <h1 class="entry-title">SiYuan session rename input submits during IME composition (Enter)</h1>
+  <p class="entry-subtitle">Guard IME composition in the agent session rename input</p>
   <p class="lib-line"><span class="lib">siyuan</span> &middot; <a href="https://github.com/siyuan-note/siyuan">siyuan-note/siyuan</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#siyuan-session-rename-ime">#siyuan-session-rename-ime</a>
   </div>
 </article>
+    
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encoding &amp; BOM — CJK / Unicode bugs, repros &amp; fixes (1 cases)</title>
+<meta name="description" content="1 real encoding &amp; bom bugs in open-source libraries. Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Encoding &amp; BOM — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta property="og:description" content="1 real encoding &amp; bom bugs in open-source libraries. Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Encoding &amp; BOM — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta name="twitter:description" content="1 real encoding &amp; bom bugs in open-source libraries. Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Encoding & BOM — CJK / Unicode Failure Corpus","description":"1 real encoding & bom bugs in open-source libraries. Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"Deno @std/csv CsvParseStream leaves a BOM glued to the first header key","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Encoding & BOM","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Encoding &amp; BOM</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Encoding &amp; BOM</h1>
+    <p class="lede">Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the first field name or CSV header key arrives with an invisible BOM glued to it and lookups by that key silently miss.</p>
+    <p class="counts"><b>1</b> case in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/deno-std-csv-bom-stream.html">Deno @std/csv CsvParseStream leaves a BOM glued to the first header key</a>
+  <p class="row-meta"><span class="lib">@std/csv</span> <span class="tag tag--stack">Deno</span><span class="tag tag--stack">TS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as &quot;\uFEFFname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

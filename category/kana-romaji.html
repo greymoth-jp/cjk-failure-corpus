@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kana / romaji — CJK / Unicode bugs, repros &amp; fixes (8 cases)</title>
+<meta name="description" content="8 real kana / romaji bugs in open-source libraries. Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back shoul…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kana / romaji — CJK / Unicode bugs, repros &amp; fixes (8 cases)">
+<meta property="og:description" content="8 real kana / romaji bugs in open-source libraries. Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back shoul…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kana / romaji — CJK / Unicode bugs, repros &amp; fixes (8 cases)">
+<meta name="twitter:description" content="8 real kana / romaji bugs in open-source libraries. Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back shoul…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Kana / romaji — CJK / Unicode Failure Corpus","description":"8 real kana / romaji bugs in open-source libraries. Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back shoul…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":8,"itemListElement":[{"@type":"ListItem","position":1,"name":"Katakana ン loses the syllabic-n apostrophe in Hepburn romanization","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/hepburn-katakana-n-apostrophe.html"},{"@type":"ListItem","position":2,"name":"pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/pykakasi-ddi-sokuon.html"},{"@type":"ListItem","position":3,"name":"Historical kana ゐ/ゑ (wi/we) missing from romaji conversion","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/romaji-conv-wi-we-kana.html"},{"@type":"ListItem","position":4,"name":"jaconv kana2alphabet does not romanize small katakana ヵ/ヶ","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jaconv-small-ka-ke.html"},{"@type":"ListItem","position":5,"name":"Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jaco-js-wo-voiced-mark.html"},{"@type":"ListItem","position":6,"name":"Romaji conversion drops the z in づ (outputs u instead of zu)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/kana-romaji-zu-dropped.html"},{"@type":"ListItem","position":7,"name":"pykakasi fails to romanize half-width katakana with voiced marks","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/pykakasi-halfwidth-katakana.html"},{"@type":"ListItem","position":8,"name":"Python unidecode mangles half-width katakana with dakuten/handakuten","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Kana / romaji","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Kana / romaji</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Kana / romaji</h1>
+    <p class="lede">Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back should be stable, and a sibling (hiragana vs katakana) usually already does it right.</p>
+    <p class="counts"><b>8</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a>
+  <p class="row-meta"><span class="lib">hepburn</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Katakana ン before a vowel or Y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes SHINYOU (should be SHIN'YOU), so it collides with シニョウ.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/pykakasi-ddi-sokuon.html">pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji</a>
+  <p class="row-meta"><span class="lib">pykakasi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The geminated d + small i sequence っでぃ (ddi) has no Hepburn or Kunrei entry, so loanword spellings that use it romanize incorrectly.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a>
+  <p class="row-meta"><span class="lib">romaji-conv</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/jaconv-small-ka-ke.html">jaconv kana2alphabet does not romanize small katakana ヵ/ヶ</a>
+  <p class="row-meta"><span class="lib">jaconv</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a>
+  <p class="row-meta"><span class="lib">jaco-js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/kana-romaji-zu-dropped.html">Romaji conversion drops the z in づ (outputs u instead of zu)</a>
+  <p class="row-meta"><span class="lib">kana-romaji</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">kana-romaji library drops the 'z' consonant when romanizing づ, outputting 'u' instead of 'zu'.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/pykakasi-halfwidth-katakana.html">pykakasi fails to romanize half-width katakana with voiced marks</a>
+  <p class="row-meta"><span class="lib">pykakasi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">pykakasi does not romanize half-width katakana correctly, particularly when a half-width voiced or semi-voiced mark (U+FF9E / U+FF9F) follows the base kana.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/unidecode-halfwidth-dakuten.html">Python unidecode mangles half-width katakana with dakuten/handakuten</a>
+  <p class="row-meta"><span class="lib">unidecode</span> <span class="tag tag--stack">Python</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

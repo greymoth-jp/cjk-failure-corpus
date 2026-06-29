@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surrogate &amp; grapheme — CJK / Unicode bugs, repros &amp; fixes (10 cases)</title>
+<meta name="description" content="10 real surrogate &amp; grapheme bugs in open-source libraries. Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surro…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Surrogate &amp; grapheme — CJK / Unicode bugs, repros &amp; fixes (10 cases)">
+<meta property="og:description" content="10 real surrogate &amp; grapheme bugs in open-source libraries. Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surro…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Surrogate &amp; grapheme — CJK / Unicode bugs, repros &amp; fixes (10 cases)">
+<meta name="twitter:description" content="10 real surrogate &amp; grapheme bugs in open-source libraries. Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surro…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Surrogate & grapheme — CJK / Unicode Failure Corpus","description":"10 real surrogate & grapheme bugs in open-source libraries. Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surro…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"name":"cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html"},{"@type":"ListItem","position":2,"name":"Clerk truncate splits surrogate pairs in emoji / non-BMP characters","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/clerk-truncate-surrogate.html"},{"@type":"ListItem","position":3,"name":"opentype.js does not clamp cmap format 12/13 codes to U+10FFFF","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/opentype-cmap-clamp.html"},{"@type":"ListItem","position":4,"name":"markdown-it smart quotes break around non-BMP (U+10000+) characters","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html"},{"@type":"ListItem","position":5,"name":"Slate splits Indic conjunct clusters (UAX #29 GB9c) across graphemes","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/slate-indic-conjunct-grapheme.html"},{"@type":"ListItem","position":6,"name":"Combining marks/ZWJ wrongly treated as punctuation in emphasis (wenmode)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/wenmode-emphasis-flanking-marks.html"},{"@type":"ListItem","position":7,"name":"grapheme-splitter breaks ZWJ emoji (flags, skin tones) into pieces","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/grapheme-splitter-zwj-emoji.html"},{"@type":"ListItem","position":8,"name":"lodash _.toArray splits a tag-sequence flag emoji into code points","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/lodash-toarray-tag-sequence.html"},{"@type":"ListItem","position":9,"name":"Windows Terminal ignores VS15 (U+FE0E) and forces the emoji style","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/windows-terminal-vs15.html"},{"@type":"ListItem","position":10,"name":"emoji-regex matches a text-presentation char followed by U+FE0E (VS15)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Surrogate & grapheme","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Surrogate &amp; grapheme</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Surrogate &amp; grapheme</h1>
+    <p class="lede">Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surrogate pairs and non-BMP characters get split, ZWJ emoji and variation selectors are mis-detected, and combining marks or conjunct clusters drift away from their base.</p>
+    <p class="counts"><b>10</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/cli-table3-surrogate-truncate.html">cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text</a>
+  <p class="row-meta"><span class="lib">cli-table3</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/clerk-truncate-surrogate.html">Clerk truncate splits surrogate pairs in emoji / non-BMP characters</a>
+  <p class="row-meta"><span class="lib">clerk</span> <span class="tag tag--stack">TS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Clerk UI's truncateWithEndVisible function uses substring/slice on raw code units in its short-width fallback, splitting surrogate pairs in emoji or non-BMP characters.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/opentype-cmap-clamp.html">opentype.js does not clamp cmap format 12/13 codes to U+10FFFF</a>
+  <p class="row-meta"><span class="lib">opentype.js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">opentype.js does not clamp cmap format 12/13 character codes to U+10FFFF; malformed fonts with out-of-range codes cause incorrect glyph lookups for supplementary characters.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/markdown-it-nonbmp-smartquotes.html">markdown-it smart quotes break around non-BMP (U+10000+) characters</a>
+  <p class="row-meta"><span class="lib">markdown-it</span> <span class="tag tag--stack">JS</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">markdown-it's smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/slate-indic-conjunct-grapheme.html">Slate splits Indic conjunct clusters (UAX #29 GB9c) across graphemes</a>
+  <p class="row-meta"><span class="lib">slate</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Slate rich-text editor does not implement Unicode UAX #29 GB9c rule, splitting Indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in Hindi, Bengali, Tamil, etc.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/wenmode-emphasis-flanking-marks.html">Combining marks/ZWJ wrongly treated as punctuation in emphasis (wenmode)</a>
+  <p class="row-meta"><span class="lib">wenmode</span>  <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">wenmode's is_punctuation function treats Unicode combining marks (Mn category) and format characters (Cf/ZWJ) as punctuation per the CommonMark spec, incorrectly suppressing valid emphasis around CJK text with diacritics or ZWJ sequences.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/grapheme-splitter-zwj-emoji.html">grapheme-splitter breaks ZWJ emoji (flags, skin tones) into pieces</a>
+  <p class="row-meta"><span class="lib">grapheme-splitter</span> <span class="tag tag--stack">JS</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">grapheme-splitter breaks ZWJ-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/lodash-toarray-tag-sequence.html">lodash _.toArray splits a tag-sequence flag emoji into code points</a>
+  <p class="row-meta"><span class="lib">lodash</span> <span class="tag tag--stack">JS</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">_.toArray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/windows-terminal-vs15.html">Windows Terminal ignores VS15 (U+FE0E) and forces the emoji style</a>
+  <p class="row-meta"><span class="lib">microsoft/terminal</span> <span class="tag tag--stack">Windows Terminal</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">Windows Terminal ignores the text-presentation variation selector U+FE0E, rendering the color-emoji form even when text style is explicitly requested.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/emoji-regex-text-vs15.html">emoji-regex matches a text-presentation char followed by U+FE0E (VS15)</a>
+  <p class="row-meta"><span class="lib">emoji-regex</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

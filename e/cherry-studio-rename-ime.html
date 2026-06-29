@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inline file rename submits while the IME is composing - CJK / Unicode Failure Corpus</title>
+<title>Inline file rename submits during IME composition (Cherry Studio, Electron) — CJK Failure Corpus</title>
 <meta name="description" content="cherry-studio: Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Inline file rename submits while the IME is composing - CJK / Unicode Failure Corpus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inline file rename submits during IME composition (Cherry Studio, Electron) — CJK Failure Corpus">
 <meta property="og:description" content="cherry-studio: Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Inline file rename submits while the IME is composing - CJK / Unicode Failure Corpus">
+<meta name="twitter:title" content="Inline file rename submits during IME composition (Cherry Studio, Electron) — CJK Failure Corpus">
 <meta name="twitter:description" content="cherry-studio: Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Inline file rename submits while the IME is composing","about":"IME composition","description":"cherry-studio: Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Inline file rename submits during IME composition (Cherry Studio, Electron)","alternativeHeadline":"Inline file rename submits while the IME is composing","name":"Inline file rename submits during IME composition (Cherry Studio, Electron)","about":"IME composition","articleSection":"IME composition","keywords":"React, Electron, cherry-studio, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"cherry-studio: Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html","dateModified":"2026-06-29","citation":"https://github.com/CherryHQ/cherry-studio/pull/16582","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"Inline file rename submits during IME composition (Cherry Studio, Electron)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#cherry-studio-rename-ime">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="cherry-studio-rename-ime" data-cat="ime-composition" data-lib="cherry-studio" data-search="inline file rename submits while the ime is composing cherry-studio cherryhq/cherry-studio renaming a file inline and pressing enter to confirm a cjk name submits the rename mid-composition. 1. start an inline file rename.
+    <article class="entry" id="cherry-studio-rename-ime" data-cat="ime-composition" data-lib="cherry-studio" data-search="inline file rename submits during ime composition (cherry studio, electron) inline file rename submits while the ime is composing cherry-studio cherryhq/cherry-studio renaming a file inline and pressing enter to confirm a cjk name submits the rename mid-composition. 1. start an inline file rename.
 2. compose a japanese filename with the ime.
 3. press enter to confirm the conversion; the rename submits with the unfinished name. skip the rename submit while the ime is composing (iscomposing guard). ime composition react electron pull request">
   <div class="entry-top">
@@ -36,7 +39,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Inline file rename submits while the IME is composing</h1>
+  <h1 class="entry-title">Inline file rename submits during IME composition (Cherry Studio, Electron)</h1>
+  <p class="entry-subtitle">Inline file rename submits while the IME is composing</p>
   <p class="lib-line"><span class="lib">cherry-studio</span> &middot; <a href="https://github.com/CherryHQ/cherry-studio">CherryHQ/cherry-studio</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -57,6 +61,17 @@
     <a class="anchor-link" href="#cherry-studio-rename-ime">#cherry-studio-rename-ime</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/react.html">React</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

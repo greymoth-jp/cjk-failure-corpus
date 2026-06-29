@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unicode range — CJK / Unicode bugs, repros &amp; fixes (1 cases)</title>
+<meta name="description" content="1 real unicode range bugs in open-source libraries. Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/unicode-range.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unicode range — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta property="og:description" content="1 real unicode range bugs in open-source libraries. Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/unicode-range.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unicode range — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta name="twitter:description" content="1 real unicode range bugs in open-source libraries. Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Unicode range — CJK / Unicode Failure Corpus","description":"1 real unicode range bugs in open-source libraries. Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/unicode-range.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"validator.js isAlphanumeric el-GR rejects accented Greek that isAlpha accepts","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/validatorjs-el-gr-alphanumeric-range.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Unicode range","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/unicode-range.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Unicode range</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Unicode range</h1>
+    <p class="lede">Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted set. An alpha rule accepts a letter that the matching alphanumeric rule rejects, and common accented characters fail validation even though their unaccented neighbours pass.</p>
+    <p class="counts"><b>1</b> case in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/validatorjs-el-gr-alphanumeric-range.html">validator.js isAlphanumeric el-GR rejects accented Greek that isAlpha accepts</a>
+  <p class="row-meta"><span class="lib">validator.js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">isAlpha('el-GR') uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric('el-GR') still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumeric.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

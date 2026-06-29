@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CsvParseStream leaves a leading BOM glued to the first header key - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as &quot;\uFEFFname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups.">
+<title>Deno @std/csv CsvParseStream leaves a BOM glued to the first header key — CJK Failure Corpus</title>
+<meta name="description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output fr…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CsvParseStream leaves a leading BOM glued to the first header key - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as &quot;\uFEFFname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deno @std/csv CsvParseStream leaves a BOM glued to the first header key — CJK Failure Corpus">
+<meta property="og:description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output fr…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CsvParseStream leaves a leading BOM glued to the first header key - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as &quot;\uFEFFname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups.">
+<meta name="twitter:title" content="Deno @std/csv CsvParseStream leaves a BOM glued to the first header key — CJK Failure Corpus">
+<meta name="twitter:description" content="@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output fr…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"CsvParseStream leaves a leading BOM glued to the first header key","about":"Encoding & BOM","description":"@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as \"\\uFEFFname\" instead of \"name\", silently corrupting header-based lookups.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Deno @std/csv CsvParseStream leaves a BOM glued to the first header key","alternativeHeadline":"CsvParseStream leaves a leading BOM glued to the first header key","name":"Deno @std/csv CsvParseStream leaves a BOM glued to the first header key","about":"Encoding & BOM","articleSection":"Encoding & BOM","keywords":"Deno, TS, @std/csv, Encoding & BOM, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"@std/csv: The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output fr…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html","dateModified":"2026-06-29","citation":"https://github.com/denoland/std/pull/7183","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Encoding & BOM","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/encoding.html"},{"@type":"ListItem","position":3,"name":"Deno @std/csv CsvParseStream leaves a BOM glued to the first header key","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/deno-std-csv-bom-stream.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Encoding &amp; BOM</p>
-    <a class="detail-back" href="../#deno-std-csv-bom-stream">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/encoding.html">Encoding &amp; BOM</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="deno-std-csv-bom-stream" data-cat="encoding" data-lib="@std/csv" data-search="csvparsestream leaves a leading bom glued to the first header key @std/csv denoland/std the synchronous parse() strips a leading utf-8 byte-order mark (u+feff) but csvparsestream does not. when a csv begins with a bom, common output from excel and other windows tools, the first field name arrives as &quot;\ufeffname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups. const src = readablestream.from([&#39;\ufeffname,age\n&#39;, &#39;alice,34\n&#39;]);
+    <article class="entry" id="deno-std-csv-bom-stream" data-cat="encoding" data-lib="@std/csv" data-search="deno @std/csv csvparsestream leaves a bom glued to the first header key csvparsestream leaves a leading bom glued to the first header key @std/csv denoland/std the synchronous parse() strips a leading utf-8 byte-order mark (u+feff) but csvparsestream does not. when a csv begins with a bom, common output from excel and other windows tools, the first field name arrives as &quot;\ufeffname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups. const src = readablestream.from([&#39;\ufeffname,age\n&#39;, &#39;alice,34\n&#39;]);
 await array.fromasync(src.pipethrough(new csvparsestream({ skipfirstrow: true })));
 // [{ &#39;\ufeffname&#39;: &#39;alice&#39;, age: &#39;34&#39; }]  &lt;- bom leaked into the key strip the bom from the first line read by streamlinereader, matching what parse() already does via its byte_order_mark constant. encoding &amp; bom deno ts cited upstream issue">
   <div class="entry-top">
@@ -36,7 +39,8 @@ await array.fromasync(src.pipethrough(new csvparsestream({ skipfirstrow: true })
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">CsvParseStream leaves a leading BOM glued to the first header key</h1>
+  <h1 class="entry-title">Deno @std/csv CsvParseStream leaves a BOM glued to the first header key</h1>
+  <p class="entry-subtitle">CsvParseStream leaves a leading BOM glued to the first header key</p>
   <p class="lib-line"><span class="lib">@std/csv</span> &middot; <a href="https://github.com/denoland/std">denoland/std</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -57,6 +61,15 @@ await Array.fromAsync(src.pipeThrough(new CsvParseStream({ skipFirstRow: true })
     <a class="anchor-link" href="#deno-std-csv-bom-stream">#deno-std-csv-bom-stream</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/typescript.html">TypeScript</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/json-schema-to-typescript-enum-escape.html">json-schema-to-typescript: enum names with special chars produce invalid TypeScript</a></li>
+      <li><a href="../e/clerk-truncate-surrogate.html">Clerk truncate splits surrogate pairs in emoji / non-BMP characters</a></li>
+      <li><a href="../e/clerk-ja-oauth-consent.html">Clerk OAuth consent screen is not translated to Japanese</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

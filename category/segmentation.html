@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segmentation / word count — CJK / Unicode bugs, repros &amp; fixes (2 cases)</title>
+<meta name="description" content="2 real segmentation / word count bugs in open-source libraries. Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces betwee…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/segmentation.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Segmentation / word count — CJK / Unicode bugs, repros &amp; fixes (2 cases)">
+<meta property="og:description" content="2 real segmentation / word count bugs in open-source libraries. Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces betwee…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/segmentation.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Segmentation / word count — CJK / Unicode bugs, repros &amp; fixes (2 cases)">
+<meta name="twitter:description" content="2 real segmentation / word count bugs in open-source libraries. Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces betwee…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Segmentation / word count — CJK / Unicode Failure Corpus","description":"2 real segmentation / word count bugs in open-source libraries. Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces betwee…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/segmentation.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"split() word count treats a spaceless CJK answer as one word (omi)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/omi-onboarding-cjk-wordcount.html"},{"@type":"ListItem","position":2,"name":"TipTap word count treats a whole CJK paragraph as 1 word / 1 min read","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emdash-readingtime-cjk-wordcount.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Segmentation / word count","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/segmentation.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Segmentation / word count</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Segmentation / word count</h1>
+    <p class="lede">Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces between words, so an entire Japanese or Chinese paragraph counts as one word: content gates reject valid answers and &quot;min read&quot; labels read as 1. The fix counts CJK characters separately from space-delimited words.</p>
+    <p class="counts"><b>2</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/omi-onboarding-cjk-wordcount.html">split() word count treats a spaceless CJK answer as one word (omi)</a>
+  <p class="row-meta"><span class="lib">omi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese, Chinese, and Korean speakers.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/emdash-readingtime-cjk-wordcount.html">TipTap word count treats a whole CJK paragraph as 1 word / 1 min read</a>
+  <p class="row-meta"><span class="lib">emdash</span> <span class="tag tag--stack">TipTap</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The editor footer's word count and reading time come from TipTap's CharacterCount, whose default wordCounter splits on spaces. CJK scripts have no spaces between words, so a long Japanese or Chinese draft shows &quot;1 word&quot; and &quot;1 min read&quot; even though the published page, which already counts CJK separately, reports the correct time.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

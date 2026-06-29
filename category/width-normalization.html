@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)</title>
+<meta name="description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)">
+<meta property="og:description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)">
+<meta name="twitter:description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Width / normalization — CJK / Unicode Failure Corpus","description":"5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/normal-jp-choonpu-hi-bi.html"},{"@type":"ListItem","position":2,"name":"Full-width/kana conversion drops the first and last char of each range (moji)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html"},{"@type":"ListItem","position":3,"name":"Meilisearch charabia mis-detects half-width katakana script (Japanese search)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/charabia-halfwidth-katakana-script.html"},{"@type":"ListItem","position":4,"name":"tabled splits combining marks from their base grapheme when wrapping width","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html"},{"@type":"ListItem","position":5,"name":"Zed block cursor is misaligned over ambiguous-width Unicode characters","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-block-cursor-ambiguous-width.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Width / normalization","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Width / normalization</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Width / normalization</h1>
+    <p class="lede">Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables and missing digraphs silently corrupt text.</p>
+    <p class="counts"><b>5</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a>
+  <p class="row-meta"><span class="lib">normal-jp</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">During normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a>
+  <p class="row-meta"><span class="lib">moji</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (U+FF01) are not converted.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/charabia-halfwidth-katakana-script.html">Meilisearch charabia mis-detects half-width katakana script (Japanese search)</a>
+  <p class="row-meta"><span class="lib">charabia</span> <span class="tag tag--stack">Rust</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Meilisearch's charabia tokenizer incorrectly classifies halfwidth katakana (U+FF65-U+FF9F) and some fullwidth forms as wrong scripts, causing them to be processed by the wrong tokenizer and failing Japanese search.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/tabled-combining-mark-wrap.html">tabled splits combining marks from their base grapheme when wrapping width</a>
+  <p class="row-meta"><span class="lib">tabled</span> <span class="tag tag--stack">Rust</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">tabled's text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/zed-block-cursor-ambiguous-width.html">Zed block cursor is misaligned over ambiguous-width Unicode characters</a>
+  <p class="row-meta"><span class="lib">zed</span> <span class="tag tag--stack">Rust</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">In Zed editor, the block cursor over Unicode ambiguous-width characters (East Asian Width 'A' category, e.g., some symbols, box-drawing) is misaligned — the cursor glyph is not centered in the cell.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

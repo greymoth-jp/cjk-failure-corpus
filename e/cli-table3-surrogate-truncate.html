@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>fix: avoid splitting surrogate pairs when truncating wide characters - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.">
+<title>cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text — CJK Failure Corpus</title>
+<meta name="description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK character…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fix: avoid splitting surrogate pairs when truncating wide characters - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text — CJK Failure Corpus">
+<meta property="og:description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK character…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fix: avoid splitting surrogate pairs when truncating wide characters - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.">
+<meta name="twitter:title" content="cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text — CJK Failure Corpus">
+<meta name="twitter:description" content="cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK character…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix: avoid splitting surrogate pairs when truncating wide characters","about":"Surrogate & grapheme","description":"cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK characters, producing mojibake in terminal table cells.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text","alternativeHeadline":"fix: avoid splitting surrogate pairs when truncating wide characters","name":"cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text","about":"Surrogate & grapheme","articleSection":"Surrogate & grapheme","keywords":"JS, cli-table3, Surrogate & grapheme, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"cli-table3: cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary CJK character…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html","dateModified":"2026-06-29","citation":"https://github.com/cli-table/cli-table3/pull/360","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Surrogate & grapheme","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html"},{"@type":"ListItem","position":3,"name":"cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cli-table3-surrogate-truncate.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
-    <a class="detail-back" href="../#cli-table3-surrogate-truncate">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="cli-table3-surrogate-truncate" data-cat="surrogate-emoji" data-lib="cli-table3" data-search="fix: avoid splitting surrogate pairs when truncating wide characters cli-table3 cli-table/cli-table3 cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary cjk characters, producing mojibake in terminal table cells. create a cli-table3 table with a column containing emoji (e.g., 🎉) or supplementary cjk characters; set a column width that truncates mid-emoji; output shows garbled characters. use a unicode-aware splitter (spread operator or array.from) to iterate code points rather than code units when truncating. surrogate &amp; grapheme js pull request">
+    <article class="entry" id="cli-table3-surrogate-truncate" data-cat="surrogate-emoji" data-lib="cli-table3" data-search="cli-table3 splits surrogate pairs (emoji / cjk) when truncating wide text fix: avoid splitting surrogate pairs when truncating wide characters cli-table3 cli-table/cli-table3 cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary cjk characters, producing mojibake in terminal table cells. create a cli-table3 table with a column containing emoji (e.g., 🎉) or supplementary cjk characters; set a column width that truncates mid-emoji; output shows garbled characters. use a unicode-aware splitter (spread operator or array.from) to iterate code points rather than code units when truncating. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">fix: avoid splitting surrogate pairs when truncating wide characters</h1>
+  <h1 class="entry-title">cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text</h1>
+  <p class="entry-subtitle">fix: avoid splitting surrogate pairs when truncating wide characters</p>
   <p class="lib-line"><span class="lib">cli-table3</span> &middot; <a href="https://github.com/cli-table/cli-table3">cli-table/cli-table3</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#cli-table3-surrogate-truncate">#cli-table3-surrogate-truncate</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/javascript.html">JavaScript</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a></li>
+      <li><a href="../e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a></li>
+      <li><a href="../e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a></li>
+      <li><a href="../e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a></li>
+      <li><a href="../e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

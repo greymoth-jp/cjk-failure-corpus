@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Event order between compositionend and input is inconsistent across browsers - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.">
+<title>compositionend vs input event order differs across browsers (isComposing guard) — CJK Failure Corpus</title>
+<meta name="description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Event order between compositionend and input is inconsistent across browsers - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="compositionend vs input event order differs across browsers (isComposing guard) — CJK Failure Corpus">
+<meta property="og:description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Event order between compositionend and input is inconsistent across browsers - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.">
+<meta name="twitter:title" content="compositionend vs input event order differs across browsers (isComposing guard) — CJK Failure Corpus">
+<meta name="twitter:description" content="w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Event order between compositionend and input is inconsistent across browsers","about":"IME composition","description":"w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"compositionend vs input event order differs across browsers (isComposing guard)","alternativeHeadline":"Event order between compositionend and input is inconsistent across browsers","name":"compositionend vs input event order differs across browsers (isComposing guard)","about":"IME composition","articleSection":"IME composition","keywords":"spec, w3c/uievents, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"w3c/uievents: The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html","dateModified":"2026-06-29","citation":"https://github.com/w3c/uievents/issues/202","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"compositionend vs input event order differs across browsers (isComposing guard)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#uievents-compositionend-input-order">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="uievents-compositionend-input-order" data-cat="ime-composition" data-lib="w3c/uievents" data-search="event order between compositionend and input is inconsistent across browsers w3c/uievents w3c/uievents the spec orders input before compositionend (chrome and safari follow it), but firefox and edge fire input after compositionend, so iscomposing-based guards behave differently per browser. log the input and compositionend events while committing a cjk composition in chrome versus firefox; their relative order differs. define a canonical order in the spec; frameworks should not assume input fires before compositionend. ime composition spec cited upstream issue">
+    <article class="entry" id="uievents-compositionend-input-order" data-cat="ime-composition" data-lib="w3c/uievents" data-search="compositionend vs input event order differs across browsers (iscomposing guard) event order between compositionend and input is inconsistent across browsers w3c/uievents w3c/uievents the spec orders input before compositionend (chrome and safari follow it), but firefox and edge fire input after compositionend, so iscomposing-based guards behave differently per browser. log the input and compositionend events while committing a cjk composition in chrome versus firefox; their relative order differs. define a canonical order in the spec; frameworks should not assume input fires before compositionend. ime composition spec cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">spec</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Event order between compositionend and input is inconsistent across browsers</h1>
+  <h1 class="entry-title">compositionend vs input event order differs across browsers (isComposing guard)</h1>
+  <p class="entry-subtitle">Event order between compositionend and input is inconsistent across browsers</p>
   <p class="lib-line"><span class="lib">w3c/uievents</span> &middot; <a href="https://github.com/w3c/uievents">w3c/uievents</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#uievents-compositionend-input-order">#uievents-compositionend-input-order</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/web-platform.html">Web platform specs</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

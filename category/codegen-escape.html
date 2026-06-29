@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codegen escape — CJK / Unicode bugs, repros &amp; fixes (2 cases)</title>
+<meta name="description" content="2 real codegen escape bugs in open-source libraries. Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII id…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/codegen-escape.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Codegen escape — CJK / Unicode bugs, repros &amp; fixes (2 cases)">
+<meta property="og:description" content="2 real codegen escape bugs in open-source libraries. Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII id…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/codegen-escape.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codegen escape — CJK / Unicode bugs, repros &amp; fixes (2 cases)">
+<meta name="twitter:description" content="2 real codegen escape bugs in open-source libraries. Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII id…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Codegen escape — CJK / Unicode Failure Corpus","description":"2 real codegen escape bugs in open-source libraries. Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII id…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/codegen-escape.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"json-schema-to-typescript: enum names with special chars produce invalid TypeScript","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/json-schema-to-typescript-enum-escape.html"},{"@type":"ListItem","position":2,"name":"Markdoc formatter over-escapes a mid-line # (C# becomes C\\#)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdoc-mid-line-hash-escape.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Codegen escape","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/codegen-escape.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Codegen escape</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Codegen escape</h1>
+    <p class="lede">Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII identifiers) leak into the output and break it.</p>
+    <p class="counts"><b>2</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/json-schema-to-typescript-enum-escape.html">json-schema-to-typescript: enum names with special chars produce invalid TypeScript</a>
+  <p class="row-meta"><span class="lib">json-schema-to-typescript</span> <span class="tag tag--stack">TS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Enum member names containing special characters (including non-ASCII / CJK) are emitted unescaped, so the generated enum does not compile.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/markdoc-mid-line-hash-escape.html">Markdoc formatter over-escapes a mid-line # (C# becomes C\#)</a>
+  <p class="row-meta"><span class="lib">markdoc</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: 'C# is a language' becomes 'C\# is a language'.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

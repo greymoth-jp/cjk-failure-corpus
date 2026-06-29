@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python — CJK, IME &amp; Unicode bugs and fixes (6 cases)</title>
+<meta name="description" content="6 real CJK, IME, and Unicode/text-handling bugs found in Python open-source projects, each with a minimal repro and the fix.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/stack/python.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Python — CJK, IME &amp; Unicode bugs and fixes (6 cases)">
+<meta property="og:description" content="6 real CJK, IME, and Unicode/text-handling bugs found in Python open-source projects, each with a minimal repro and the fix.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/stack/python.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python — CJK, IME &amp; Unicode bugs and fixes (6 cases)">
+<meta name="twitter:description" content="6 real CJK, IME, and Unicode/text-handling bugs found in Python open-source projects, each with a minimal repro and the fix.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Python — CJK / Unicode Failure Corpus","description":"6 real CJK, IME, and Unicode/text-handling bugs found in Python open-source projects, each with a minimal repro and the fix.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/python.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/pykakasi-ddi-sokuon.html"},{"@type":"ListItem","position":2,"name":"jaconv kana2alphabet does not romanize small katakana ヵ/ヶ","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jaconv-small-ka-ke.html"},{"@type":"ListItem","position":3,"name":"kanji2number cannot parse 萬, the daiji form of 万 (Kanjize)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/kanjize-daiji-man.html"},{"@type":"ListItem","position":4,"name":"pykakasi fails to romanize half-width katakana with voiced marks","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/pykakasi-halfwidth-katakana.html"},{"@type":"ListItem","position":5,"name":"Python unidecode mangles half-width katakana with dakuten/handakuten","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html"},{"@type":"ListItem","position":6,"name":"split() word count treats a spaceless CJK answer as one word (omi)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/omi-onboarding-cjk-wordcount.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Python","item":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/python.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Python</span></nav>
+    <p class="kicker">Stack</p>
+    <h1 class="landing-title">Python</h1>
+    <p class="lede">CJK, IME, and Unicode/text-handling failures found in Python open-source projects. Each links to a minimal repro and the fix.</p>
+    <p class="counts"><b>6</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <h2 class="row-cat"><a href="../category/kana-romaji.html">Kana / romaji</a> <span class="cat-n">4</span></h2>
+      <ul class="rows">
+        <li class="row">
+  <a class="row-title" href="../e/pykakasi-ddi-sokuon.html">pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji</a>
+  <p class="row-meta"><span class="lib">pykakasi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The geminated d + small i sequence っでぃ (ddi) has no Hepburn or Kunrei entry, so loanword spellings that use it romanize incorrectly.</p>
+</li>
+        <li class="row">
+  <a class="row-title" href="../e/jaconv-small-ka-ke.html">jaconv kana2alphabet does not romanize small katakana ヵ/ヶ</a>
+  <p class="row-meta"><span class="lib">jaconv</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized.</p>
+</li>
+        <li class="row">
+  <a class="row-title" href="../e/pykakasi-halfwidth-katakana.html">pykakasi fails to romanize half-width katakana with voiced marks</a>
+  <p class="row-meta"><span class="lib">pykakasi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">pykakasi does not romanize half-width katakana correctly, particularly when a half-width voiced or semi-voiced mark (U+FF9E / U+FF9F) follows the base kana.</p>
+</li>
+        <li class="row">
+  <a class="row-title" href="../e/unidecode-halfwidth-dakuten.html">Python unidecode mangles half-width katakana with dakuten/handakuten</a>
+  <p class="row-meta"><span class="lib">unidecode</span> <span class="tag tag--stack">Python</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.</p>
+</li>
+      </ul>
+<h2 class="row-cat"><a href="../category/segmentation.html">Segmentation / word count</a> <span class="cat-n">1</span></h2>
+      <ul class="rows">
+        <li class="row">
+  <a class="row-title" href="../e/omi-onboarding-cjk-wordcount.html">split() word count treats a spaceless CJK answer as one word (omi)</a>
+  <p class="row-meta"><span class="lib">omi</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese, Chinese, and Korean speakers.</p>
+</li>
+      </ul>
+<h2 class="row-cat"><a href="../category/numeral.html">Numerals</a> <span class="cat-n">1</span></h2>
+      <ul class="rows">
+        <li class="row">
+  <a class="row-title" href="../e/kanjize-daiji-man.html">kanji2number cannot parse 萬, the daiji form of 万 (Kanjize)</a>
+  <p class="row-meta"><span class="lib">Kanjize</span> <span class="tag tag--stack">Python</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert.</p>
+</li>
+      </ul>
+    <p class="browse-h">Other stacks</p>
+    <div class="chips"><a class="chip" href="../stack/react.html">React</a><a class="chip" href="../stack/javascript.html">JavaScript</a><a class="chip" href="../stack/vue.html">Vue</a><a class="chip" href="../stack/typescript.html">TypeScript</a><a class="chip" href="../stack/rust.html">Rust</a><a class="chip" href="../stack/angular.html">Angular</a><a class="chip" href="../stack/i18n.html">Localization (i18n)</a><a class="chip" href="../stack/windows.html">Windows</a><a class="chip" href="../stack/web-platform.html">Web platform specs</a><a class="chip" href="../stack/zed.html">Zed</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

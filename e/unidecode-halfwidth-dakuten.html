@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Faulty transliteration of half-width katakana with dakuten and handakuten - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.">
+<title>Python unidecode mangles half-width katakana with dakuten/handakuten — CJK Failure Corpus</title>
+<meta name="description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width ka…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Faulty transliteration of half-width katakana with dakuten and handakuten - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python unidecode mangles half-width katakana with dakuten/handakuten — CJK Failure Corpus">
+<meta property="og:description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width ka…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Faulty transliteration of half-width katakana with dakuten and handakuten - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.">
+<meta name="twitter:title" content="Python unidecode mangles half-width katakana with dakuten/handakuten — CJK Failure Corpus">
+<meta name="twitter:description" content="unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width ka…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Faulty transliteration of half-width katakana with dakuten and handakuten","about":"Kana / romaji","description":"unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Python unidecode mangles half-width katakana with dakuten/handakuten","alternativeHeadline":"Faulty transliteration of half-width katakana with dakuten and handakuten","name":"Python unidecode mangles half-width katakana with dakuten/handakuten","about":"Kana / romaji","articleSection":"Kana / romaji","keywords":"Python, unidecode, Kana / romaji, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"unidecode: Python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width ka…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html","dateModified":"2026-06-29","citation":"https://github.com/avian2/unidecode/issues/51","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Kana / romaji","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/kana-romaji.html"},{"@type":"ListItem","position":3,"name":"Python unidecode mangles half-width katakana with dakuten/handakuten","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/unidecode-halfwidth-dakuten.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Kana / romaji</p>
-    <a class="detail-back" href="../#unidecode-halfwidth-dakuten">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/kana-romaji.html">Kana / romaji</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="unidecode-halfwidth-dakuten" data-cat="kana-romaji" data-lib="unidecode" data-search="faulty transliteration of half-width katakana with dakuten and handakuten unidecode avian2/unidecode python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly. unidecode on half-width ba bi bu be bo returns a wrong string instead of &#39;babibubebo&#39;. pre-compose half-width katakana plus combining voiced marks (nfkc) before the transliteration lookup. kana / romaji python cited upstream issue">
+    <article class="entry" id="unidecode-halfwidth-dakuten" data-cat="kana-romaji" data-lib="unidecode" data-search="python unidecode mangles half-width katakana with dakuten/handakuten faulty transliteration of half-width katakana with dakuten and handakuten unidecode avian2/unidecode python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly. unidecode on half-width ba bi bu be bo returns a wrong string instead of &#39;babibubebo&#39;. pre-compose half-width katakana plus combining voiced marks (nfkc) before the transliteration lookup. kana / romaji python cited upstream issue">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">Python</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h1 class="entry-title">Faulty transliteration of half-width katakana with dakuten and handakuten</h1>
+  <h1 class="entry-title">Python unidecode mangles half-width katakana with dakuten/handakuten</h1>
+  <p class="entry-subtitle">Faulty transliteration of half-width katakana with dakuten and handakuten</p>
   <p class="lib-line"><span class="lib">unidecode</span> &middot; <a href="https://github.com/avian2/unidecode">avian2/unidecode</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#unidecode-halfwidth-dakuten">#unidecode-halfwidth-dakuten</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/python.html">Python</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a></li>
+      <li><a href="../e/pykakasi-ddi-sokuon.html">pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji</a></li>
+      <li><a href="../e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a></li>
+      <li><a href="../e/jaconv-small-ka-ke.html">jaconv kana2alphabet does not romanize small katakana ヵ/ヶ</a></li>
+      <li><a href="../e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

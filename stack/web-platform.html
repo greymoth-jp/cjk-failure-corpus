@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web platform specs — CJK, IME &amp; Unicode bugs and fixes (2 cases)</title>
+<meta name="description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Web platform specs open-source projects, each with a minimal repro and the fix.">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/stack/web-platform.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web platform specs — CJK, IME &amp; Unicode bugs and fixes (2 cases)">
+<meta property="og:description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Web platform specs open-source projects, each with a minimal repro and the fix.">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/stack/web-platform.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web platform specs — CJK, IME &amp; Unicode bugs and fixes (2 cases)">
+<meta name="twitter:description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Web platform specs open-source projects, each with a minimal repro and the fix.">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Web platform specs — CJK / Unicode Failure Corpus","description":"2 real CJK, IME, and Unicode/text-handling bugs found in Web platform specs open-source projects, each with a minimal repro and the fix.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/web-platform.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"compositionend vs input event order differs across browsers (isComposing guard)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html"},{"@type":"ListItem","position":2,"name":"insertCompositionText / isComposing can't single out the IME commit input event","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/input-events-insertcompositiontext.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Web platform specs","item":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/web-platform.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Web platform specs</span></nav>
+    <p class="kicker">Stack</p>
+    <h1 class="landing-title">Web platform specs</h1>
+    <p class="lede">CJK, IME, and Unicode/text-handling failures found in Web platform specs open-source projects. Each links to a minimal repro and the fix.</p>
+    <p class="counts"><b>2</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <h2 class="row-cat"><a href="../category/ime-composition.html">IME composition</a> <span class="cat-n">2</span></h2>
+      <ul class="rows">
+        <li class="row">
+  <a class="row-title" href="../e/uievents-compositionend-input-order.html">compositionend vs input event order differs across browsers (isComposing guard)</a>
+  <p class="row-meta"><span class="lib">w3c/uievents</span> <span class="tag tag--stack">spec</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.</p>
+</li>
+        <li class="row">
+  <a class="row-title" href="../e/input-events-insertcompositiontext.html">insertCompositionText / isComposing can't single out the IME commit input event</a>
+  <p class="row-meta"><span class="lib">w3c/input-events</span> <span class="tag tag--stack">spec</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.</p>
+</li>
+      </ul>
+    <p class="browse-h">Other stacks</p>
+    <div class="chips"><a class="chip" href="../stack/react.html">React</a><a class="chip" href="../stack/javascript.html">JavaScript</a><a class="chip" href="../stack/vue.html">Vue</a><a class="chip" href="../stack/python.html">Python</a><a class="chip" href="../stack/typescript.html">TypeScript</a><a class="chip" href="../stack/rust.html">Rust</a><a class="chip" href="../stack/angular.html">Angular</a><a class="chip" href="../stack/i18n.html">Localization (i18n)</a><a class="chip" href="../stack/windows.html">Windows</a><a class="chip" href="../stack/zed.html">Zed</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

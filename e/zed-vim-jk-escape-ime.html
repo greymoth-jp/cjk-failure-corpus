@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vim jk escape depends on the CJK IME input mode - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.">
+<title>Zed Vim jk escape depends on the CJK IME input mode — CJK Failure Corpus</title>
+<meta name="description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a liter…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vim jk escape depends on the CJK IME input mode - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zed Vim jk escape depends on the CJK IME input mode — CJK Failure Corpus">
+<meta property="og:description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a liter…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim jk escape depends on the CJK IME input mode - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.">
+<meta name="twitter:title" content="Zed Vim jk escape depends on the CJK IME input mode — CJK Failure Corpus">
+<meta name="twitter:description" content="zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a liter…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Vim jk escape depends on the CJK IME input mode","about":"IME composition","description":"zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Zed Vim jk escape depends on the CJK IME input mode","alternativeHeadline":"Vim jk escape depends on the CJK IME input mode","name":"Zed Vim jk escape depends on the CJK IME input mode","about":"IME composition","articleSection":"IME composition","keywords":"Zed, zed, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"zed: With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a liter…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html","dateModified":"2026-06-29","citation":"https://github.com/zed-industries/zed/issues/53630","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"Zed Vim jk escape depends on the CJK IME input mode","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#zed-vim-jk-escape-ime">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="zed-vim-jk-escape-ime" data-cat="ime-composition" data-lib="zed" data-search="vim jk escape depends on the cjk ime input mode zed zed-industries/zed with vim mode and a cjk ime, the jk insert-mode escape only fires while the ime is composing in chinese mode; in direct english input it inserts a literal j and k instead of escaping. enable vim mode, map jk to escape, use a cjk ime such as macos pinyin; jk escapes while composing in chinese mode but not in english mode. detect the jk key sequence consistently regardless of the ime composition state. ime composition zed cited upstream issue">
+    <article class="entry" id="zed-vim-jk-escape-ime" data-cat="ime-composition" data-lib="zed" data-search="zed vim jk escape depends on the cjk ime input mode vim jk escape depends on the cjk ime input mode zed zed-industries/zed with vim mode and a cjk ime, the jk insert-mode escape only fires while the ime is composing in chinese mode; in direct english input it inserts a literal j and k instead of escaping. enable vim mode, map jk to escape, use a cjk ime such as macos pinyin; jk escapes while composing in chinese mode but not in english mode. detect the jk key sequence consistently regardless of the ime composition state. ime composition zed cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">Zed</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Vim jk escape depends on the CJK IME input mode</h1>
+  <h1 class="entry-title">Zed Vim jk escape depends on the CJK IME input mode</h1>
+  <p class="entry-subtitle">Vim jk escape depends on the CJK IME input mode</p>
   <p class="lib-line"><span class="lib">zed</span> &middot; <a href="https://github.com/zed-industries/zed">zed-industries/zed</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#zed-vim-jk-escape-ime">#zed-vim-jk-escape-ime</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/zed.html">Zed</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

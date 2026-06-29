@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex roundtrip — CJK / Unicode bugs, repros &amp; fixes (1 cases)</title>
+<meta name="description" content="1 real regex roundtrip bugs in open-source libraries. Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be e…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/regex-roundtrip.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regex roundtrip — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta property="og:description" content="1 real regex roundtrip bugs in open-source libraries. Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be e…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/regex-roundtrip.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regex roundtrip — CJK / Unicode bugs, repros &amp; fixes (1 cases)">
+<meta name="twitter:description" content="1 real regex roundtrip bugs in open-source libraries. Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be e…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Regex roundtrip — CJK / Unicode Failure Corpus","description":"1 real regex roundtrip bugs in open-source libraries. Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be e…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/regex-roundtrip.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":1,"itemListElement":[{"@type":"ListItem","position":1,"name":"regexp-tree emits a leading ^ unescaped, turning [a^] into [^a]","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/regexp-tree-leading-caret.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Regex roundtrip","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/regex-roundtrip.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Regex roundtrip</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Regex roundtrip</h1>
+    <p class="lede">Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be emitted unescaped and change what the pattern matches.</p>
+    <p class="counts"><b>1</b> case in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/regexp-tree-leading-caret.html">regexp-tree emits a leading ^ unescaped, turning [a^] into [^a]</a>
+  <p class="row-meta"><span class="lib">regexp-tree</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class).</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

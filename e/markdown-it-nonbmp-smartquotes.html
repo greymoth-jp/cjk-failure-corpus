@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>fix: handle non-BMP punctuation and symbols in smart quotes - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.">
+<title>markdown-it smart quotes break around non-BMP (U+10000+) characters — CJK Failure Corpus</title>
+<meta name="description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary character…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fix: handle non-BMP punctuation and symbols in smart quotes - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown-it smart quotes break around non-BMP (U+10000+) characters — CJK Failure Corpus">
+<meta property="og:description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary character…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fix: handle non-BMP punctuation and symbols in smart quotes - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.">
+<meta name="twitter:title" content="markdown-it smart quotes break around non-BMP (U+10000+) characters — CJK Failure Corpus">
+<meta name="twitter:description" content="markdown-it: markdown-it&#39;s smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary character…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"fix: handle non-BMP punctuation and symbols in smart quotes","about":"Surrogate & grapheme","description":"markdown-it: markdown-it's smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"markdown-it smart quotes break around non-BMP (U+10000+) characters","alternativeHeadline":"fix: handle non-BMP punctuation and symbols in smart quotes","name":"markdown-it smart quotes break around non-BMP (U+10000+) characters","about":"Surrogate & grapheme","articleSection":"Surrogate & grapheme","keywords":"JS, markdown-it, Surrogate & grapheme, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"markdown-it: markdown-it's smart quotes replacement does not handle non-BMP punctuation and symbols (U+10000+); surrounding text with supplementary character…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html","dateModified":"2026-06-29","citation":"https://github.com/markdown-it/markdown-it/pull/1186","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Surrogate & grapheme","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html"},{"@type":"ListItem","position":3,"name":"markdown-it smart quotes break around non-BMP (U+10000+) characters","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/markdown-it-nonbmp-smartquotes.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
-    <a class="detail-back" href="../#markdown-it-nonbmp-smartquotes">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="markdown-it-nonbmp-smartquotes" data-cat="surrogate-emoji" data-lib="markdown-it" data-search="fix: handle non-bmp punctuation and symbols in smart quotes markdown-it markdown-it/markdown-it markdown-it&#39;s smart quotes replacement does not handle non-bmp punctuation and symbols (u+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion. markdown-it smartquotes on text adjacent to emoji or supplementary unicode symbols (e.g., &#39;𝕳ello&#39;); smart quote pairing is incorrect. use a regex that is unicode-aware for the &#39;whitespace&#39; and &#39;punctuation&#39; character class checks, or use array.from for code-point iteration. surrogate &amp; grapheme js pull request">
+    <article class="entry" id="markdown-it-nonbmp-smartquotes" data-cat="surrogate-emoji" data-lib="markdown-it" data-search="markdown-it smart quotes break around non-bmp (u+10000+) characters fix: handle non-bmp punctuation and symbols in smart quotes markdown-it markdown-it/markdown-it markdown-it&#39;s smart quotes replacement does not handle non-bmp punctuation and symbols (u+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion. markdown-it smartquotes on text adjacent to emoji or supplementary unicode symbols (e.g., &#39;𝕳ello&#39;); smart quote pairing is incorrect. use a regex that is unicode-aware for the &#39;whitespace&#39; and &#39;punctuation&#39; character class checks, or use array.from for code-point iteration. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--closed">closed</span>
   </div>
-  <h1 class="entry-title">fix: handle non-BMP punctuation and symbols in smart quotes</h1>
+  <h1 class="entry-title">markdown-it smart quotes break around non-BMP (U+10000+) characters</h1>
+  <p class="entry-subtitle">fix: handle non-BMP punctuation and symbols in smart quotes</p>
   <p class="lib-line"><span class="lib">markdown-it</span> &middot; <a href="https://github.com/markdown-it/markdown-it">markdown-it/markdown-it</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#markdown-it-nonbmp-smartquotes">#markdown-it-nonbmp-smartquotes</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/javascript.html">JavaScript</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a></li>
+      <li><a href="../e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a></li>
+      <li><a href="../e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a></li>
+      <li><a href="../e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a></li>
+      <li><a href="../e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

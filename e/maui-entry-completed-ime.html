@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<title>.NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows) — CJK Failure Corpus</title>
+<meta name="description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows) — CJK Failure Corpus">
+<meta property="og:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Entry.Completed fires on the Enter that confirms an IME candidate - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.">
+<meta name="twitter:title" content=".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows) — CJK Failure Corpus">
+<meta name="twitter:description" content="dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Entry.Completed fires on the Enter that confirms an IME candidate","about":"IME composition","description":"dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)","alternativeHeadline":"Entry.Completed fires on the Enter that confirms an IME candidate","name":".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)","about":"IME composition","articleSection":"IME composition","keywords":"MAUI, Windows, dotnet/maui, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"dotnet/maui: On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html","dateModified":"2026-06-29","citation":"https://github.com/dotnet/maui/issues/36179","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#maui-entry-completed-ime">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="maui-entry-completed-ime" data-cat="ime-composition" data-lib="dotnet/maui" data-search="entry.completed fires on the enter that confirms an ime candidate dotnet/maui dotnet/maui on windows, entry.completed is raised when the user presses enter inside the ime conversion candidate window, so completion fires before the cjk conversion is committed. focus a maui entry on windows, use a chinese/japanese ime, press enter to pick a candidate; completed fires mid-conversion. do not raise completed while the ime conversion window is open; fire only once the composition is fully committed. ime composition maui windows cited upstream issue">
+    <article class="entry" id="maui-entry-completed-ime" data-cat="ime-composition" data-lib="dotnet/maui" data-search=".net maui entry.completed fires on the enter that confirms an ime candidate (windows) entry.completed fires on the enter that confirms an ime candidate dotnet/maui dotnet/maui on windows, entry.completed is raised when the user presses enter inside the ime conversion candidate window, so completion fires before the cjk conversion is committed. focus a maui entry on windows, use a chinese/japanese ime, press enter to pick a candidate; completed fires mid-conversion. do not raise completed while the ime conversion window is open; fire only once the composition is fully committed. ime composition maui windows cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">MAUI</span><span class="tag tag--stack">Windows</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Entry.Completed fires on the Enter that confirms an IME candidate</h1>
+  <h1 class="entry-title">.NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)</h1>
+  <p class="entry-subtitle">Entry.Completed fires on the Enter that confirms an IME candidate</p>
   <p class="lib-line"><span class="lib">dotnet/maui</span> &middot; <a href="https://github.com/dotnet/maui">dotnet/maui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#maui-entry-completed-ime">#maui-entry-completed-ime</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/windows.html">Windows</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

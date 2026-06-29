@@ -204,7 +204,83 @@ footer .mark{ font-family:var(--display); font-size:1rem; letter-spacing:.05em; 
 /* ---- per-entry detail page ----------------------------------------------- */
 .detail-back{ display:inline-block; margin:1.5rem 0 0; font-size:.84rem; color:var(--ink-soft); text-decoration:none; }
 .detail-back:hover{ color:var(--ink); }
-.detail .entry{ box-shadow:6px 7px 0 var(--ink); margin-top:1.5rem; }
+.detail .entry{ box-shadow:6px 7px 0 var(--ink); margin-top:1.2rem; }
+
+/* search-intent H1 inside an entry card (detail page) */
+.entry h1.entry-title{
+  font-family:var(--body); font-weight:700;
+  font-size:clamp(1.25rem, 3.4vw, 1.6rem); line-height:1.28;
+  margin:.1rem 0 .35rem; text-shadow:none; text-transform:none; letter-spacing:0;
+}
+.entry-subtitle{ margin:0 0 .2rem; font-size:.9rem; color:var(--ink-soft); font-style:italic; }
+
+/* ---- breadcrumbs --------------------------------------------------------- */
+.crumbs{ font-size:.78rem; letter-spacing:.04em; color:var(--ink-soft); margin:0 0 .4rem; }
+.crumbs a{ color:var(--ink-soft); text-decoration:none; }
+.crumbs a:hover{ color:var(--ink); box-shadow:inset 0 -.1em 0 var(--ink); }
+.crumbs span{ margin:0 .35em; }
+
+/* ---- browse band (homepage internal-link index) ------------------------- */
+.browse{ position:relative; z-index:1; padding:1.4rem 0 1.5rem; }
+.browse-h{
+  font-family:var(--body); font-weight:700; text-transform:uppercase;
+  letter-spacing:.16em; font-size:.66rem; color:var(--ink-soft); margin:1.2rem 0 .6rem;
+}
+.browse-h:first-child{ margin-top:0; }
+.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.chip{
+  font-family:var(--body); font-weight:700; font-size:.78rem;
+  text-decoration:none; color:var(--ink);
+  border:1.5px solid var(--ink); padding:.28em .6em;
+  display:inline-flex; align-items:center; gap:.4em;
+}
+.chip:hover{ background:var(--ink); color:var(--paper-bright); }
+.chip:hover .chip-n{ color:var(--paper-bright); }
+.chip-n{ font-weight:400; color:var(--ink-soft); font-size:.72rem; }
+
+/* category section heading link + "open category" link on the index */
+.cat-head h2 a{ color:inherit; text-decoration:none; }
+.cat-head h2 a:hover{ box-shadow:inset 0 -.1em 0 var(--ink); }
+.cat-all{ font-family:var(--body); font-weight:700; font-size:.74rem; color:var(--ink-soft); text-decoration:none; }
+.cat-all:hover{ color:var(--ink); box-shadow:inset 0 -.1em 0 var(--ink); }
+
+/* ---- landing pages (category / stack) ----------------------------------- */
+.landing-title{
+  font-family:var(--display); font-weight:400; text-transform:uppercase;
+  line-height:.92; letter-spacing:.01em; font-size:clamp(2.1rem, 7vw, 3.6rem);
+  margin:.2rem 0 0; text-shadow:.6px 0 0 var(--ink), -.6px 0 0 var(--ink);
+}
+.rows{ list-style:none; margin:1.6rem 0 2.2rem; padding:0; }
+.row{
+  background:var(--paper-bright); border:2px solid var(--ink);
+  box-shadow:4px 5px 0 var(--ink); padding:1rem 1.1rem 1.05rem; margin:0 0 1.2rem;
+}
+.row-title{ font-family:var(--body); font-weight:700; font-size:1.02rem; line-height:1.32; color:var(--ink); text-decoration:none; display:inline-block; }
+.row-title:hover{ box-shadow:inset 0 -.12em 0 var(--ink); }
+.row-meta{ display:flex; flex-wrap:wrap; gap:.4rem .6rem; align-items:center; margin:.55rem 0 .5rem; font-size:.8rem; color:var(--ink-soft); }
+.row-meta .lib{ font-weight:700; color:var(--ink); }
+.row-meta .badge{ margin-left:0; }
+.row-sym{ margin:0; font-size:.9rem; }
+h2.row-cat{
+  font-family:var(--display); font-weight:400; text-transform:uppercase;
+  font-size:clamp(1.3rem, 4vw, 1.9rem); letter-spacing:.01em; margin:2rem 0 .3rem;
+  display:flex; align-items:baseline; gap:.7rem;
+}
+h2.row-cat a{ color:inherit; text-decoration:none; }
+h2.row-cat a:hover{ box-shadow:inset 0 -.1em 0 var(--ink); }
+
+/* ---- related / also-in (detail page internal links) --------------------- */
+.also-in{ font-size:.84rem; color:var(--ink-soft); margin:1.1rem 0 0; }
+.also-in a{ color:var(--ink); text-decoration:none; box-shadow:inset 0 -.12em 0 var(--ink); }
+.related{ margin:1.8rem 0 0; border-top:3px solid var(--ink); padding-top:1.2rem; }
+.related-h{
+  font-family:var(--body); font-weight:700; text-transform:uppercase;
+  letter-spacing:.16em; font-size:.66rem; color:var(--ink-soft); margin:0 0 .7rem;
+}
+.related-list{ list-style:none; margin:0; padding:0; }
+.related-list li{ margin:0 0 .5rem; font-size:.92rem; }
+.related-list a{ color:var(--ink); text-decoration:none; }
+.related-list a:hover{ box-shadow:inset 0 -.1em 0 var(--ink); }
 
 @media (max-width:560px){
   .entry{ box-shadow:4px 5px 0 var(--ink); padding:1.05rem 1rem 1.2rem; }

@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>defineShortcuts fires global shortcuts while typing with an IME - CJK / Unicode Failure Corpus</title>
+<title>Nuxt UI defineShortcuts fire while typing with a Japanese IME — CJK Failure Corpus</title>
 <meta name="description" content="nuxt/ui: Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="defineShortcuts fires global shortcuts while typing with an IME - CJK / Unicode Failure Corpus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt UI defineShortcuts fire while typing with a Japanese IME — CJK Failure Corpus">
 <meta property="og:description" content="nuxt/ui: Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="defineShortcuts fires global shortcuts while typing with an IME - CJK / Unicode Failure Corpus">
+<meta name="twitter:title" content="Nuxt UI defineShortcuts fire while typing with a Japanese IME — CJK Failure Corpus">
 <meta name="twitter:description" content="nuxt/ui: Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"defineShortcuts fires global shortcuts while typing with an IME","about":"IME composition","description":"nuxt/ui: Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Nuxt UI defineShortcuts fire while typing with a Japanese IME","alternativeHeadline":"defineShortcuts fires global shortcuts while typing with an IME","name":"Nuxt UI defineShortcuts fire while typing with a Japanese IME","about":"IME composition","articleSection":"IME composition","keywords":"Vue, Nuxt, nuxt/ui, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"nuxt/ui: Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html","dateModified":"2026-06-29","citation":"https://github.com/nuxt/ui/pull/6659","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"Nuxt UI defineShortcuts fire while typing with a Japanese IME","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#nuxt-ui-shortcuts-ime">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="nuxt-ui-shortcuts-ime" data-cat="ime-composition" data-lib="nuxt/ui" data-search="defineshortcuts fires global shortcuts while typing with an ime nuxt/ui nuxt/ui single-key shortcuts registered with defineshortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition. 1. register a single-key shortcut (e.g. &#39;g&#39;).
+    <article class="entry" id="nuxt-ui-shortcuts-ime" data-cat="ime-composition" data-lib="nuxt/ui" data-search="nuxt ui defineshortcuts fire while typing with a japanese ime defineshortcuts fires global shortcuts while typing with an ime nuxt/ui nuxt/ui single-key shortcuts registered with defineshortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition. 1. register a single-key shortcut (e.g. &#39;g&#39;).
 2. in an input, compose japanese text whose romaji includes that key.
 3. the shortcut fires during composition. ignore key events when e.iscomposing (or keycode 229) before dispatching shortcuts. ime composition vue nuxt pull request">
   <div class="entry-top">
@@ -36,7 +39,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">defineShortcuts fires global shortcuts while typing with an IME</h1>
+  <h1 class="entry-title">Nuxt UI defineShortcuts fire while typing with a Japanese IME</h1>
+  <p class="entry-subtitle">defineShortcuts fires global shortcuts while typing with an IME</p>
   <p class="lib-line"><span class="lib">nuxt/ui</span> &middot; <a href="https://github.com/nuxt/ui">nuxt/ui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -57,6 +61,17 @@
     <a class="anchor-link" href="#nuxt-ui-shortcuts-ime">#nuxt-ui-shortcuts-ime</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/vue.html">Vue</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

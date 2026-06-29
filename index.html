@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CJK / Unicode Failure Corpus</title>
-<meta name="description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta name="description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CJK / Unicode Failure Corpus">
-<meta property="og:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta property="og:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta name="twitter:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -28,6 +28,16 @@
     <p class="source-note">Most entries are pull requests authored by greymoth, taken verbatim from the GitHub API. A few are cited upstream issues from the wider ecosystem that document the same failures; those are marked cited and link to the original report.</p>
   </div>
 </header>
+<div class="rule"></div>
+
+<nav class="browse" aria-label="Browse the corpus">
+  <div class="wrap">
+    <p class="browse-h">Browse by category</p>
+    <div class="chips"><a class="chip" href="category/ime-composition.html">IME composition <span class="chip-n">36</span></a><a class="chip" href="category/kana-romaji.html">Kana / romaji <span class="chip-n">8</span></a><a class="chip" href="category/width-normalization.html">Width / normalization <span class="chip-n">5</span></a><a class="chip" href="category/surrogate-emoji.html">Surrogate &amp; grapheme <span class="chip-n">10</span></a><a class="chip" href="category/segmentation.html">Segmentation / word count <span class="chip-n">2</span></a><a class="chip" href="category/numeral.html">Numerals <span class="chip-n">2</span></a><a class="chip" href="category/locale-leftover.html">Locale data <span class="chip-n">21</span></a><a class="chip" href="category/unicode-range.html">Unicode range <span class="chip-n">1</span></a><a class="chip" href="category/regex-roundtrip.html">Regex roundtrip <span class="chip-n">1</span></a><a class="chip" href="category/codegen-escape.html">Codegen escape <span class="chip-n">2</span></a><a class="chip" href="category/encoding.html">Encoding &amp; BOM <span class="chip-n">1</span></a></div>
+    <p class="browse-h">Browse by stack</p>
+    <div class="chips"><a class="chip" href="stack/react.html">React <span class="chip-n">26</span></a><a class="chip" href="stack/javascript.html">JavaScript <span class="chip-n">25</span></a><a class="chip" href="stack/vue.html">Vue <span class="chip-n">8</span></a><a class="chip" href="stack/python.html">Python <span class="chip-n">6</span></a><a class="chip" href="stack/typescript.html">TypeScript <span class="chip-n">4</span></a><a class="chip" href="stack/rust.html">Rust <span class="chip-n">3</span></a><a class="chip" href="stack/angular.html">Angular <span class="chip-n">2</span></a><a class="chip" href="stack/i18n.html">Localization (i18n) <span class="chip-n">2</span></a><a class="chip" href="stack/windows.html">Windows <span class="chip-n">2</span></a><a class="chip" href="stack/web-platform.html">Web platform specs <span class="chip-n">2</span></a><a class="chip" href="stack/zed.html">Zed <span class="chip-n">2</span></a></div>
+  </div>
+</nav>
 <div class="rule"></div>
 
 <div class="controls">
@@ -49,11 +59,12 @@
 <section class="cat-section" data-cat-section="ime-composition">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-ime-composition">IME composition</h2>
+      <h2 id="cat-ime-composition"><a href="category/ime-composition.html">IME composition</a></h2>
       <span class="cat-n">36 entries</span>
+      <a class="cat-all" href="category/ime-composition.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji candidate). That same Enter often fires the component's own keydown / submit / select handler, so the form sends or an item is selected with half-finished text. The guard is one line: skip the handler while the composition is active (event.isComposing, or keyCode 229; in React read event.nativeEvent.isComposing).</p>
-    <article class="entry" id="naive-ui-dynamic-tags-ime" data-cat="ime-composition" data-lib="naive-ui" data-search="n-dynamic-tags commits a tag on the enter that confirms an ime conversion naive-ui tusen-ai/naive-ui pressing enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion. 1. render &lt;n-dynamic-tags&gt; and focus its input.
+    <article class="entry" id="naive-ui-dynamic-tags-ime" data-cat="ime-composition" data-lib="naive-ui" data-search="naive-ui: enter during ime composition adds a tag (vue dynamic tags) n-dynamic-tags commits a tag on the enter that confirms an ime conversion naive-ui tusen-ai/naive-ui pressing enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion. 1. render &lt;n-dynamic-tags&gt; and focus its input.
 2. switch to a japanese ime, type &quot;とうきょう&quot;, press space to convert to 東京.
 3. press enter to pick the candidate.
 4. a tag is added from the unconfirmed text before the conversion commits. skip tag creation while e.iscomposing is true; only act on the enter that fires after compositionend. ime composition vue pull request">
@@ -63,7 +74,8 @@
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/naive-ui-dynamic-tags-ime.html">n-dynamic-tags commits a tag on the Enter that confirms an IME conversion</a></h3>
+  <h3 class="entry-title"><a href="e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></h3>
+  
   <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -85,7 +97,7 @@
     <a class="anchor-link" href="#naive-ui-dynamic-tags-ime">#naive-ui-dynamic-tags-ime</a>
   </div>
 </article>
-<article class="entry" id="llm-x-chat-enter-ime" data-cat="ime-composition" data-lib="llm-x" data-search="chat box sends the message on the enter that confirms an ime candidate llm-x mrdjohnson/llm-x confirming a japanese ime candidate with enter in the chat box sends the message instead of committing the conversion. 1. open the chat input.
+<article class="entry" id="llm-x-chat-enter-ime" data-cat="ime-composition" data-lib="llm-x" data-search="react chat input sends the message on the enter that confirms an ime conversion chat box sends the message on the enter that confirms an ime candidate llm-x mrdjohnson/llm-x confirming a japanese ime candidate with enter in the chat box sends the message instead of committing the conversion. 1. open the chat input.
 2. with a cjk ime, type a phrase and press space to get conversion candidates.
 3. press enter to choose a candidate.
 4. the message sends with the unconfirmed text. return early when e.nativeevent.iscomposing is true. react&#39;s synthetic keyboardevent has no iscomposing field, so read it off nativeevent (the dom event), not e.iscomposing. ime composition react pull request">
@@ -95,7 +107,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/llm-x-chat-enter-ime.html">Chat box sends the message on the Enter that confirms an IME candidate</a></h3>
+  <h3 class="entry-title"><a href="e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></h3>
+  
   <p class="lib-line"><span class="lib">llm-x</span> &middot; <a href="https://github.com/mrdjohnson/llm-x">mrdjohnson/llm-x</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -117,7 +130,7 @@
     <a class="anchor-link" href="#llm-x-chat-enter-ime">#llm-x-chat-enter-ime</a>
   </div>
 </article>
-<article class="entry" id="surf-command-palette-ime" data-cat="ime-composition" data-lib="surf" data-search="command palette runs the highlighted command on the ime confirm enter surf deta/surf typing a cjk query in the command palette and pressing enter to confirm the ime runs the highlighted command instead of finishing the conversion. 1. open the command palette.
+<article class="entry" id="surf-command-palette-ime" data-cat="ime-composition" data-lib="surf" data-search="svelte command palette runs a command on the ime confirm enter command palette runs the highlighted command on the ime confirm enter surf deta/surf typing a cjk query in the command palette and pressing enter to confirm the ime runs the highlighted command instead of finishing the conversion. 1. open the command palette.
 2. compose a japanese search term with the ime.
 3. press enter to commit the conversion.
 4. the first/highlighted command fires prematurely. add `if (e.iscomposing) return` at the top of the palette input keydown handler. svelte exposes the native keyboardevent, so e.iscomposing works directly. ime composition svelte pull request">
@@ -127,7 +140,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/surf-command-palette-ime.html">Command palette runs the highlighted command on the IME confirm Enter</a></h3>
+  <h3 class="entry-title"><a href="e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">surf</span> &middot; <a href="https://github.com/deta/surf">deta/surf</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -149,7 +163,7 @@
     <a class="anchor-link" href="#surf-command-palette-ime">#surf-command-palette-ime</a>
   </div>
 </article>
-<article class="entry" id="rc-mentions-safari-ime-select" data-cat="ime-composition" data-lib="rc-mentions" data-search="confirming a cjk @-mention with enter replaces it with the highlighted option (safari) rc-mentions react-component/mentions on safari/webkit, composing an @-mention name in cjk and pressing enter to confirm the ime replaces the text with whatever mention is highlighted. 1. in safari, type @ then compose a japanese name with the ime.
+<article class="entry" id="rc-mentions-safari-ime-select" data-cat="ime-composition" data-lib="rc-mentions" data-search="safari: enter confirming a cjk @-mention picks the wrong option (rc-mentions) confirming a cjk @-mention with enter replaces it with the highlighted option (safari) rc-mentions react-component/mentions on safari/webkit, composing an @-mention name in cjk and pressing enter to confirm the ime replaces the text with whatever mention is highlighted. 1. in safari, type @ then compose a japanese name with the ime.
 2. press enter to confirm the kanji conversion.
 3. the composing text is replaced by the highlighted mention option. in the enter branch, return early on event.nativeevent.iscomposing before preventdefault. webkit reports the commit keydown as which===enter + iscomposing:true; chromium reports keycode 229 and never enters this branch. ime composition react safari pull request">
   <div class="entry-top">
@@ -158,7 +172,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/rc-mentions-safari-ime-select.html">Confirming a CJK @-mention with Enter replaces it with the highlighted option (Safari)</a></h3>
+  <h3 class="entry-title"><a href="e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></h3>
+  
   <p class="lib-line"><span class="lib">rc-mentions</span> &middot; <a href="https://github.com/react-component/mentions">react-component/mentions</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -179,7 +194,7 @@
     <a class="anchor-link" href="#rc-mentions-safari-ime-select">#rc-mentions-safari-ime-select</a>
   </div>
 </article>
-<article class="entry" id="rc-select-enter-ime-option" data-cat="ime-composition" data-lib="rc-select" data-search="enter that confirms an ime composition also selects the active option rc-select react-component/select the enter used to commit an ime composition also selects the currently highlighted option in a searchable select. 1. open a searchable &lt;select&gt;.
+<article class="entry" id="rc-select-enter-ime-option" data-cat="ime-composition" data-lib="rc-select" data-search="rc-select: the enter that confirms ime composition also selects an option enter that confirms an ime composition also selects the active option rc-select react-component/select the enter used to commit an ime composition also selects the currently highlighted option in a searchable select. 1. open a searchable &lt;select&gt;.
 2. type a cjk query with the ime and press enter to confirm the conversion.
 3. the active option is selected with the unfinished query. track composition state (compositionstart/compositionend) and skip option selection while composing. ime composition react pull request">
   <div class="entry-top">
@@ -188,7 +203,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/rc-select-enter-ime-option.html">Enter that confirms an IME composition also selects the active option</a></h3>
+  <h3 class="entry-title"><a href="e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></h3>
+  
   <p class="lib-line"><span class="lib">rc-select</span> &middot; <a href="https://github.com/react-component/select">react-component/select</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -209,7 +225,7 @@
     <a class="anchor-link" href="#rc-select-enter-ime-option">#rc-select-enter-ime-option</a>
   </div>
 </article>
-<article class="entry" id="element-plus-time-picker-ime" data-cat="ime-composition" data-lib="element-plus" data-search="time-picker handles keys during ime composition element-plus element-plus/element-plus the time-picker&#39;s key handler fires while an ime composition is active, so keystrokes meant for the ime mutate the time value. 1. focus the time-picker input.
+<article class="entry" id="element-plus-time-picker-ime" data-cat="ime-composition" data-lib="element-plus" data-search="element plus time-picker reacts to keystrokes during ime composition time-picker handles keys during ime composition element-plus element-plus/element-plus the time-picker&#39;s key handler fires while an ime composition is active, so keystrokes meant for the ime mutate the time value. 1. focus the time-picker input.
 2. begin an ime composition.
 3. composition keystrokes are intercepted by the picker&#39;s key handler instead of the ime. skip the picker&#39;s keydown handling while the composition is active (iscomposing guard). ime composition vue pull request">
   <div class="entry-top">
@@ -218,7 +234,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/element-plus-time-picker-ime.html">time-picker handles keys during IME composition</a></h3>
+  <h3 class="entry-title"><a href="e/element-plus-time-picker-ime.html">Element Plus time-picker reacts to keystrokes during IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">element-plus</span> &middot; <a href="https://github.com/element-plus/element-plus">element-plus/element-plus</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -239,7 +256,7 @@
     <a class="anchor-link" href="#element-plus-time-picker-ime">#element-plus-time-picker-ime</a>
   </div>
 </article>
-<article class="entry" id="vuetify-autocomplete-ime" data-cat="ime-composition" data-lib="vuetify" data-search="vautocomplete keydown listener fires during ime composition vuetify vuetifyjs/vuetify vautocomplete&#39;s keydown listener triggers during ime composition, so confirming a cjk query navigates or selects options. 1. open a vautocomplete.
+<article class="entry" id="vuetify-autocomplete-ime" data-cat="ime-composition" data-lib="vuetify" data-search="vuetify vautocomplete keydown fires during ime composition vautocomplete keydown listener fires during ime composition vuetify vuetifyjs/vuetify vautocomplete&#39;s keydown listener triggers during ime composition, so confirming a cjk query navigates or selects options. 1. open a vautocomplete.
 2. compose a japanese query, press enter/arrow to confirm.
 3. the keydown listener acts on the composing keys. bail out of the keydown listener when e.iscomposing is true. ime composition vue pull request">
   <div class="entry-top">
@@ -248,7 +265,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/vuetify-autocomplete-ime.html">VAutocomplete keydown listener fires during IME composition</a></h3>
+  <h3 class="entry-title"><a href="e/vuetify-autocomplete-ime.html">Vuetify VAutocomplete keydown fires during IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">vuetify</span> &middot; <a href="https://github.com/vuetifyjs/vuetify">vuetifyjs/vuetify</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -269,7 +287,7 @@
     <a class="anchor-link" href="#vuetify-autocomplete-ime">#vuetify-autocomplete-ime</a>
   </div>
 </article>
-<article class="entry" id="nuxt-ui-shortcuts-ime" data-cat="ime-composition" data-lib="nuxt/ui" data-search="defineshortcuts fires global shortcuts while typing with an ime nuxt/ui nuxt/ui single-key shortcuts registered with defineshortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition. 1. register a single-key shortcut (e.g. &#39;g&#39;).
+<article class="entry" id="nuxt-ui-shortcuts-ime" data-cat="ime-composition" data-lib="nuxt/ui" data-search="nuxt ui defineshortcuts fire while typing with a japanese ime defineshortcuts fires global shortcuts while typing with an ime nuxt/ui nuxt/ui single-key shortcuts registered with defineshortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition. 1. register a single-key shortcut (e.g. &#39;g&#39;).
 2. in an input, compose japanese text whose romaji includes that key.
 3. the shortcut fires during composition. ignore key events when e.iscomposing (or keycode 229) before dispatching shortcuts. ime composition vue nuxt pull request">
   <div class="entry-top">
@@ -278,7 +296,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/nuxt-ui-shortcuts-ime.html">defineShortcuts fires global shortcuts while typing with an IME</a></h3>
+  <h3 class="entry-title"><a href="e/nuxt-ui-shortcuts-ime.html">Nuxt UI defineShortcuts fire while typing with a Japanese IME</a></h3>
+  
   <p class="lib-line"><span class="lib">nuxt/ui</span> &middot; <a href="https://github.com/nuxt/ui">nuxt/ui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -299,7 +318,7 @@
     <a class="anchor-link" href="#nuxt-ui-shortcuts-ime">#nuxt-ui-shortcuts-ime</a>
   </div>
 </article>
-<article class="entry" id="zag-color-picker-channel-ime" data-cat="ime-composition" data-lib="zag" data-search="color-picker channel input handles enter during ime composition zag chakra-ui/zag a color-picker channel input runs its enter handler while an ime composition is active, committing before the composition ends. 1. focus a color channel input.
+<article class="entry" id="zag-color-picker-channel-ime" data-cat="ime-composition" data-lib="zag" data-search="zag color-picker input handles enter during ime composition color-picker channel input handles enter during ime composition zag chakra-ui/zag a color-picker channel input runs its enter handler while an ime composition is active, committing before the composition ends. 1. focus a color channel input.
 2. trigger an ime composition and press enter.
 3. the channel commit fires before compositionend. guard the channel input&#39;s enter handler with iscomposing. ime composition headless pull request">
   <div class="entry-top">
@@ -308,7 +327,8 @@
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/zag-color-picker-channel-ime.html">color-picker channel input handles Enter during IME composition</a></h3>
+  <h3 class="entry-title"><a href="e/zag-color-picker-channel-ime.html">Zag color-picker input handles Enter during IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">zag</span> &middot; <a href="https://github.com/chakra-ui/zag">chakra-ui/zag</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -329,7 +349,7 @@
     <a class="anchor-link" href="#zag-color-picker-channel-ime">#zag-color-picker-channel-ime</a>
   </div>
 </article>
-<article class="entry" id="cherry-studio-rename-ime" data-cat="ime-composition" data-lib="cherry-studio" data-search="inline file rename submits while the ime is composing cherry-studio cherryhq/cherry-studio renaming a file inline and pressing enter to confirm a cjk name submits the rename mid-composition. 1. start an inline file rename.
+<article class="entry" id="cherry-studio-rename-ime" data-cat="ime-composition" data-lib="cherry-studio" data-search="inline file rename submits during ime composition (cherry studio, electron) inline file rename submits while the ime is composing cherry-studio cherryhq/cherry-studio renaming a file inline and pressing enter to confirm a cjk name submits the rename mid-composition. 1. start an inline file rename.
 2. compose a japanese filename with the ime.
 3. press enter to confirm the conversion; the rename submits with the unfinished name. skip the rename submit while the ime is composing (iscomposing guard). ime composition react electron pull request">
   <div class="entry-top">
@@ -338,7 +358,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/cherry-studio-rename-ime.html">Inline file rename submits while the IME is composing</a></h3>
+  <h3 class="entry-title"><a href="e/cherry-studio-rename-ime.html">Inline file rename submits during IME composition (Cherry Studio, Electron)</a></h3>
+  
   <p class="lib-line"><span class="lib">cherry-studio</span> &middot; <a href="https://github.com/CherryHQ/cherry-studio">CherryHQ/cherry-studio</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -359,7 +380,7 @@
     <a class="anchor-link" href="#cherry-studio-rename-ime">#cherry-studio-rename-ime</a>
   </div>
 </article>
-<article class="entry" id="copilotkit-angular-chat-ime" data-cat="ime-composition" data-lib="CopilotKit" data-search="angular chat input submits on the ime confirm enter copilotkit copilotkit/copilotkit the angular chat input submits the message on the enter that confirms an ime composition. 1. type a cjk message in the angular chat input.
+<article class="entry" id="copilotkit-angular-chat-ime" data-cat="ime-composition" data-lib="CopilotKit" data-search="copilotkit angular chat submits on the enter that confirms an ime candidate angular chat input submits on the ime confirm enter copilotkit copilotkit/copilotkit the angular chat input submits the message on the enter that confirms an ime composition. 1. type a cjk message in the angular chat input.
 2. press enter to confirm the ime conversion; the message sends early. check event.iscomposing (angular passes the native keyboardevent) before submitting. ime composition angular pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
@@ -367,7 +388,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/copilotkit-angular-chat-ime.html">Angular chat input submits on the IME confirm Enter</a></h3>
+  <h3 class="entry-title"><a href="e/copilotkit-angular-chat-ime.html">CopilotKit Angular chat submits on the Enter that confirms an IME candidate</a></h3>
+  
   <p class="lib-line"><span class="lib">CopilotKit</span> &middot; <a href="https://github.com/CopilotKit/CopilotKit">CopilotKit/CopilotKit</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -387,7 +409,7 @@
     <a class="anchor-link" href="#copilotkit-angular-chat-ime">#copilotkit-angular-chat-ime</a>
   </div>
 </article>
-<article class="entry" id="chatui-composer-ime" data-cat="ime-composition" data-lib="ChatUI" data-search="composer sends on the enter that confirms an ime composition chatui alibaba/chatui the composer sends the message on the enter used to confirm an ime composition. 1. compose cjk text in the composer.
+<article class="entry" id="chatui-composer-ime" data-cat="ime-composition" data-lib="ChatUI" data-search="chatui composer sends on the enter that confirms ime composition composer sends on the enter that confirms an ime composition chatui alibaba/chatui the composer sends the message on the enter used to confirm an ime composition. 1. compose cjk text in the composer.
 2. press enter to pick a candidate; the message sends instead of committing. skip send when e.nativeevent.iscomposing is true. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
@@ -395,7 +417,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/chatui-composer-ime.html">Composer sends on the Enter that confirms an IME composition</a></h3>
+  <h3 class="entry-title"><a href="e/chatui-composer-ime.html">ChatUI composer sends on the Enter that confirms IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">ChatUI</span> &middot; <a href="https://github.com/alibaba/ChatUI">alibaba/ChatUI</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -415,14 +438,15 @@
     <a class="anchor-link" href="#chatui-composer-ime">#chatui-composer-ime</a>
   </div>
 </article>
-<article class="entry" id="siyuan-session-rename-ime" data-cat="ime-composition" data-lib="siyuan" data-search="guard ime composition in the agent session rename input siyuan siyuan-note/siyuan pressing enter to confirm cjk composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely. use japanese/chinese/korean ime in siyuan&#39;s session rename field; press enter to confirm composition; rename fires before composition is complete. check event.iscomposing (and event.keycode===229 for legacy browsers) before acting on keydown/keyup enter. ignore enter events during composition. ime composition  pull request">
+<article class="entry" id="siyuan-session-rename-ime" data-cat="ime-composition" data-lib="siyuan" data-search="siyuan session rename input submits during ime composition (enter) guard ime composition in the agent session rename input siyuan siyuan-note/siyuan pressing enter to confirm cjk composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely. use japanese/chinese/korean ime in siyuan&#39;s session rename field; press enter to confirm composition; rename fires before composition is complete. check event.iscomposing (and event.keycode===229 for legacy browsers) before acting on keydown/keyup enter. ignore enter events during composition. ime composition  pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/siyuan-session-rename-ime.html">Guard IME composition in the agent session rename input</a></h3>
+  <h3 class="entry-title"><a href="e/siyuan-session-rename-ime.html">SiYuan session rename input submits during IME composition (Enter)</a></h3>
+  
   <p class="lib-line"><span class="lib">siyuan</span> &middot; <a href="https://github.com/siyuan-note/siyuan">siyuan-note/siyuan</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -441,14 +465,15 @@
     <a class="anchor-link" href="#siyuan-session-rename-ime">#siyuan-session-rename-ime</a>
   </div>
 </article>
-<article class="entry" id="llmchat-chat-enter-ime" data-cat="ime-composition" data-lib="llmchat" data-search="fix: ignore enter that confirms ime composition in chat input llmchat trendy-design/llmchat cjk users pressing enter to accept an ime candidate also submits the chat message, sending an empty or partial message. type japanese in llmchat chat input using ime; press enter to select a candidate; message sends immediately. guard enter keydown handler with if (event.iscomposing || event.nativeevent?.iscomposing) return. ime composition react pull request">
+<article class="entry" id="llmchat-chat-enter-ime" data-cat="ime-composition" data-lib="llmchat" data-search="llmchat: ignore the enter that confirms ime composition in the chat input fix: ignore enter that confirms ime composition in chat input llmchat trendy-design/llmchat cjk users pressing enter to accept an ime candidate also submits the chat message, sending an empty or partial message. type japanese in llmchat chat input using ime; press enter to select a candidate; message sends immediately. guard enter keydown handler with if (event.iscomposing || event.nativeevent?.iscomposing) return. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/llmchat-chat-enter-ime.html">fix: ignore Enter that confirms IME composition in chat input</a></h3>
+  <h3 class="entry-title"><a href="e/llmchat-chat-enter-ime.html">llmchat: ignore the Enter that confirms IME composition in the chat input</a></h3>
+  
   <p class="lib-line"><span class="lib">llmchat</span> &middot; <a href="https://github.com/trendy-design/llmchat">trendy-design/llmchat</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -467,14 +492,15 @@
     <a class="anchor-link" href="#llmchat-chat-enter-ime">#llmchat-chat-enter-ime</a>
   </div>
 </article>
-<article class="entry" id="aiaw-chat-enter-ime" data-cat="ime-composition" data-lib="AIaW" data-search="fix: ignore enter that confirms ime composition in chat input aiaw nitrorcr/aiaw confirming cjk ime candidate with enter in aiaw chat input simultaneously submits the message. japanese ime → type → enter to confirm → message sent before input complete. ignore enter keydown when iscomposing is true. ime composition vue pull request">
+<article class="entry" id="aiaw-chat-enter-ime" data-cat="ime-composition" data-lib="AIaW" data-search="aiaw (vue) chat submits on the enter that confirms ime composition fix: ignore enter that confirms ime composition in chat input aiaw nitrorcr/aiaw confirming cjk ime candidate with enter in aiaw chat input simultaneously submits the message. japanese ime → type → enter to confirm → message sent before input complete. ignore enter keydown when iscomposing is true. ime composition vue pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">Vue</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/aiaw-chat-enter-ime.html">fix: ignore Enter that confirms IME composition in chat input</a></h3>
+  <h3 class="entry-title"><a href="e/aiaw-chat-enter-ime.html">AIaW (Vue) chat submits on the Enter that confirms IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">AIaW</span> &middot; <a href="https://github.com/NitroRCr/AIaW">NitroRCr/AIaW</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -493,14 +519,15 @@
     <a class="anchor-link" href="#aiaw-chat-enter-ime">#aiaw-chat-enter-ime</a>
   </div>
 </article>
-<article class="entry" id="obsidian-smart-composer-chat-ime" data-cat="ime-composition" data-lib="obsidian-smart-composer" data-search="fix: ignore enter during ime composition in chat input obsidian-smart-composer glowingjade/obsidian-smart-composer obsidian smart composer chat submits messages on ime enter key in macos/windows with cjk input methods. use japanese ime in obsidian smart composer chat; confirm composition with enter; chat sends. check iscomposing flag before processing enter keydown. ime composition react pull request">
+<article class="entry" id="obsidian-smart-composer-chat-ime" data-cat="ime-composition" data-lib="obsidian-smart-composer" data-search="obsidian smart composer chat submits on the ime enter (macos/windows) fix: ignore enter during ime composition in chat input obsidian-smart-composer glowingjade/obsidian-smart-composer obsidian smart composer chat submits messages on ime enter key in macos/windows with cjk input methods. use japanese ime in obsidian smart composer chat; confirm composition with enter; chat sends. check iscomposing flag before processing enter keydown. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/obsidian-smart-composer-chat-ime.html">fix: ignore Enter during IME composition in chat input</a></h3>
+  <h3 class="entry-title"><a href="e/obsidian-smart-composer-chat-ime.html">Obsidian Smart Composer chat submits on the IME Enter (macOS/Windows)</a></h3>
+  
   <p class="lib-line"><span class="lib">obsidian-smart-composer</span> &middot; <a href="https://github.com/glowingjade/obsidian-smart-composer">glowingjade/obsidian-smart-composer</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -519,14 +546,15 @@
     <a class="anchor-link" href="#obsidian-smart-composer-chat-ime">#obsidian-smart-composer-chat-ime</a>
   </div>
 </article>
-<article class="entry" id="onyx-listfield-ime" data-cat="ime-composition" data-lib="onyx" data-search="fix(web): ignore ime composition enter in listfieldinput onyx onyx-dot-app/onyx listfieldinput in onyx web accepts a list entry on the ime confirmation enter, adding an empty or partial item. listfieldinput with cjk ime → enter to confirm → list item added prematurely. skip enter action when event.nativeevent.iscomposing is true. ime composition react pull request">
+<article class="entry" id="onyx-listfield-ime" data-cat="ime-composition" data-lib="onyx" data-search="onyx listfieldinput accepts an entry on the ime confirmation enter fix(web): ignore ime composition enter in listfieldinput onyx onyx-dot-app/onyx listfieldinput in onyx web accepts a list entry on the ime confirmation enter, adding an empty or partial item. listfieldinput with cjk ime → enter to confirm → list item added prematurely. skip enter action when event.nativeevent.iscomposing is true. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/onyx-listfield-ime.html">fix(web): ignore IME composition Enter in ListFieldInput</a></h3>
+  <h3 class="entry-title"><a href="e/onyx-listfield-ime.html">Onyx ListFieldInput accepts an entry on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">onyx</span> &middot; <a href="https://github.com/onyx-dot-app/onyx">onyx-dot-app/onyx</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -545,14 +573,15 @@
     <a class="anchor-link" href="#onyx-listfield-ime">#onyx-listfield-ime</a>
   </div>
 </article>
-<article class="entry" id="rsuite-inputpicker-ime" data-cat="ime-composition" data-lib="rsuite" data-search="fix(inputpicker): ignore enter during ime composition when selecting an item rsuite rsuite/rsuite rsuite inputpicker selects the focused item when cjk ime confirmation enter is pressed, skipping intended input. rsuite inputpicker with cjk ime → search → enter to confirm composition → list item selected prematurely. guard item selection enter handler with iscomposing check. ime composition react pull request">
+<article class="entry" id="rsuite-inputpicker-ime" data-cat="ime-composition" data-lib="rsuite" data-search="rsuite inputpicker selects an item on the ime confirmation enter fix(inputpicker): ignore enter during ime composition when selecting an item rsuite rsuite/rsuite rsuite inputpicker selects the focused item when cjk ime confirmation enter is pressed, skipping intended input. rsuite inputpicker with cjk ime → search → enter to confirm composition → list item selected prematurely. guard item selection enter handler with iscomposing check. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/rsuite-inputpicker-ime.html">fix(InputPicker): ignore Enter during IME composition when selecting an item</a></h3>
+  <h3 class="entry-title"><a href="e/rsuite-inputpicker-ime.html">RSuite InputPicker selects an item on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">rsuite</span> &middot; <a href="https://github.com/rsuite/rsuite">rsuite/rsuite</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -571,14 +600,15 @@
     <a class="anchor-link" href="#rsuite-inputpicker-ime">#rsuite-inputpicker-ime</a>
   </div>
 </article>
-<article class="entry" id="dify-tag-input-ime" data-cat="ime-composition" data-lib="dify" data-search="fix(web): guard ime composition in tag input enter handler dify langgenius/dify dify tag input adds a tag on ime confirmation enter, creating malformed tags for cjk users. dify web tag input → japanese ime → enter to confirm → tag added prematurely. check iscomposing before handling enter in tag input. ime composition react pull request">
+<article class="entry" id="dify-tag-input-ime" data-cat="ime-composition" data-lib="dify" data-search="dify tag input adds a tag on the ime confirmation enter fix(web): guard ime composition in tag input enter handler dify langgenius/dify dify tag input adds a tag on ime confirmation enter, creating malformed tags for cjk users. dify web tag input → japanese ime → enter to confirm → tag added prematurely. check iscomposing before handling enter in tag input. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/dify-tag-input-ime.html">fix(web): guard IME composition in tag input Enter handler</a></h3>
+  <h3 class="entry-title"><a href="e/dify-tag-input-ime.html">Dify tag input adds a tag on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">dify</span> &middot; <a href="https://github.com/langgenius/dify">langgenius/dify</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -597,14 +627,15 @@
     <a class="anchor-link" href="#dify-tag-input-ime">#dify-tag-input-ime</a>
   </div>
 </article>
-<article class="entry" id="flowise-text-inputs-ime" data-cat="ime-composition" data-lib="Flowise" data-search="fix: ignore enter during ime composition in remaining text inputs flowise flowiseai/flowise multiple flowise text inputs fire on ime enter, interrupting cjk text composition. flowise text inputs with cjk ime → enter to confirm → premature action fired. add iscomposing guard to all remaining enter keydown handlers. ime composition react pull request">
+<article class="entry" id="flowise-text-inputs-ime" data-cat="ime-composition" data-lib="Flowise" data-search="flowise text inputs fire on the enter that confirms ime composition fix: ignore enter during ime composition in remaining text inputs flowise flowiseai/flowise multiple flowise text inputs fire on ime enter, interrupting cjk text composition. flowise text inputs with cjk ime → enter to confirm → premature action fired. add iscomposing guard to all remaining enter keydown handlers. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/flowise-text-inputs-ime.html">fix: ignore Enter during IME composition in remaining text inputs</a></h3>
+  <h3 class="entry-title"><a href="e/flowise-text-inputs-ime.html">Flowise text inputs fire on the Enter that confirms IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">Flowise</span> &middot; <a href="https://github.com/FlowiseAI/Flowise">FlowiseAI/Flowise</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -623,14 +654,15 @@
     <a class="anchor-link" href="#flowise-text-inputs-ime">#flowise-text-inputs-ime</a>
   </div>
 </article>
-<article class="entry" id="langflow-inline-rename-ime" data-cat="ime-composition" data-lib="langflow" data-search="fix(frontend): guard ime composition in inline rename enter handlers langflow langflow-ai/langflow langflow inline rename inputs commit the rename on ime enter, saving partial cjk names. langflow node rename → cjk ime → enter to confirm composition → rename saved with partial text. guard enter handler in inline rename with event.nativeevent?.iscomposing check. ime composition react pull request">
+<article class="entry" id="langflow-inline-rename-ime" data-cat="ime-composition" data-lib="langflow" data-search="langflow inline rename commits on the ime confirmation enter fix(frontend): guard ime composition in inline rename enter handlers langflow langflow-ai/langflow langflow inline rename inputs commit the rename on ime enter, saving partial cjk names. langflow node rename → cjk ime → enter to confirm composition → rename saved with partial text. guard enter handler in inline rename with event.nativeevent?.iscomposing check. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/langflow-inline-rename-ime.html">fix(frontend): guard IME composition in inline rename Enter handlers</a></h3>
+  <h3 class="entry-title"><a href="e/langflow-inline-rename-ime.html">Langflow inline rename commits on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">langflow</span> &middot; <a href="https://github.com/langflow-ai/langflow">langflow-ai/langflow</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -649,14 +681,15 @@
     <a class="anchor-link" href="#langflow-inline-rename-ime">#langflow-inline-rename-ime</a>
   </div>
 </article>
-<article class="entry" id="plane-select-dropdown-ime" data-cat="ime-composition" data-lib="plane" data-search="fix(ui): ignore enter during ime composition in select dropdowns plane makeplane/plane plane select dropdowns pick an item on ime confirmation enter, making it impossible for cjk users to search. plane dropdown search → japanese ime → enter to confirm → item picked mid-composition. skip item selection when event.nativeevent.iscomposing is true. ime composition react pull request">
+<article class="entry" id="plane-select-dropdown-ime" data-cat="ime-composition" data-lib="plane" data-search="plane select dropdown picks an item on the ime confirmation enter fix(ui): ignore enter during ime composition in select dropdowns plane makeplane/plane plane select dropdowns pick an item on ime confirmation enter, making it impossible for cjk users to search. plane dropdown search → japanese ime → enter to confirm → item picked mid-composition. skip item selection when event.nativeevent.iscomposing is true. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/plane-select-dropdown-ime.html">fix(ui): ignore Enter during IME composition in select dropdowns</a></h3>
+  <h3 class="entry-title"><a href="e/plane-select-dropdown-ime.html">Plane select dropdown picks an item on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">plane</span> &middot; <a href="https://github.com/makeplane/plane">makeplane/plane</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -675,14 +708,15 @@
     <a class="anchor-link" href="#plane-select-dropdown-ime">#plane-select-dropdown-ime</a>
   </div>
 </article>
-<article class="entry" id="twenty-chat-rename-ime" data-cat="ime-composition" data-lib="twenty" data-search="fix: ignore ime composition enter in chat-thread and attachment rename inputs twenty twentyhq/twenty twenty crm chat-thread send and attachment rename both fire on ime enter, breaking cjk workflows. twenty crm chat or attachment rename → cjk ime → enter to confirm → send/rename triggered. check event.nativeevent?.iscomposing before handling enter. ime composition react pull request">
+<article class="entry" id="twenty-chat-rename-ime" data-cat="ime-composition" data-lib="twenty" data-search="twenty crm chat send and rename fire on the ime confirmation enter fix: ignore ime composition enter in chat-thread and attachment rename inputs twenty twentyhq/twenty twenty crm chat-thread send and attachment rename both fire on ime enter, breaking cjk workflows. twenty crm chat or attachment rename → cjk ime → enter to confirm → send/rename triggered. check event.nativeevent?.iscomposing before handling enter. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/twenty-chat-rename-ime.html">fix: ignore IME composition Enter in chat-thread and attachment rename inputs</a></h3>
+  <h3 class="entry-title"><a href="e/twenty-chat-rename-ime.html">Twenty CRM chat send and rename fire on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">twenty</span> &middot; <a href="https://github.com/twentyhq/twenty">twentyhq/twenty</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -701,14 +735,15 @@
     <a class="anchor-link" href="#twenty-chat-rename-ime">#twenty-chat-rename-ime</a>
   </div>
 </article>
-<article class="entry" id="excalidraw-search-nav-ime" data-cat="ime-composition" data-lib="excalidraw" data-search="fix(editor): ignore ime composition keys in search navigation excalidraw excalidraw/excalidraw excalidraw search navigation (arrow keys, enter) fires during cjk ime composition, moving selection mid-composition. excalidraw search → cjk ime → type → arrow/enter during composition → result navigation fires. guard navigation key handlers with event.iscomposing check. ime composition react pull request">
+<article class="entry" id="excalidraw-search-nav-ime" data-cat="ime-composition" data-lib="excalidraw" data-search="excalidraw search navigation fires arrow/enter keys during ime composition fix(editor): ignore ime composition keys in search navigation excalidraw excalidraw/excalidraw excalidraw search navigation (arrow keys, enter) fires during cjk ime composition, moving selection mid-composition. excalidraw search → cjk ime → type → arrow/enter during composition → result navigation fires. guard navigation key handlers with event.iscomposing check. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/excalidraw-search-nav-ime.html">fix(editor): ignore IME composition keys in search navigation</a></h3>
+  <h3 class="entry-title"><a href="e/excalidraw-search-nav-ime.html">Excalidraw search navigation fires arrow/Enter keys during IME composition</a></h3>
+  
   <p class="lib-line"><span class="lib">excalidraw</span> &middot; <a href="https://github.com/excalidraw/excalidraw">excalidraw/excalidraw</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -727,14 +762,15 @@
     <a class="anchor-link" href="#excalidraw-search-nav-ime">#excalidraw-search-nav-ime</a>
   </div>
 </article>
-<article class="entry" id="payload-searchinput-ime" data-cat="ime-composition" data-lib="payload" data-search="fix(ui): ignore the ime composition enter in searchinput payload payloadcms/payload payload cms searchinput submits on ime confirmation enter, bypassing the intended search query. payload admin search → cjk ime → enter to confirm → search fires with partial query. ignore enter in searchinput when event.nativeevent?.iscomposing is true. ime composition react pull request">
+<article class="entry" id="payload-searchinput-ime" data-cat="ime-composition" data-lib="payload" data-search="payload cms searchinput submits on the ime confirmation enter fix(ui): ignore the ime composition enter in searchinput payload payloadcms/payload payload cms searchinput submits on ime confirmation enter, bypassing the intended search query. payload admin search → cjk ime → enter to confirm → search fires with partial query. ignore enter in searchinput when event.nativeevent?.iscomposing is true. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/payload-searchinput-ime.html">fix(ui): ignore the IME composition Enter in SearchInput</a></h3>
+  <h3 class="entry-title"><a href="e/payload-searchinput-ime.html">Payload CMS SearchInput submits on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">payload</span> &middot; <a href="https://github.com/payloadcms/payload">payloadcms/payload</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -753,14 +789,15 @@
     <a class="anchor-link" href="#payload-searchinput-ime">#payload-searchinput-ime</a>
   </div>
 </article>
-<article class="entry" id="trilium-board-title-ime" data-cat="ime-composition" data-lib="Trilium" data-search="fix(board): ignore ime composition enter when editing card and column titles trilium triliumnext/trilium trilium kanban card and column title editing commits on ime enter, saving partial cjk text. trilium board → edit card title → cjk ime → enter to confirm → title saved with partial text. check iscomposing before committing title edits on enter. ime composition  pull request">
+<article class="entry" id="trilium-board-title-ime" data-cat="ime-composition" data-lib="Trilium" data-search="trilium kanban card/column title editing commits on the ime enter fix(board): ignore ime composition enter when editing card and column titles trilium triliumnext/trilium trilium kanban card and column title editing commits on ime enter, saving partial cjk text. trilium board → edit card title → cjk ime → enter to confirm → title saved with partial text. check iscomposing before committing title edits on enter. ime composition  pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/trilium-board-title-ime.html">fix(board): ignore IME composition Enter when editing card and column titles</a></h3>
+  <h3 class="entry-title"><a href="e/trilium-board-title-ime.html">Trilium kanban card/column title editing commits on the IME Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">Trilium</span> &middot; <a href="https://github.com/TriliumNext/Trilium">TriliumNext/Trilium</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -779,14 +816,15 @@
     <a class="anchor-link" href="#trilium-board-title-ime">#trilium-board-title-ime</a>
   </div>
 </article>
-<article class="entry" id="big-agi-custom-instruction-ime" data-cat="ime-composition" data-lib="big-AGI" data-search="diagrams: skip ime composition enter in custom instruction big-agi enricoros/big-agi big-agi custom instruction field fires on ime enter, submitting partial cjk instructions. big-agi custom instruction → cjk ime → enter to confirm → instruction submitted prematurely. skip enter action when event.nativeevent?.iscomposing is true. ime composition react pull request">
+<article class="entry" id="big-agi-custom-instruction-ime" data-cat="ime-composition" data-lib="big-AGI" data-search="big-agi custom instruction field submits on the ime confirmation enter diagrams: skip ime composition enter in custom instruction big-agi enricoros/big-agi big-agi custom instruction field fires on ime enter, submitting partial cjk instructions. big-agi custom instruction → cjk ime → enter to confirm → instruction submitted prematurely. skip enter action when event.nativeevent?.iscomposing is true. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/big-agi-custom-instruction-ime.html">Diagrams: skip IME composition Enter in custom instruction</a></h3>
+  <h3 class="entry-title"><a href="e/big-agi-custom-instruction-ime.html">big-AGI custom instruction field submits on the IME confirmation Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">big-AGI</span> &middot; <a href="https://github.com/enricoros/big-AGI">enricoros/big-AGI</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -805,14 +843,15 @@
     <a class="anchor-link" href="#big-agi-custom-instruction-ime">#big-agi-custom-instruction-ime</a>
   </div>
 </article>
-<article class="entry" id="librechat-prompt-tags-ime" data-cat="ime-composition" data-lib="LibreChat" data-search="fix: guard ime composition on enter in prompt name/labels and dynamic tag inputs librechat danny-avila/librechat librechat prompt name, label, and tag inputs all trigger on ime enter, causing broken cjk input across multiple components. librechat prompt editor → tag or name field → cjk ime → enter to confirm → submit fires. iscomposing guard across prompt name, label, and dynamic-tag enter handlers. ime composition react pull request">
+<article class="entry" id="librechat-prompt-tags-ime" data-cat="ime-composition" data-lib="LibreChat" data-search="librechat prompt name, label, and tag inputs fire on the ime enter fix: guard ime composition on enter in prompt name/labels and dynamic tag inputs librechat danny-avila/librechat librechat prompt name, label, and tag inputs all trigger on ime enter, causing broken cjk input across multiple components. librechat prompt editor → tag or name field → cjk ime → enter to confirm → submit fires. iscomposing guard across prompt name, label, and dynamic-tag enter handlers. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/librechat-prompt-tags-ime.html">fix: guard IME composition on Enter in prompt name/labels and dynamic tag inputs</a></h3>
+  <h3 class="entry-title"><a href="e/librechat-prompt-tags-ime.html">LibreChat prompt name, label, and tag inputs fire on the IME Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">LibreChat</span> &middot; <a href="https://github.com/danny-avila/LibreChat">danny-avila/LibreChat</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -831,14 +870,15 @@
     <a class="anchor-link" href="#librechat-prompt-tags-ime">#librechat-prompt-tags-ime</a>
   </div>
 </article>
-<article class="entry" id="jan-rename-dialog-ime" data-cat="ime-composition" data-lib="jan" data-search="fix: ignore ime composition enter in rename and project dialogs jan janhq/jan jan ai assistant rename and project dialogs accept partial cjk names when enter confirms ime composition. jan rename dialog → cjk ime → enter to confirm → dialog committed with partial name. guard enter submit with event.nativeevent?.iscomposing check. ime composition react pull request">
+<article class="entry" id="jan-rename-dialog-ime" data-cat="ime-composition" data-lib="jan" data-search="jan rename and project dialogs accept a partial name on the ime enter fix: ignore ime composition enter in rename and project dialogs jan janhq/jan jan ai assistant rename and project dialogs accept partial cjk names when enter confirms ime composition. jan rename dialog → cjk ime → enter to confirm → dialog committed with partial name. guard enter submit with event.nativeevent?.iscomposing check. ime composition react pull request">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/jan-rename-dialog-ime.html">fix: ignore IME composition Enter in rename and project dialogs</a></h3>
+  <h3 class="entry-title"><a href="e/jan-rename-dialog-ime.html">Jan rename and project dialogs accept a partial name on the IME Enter</a></h3>
+  
   <p class="lib-line"><span class="lib">jan</span> &middot; <a href="https://github.com/janhq/jan">janhq/jan</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -857,14 +897,15 @@
     <a class="anchor-link" href="#jan-rename-dialog-ime">#jan-rename-dialog-ime</a>
   </div>
 </article>
-<article class="entry" id="react-controlled-ime-onchange" data-cat="ime-composition" data-lib="React" data-search="onchange fires during ime composition in controlled components react facebook/react in a controlled &lt;input&gt;/&lt;textarea&gt;, onchange fires for the intermediate keystrokes of an ime composition, so any onchange-driven search or filter runs on half-finished cjk text. type chinese/japanese through an ime into a controlled input that filters on onchange; the handler runs on every uncommitted composition keystroke. track compositionstart/compositionend and suppress onchange handling while a composition is active. ime composition react cited upstream issue">
+<article class="entry" id="react-controlled-ime-onchange" data-cat="ime-composition" data-lib="React" data-search="react onchange fires during ime composition in controlled inputs onchange fires during ime composition in controlled components react facebook/react in a controlled &lt;input&gt;/&lt;textarea&gt;, onchange fires for the intermediate keystrokes of an ime composition, so any onchange-driven search or filter runs on half-finished cjk text. type chinese/japanese through an ime into a controlled input that filters on onchange; the handler runs on every uncommitted composition keystroke. track compositionstart/compositionend and suppress onchange handling while a composition is active. ime composition react cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">React</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/react-controlled-ime-onchange.html">onChange fires during IME composition in controlled components</a></h3>
+  <h3 class="entry-title"><a href="e/react-controlled-ime-onchange.html">React onChange fires during IME composition in controlled inputs</a></h3>
+  
   <p class="lib-line"><span class="lib">React</span> &middot; <a href="https://github.com/facebook/react">facebook/react</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -883,14 +924,15 @@
     <a class="anchor-link" href="#react-controlled-ime-onchange">#react-controlled-ime-onchange</a>
   </div>
 </article>
-<article class="entry" id="maui-entry-completed-ime" data-cat="ime-composition" data-lib="dotnet/maui" data-search="entry.completed fires on the enter that confirms an ime candidate dotnet/maui dotnet/maui on windows, entry.completed is raised when the user presses enter inside the ime conversion candidate window, so completion fires before the cjk conversion is committed. focus a maui entry on windows, use a chinese/japanese ime, press enter to pick a candidate; completed fires mid-conversion. do not raise completed while the ime conversion window is open; fire only once the composition is fully committed. ime composition maui windows cited upstream issue">
+<article class="entry" id="maui-entry-completed-ime" data-cat="ime-composition" data-lib="dotnet/maui" data-search=".net maui entry.completed fires on the enter that confirms an ime candidate (windows) entry.completed fires on the enter that confirms an ime candidate dotnet/maui dotnet/maui on windows, entry.completed is raised when the user presses enter inside the ime conversion candidate window, so completion fires before the cjk conversion is committed. focus a maui entry on windows, use a chinese/japanese ime, press enter to pick a candidate; completed fires mid-conversion. do not raise completed while the ime conversion window is open; fire only once the composition is fully committed. ime composition maui windows cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">MAUI</span><span class="tag tag--stack">Windows</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/maui-entry-completed-ime.html">Entry.Completed fires on the Enter that confirms an IME candidate</a></h3>
+  <h3 class="entry-title"><a href="e/maui-entry-completed-ime.html">.NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)</a></h3>
+  
   <p class="lib-line"><span class="lib">dotnet/maui</span> &middot; <a href="https://github.com/dotnet/maui">dotnet/maui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -909,14 +951,15 @@
     <a class="anchor-link" href="#maui-entry-completed-ime">#maui-entry-completed-ime</a>
   </div>
 </article>
-<article class="entry" id="uievents-compositionend-input-order" data-cat="ime-composition" data-lib="w3c/uievents" data-search="event order between compositionend and input is inconsistent across browsers w3c/uievents w3c/uievents the spec orders input before compositionend (chrome and safari follow it), but firefox and edge fire input after compositionend, so iscomposing-based guards behave differently per browser. log the input and compositionend events while committing a cjk composition in chrome versus firefox; their relative order differs. define a canonical order in the spec; frameworks should not assume input fires before compositionend. ime composition spec cited upstream issue">
+<article class="entry" id="uievents-compositionend-input-order" data-cat="ime-composition" data-lib="w3c/uievents" data-search="compositionend vs input event order differs across browsers (iscomposing guard) event order between compositionend and input is inconsistent across browsers w3c/uievents w3c/uievents the spec orders input before compositionend (chrome and safari follow it), but firefox and edge fire input after compositionend, so iscomposing-based guards behave differently per browser. log the input and compositionend events while committing a cjk composition in chrome versus firefox; their relative order differs. define a canonical order in the spec; frameworks should not assume input fires before compositionend. ime composition spec cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">spec</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/uievents-compositionend-input-order.html">Event order between compositionend and input is inconsistent across browsers</a></h3>
+  <h3 class="entry-title"><a href="e/uievents-compositionend-input-order.html">compositionend vs input event order differs across browsers (isComposing guard)</a></h3>
+  
   <p class="lib-line"><span class="lib">w3c/uievents</span> &middot; <a href="https://github.com/w3c/uievents">w3c/uievents</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -935,14 +978,15 @@
     <a class="anchor-link" href="#uievents-compositionend-input-order">#uievents-compositionend-input-order</a>
   </div>
 </article>
-<article class="entry" id="input-events-insertcompositiontext" data-cat="ime-composition" data-lib="w3c/input-events" data-search="insertcompositiontext and iscomposing cannot single out the commit input event w3c/input-events w3c/input-events every input event during a composition, including the one that commits it on enter, carries iscomposing=true and inputtype insertcompositiontext, so code cannot detect the commit without also listening for compositionend. type s, i, space to convert to a kanji, change the candidate, then press enter to commit; the input events for each step are indistinguishable. assign a distinct inputtype (or property) to the input event that commits the composition. ime composition spec cited upstream issue">
+<article class="entry" id="input-events-insertcompositiontext" data-cat="ime-composition" data-lib="w3c/input-events" data-search="insertcompositiontext / iscomposing can&#39;t single out the ime commit input event insertcompositiontext and iscomposing cannot single out the commit input event w3c/input-events w3c/input-events every input event during a composition, including the one that commits it on enter, carries iscomposing=true and inputtype insertcompositiontext, so code cannot detect the commit without also listening for compositionend. type s, i, space to convert to a kanji, change the candidate, then press enter to commit; the input events for each step are indistinguishable. assign a distinct inputtype (or property) to the input event that commits the composition. ime composition spec cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">spec</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/input-events-insertcompositiontext.html">insertCompositionText and isComposing cannot single out the commit input event</a></h3>
+  <h3 class="entry-title"><a href="e/input-events-insertcompositiontext.html">insertCompositionText / isComposing can't single out the IME commit input event</a></h3>
+  
   <p class="lib-line"><span class="lib">w3c/input-events</span> &middot; <a href="https://github.com/w3c/input-events">w3c/input-events</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -961,14 +1005,15 @@
     <a class="anchor-link" href="#input-events-insertcompositiontext">#input-events-insertcompositiontext</a>
   </div>
 </article>
-<article class="entry" id="zed-vim-jk-escape-ime" data-cat="ime-composition" data-lib="zed" data-search="vim jk escape depends on the cjk ime input mode zed zed-industries/zed with vim mode and a cjk ime, the jk insert-mode escape only fires while the ime is composing in chinese mode; in direct english input it inserts a literal j and k instead of escaping. enable vim mode, map jk to escape, use a cjk ime such as macos pinyin; jk escapes while composing in chinese mode but not in english mode. detect the jk key sequence consistently regardless of the ime composition state. ime composition zed cited upstream issue">
+<article class="entry" id="zed-vim-jk-escape-ime" data-cat="ime-composition" data-lib="zed" data-search="zed vim jk escape depends on the cjk ime input mode vim jk escape depends on the cjk ime input mode zed zed-industries/zed with vim mode and a cjk ime, the jk insert-mode escape only fires while the ime is composing in chinese mode; in direct english input it inserts a literal j and k instead of escaping. enable vim mode, map jk to escape, use a cjk ime such as macos pinyin; jk escapes while composing in chinese mode but not in english mode. detect the jk key sequence consistently regardless of the ime composition state. ime composition zed cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">Zed</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/zed-vim-jk-escape-ime.html">Vim jk escape depends on the CJK IME input mode</a></h3>
+  <h3 class="entry-title"><a href="e/zed-vim-jk-escape-ime.html">Zed Vim jk escape depends on the CJK IME input mode</a></h3>
+  
   <p class="lib-line"><span class="lib">zed</span> &middot; <a href="https://github.com/zed-industries/zed">zed-industries/zed</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -987,14 +1032,15 @@
     <a class="anchor-link" href="#zed-vim-jk-escape-ime">#zed-vim-jk-escape-ime</a>
   </div>
 </article>
-<article class="entry" id="zed-chinese-ime-text-shift" data-cat="ime-composition" data-lib="zed" data-search="text shifts vertically while composing with a chinese ime on windows zed zed-industries/zed while composing chinese text with an ime on windows, the line of text jumps vertically as the composition updates, which disrupts reading and editing. open zed (vim mode) on windows 11 and type chinese characters through an ime; the text shifts vertically during composition. keep the line baseline stable while updating the ime marked-text region during composition. ime composition zed windows cited upstream issue">
+<article class="entry" id="zed-chinese-ime-text-shift" data-cat="ime-composition" data-lib="zed" data-search="zed: text shifts vertically while composing with a chinese ime on windows text shifts vertically while composing with a chinese ime on windows zed zed-industries/zed while composing chinese text with an ime on windows, the line of text jumps vertically as the composition updates, which disrupts reading and editing. open zed (vim mode) on windows 11 and type chinese characters through an ime; the text shifts vertically during composition. keep the line baseline stable while updating the ime marked-text region during composition. ime composition zed windows cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">Zed</span><span class="tag tag--stack">Windows</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/zed-chinese-ime-text-shift.html">Text shifts vertically while composing with a Chinese IME on Windows</a></h3>
+  <h3 class="entry-title"><a href="e/zed-chinese-ime-text-shift.html">Zed: text shifts vertically while composing with a Chinese IME on Windows</a></h3>
+  
   <p class="lib-line"><span class="lib">zed</span> &middot; <a href="https://github.com/zed-industries/zed">zed-industries/zed</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1013,14 +1059,15 @@
     <a class="anchor-link" href="#zed-chinese-ime-text-shift">#zed-chinese-ime-text-shift</a>
   </div>
 </article>
-<article class="entry" id="warp-marked-text-ime" data-cat="ime-composition" data-lib="Warp" data-search="marked text (ime preedit) is not rendered, so composition is blind warp warpdotdev/warp warp does not render ime marked (preedit) text, so dead keys and cjk composition show nothing until committed and the user composes blind. in warp on macos, press option+e (or start a cjk composition); no marked text is shown to indicate the in-progress input. render marked text inline via the platform ime api (nstextinputclient on macos) so the preedit is visible at the cursor. ime composition warp macos cited upstream issue">
+<article class="entry" id="warp-marked-text-ime" data-cat="ime-composition" data-lib="Warp" data-search="warp does not render ime preedit (marked) text — blind composition marked text (ime preedit) is not rendered, so composition is blind warp warpdotdev/warp warp does not render ime marked (preedit) text, so dead keys and cjk composition show nothing until committed and the user composes blind. in warp on macos, press option+e (or start a cjk composition); no marked text is shown to indicate the in-progress input. render marked text inline via the platform ime api (nstextinputclient on macos) so the preedit is visible at the cursor. ime composition warp macos cited upstream issue">
   <div class="entry-top">
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">Warp</span><span class="tag tag--stack">macOS</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/warp-marked-text-ime.html">Marked text (IME preedit) is not rendered, so composition is blind</a></h3>
+  <h3 class="entry-title"><a href="e/warp-marked-text-ime.html">Warp does not render IME preedit (marked) text — blind composition</a></h3>
+  
   <p class="lib-line"><span class="lib">Warp</span> &middot; <a href="https://github.com/warpdotdev/warp">warpdotdev/warp</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1044,11 +1091,12 @@
 <section class="cat-section" data-cat-section="kana-romaji">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-kana-romaji">Kana / romaji</h2>
+      <h2 id="cat-kana-romaji"><a href="category/kana-romaji.html">Kana / romaji</a></h2>
       <span class="cat-n">8 entries</span>
+      <a class="cat-all" href="category/kana-romaji.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Transliteration tables that drop or reverse kana. Round-trip is the oracle: kana to romaji and back should be stable, and a sibling (hiragana vs katakana) usually already does it right.</p>
-    <article class="entry" id="hepburn-katakana-n-apostrophe" data-cat="kana-romaji" data-lib="hepburn" data-search="katakana ン loses the syllabic-n apostrophe before vowels and y hepburn lovell/hepburn katakana ン before a vowel or y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes shinyou (should be shin&#39;you), so it collides with シニョウ. const { fromkana } = require(&#39;hepburn&#39;)
+    <article class="entry" id="hepburn-katakana-n-apostrophe" data-cat="kana-romaji" data-lib="hepburn" data-search="katakana ン loses the syllabic-n apostrophe in hepburn romanization katakana ン loses the syllabic-n apostrophe before vowels and y hepburn lovell/hepburn katakana ン before a vowel or y is romanized without the apostrophe, unlike hiragana ん. シンヨウ becomes shinyou (should be shin&#39;you), so it collides with シニョウ. const { fromkana } = require(&#39;hepburn&#39;)
 fromkana(&#39;しんよう&#39;) // shin&#39;you
 fromkana(&#39;シンヨウ&#39;) // shinyou  &lt;- apostrophe dropped map katakana ン to n&#39; (matching hiragana) and add the ンー long-vowel digraph as n&#39;, so n is never a katakana map key and tokatakana still round-trips (pan to パン). kana / romaji js pull request">
   <div class="entry-top">
@@ -1057,7 +1105,8 @@ fromkana(&#39;シンヨウ&#39;) // shinyou  &lt;- apostrophe dropped map kataka
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe before vowels and Y</a></h3>
+  <h3 class="entry-title"><a href="e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a></h3>
+  
   <p class="lib-line"><span class="lib">hepburn</span> &middot; <a href="https://github.com/lovell/hepburn">lovell/hepburn</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1078,14 +1127,15 @@ fromKana('シンヨウ') // SHINYOU  &lt;- apostrophe dropped</pre>
     <a class="anchor-link" href="#hepburn-katakana-n-apostrophe">#hepburn-katakana-n-apostrophe</a>
   </div>
 </article>
-<article class="entry" id="pykakasi-ddi-sokuon" data-cat="kana-romaji" data-lib="pykakasi" data-search="missing っでぃ (ddi) sokuon entry for hepburn and kunrei pykakasi miurahr/pykakasi the geminated d + small i sequence っでぃ (ddi) has no hepburn or kunrei entry, so loanword spellings that use it romanize incorrectly. convert a word containing っでぃ; the doubled d before the small i is not produced. add the missing っでぃ (ddi) sokuon entry to both the hepburn and kunrei tables. kana / romaji python pull request">
+<article class="entry" id="pykakasi-ddi-sokuon" data-cat="kana-romaji" data-lib="pykakasi" data-search="pykakasi: missing っでぃ (ddi) sokuon in hepburn/kunrei romaji missing っでぃ (ddi) sokuon entry for hepburn and kunrei pykakasi miurahr/pykakasi the geminated d + small i sequence っでぃ (ddi) has no hepburn or kunrei entry, so loanword spellings that use it romanize incorrectly. convert a word containing っでぃ; the doubled d before the small i is not produced. add the missing っでぃ (ddi) sokuon entry to both the hepburn and kunrei tables. kana / romaji python pull request">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">Python</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/pykakasi-ddi-sokuon.html">Missing っでぃ (ddi) sokuon entry for Hepburn and Kunrei</a></h3>
+  <h3 class="entry-title"><a href="e/pykakasi-ddi-sokuon.html">pykakasi: missing っでぃ (ddi) sokuon in Hepburn/Kunrei romaji</a></h3>
+  
   <p class="lib-line"><span class="lib">pykakasi</span> &middot; <a href="https://github.com/miurahr/pykakasi">miurahr/pykakasi</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1104,14 +1154,15 @@ fromKana('シンヨウ') // SHINYOU  &lt;- apostrophe dropped</pre>
     <a class="anchor-link" href="#pykakasi-ddi-sokuon">#pykakasi-ddi-sokuon</a>
   </div>
 </article>
-<article class="entry" id="romaji-conv-wi-we-kana" data-cat="kana-romaji" data-lib="romaji-conv" data-search="historical kana ゐ/ゑ missing from the hiragana/katakana mapping romaji-conv koozaki/romaji-conv the historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted. convert text containing ゐ or ゑ (or katakana ヰ/ヱ); the characters pass through unmapped. add ゐ/ゑ and their katakana counterparts to the kana mapping. kana / romaji js pull request">
+<article class="entry" id="romaji-conv-wi-we-kana" data-cat="kana-romaji" data-lib="romaji-conv" data-search="historical kana ゐ/ゑ (wi/we) missing from romaji conversion historical kana ゐ/ゑ missing from the hiragana/katakana mapping romaji-conv koozaki/romaji-conv the historical kana ゐ (wi) and ゑ (we) are absent from the mapping, so text containing them is dropped or left unconverted. convert text containing ゐ or ゑ (or katakana ヰ/ヱ); the characters pass through unmapped. add ゐ/ゑ and their katakana counterparts to the kana mapping. kana / romaji js pull request">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ missing from the hiragana/katakana mapping</a></h3>
+  <h3 class="entry-title"><a href="e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a></h3>
+  
   <p class="lib-line"><span class="lib">romaji-conv</span> &middot; <a href="https://github.com/koozaki/romaji-conv">koozaki/romaji-conv</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1130,7 +1181,7 @@ fromKana('シンヨウ') // SHINYOU  &lt;- apostrophe dropped</pre>
     <a class="anchor-link" href="#romaji-conv-wi-we-kana">#romaji-conv-wi-we-kana</a>
   </div>
 </article>
-<article class="entry" id="jaconv-small-ka-ke" data-cat="kana-romaji" data-lib="jaconv" data-search="kana2alphabet does not romanize small katakana ヵ/ヶ jaconv ikegami-yukino/jaconv kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized. import jaconv
+<article class="entry" id="jaconv-small-ka-ke" data-cat="kana-romaji" data-lib="jaconv" data-search="jaconv kana2alphabet does not romanize small katakana ヵ/ヶ kana2alphabet does not romanize small katakana ヵ/ヶ jaconv ikegami-yukino/jaconv kana2alphabet does not handle the small katakana ヵ/ヶ (small ka/ke), so counters like 一ヶ月 are mis-romanized. import jaconv
 jaconv.kana2alphabet(&#39;ヶ&#39;)  # small ke not handled add the small ka/ke mappings to kana2alphabet. kana / romaji python pull request">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
@@ -1138,7 +1189,8 @@ jaconv.kana2alphabet(&#39;ヶ&#39;)  # small ke not handled add the small ka/ke 
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/jaconv-small-ka-ke.html">kana2alphabet does not romanize small katakana ヵ/ヶ</a></h3>
+  <h3 class="entry-title"><a href="e/jaconv-small-ka-ke.html">jaconv kana2alphabet does not romanize small katakana ヵ/ヶ</a></h3>
+  
   <p class="lib-line"><span class="lib">jaconv</span> &middot; <a href="https://github.com/ikegami-yukino/jaconv">ikegami-yukino/jaconv</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1158,14 +1210,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#jaconv-small-ka-ke">#jaconv-small-ka-ke</a>
   </div>
 </article>
-<article class="entry" id="jaco-js-wo-voiced-mark" data-cat="kana-romaji" data-lib="jaco-js" data-search="reversed ヲ/ヺ voiced-mark mapping in addvoicedmarks and combinesoundmarks jaco-js yusukehirao/jaco-js the ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character. add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed. correct the reversed ヲ/ヺ entry in both addvoicedmarks and combinesoundmarks. kana / romaji js pull request">
+<article class="entry" id="jaco-js-wo-voiced-mark" data-cat="kana-romaji" data-lib="jaco-js" data-search="reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js) reversed ヲ/ヺ voiced-mark mapping in addvoicedmarks and combinesoundmarks jaco-js yusukehirao/jaco-js the ヲ to ヺ voiced-mark mapping is reversed, so adding or stripping a dakuten on ヲ produces the wrong character. add a voiced mark to ヲ; expected ヺ, got the wrong glyph because the mapping is reversed. correct the reversed ヲ/ヺ entry in both addvoicedmarks and combinesoundmarks. kana / romaji js pull request">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ voiced-mark mapping in addVoicedMarks and combineSoundMarks</a></h3>
+  <h3 class="entry-title"><a href="e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a></h3>
+  
   <p class="lib-line"><span class="lib">jaco-js</span> &middot; <a href="https://github.com/YusukeHirao/jaco-js">YusukeHirao/jaco-js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1184,14 +1237,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#jaco-js-wo-voiced-mark">#jaco-js-wo-voiced-mark</a>
   </div>
 </article>
-<article class="entry" id="kana-romaji-zu-dropped" data-cat="kana-romaji" data-lib="kana-romaji" data-search="romanize づ as zu (the consonant was being dropped) kana-romaji mtomim/kana-romaji kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;. romanize(&#39;づ&#39;) returns &#39;u&#39; instead of &#39;zu&#39;. づ should romanize as &#39;zu&#39; (hepburn). map づ→zu in the kana table. kana / romaji js pull request">
+<article class="entry" id="kana-romaji-zu-dropped" data-cat="kana-romaji" data-lib="kana-romaji" data-search="romaji conversion drops the z in づ (outputs u instead of zu) romanize づ as zu (the consonant was being dropped) kana-romaji mtomim/kana-romaji kana-romaji library drops the &#39;z&#39; consonant when romanizing づ, outputting &#39;u&#39; instead of &#39;zu&#39;. romanize(&#39;づ&#39;) returns &#39;u&#39; instead of &#39;zu&#39;. づ should romanize as &#39;zu&#39; (hepburn). map づ→zu in the kana table. kana / romaji js pull request">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/kana-romaji-zu-dropped.html">Romanize づ as zu (the consonant was being dropped)</a></h3>
+  <h3 class="entry-title"><a href="e/kana-romaji-zu-dropped.html">Romaji conversion drops the z in づ (outputs u instead of zu)</a></h3>
+  
   <p class="lib-line"><span class="lib">kana-romaji</span> &middot; <a href="https://github.com/mtomim/kana-romaji">mtomim/kana-romaji</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1210,14 +1264,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#kana-romaji-zu-dropped">#kana-romaji-zu-dropped</a>
   </div>
 </article>
-<article class="entry" id="pykakasi-halfwidth-katakana" data-cat="kana-romaji" data-lib="pykakasi" data-search="half-width katakana fails to romanize, especially with voiced marks pykakasi miurahr/pykakasi pykakasi does not romanize half-width katakana correctly, particularly when a half-width voiced or semi-voiced mark (u+ff9e / u+ff9f) follows the base kana. convert half-width katakana such as a half-width ka followed by a half-width dakuten; the output is wrong instead of &#39;ga&#39;. nfkc-normalize half-width katakana and combining voiced marks to their full-width equivalents before romanization. kana / romaji python cited upstream issue">
+<article class="entry" id="pykakasi-halfwidth-katakana" data-cat="kana-romaji" data-lib="pykakasi" data-search="pykakasi fails to romanize half-width katakana with voiced marks half-width katakana fails to romanize, especially with voiced marks pykakasi miurahr/pykakasi pykakasi does not romanize half-width katakana correctly, particularly when a half-width voiced or semi-voiced mark (u+ff9e / u+ff9f) follows the base kana. convert half-width katakana such as a half-width ka followed by a half-width dakuten; the output is wrong instead of &#39;ga&#39;. nfkc-normalize half-width katakana and combining voiced marks to their full-width equivalents before romanization. kana / romaji python cited upstream issue">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">Python</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/pykakasi-halfwidth-katakana.html">Half-width katakana fails to romanize, especially with voiced marks</a></h3>
+  <h3 class="entry-title"><a href="e/pykakasi-halfwidth-katakana.html">pykakasi fails to romanize half-width katakana with voiced marks</a></h3>
+  
   <p class="lib-line"><span class="lib">pykakasi</span> &middot; <a href="https://github.com/miurahr/pykakasi">miurahr/pykakasi</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1236,14 +1291,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#pykakasi-halfwidth-katakana">#pykakasi-halfwidth-katakana</a>
   </div>
 </article>
-<article class="entry" id="unidecode-halfwidth-dakuten" data-cat="kana-romaji" data-lib="unidecode" data-search="faulty transliteration of half-width katakana with dakuten and handakuten unidecode avian2/unidecode python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly. unidecode on half-width ba bi bu be bo returns a wrong string instead of &#39;babibubebo&#39;. pre-compose half-width katakana plus combining voiced marks (nfkc) before the transliteration lookup. kana / romaji python cited upstream issue">
+<article class="entry" id="unidecode-halfwidth-dakuten" data-cat="kana-romaji" data-lib="unidecode" data-search="python unidecode mangles half-width katakana with dakuten/handakuten faulty transliteration of half-width katakana with dakuten and handakuten unidecode avian2/unidecode python unidecode transliterates half-width katakana carrying dakuten/handakuten incorrectly, producing artifacts, while hiragana and full-width katakana romanize correctly. unidecode on half-width ba bi bu be bo returns a wrong string instead of &#39;babibubebo&#39;. pre-compose half-width katakana plus combining voiced marks (nfkc) before the transliteration lookup. kana / romaji python cited upstream issue">
   <div class="entry-top">
     <span class="tag">Kana / romaji</span>
     <span class="tag tag--stack">Python</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/unidecode-halfwidth-dakuten.html">Faulty transliteration of half-width katakana with dakuten and handakuten</a></h3>
+  <h3 class="entry-title"><a href="e/unidecode-halfwidth-dakuten.html">Python unidecode mangles half-width katakana with dakuten/handakuten</a></h3>
+  
   <p class="lib-line"><span class="lib">unidecode</span> &middot; <a href="https://github.com/avian2/unidecode">avian2/unidecode</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1267,18 +1323,20 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
 <section class="cat-section" data-cat-section="width-normalization">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-width-normalization">Width / normalization</h2>
+      <h2 id="cat-width-normalization"><a href="category/width-normalization.html">Width / normalization</a></h2>
       <span class="cat-n">5 entries</span>
+      <a class="cat-all" href="category/width-normalization.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables and missing digraphs silently corrupt text.</p>
-    <article class="entry" id="normal-jp-choonpu-hi-bi" data-cat="width-normalization" data-lib="normal-jp" data-search="ー (long-vowel mark) expands incorrectly after katakana ヒ and ビ normal-jp birchill/normal-jp during normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ. normalize ヒー / ビー; the long-vowel expansion produces the wrong vowel for these two kana. fix the ー-expansion table entries for ヒ and ビ. width / normalization js pull request">
+    <article class="entry" id="normal-jp-choonpu-hi-bi" data-cat="width-normalization" data-lib="normal-jp" data-search="long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ ー (long-vowel mark) expands incorrectly after katakana ヒ and ビ normal-jp birchill/normal-jp during normalization, the chōonpu (ー) is expanded with the wrong vowel after katakana ヒ and ビ. normalize ヒー / ビー; the long-vowel expansion produces the wrong vowel for these two kana. fix the ー-expansion table entries for ヒ and ビ. width / normalization js pull request">
   <div class="entry-top">
     <span class="tag">Width / normalization</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/normal-jp-choonpu-hi-bi.html">ー (long-vowel mark) expands incorrectly after katakana ヒ and ビ</a></h3>
+  <h3 class="entry-title"><a href="e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a></h3>
+  
   <p class="lib-line"><span class="lib">normal-jp</span> &middot; <a href="https://github.com/birchill/normal-jp">birchill/normal-jp</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1297,14 +1355,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#normal-jp-choonpu-hi-bi">#normal-jp-choonpu-hi-bi</a>
   </div>
 </article>
-<article class="entry" id="moji-range-boundaries" data-cat="width-normalization" data-lib="moji" data-search="width/kana conversion drops the first and last character of each range moji niwaringo/moji full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (u+ff01) are not converted. moji(&#39;！～&#39;).convert(&#39;ze&#39;, &#39;he&#39;).tostring()  // boundary chars at range edges are skipped convert the first and last character of each range, not just the interior. width / normalization js pull request">
+<article class="entry" id="moji-range-boundaries" data-cat="width-normalization" data-lib="moji" data-search="full-width/kana conversion drops the first and last char of each range (moji) width/kana conversion drops the first and last character of each range moji niwaringo/moji full-width/half-width and kana range conversions skip the boundary characters of each range (！ ～ ぁ ゖ ...), so edge code points like ！ (u+ff01) are not converted. moji(&#39;！～&#39;).convert(&#39;ze&#39;, &#39;he&#39;).tostring()  // boundary chars at range edges are skipped convert the first and last character of each range, not just the interior. width / normalization js pull request">
   <div class="entry-top">
     <span class="tag">Width / normalization</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/moji-range-boundaries.html">Width/kana conversion drops the first and last character of each range</a></h3>
+  <h3 class="entry-title"><a href="e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a></h3>
+  
   <p class="lib-line"><span class="lib">moji</span> &middot; <a href="https://github.com/niwaringo/moji">niwaringo/moji</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1323,14 +1382,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#moji-range-boundaries">#moji-range-boundaries</a>
   </div>
 </article>
-<article class="entry" id="charabia-halfwidth-katakana-script" data-cat="width-normalization" data-lib="charabia" data-search="fix script detection of halfwidth katakana and fullwidth forms charabia meilisearch/charabia meilisearch&#39;s charabia tokenizer incorrectly classifies halfwidth katakana (u+ff65-u+ff9f) and some fullwidth forms as wrong scripts, causing them to be processed by the wrong tokenizer and failing japanese search. index halfwidth katakana text in meilisearch; search for the same terms; results missing because script detection classifies halfwidth katakana as non-japanese. extend script detection to recognize u+ff65–u+ff9f (halfwidth katakana) as japanese script. width / normalization rust pull request">
+<article class="entry" id="charabia-halfwidth-katakana-script" data-cat="width-normalization" data-lib="charabia" data-search="meilisearch charabia mis-detects half-width katakana script (japanese search) fix script detection of halfwidth katakana and fullwidth forms charabia meilisearch/charabia meilisearch&#39;s charabia tokenizer incorrectly classifies halfwidth katakana (u+ff65-u+ff9f) and some fullwidth forms as wrong scripts, causing them to be processed by the wrong tokenizer and failing japanese search. index halfwidth katakana text in meilisearch; search for the same terms; results missing because script detection classifies halfwidth katakana as non-japanese. extend script detection to recognize u+ff65–u+ff9f (halfwidth katakana) as japanese script. width / normalization rust pull request">
   <div class="entry-top">
     <span class="tag">Width / normalization</span>
     <span class="tag tag--stack">Rust</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/charabia-halfwidth-katakana-script.html">Fix script detection of halfwidth katakana and fullwidth forms</a></h3>
+  <h3 class="entry-title"><a href="e/charabia-halfwidth-katakana-script.html">Meilisearch charabia mis-detects half-width katakana script (Japanese search)</a></h3>
+  
   <p class="lib-line"><span class="lib">charabia</span> &middot; <a href="https://github.com/meilisearch/charabia">meilisearch/charabia</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1349,14 +1409,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#charabia-halfwidth-katakana-script">#charabia-halfwidth-katakana-script</a>
   </div>
 </article>
-<article class="entry" id="tabled-combining-mark-wrap" data-cat="width-normalization" data-lib="tabled" data-search="keep combining marks with their base grapheme in width::wrap tabled zhiburt/tabled tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells. create a tabled table with text containing combining marks (e.g., &#39;が&#39; as &#39;か&#39; + combining voiced mark u+3099); wrapping separates the base and combining mark onto different lines. use a grapheme cluster iterator (unicode uax #29) when wrapping, never splitting within a grapheme cluster. width / normalization rust pull request">
+<article class="entry" id="tabled-combining-mark-wrap" data-cat="width-normalization" data-lib="tabled" data-search="tabled splits combining marks from their base grapheme when wrapping width keep combining marks with their base grapheme in width::wrap tabled zhiburt/tabled tabled&#39;s text-wrapping splits combining marks (diacritics, dakuten, etc.) away from their base grapheme when calculating width for terminal table cells. create a tabled table with text containing combining marks (e.g., &#39;が&#39; as &#39;か&#39; + combining voiced mark u+3099); wrapping separates the base and combining mark onto different lines. use a grapheme cluster iterator (unicode uax #29) when wrapping, never splitting within a grapheme cluster. width / normalization rust pull request">
   <div class="entry-top">
     <span class="tag">Width / normalization</span>
     <span class="tag tag--stack">Rust</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/tabled-combining-mark-wrap.html">Keep combining marks with their base grapheme in Width::wrap</a></h3>
+  <h3 class="entry-title"><a href="e/tabled-combining-mark-wrap.html">tabled splits combining marks from their base grapheme when wrapping width</a></h3>
+  
   <p class="lib-line"><span class="lib">tabled</span> &middot; <a href="https://github.com/zhiburt/tabled">zhiburt/tabled</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1375,14 +1436,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#tabled-combining-mark-wrap">#tabled-combining-mark-wrap</a>
   </div>
 </article>
-<article class="entry" id="zed-block-cursor-ambiguous-width" data-cat="width-normalization" data-lib="zed" data-search="editor: center the block cursor glyph for ambiguous-width characters zed zed-industries/zed in zed editor, the block cursor over unicode ambiguous-width characters (east asian width &#39;a&#39; category, e.g., some symbols, box-drawing) is misaligned — the cursor glyph is not centered in the cell. open zed with a cjk font; position cursor on an ambiguous-width character; block cursor appears shifted or misaligned. center the block cursor glyph using the rendered cell width rather than the glyph&#39;s intrinsic width for ambiguous-width characters. width / normalization rust pull request">
+<article class="entry" id="zed-block-cursor-ambiguous-width" data-cat="width-normalization" data-lib="zed" data-search="zed block cursor is misaligned over ambiguous-width unicode characters editor: center the block cursor glyph for ambiguous-width characters zed zed-industries/zed in zed editor, the block cursor over unicode ambiguous-width characters (east asian width &#39;a&#39; category, e.g., some symbols, box-drawing) is misaligned — the cursor glyph is not centered in the cell. open zed with a cjk font; position cursor on an ambiguous-width character; block cursor appears shifted or misaligned. center the block cursor glyph using the rendered cell width rather than the glyph&#39;s intrinsic width for ambiguous-width characters. width / normalization rust pull request">
   <div class="entry-top">
     <span class="tag">Width / normalization</span>
     <span class="tag tag--stack">Rust</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/zed-block-cursor-ambiguous-width.html">editor: Center the block cursor glyph for ambiguous-width characters</a></h3>
+  <h3 class="entry-title"><a href="e/zed-block-cursor-ambiguous-width.html">Zed block cursor is misaligned over ambiguous-width Unicode characters</a></h3>
+  
   <p class="lib-line"><span class="lib">zed</span> &middot; <a href="https://github.com/zed-industries/zed">zed-industries/zed</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1406,18 +1468,20 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
 <section class="cat-section" data-cat-section="surrogate-emoji">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-surrogate-emoji">Surrogate &amp; grapheme</h2>
+      <h2 id="cat-surrogate-emoji"><a href="category/surrogate-emoji.html">Surrogate &amp; grapheme</a></h2>
       <span class="cat-n">10 entries</span>
+      <a class="cat-all" href="category/surrogate-emoji.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surrogate pairs and non-BMP characters get split, ZWJ emoji and variation selectors are mis-detected, and combining marks or conjunct clusters drift away from their base.</p>
-    <article class="entry" id="cli-table3-surrogate-truncate" data-cat="surrogate-emoji" data-lib="cli-table3" data-search="fix: avoid splitting surrogate pairs when truncating wide characters cli-table3 cli-table/cli-table3 cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary cjk characters, producing mojibake in terminal table cells. create a cli-table3 table with a column containing emoji (e.g., 🎉) or supplementary cjk characters; set a column width that truncates mid-emoji; output shows garbled characters. use a unicode-aware splitter (spread operator or array.from) to iterate code points rather than code units when truncating. surrogate &amp; grapheme js pull request">
+    <article class="entry" id="cli-table3-surrogate-truncate" data-cat="surrogate-emoji" data-lib="cli-table3" data-search="cli-table3 splits surrogate pairs (emoji / cjk) when truncating wide text fix: avoid splitting surrogate pairs when truncating wide characters cli-table3 cli-table/cli-table3 cli-table3 truncates text by byte/code-unit count rather than code-point count, splitting surrogate pairs in emoji or supplementary cjk characters, producing mojibake in terminal table cells. create a cli-table3 table with a column containing emoji (e.g., 🎉) or supplementary cjk characters; set a column width that truncates mid-emoji; output shows garbled characters. use a unicode-aware splitter (spread operator or array.from) to iterate code points rather than code units when truncating. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/cli-table3-surrogate-truncate.html">fix: avoid splitting surrogate pairs when truncating wide characters</a></h3>
+  <h3 class="entry-title"><a href="e/cli-table3-surrogate-truncate.html">cli-table3 splits surrogate pairs (emoji / CJK) when truncating wide text</a></h3>
+  
   <p class="lib-line"><span class="lib">cli-table3</span> &middot; <a href="https://github.com/cli-table/cli-table3">cli-table/cli-table3</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1436,14 +1500,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#cli-table3-surrogate-truncate">#cli-table3-surrogate-truncate</a>
   </div>
 </article>
-<article class="entry" id="clerk-truncate-surrogate" data-cat="surrogate-emoji" data-lib="clerk" data-search="fix(ui): keep truncatewithendvisible code-point-safe in short-width fallback clerk clerk/javascript clerk ui&#39;s truncatewithendvisible function uses substring/slice on raw code units in its short-width fallback, splitting surrogate pairs in emoji or non-bmp characters. a clerk ui component displaying an email/name containing emoji in the short-width fallback path; the truncated string ends mid-surrogate-pair, showing &#39;?&#39; or garbled chars. use array.from() or spread to split by code points, or use intl.segmenter, before truncating. surrogate &amp; grapheme ts pull request">
+<article class="entry" id="clerk-truncate-surrogate" data-cat="surrogate-emoji" data-lib="clerk" data-search="clerk truncate splits surrogate pairs in emoji / non-bmp characters fix(ui): keep truncatewithendvisible code-point-safe in short-width fallback clerk clerk/javascript clerk ui&#39;s truncatewithendvisible function uses substring/slice on raw code units in its short-width fallback, splitting surrogate pairs in emoji or non-bmp characters. a clerk ui component displaying an email/name containing emoji in the short-width fallback path; the truncated string ends mid-surrogate-pair, showing &#39;?&#39; or garbled chars. use array.from() or spread to split by code points, or use intl.segmenter, before truncating. surrogate &amp; grapheme ts pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">TS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/clerk-truncate-surrogate.html">fix(ui): keep truncateWithEndVisible code-point-safe in short-width fallback</a></h3>
+  <h3 class="entry-title"><a href="e/clerk-truncate-surrogate.html">Clerk truncate splits surrogate pairs in emoji / non-BMP characters</a></h3>
+  
   <p class="lib-line"><span class="lib">clerk</span> &middot; <a href="https://github.com/clerk/javascript">clerk/javascript</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1462,14 +1527,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#clerk-truncate-surrogate">#clerk-truncate-surrogate</a>
   </div>
 </article>
-<article class="entry" id="opentype-cmap-clamp" data-cat="surrogate-emoji" data-lib="opentype.js" data-search="fix(cmap): clamp format 12/13 character codes to the unicode maximum opentype.js opentypejs/opentype.js opentype.js does not clamp cmap format 12/13 character codes to u+10ffff; malformed fonts with out-of-range codes cause incorrect glyph lookups for supplementary characters. load a font with a cmap subtable containing entries beyond u+10ffff; glyph lookup for supplementary characters (emoji, cjk extension b+) returns wrong glyph. clamp all format 12/13 startcharcode/endcharcode values to 0x10ffff during parsing. surrogate &amp; grapheme js pull request">
+<article class="entry" id="opentype-cmap-clamp" data-cat="surrogate-emoji" data-lib="opentype.js" data-search="opentype.js does not clamp cmap format 12/13 codes to u+10ffff fix(cmap): clamp format 12/13 character codes to the unicode maximum opentype.js opentypejs/opentype.js opentype.js does not clamp cmap format 12/13 character codes to u+10ffff; malformed fonts with out-of-range codes cause incorrect glyph lookups for supplementary characters. load a font with a cmap subtable containing entries beyond u+10ffff; glyph lookup for supplementary characters (emoji, cjk extension b+) returns wrong glyph. clamp all format 12/13 startcharcode/endcharcode values to 0x10ffff during parsing. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/opentype-cmap-clamp.html">fix(cmap): clamp format 12/13 character codes to the Unicode maximum</a></h3>
+  <h3 class="entry-title"><a href="e/opentype-cmap-clamp.html">opentype.js does not clamp cmap format 12/13 codes to U+10FFFF</a></h3>
+  
   <p class="lib-line"><span class="lib">opentype.js</span> &middot; <a href="https://github.com/opentypejs/opentype.js">opentypejs/opentype.js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1488,14 +1554,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#opentype-cmap-clamp">#opentype-cmap-clamp</a>
   </div>
 </article>
-<article class="entry" id="markdown-it-nonbmp-smartquotes" data-cat="surrogate-emoji" data-lib="markdown-it" data-search="fix: handle non-bmp punctuation and symbols in smart quotes markdown-it markdown-it/markdown-it markdown-it&#39;s smart quotes replacement does not handle non-bmp punctuation and symbols (u+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion. markdown-it smartquotes on text adjacent to emoji or supplementary unicode symbols (e.g., &#39;𝕳ello&#39;); smart quote pairing is incorrect. use a regex that is unicode-aware for the &#39;whitespace&#39; and &#39;punctuation&#39; character class checks, or use array.from for code-point iteration. surrogate &amp; grapheme js pull request">
+<article class="entry" id="markdown-it-nonbmp-smartquotes" data-cat="surrogate-emoji" data-lib="markdown-it" data-search="markdown-it smart quotes break around non-bmp (u+10000+) characters fix: handle non-bmp punctuation and symbols in smart quotes markdown-it markdown-it/markdown-it markdown-it&#39;s smart quotes replacement does not handle non-bmp punctuation and symbols (u+10000+); surrounding text with supplementary characters causes wrong quote pairing or no conversion. markdown-it smartquotes on text adjacent to emoji or supplementary unicode symbols (e.g., &#39;𝕳ello&#39;); smart quote pairing is incorrect. use a regex that is unicode-aware for the &#39;whitespace&#39; and &#39;punctuation&#39; character class checks, or use array.from for code-point iteration. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/markdown-it-nonbmp-smartquotes.html">fix: handle non-BMP punctuation and symbols in smart quotes</a></h3>
+  <h3 class="entry-title"><a href="e/markdown-it-nonbmp-smartquotes.html">markdown-it smart quotes break around non-BMP (U+10000+) characters</a></h3>
+  
   <p class="lib-line"><span class="lib">markdown-it</span> &middot; <a href="https://github.com/markdown-it/markdown-it">markdown-it/markdown-it</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1514,14 +1581,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#markdown-it-nonbmp-smartquotes">#markdown-it-nonbmp-smartquotes</a>
   </div>
 </article>
-<article class="entry" id="slate-indic-conjunct-grapheme" data-cat="surrogate-emoji" data-lib="slate" data-search="treat indic conjunct clusters as a single grapheme (uax #29 gb9c) slate ianstormtaylor/slate slate rich-text editor does not implement unicode uax #29 gb9c rule, splitting indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in hindi, bengali, tamil, etc. type a conjunct consonant in hindi (e.g., &#39;क्ष&#39;) in slate; press backspace; only one codepoint is deleted instead of the full cluster. apply unicode gb9c rule: treat &lt;indic_conjunct_break=linker&gt; sequences as a single grapheme cluster. surrogate &amp; grapheme js pull request">
+<article class="entry" id="slate-indic-conjunct-grapheme" data-cat="surrogate-emoji" data-lib="slate" data-search="slate splits indic conjunct clusters (uax #29 gb9c) across graphemes treat indic conjunct clusters as a single grapheme (uax #29 gb9c) slate ianstormtaylor/slate slate rich-text editor does not implement unicode uax #29 gb9c rule, splitting indic conjunct clusters (consonant + virama + consonant sequences) across grapheme boundaries, causing incorrect cursor positioning and deletion in hindi, bengali, tamil, etc. type a conjunct consonant in hindi (e.g., &#39;क्ष&#39;) in slate; press backspace; only one codepoint is deleted instead of the full cluster. apply unicode gb9c rule: treat &lt;indic_conjunct_break=linker&gt; sequences as a single grapheme cluster. surrogate &amp; grapheme js pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/slate-indic-conjunct-grapheme.html">Treat Indic conjunct clusters as a single grapheme (UAX #29 GB9c)</a></h3>
+  <h3 class="entry-title"><a href="e/slate-indic-conjunct-grapheme.html">Slate splits Indic conjunct clusters (UAX #29 GB9c) across graphemes</a></h3>
+  
   <p class="lib-line"><span class="lib">slate</span> &middot; <a href="https://github.com/ianstormtaylor/slate">ianstormtaylor/slate</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1540,14 +1608,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#slate-indic-conjunct-grapheme">#slate-indic-conjunct-grapheme</a>
   </div>
 </article>
-<article class="entry" id="wenmode-emphasis-flanking-marks" data-cat="surrogate-emoji" data-lib="wenmode" data-search="fix emphasis flanking for unicode marks and format characters wenmode lepture/wenmode wenmode&#39;s is_punctuation function treats unicode combining marks (mn category) and format characters (cf/zwj) as punctuation per the commonmark spec, incorrectly suppressing valid emphasis around cjk text with diacritics or zwj sequences. markdown text using emphasis (* or _) adjacent to a combining mark or zwj character; emphasis fails to render because combining marks are classified as punctuation. exclude unicode general categories mn, mc, cf from the punctuation classification; add ascii fast-path to avoid performance regression. surrogate &amp; grapheme  pull request">
+<article class="entry" id="wenmode-emphasis-flanking-marks" data-cat="surrogate-emoji" data-lib="wenmode" data-search="combining marks/zwj wrongly treated as punctuation in emphasis (wenmode) fix emphasis flanking for unicode marks and format characters wenmode lepture/wenmode wenmode&#39;s is_punctuation function treats unicode combining marks (mn category) and format characters (cf/zwj) as punctuation per the commonmark spec, incorrectly suppressing valid emphasis around cjk text with diacritics or zwj sequences. markdown text using emphasis (* or _) adjacent to a combining mark or zwj character; emphasis fails to render because combining marks are classified as punctuation. exclude unicode general categories mn, mc, cf from the punctuation classification; add ascii fast-path to avoid performance regression. surrogate &amp; grapheme  pull request">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/wenmode-emphasis-flanking-marks.html">Fix emphasis flanking for Unicode marks and format characters</a></h3>
+  <h3 class="entry-title"><a href="e/wenmode-emphasis-flanking-marks.html">Combining marks/ZWJ wrongly treated as punctuation in emphasis (wenmode)</a></h3>
+  
   <p class="lib-line"><span class="lib">wenmode</span> &middot; <a href="https://github.com/lepture/wenmode">lepture/wenmode</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1566,14 +1635,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#wenmode-emphasis-flanking-marks">#wenmode-emphasis-flanking-marks</a>
   </div>
 </article>
-<article class="entry" id="grapheme-splitter-zwj-emoji" data-cat="surrogate-emoji" data-lib="grapheme-splitter" data-search="zwj-joined emoji are split into pieces grapheme-splitter orling/grapheme-splitter grapheme-splitter breaks zwj-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart. new graphemesplitter().splitgraphemes(&#39;🏳️‍🌈&#39;) returns two elements instead of one. implement the unicode emoji zwj sequence rules (uts #51) so a zwj-joined emoji stays a single cluster. surrogate &amp; grapheme js cited upstream issue">
+<article class="entry" id="grapheme-splitter-zwj-emoji" data-cat="surrogate-emoji" data-lib="grapheme-splitter" data-search="grapheme-splitter breaks zwj emoji (flags, skin tones) into pieces zwj-joined emoji are split into pieces grapheme-splitter orling/grapheme-splitter grapheme-splitter breaks zwj-joined emoji into parts instead of one grapheme cluster: the rainbow flag splits into its component glyphs, and skin-tone sequences come apart. new graphemesplitter().splitgraphemes(&#39;🏳️‍🌈&#39;) returns two elements instead of one. implement the unicode emoji zwj sequence rules (uts #51) so a zwj-joined emoji stays a single cluster. surrogate &amp; grapheme js cited upstream issue">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/grapheme-splitter-zwj-emoji.html">ZWJ-joined emoji are split into pieces</a></h3>
+  <h3 class="entry-title"><a href="e/grapheme-splitter-zwj-emoji.html">grapheme-splitter breaks ZWJ emoji (flags, skin tones) into pieces</a></h3>
+  
   <p class="lib-line"><span class="lib">grapheme-splitter</span> &middot; <a href="https://github.com/orling/grapheme-splitter">orling/grapheme-splitter</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1592,14 +1662,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#grapheme-splitter-zwj-emoji">#grapheme-splitter-zwj-emoji</a>
   </div>
 </article>
-<article class="entry" id="lodash-toarray-tag-sequence" data-cat="surrogate-emoji" data-lib="lodash" data-search="toarray splits a tag-sequence flag emoji into code points lodash lodash/lodash _.toarray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element. _.toarray for the england flag emoji (a base flag plus tag characters) returns seven pieces instead of one. use a unicode-aware iterator such as intl.segmenter that handles tag sequences when converting a string to an array. surrogate &amp; grapheme js cited upstream issue">
+<article class="entry" id="lodash-toarray-tag-sequence" data-cat="surrogate-emoji" data-lib="lodash" data-search="lodash _.toarray splits a tag-sequence flag emoji into code points toarray splits a tag-sequence flag emoji into code points lodash lodash/lodash _.toarray splits an emoji built from a tag sequence (a subdivision flag) into its component code points instead of returning it as one element. _.toarray for the england flag emoji (a base flag plus tag characters) returns seven pieces instead of one. use a unicode-aware iterator such as intl.segmenter that handles tag sequences when converting a string to an array. surrogate &amp; grapheme js cited upstream issue">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/lodash-toarray-tag-sequence.html">toArray splits a tag-sequence flag emoji into code points</a></h3>
+  <h3 class="entry-title"><a href="e/lodash-toarray-tag-sequence.html">lodash _.toArray splits a tag-sequence flag emoji into code points</a></h3>
+  
   <p class="lib-line"><span class="lib">lodash</span> &middot; <a href="https://github.com/lodash/lodash">lodash/lodash</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1618,14 +1689,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#lodash-toarray-tag-sequence">#lodash-toarray-tag-sequence</a>
   </div>
 </article>
-<article class="entry" id="windows-terminal-vs15" data-cat="surrogate-emoji" data-lib="microsoft/terminal" data-search="variation selector-15 (u+fe0e) is ignored, forcing emoji style microsoft/terminal microsoft/terminal windows terminal ignores the text-presentation variation selector u+fe0e, rendering the color-emoji form even when text style is explicitly requested. print a text-style sequence such as u+23cf followed by u+fe0e; it renders as a color emoji instead of the text glyph. honor vs-15 (u+fe0e) for text presentation and vs-16 (u+fe0f) for emoji presentation, per the unicode emoji variation sequences. surrogate &amp; grapheme windows terminal cited upstream issue">
+<article class="entry" id="windows-terminal-vs15" data-cat="surrogate-emoji" data-lib="microsoft/terminal" data-search="windows terminal ignores vs15 (u+fe0e) and forces the emoji style variation selector-15 (u+fe0e) is ignored, forcing emoji style microsoft/terminal microsoft/terminal windows terminal ignores the text-presentation variation selector u+fe0e, rendering the color-emoji form even when text style is explicitly requested. print a text-style sequence such as u+23cf followed by u+fe0e; it renders as a color emoji instead of the text glyph. honor vs-15 (u+fe0e) for text presentation and vs-16 (u+fe0f) for emoji presentation, per the unicode emoji variation sequences. surrogate &amp; grapheme windows terminal cited upstream issue">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">Windows Terminal</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--closed">closed</span>
   </div>
-  <h3 class="entry-title"><a href="e/windows-terminal-vs15.html">Variation Selector-15 (U+FE0E) is ignored, forcing emoji style</a></h3>
+  <h3 class="entry-title"><a href="e/windows-terminal-vs15.html">Windows Terminal ignores VS15 (U+FE0E) and forces the emoji style</a></h3>
+  
   <p class="lib-line"><span class="lib">microsoft/terminal</span> &middot; <a href="https://github.com/microsoft/terminal">microsoft/terminal</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1644,14 +1716,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#windows-terminal-vs15">#windows-terminal-vs15</a>
   </div>
 </article>
-<article class="entry" id="emoji-regex-text-vs15" data-cat="surrogate-emoji" data-lib="emoji-regex" data-search="matches a character followed by a text variation selector (u+fe0e) emoji-regex mathiasbynens/emoji-regex emoji-regex matches a base character even when it is followed by u+fe0e (the text variation selector), so text-presentation characters are wrongly classified as emoji. emojiregex().test(&#39;\u2757\ufe0e&#39;) returns true even though u+fe0e requests text presentation. exclude a match followed by vs-15 (u+fe0e); treat only a trailing vs-16 (u+fe0f) or no selector as emoji. surrogate &amp; grapheme js cited upstream issue">
+<article class="entry" id="emoji-regex-text-vs15" data-cat="surrogate-emoji" data-lib="emoji-regex" data-search="emoji-regex matches a text-presentation char followed by u+fe0e (vs15) matches a character followed by a text variation selector (u+fe0e) emoji-regex mathiasbynens/emoji-regex emoji-regex matches a base character even when it is followed by u+fe0e (the text variation selector), so text-presentation characters are wrongly classified as emoji. emojiregex().test(&#39;\u2757\ufe0e&#39;) returns true even though u+fe0e requests text presentation. exclude a match followed by vs-15 (u+fe0e); treat only a trailing vs-16 (u+fe0f) or no selector as emoji. surrogate &amp; grapheme js cited upstream issue">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/emoji-regex-text-vs15.html">Matches a character followed by a text variation selector (U+FE0E)</a></h3>
+  <h3 class="entry-title"><a href="e/emoji-regex-text-vs15.html">emoji-regex matches a text-presentation char followed by U+FE0E (VS15)</a></h3>
+  
   <p class="lib-line"><span class="lib">emoji-regex</span> &middot; <a href="https://github.com/mathiasbynens/emoji-regex">mathiasbynens/emoji-regex</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1675,18 +1748,20 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
 <section class="cat-section" data-cat-section="segmentation">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-segmentation">Segmentation / word count</h2>
+      <h2 id="cat-segmentation"><a href="category/segmentation.html">Segmentation / word count</a></h2>
       <span class="cat-n">2 entries</span>
+      <a class="cat-all" href="category/segmentation.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces between words, so an entire Japanese or Chinese paragraph counts as one word: content gates reject valid answers and &quot;min read&quot; labels read as 1. The fix counts CJK characters separately from space-delimited words.</p>
-    <article class="entry" id="omi-onboarding-cjk-wordcount" data-cat="segmentation" data-lib="omi" data-search="onboarding answer gate counts a spaceless cjk answer as one word omi basedhardware/omi onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for cjk text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the llm check, and the question stays marked unanswered for japanese, chinese, and korean speakers. len(&#39;東京に住んでいます&#39;.split())  # 1, so word_count &gt;= 2 is false and the answer is rejected use the existing cjk-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-cjk text, so english input is unchanged. segmentation / word count python pull request">
+    <article class="entry" id="omi-onboarding-cjk-wordcount" data-cat="segmentation" data-lib="omi" data-search="split() word count treats a spaceless cjk answer as one word (omi) onboarding answer gate counts a spaceless cjk answer as one word omi basedhardware/omi onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for cjk text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the llm check, and the question stays marked unanswered for japanese, chinese, and korean speakers. len(&#39;東京に住んでいます&#39;.split())  # 1, so word_count &gt;= 2 is false and the answer is rejected use the existing cjk-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-cjk text, so english input is unchanged. segmentation / word count python pull request">
   <div class="entry-top">
     <span class="tag">Segmentation / word count</span>
     <span class="tag tag--stack">Python</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/omi-onboarding-cjk-wordcount.html">Onboarding answer gate counts a spaceless CJK answer as one word</a></h3>
+  <h3 class="entry-title"><a href="e/omi-onboarding-cjk-wordcount.html">split() word count treats a spaceless CJK answer as one word (omi)</a></h3>
+  
   <p class="lib-line"><span class="lib">omi</span> &middot; <a href="https://github.com/BasedHardware/omi">BasedHardware/omi</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1705,14 +1780,15 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
     <a class="anchor-link" href="#omi-onboarding-cjk-wordcount">#omi-onboarding-cjk-wordcount</a>
   </div>
 </article>
-<article class="entry" id="emdash-readingtime-cjk-wordcount" data-cat="segmentation" data-lib="emdash" data-search="editor footer treats a whole cjk paragraph as one word and one minute read emdash emdash-cms/emdash the editor footer&#39;s word count and reading time come from tiptap&#39;s charactercount, whose default wordcounter splits on spaces. cjk scripts have no spaces between words, so a long japanese or chinese draft shows &quot;1 word&quot; and &quot;1 min read&quot; even though the published page, which already counts cjk separately, reports the correct time. type a cjk paragraph into the editor; charactercount&#39;s default text.split(&#39; &#39;) returns 1, so the footer reports 1 word and 1 min read. configure charactercount with a wordcounter that counts cjk characters individually, and derive reading time from the text using the same word/cjk split and rates (200 words/min, 500 cjk chars/min) as the published reading-time util, so the editor and the rendered page agree. segmentation / word count tiptap pull request">
+<article class="entry" id="emdash-readingtime-cjk-wordcount" data-cat="segmentation" data-lib="emdash" data-search="tiptap word count treats a whole cjk paragraph as 1 word / 1 min read editor footer treats a whole cjk paragraph as one word and one minute read emdash emdash-cms/emdash the editor footer&#39;s word count and reading time come from tiptap&#39;s charactercount, whose default wordcounter splits on spaces. cjk scripts have no spaces between words, so a long japanese or chinese draft shows &quot;1 word&quot; and &quot;1 min read&quot; even though the published page, which already counts cjk separately, reports the correct time. type a cjk paragraph into the editor; charactercount&#39;s default text.split(&#39; &#39;) returns 1, so the footer reports 1 word and 1 min read. configure charactercount with a wordcounter that counts cjk characters individually, and derive reading time from the text using the same word/cjk split and rates (200 words/min, 500 cjk chars/min) as the published reading-time util, so the editor and the rendered page agree. segmentation / word count tiptap pull request">
   <div class="entry-top">
     <span class="tag">Segmentation / word count</span>
     <span class="tag tag--stack">TipTap</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/emdash-readingtime-cjk-wordcount.html">Editor footer treats a whole CJK paragraph as one word and one minute read</a></h3>
+  <h3 class="entry-title"><a href="e/emdash-readingtime-cjk-wordcount.html">TipTap word count treats a whole CJK paragraph as 1 word / 1 min read</a></h3>
+  
   <p class="lib-line"><span class="lib">emdash</span> &middot; <a href="https://github.com/emdash-cms/emdash">emdash-cms/emdash</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1736,11 +1812,12 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
 <section class="cat-section" data-cat-section="numeral">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-numeral">Numerals</h2>
+      <h2 id="cat-numeral"><a href="category/numeral.html">Numerals</a></h2>
       <span class="cat-n">2 entries</span>
+      <a class="cat-all" href="category/numeral.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Kanji numerals, including the daiji (traditional) forms used in legal and financial documents.</p>
-    <article class="entry" id="kanjize-daiji-man" data-cat="numeral" data-lib="Kanjize" data-search="kanji2number cannot parse 萬 (daiji form of 万) kanjize nagataaaas/kanjize kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert. from kanjize import kanji2number
+    <article class="entry" id="kanjize-daiji-man" data-cat="numeral" data-lib="Kanjize" data-search="kanji2number cannot parse 萬, the daiji form of 万 (kanjize) kanji2number cannot parse 萬 (daiji form of 万) kanjize nagataaaas/kanjize kanji2number cannot parse 萬, the daiji (大字) traditional form of 万 (10,000), so legal and financial documents that use 大字 numerals fail to convert. from kanjize import kanji2number
 kanji2number(&#39;萬&#39;)  # not recognized as 10000 map 萬 to 万 (10,000) in kanji2number. numerals python pull request">
   <div class="entry-top">
     <span class="tag">Numerals</span>
@@ -1748,7 +1825,8 @@ kanji2number(&#39;萬&#39;)  # not recognized as 10000 map 萬 to 万 (10,000) i
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/kanjize-daiji-man.html">kanji2number cannot parse 萬 (daiji form of 万)</a></h3>
+  <h3 class="entry-title"><a href="e/kanjize-daiji-man.html">kanji2number cannot parse 萬, the daiji form of 万 (Kanjize)</a></h3>
+  
   <p class="lib-line"><span class="lib">Kanjize</span> &middot; <a href="https://github.com/nagataaaas/Kanjize">nagataaaas/Kanjize</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1768,14 +1846,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#kanjize-daiji-man">#kanjize-daiji-man</a>
   </div>
 </article>
-<article class="entry" id="formatjs-numbering-system" data-cat="numeral" data-lib="formatjs" data-search="fix(@formatjs/intl-relativetimeformat): honor numberingsystem option formatjs formatjs/formatjs formatjs intl-relativetimeformat ignores the numberingsystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing latin numerals in relative time strings. new intl.relativetimeformat(&#39;ja-jp-u-nu-jpan&#39;, {}).format(-1, &#39;day&#39;) returns &#39;1日前&#39; with latin &#39;1&#39; instead of japanese numeral &#39;一日前&#39;. apply the numberingsystem extension from the locale tag when formatting relative time numbers. numerals js pull request">
+<article class="entry" id="formatjs-numbering-system" data-cat="numeral" data-lib="formatjs" data-search="formatjs relativetimeformat ignores numberingsystem (always latin digits) fix(@formatjs/intl-relativetimeformat): honor numberingsystem option formatjs formatjs/formatjs formatjs intl-relativetimeformat ignores the numberingsystem locale option (e.g., &#39;jpan&#39;, &#39;arab&#39;), always producing latin numerals in relative time strings. new intl.relativetimeformat(&#39;ja-jp-u-nu-jpan&#39;, {}).format(-1, &#39;day&#39;) returns &#39;1日前&#39; with latin &#39;1&#39; instead of japanese numeral &#39;一日前&#39;. apply the numberingsystem extension from the locale tag when formatting relative time numbers. numerals js pull request">
   <div class="entry-top">
     <span class="tag">Numerals</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/formatjs-numbering-system.html">fix(@formatjs/intl-relativetimeformat): honor numberingSystem option</a></h3>
+  <h3 class="entry-title"><a href="e/formatjs-numbering-system.html">formatjs relativetimeformat ignores numberingSystem (always Latin digits)</a></h3>
+  
   <p class="lib-line"><span class="lib">formatjs</span> &middot; <a href="https://github.com/formatjs/formatjs">formatjs/formatjs</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1799,11 +1878,12 @@ kanji2number('萬')  # not recognized as 10000</pre>
 <section class="cat-section" data-cat-section="locale-leftover">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-locale-leftover">Locale data</h2>
+      <h2 id="cat-locale-leftover"><a href="category/locale-leftover.html">Locale data</a></h2>
       <span class="cat-n">21 entries</span>
+      <a class="cat-all" href="category/locale-leftover.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back.</p>
-    <article class="entry" id="ant-design-typography-ja-labels" data-cat="locale-leftover" data-lib="ant-design" data-search="wrong ja-jp typography expand/collapse labels ant-design ant-design/ant-design the ja-jp labels for typography&#39;s expand/collapse control were incorrect, so japanese users saw the wrong 展開/折りたたみ text. 1. set configprovider locale to ja_jp.
+    <article class="entry" id="ant-design-typography-ja-labels" data-cat="locale-leftover" data-lib="ant-design" data-search="wrong japanese expand/collapse labels in ant design typography wrong ja-jp typography expand/collapse labels ant-design ant-design/ant-design the ja-jp labels for typography&#39;s expand/collapse control were incorrect, so japanese users saw the wrong 展開/折りたたみ text. 1. set configprovider locale to ja_jp.
 2. render &lt;typography.paragraph ellipsis={{ expandable: true }}&gt;.
 3. the expand/collapse label is wrong. correct the ja-jp expand/collapse label strings. locale data react pull request">
   <div class="entry-top">
@@ -1812,7 +1892,8 @@ kanji2number('萬')  # not recognized as 10000</pre>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/ant-design-typography-ja-labels.html">Wrong ja-JP Typography expand/collapse labels</a></h3>
+  <h3 class="entry-title"><a href="e/ant-design-typography-ja-labels.html">Wrong Japanese expand/collapse labels in Ant Design Typography</a></h3>
+  
   <p class="lib-line"><span class="lib">ant-design</span> &middot; <a href="https://github.com/ant-design/ant-design">ant-design/ant-design</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1833,14 +1914,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#ant-design-typography-ja-labels">#ant-design-typography-ja-labels</a>
   </div>
 </article>
-<article class="entry" id="naive-ui-week-placeholder-ja" data-cat="locale-leftover" data-lib="naive-ui" data-search="weekplaceholder left untranslated in the japanese locale naive-ui tusen-ai/naive-ui weekplaceholder was missing from the japanese locale, so the week date-picker showed an english placeholder. use the date picker in week mode with the ja locale; the placeholder renders in english. add the japanese weekplaceholder translation. locale data vue pull request">
+<article class="entry" id="naive-ui-week-placeholder-ja" data-cat="locale-leftover" data-lib="naive-ui" data-search="naive-ui week date-picker placeholder left untranslated in japanese weekplaceholder left untranslated in the japanese locale naive-ui tusen-ai/naive-ui weekplaceholder was missing from the japanese locale, so the week date-picker showed an english placeholder. use the date picker in week mode with the ja locale; the placeholder renders in english. add the japanese weekplaceholder translation. locale data vue pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">Vue</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/naive-ui-week-placeholder-ja.html">weekPlaceholder left untranslated in the Japanese locale</a></h3>
+  <h3 class="entry-title"><a href="e/naive-ui-week-placeholder-ja.html">naive-ui week date-picker placeholder left untranslated in Japanese</a></h3>
+  
   <p class="lib-line"><span class="lib">naive-ui</span> &middot; <a href="https://github.com/tusen-ai/naive-ui">tusen-ai/naive-ui</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1859,14 +1941,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#naive-ui-week-placeholder-ja">#naive-ui-week-placeholder-ja</a>
   </div>
 </article>
-<article class="entry" id="timeago-ja-future-go" data-cat="locale-leftover" data-lib="timeago.js" data-search="japanese future times used 以内 (within) instead of 後 (later) timeago.js hustcc/timeago.js future timestamps in the ja locale used 以内 (within) instead of 後 (later), so &#39;3 minutes from now&#39; rendered as 3分以内 (within 3 minutes), which means the opposite. timeago a future timestamp with the ja locale; it renders &#39;3分以内&#39; instead of &#39;3分後&#39;. use 後 for future time strings in the ja locale. locale data js pull request">
+<article class="entry" id="timeago-ja-future-go" data-cat="locale-leftover" data-lib="timeago.js" data-search="timeago.js japanese future times say 以内 (within) instead of 後 (later) japanese future times used 以内 (within) instead of 後 (later) timeago.js hustcc/timeago.js future timestamps in the ja locale used 以内 (within) instead of 後 (later), so &#39;3 minutes from now&#39; rendered as 3分以内 (within 3 minutes), which means the opposite. timeago a future timestamp with the ja locale; it renders &#39;3分以内&#39; instead of &#39;3分後&#39;. use 後 for future time strings in the ja locale. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/timeago-ja-future-go.html">Japanese future times used 以内 (within) instead of 後 (later)</a></h3>
+  <h3 class="entry-title"><a href="e/timeago-ja-future-go.html">timeago.js Japanese future times say 以内 (within) instead of 後 (later)</a></h3>
+  
   <p class="lib-line"><span class="lib">timeago.js</span> &middot; <a href="https://github.com/hustcc/timeago.js">hustcc/timeago.js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1885,14 +1968,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#timeago-ja-future-go">#timeago-ja-future-go</a>
   </div>
 </article>
-<article class="entry" id="cronstrue-ja-day-of-month-step" data-cat="locale-leftover" data-lib="cronstrue" data-search="japanese day-of-month step description not scoped to a month cronstrue bradymholt/cronstrue the japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description. cronstrue.tostring(&#39;0 0 1-31/3 * *&#39;, { locale: &#39;ja&#39; }); the description is not scoped to the month. scope the ja day-of-month step description to a month. locale data js pull request">
+<article class="entry" id="cronstrue-ja-day-of-month-step" data-cat="locale-leftover" data-lib="cronstrue" data-search="cronstrue japanese day-of-month step description is mistranslated japanese day-of-month step description not scoped to a month cronstrue bradymholt/cronstrue the japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description. cronstrue.tostring(&#39;0 0 1-31/3 * *&#39;, { locale: &#39;ja&#39; }); the description is not scoped to the month. scope the ja day-of-month step description to a month. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/cronstrue-ja-day-of-month-step.html">Japanese day-of-month step description not scoped to a month</a></h3>
+  <h3 class="entry-title"><a href="e/cronstrue-ja-day-of-month-step.html">cronstrue Japanese day-of-month step description is mistranslated</a></h3>
+  
   <p class="lib-line"><span class="lib">cronstrue</span> &middot; <a href="https://github.com/bradymholt/cRonstrue">bradymholt/cRonstrue</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1911,14 +1995,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#cronstrue-ja-day-of-month-step">#cronstrue-ja-day-of-month-step</a>
   </div>
 </article>
-<article class="entry" id="primelocale-ja-filterconstraint" data-cat="locale-leftover" data-lib="primelocale" data-search="fix ja aria filterconstraint translation (成約 → 制約) primelocale primefaces/primelocale primelocale japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterconstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;). primefaces component with aria-label for filter constraint in japanese reads &#39;成約&#39; (contract) instead of &#39;制約&#39; (constraint). change filterconstraint value from &#39;成約&#39; to &#39;制約&#39; in the ja.json locale file. locale data i18n pull request">
+<article class="entry" id="primelocale-ja-filterconstraint" data-cat="locale-leftover" data-lib="primelocale" data-search="primelocale japanese: filterconstraint mistranslated 成約 → 制約 fix ja aria filterconstraint translation (成約 → 制約) primelocale primefaces/primelocale primelocale japanese (ja) locale uses 成約 (meaning &#39;conclusion of a contract&#39;) for &#39;filterconstraint&#39; aria label, which should be 制約 (&#39;constraint/restriction&#39;). primefaces component with aria-label for filter constraint in japanese reads &#39;成約&#39; (contract) instead of &#39;制約&#39; (constraint). change filterconstraint value from &#39;成約&#39; to &#39;制約&#39; in the ja.json locale file. locale data i18n pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">i18n</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/primelocale-ja-filterconstraint.html">Fix ja aria filterConstraint translation (成約 → 制約)</a></h3>
+  <h3 class="entry-title"><a href="e/primelocale-ja-filterconstraint.html">PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約</a></h3>
+  
   <p class="lib-line"><span class="lib">primelocale</span> &middot; <a href="https://github.com/primefaces/primelocale">primefaces/primelocale</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1937,14 +2022,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#primelocale-ja-filterconstraint">#primelocale-ja-filterconstraint</a>
   </div>
 </article>
-<article class="entry" id="vant-ja-jp-locale" data-cat="locale-leftover" data-lib="vant" data-search="fix(locale): correct japanese (ja-jp) translations vant youzan/vant vant component library japanese (ja-jp) locale contains incorrect translations for multiple ui strings. vant components with ja-jp locale display mistranslated strings for picker, datetime, and other components. correct multiple mistranslated strings in vant/src/locale/lang/ja-jp.ts. locale data vue pull request">
+<article class="entry" id="vant-ja-jp-locale" data-cat="locale-leftover" data-lib="vant" data-search="vant japanese (ja-jp) locale translation errors fix(locale): correct japanese (ja-jp) translations vant youzan/vant vant component library japanese (ja-jp) locale contains incorrect translations for multiple ui strings. vant components with ja-jp locale display mistranslated strings for picker, datetime, and other components. correct multiple mistranslated strings in vant/src/locale/lang/ja-jp.ts. locale data vue pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">Vue</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/vant-ja-jp-locale.html">fix(locale): correct Japanese (ja-JP) translations</a></h3>
+  <h3 class="entry-title"><a href="e/vant-ja-jp-locale.html">Vant Japanese (ja-JP) locale translation errors</a></h3>
+  
   <p class="lib-line"><span class="lib">vant</span> &middot; <a href="https://github.com/youzan/vant">youzan/vant</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1963,14 +2049,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#vant-ja-jp-locale">#vant-ja-jp-locale</a>
   </div>
 </article>
-<article class="entry" id="mui-x-ja-jp-locale" data-cat="locale-leftover" data-lib="mui-x" data-search="[l10n] improve japanese (ja-jp) locale mui-x mui/mui-x mui x japanese (ja-jp) locale has incomplete or incorrect translations for data grid, date picker, and time picker components. mui x components with jajp locale show untranslated english strings or incorrect japanese. improve japanese translations across multiple mui x locale strings. locale data react pull request">
+<article class="entry" id="mui-x-ja-jp-locale" data-cat="locale-leftover" data-lib="mui-x" data-search="mui x japanese (ja-jp) locale is incomplete / has wrong translations [l10n] improve japanese (ja-jp) locale mui-x mui/mui-x mui x japanese (ja-jp) locale has incomplete or incorrect translations for data grid, date picker, and time picker components. mui x components with jajp locale show untranslated english strings or incorrect japanese. improve japanese translations across multiple mui x locale strings. locale data react pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/mui-x-ja-jp-locale.html">[l10n] Improve Japanese (ja-JP) locale</a></h3>
+  <h3 class="entry-title"><a href="e/mui-x-ja-jp-locale.html">MUI X Japanese (ja-JP) locale is incomplete / has wrong translations</a></h3>
+  
   <p class="lib-line"><span class="lib">mui-x</span> &middot; <a href="https://github.com/mui/mui-x">mui/mui-x</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -1989,14 +2076,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#mui-x-ja-jp-locale">#mui-x-ja-jp-locale</a>
   </div>
 </article>
-<article class="entry" id="semi-design-ja-upload-crop" data-cat="locale-leftover" data-lib="semi-design" data-search="fix(locale): add missing japanese upload crop modal text semi-design douyinfe/semi-design semi design&#39;s japanese locale is missing translation strings for the upload component&#39;s crop modal ui. semi design upload component with crop modal in japanese locale shows untranslated (english) strings in the crop modal. add missing japanese translation keys for upload crop modal to ja-jp locale. locale data react pull request">
+<article class="entry" id="semi-design-ja-upload-crop" data-cat="locale-leftover" data-lib="semi-design" data-search="semi design is missing japanese text in the upload crop modal fix(locale): add missing japanese upload crop modal text semi-design douyinfe/semi-design semi design&#39;s japanese locale is missing translation strings for the upload component&#39;s crop modal ui. semi design upload component with crop modal in japanese locale shows untranslated (english) strings in the crop modal. add missing japanese translation keys for upload crop modal to ja-jp locale. locale data react pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/semi-design-ja-upload-crop.html">fix(locale): add missing Japanese Upload crop modal text</a></h3>
+  <h3 class="entry-title"><a href="e/semi-design-ja-upload-crop.html">Semi Design is missing Japanese text in the Upload crop modal</a></h3>
+  
   <p class="lib-line"><span class="lib">semi-design</span> &middot; <a href="https://github.com/DouyinFE/semi-design">DouyinFE/semi-design</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2015,14 +2103,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#semi-design-ja-upload-crop">#semi-design-ja-upload-crop</a>
   </div>
 </article>
-<article class="entry" id="ng-zorro-ja-quarter-placeholders" data-cat="locale-leftover" data-lib="ng-zorro-antd" data-search="fix(module:i18n): add missing quarter placeholders to ja_jp ng-zorro-antd ng-zorro/ng-zorro-antd ng-zorro angular japanese (ja_jp) locale is missing quarter placeholder strings, causing runtime errors or blank ui for date range pickers. ng-zorro datepicker quarter mode with ja_jp locale throws error or shows blank quarter placeholders. add missing quarter i18n keys to ja_jp locale file. locale data angular pull request">
+<article class="entry" id="ng-zorro-ja-quarter-placeholders" data-cat="locale-leftover" data-lib="ng-zorro-antd" data-search="ng-zorro japanese (ja_jp) missing quarter placeholders break the date picker fix(module:i18n): add missing quarter placeholders to ja_jp ng-zorro-antd ng-zorro/ng-zorro-antd ng-zorro angular japanese (ja_jp) locale is missing quarter placeholder strings, causing runtime errors or blank ui for date range pickers. ng-zorro datepicker quarter mode with ja_jp locale throws error or shows blank quarter placeholders. add missing quarter i18n keys to ja_jp locale file. locale data angular pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">Angular</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/ng-zorro-ja-quarter-placeholders.html">fix(module:i18n): add missing quarter placeholders to ja_JP</a></h3>
+  <h3 class="entry-title"><a href="e/ng-zorro-ja-quarter-placeholders.html">NG-ZORRO Japanese (ja_JP) missing quarter placeholders break the date picker</a></h3>
+  
   <p class="lib-line"><span class="lib">ng-zorro-antd</span> &middot; <a href="https://github.com/NG-ZORRO/ng-zorro-antd">NG-ZORRO/ng-zorro-antd</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2041,14 +2130,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#ng-zorro-ja-quarter-placeholders">#ng-zorro-ja-quarter-placeholders</a>
   </div>
 </article>
-<article class="entry" id="filepond-ja-file-processing-label" data-cat="locale-leftover" data-lib="filepond" data-search="fix ja-ja labelfileprocessing (読込中 -&gt; アップロード中) filepond pqina/filepond filepond japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action. filepond with japanese locale shows &#39;読込中&#39; during file upload, misleading users into thinking a read is occurring. change labelfileprocessing from &#39;読込中&#39; to &#39;アップロード中&#39; in the japanese locale. locale data js pull request">
+<article class="entry" id="filepond-ja-file-processing-label" data-cat="locale-leftover" data-lib="filepond" data-search="filepond japanese label: 読込中 should be アップロード中 (uploading) fix ja-ja labelfileprocessing (読込中 -&gt; アップロード中) filepond pqina/filepond filepond japanese locale uses &#39;読込中&#39; (loading/reading) for the file processing label, which should be &#39;アップロード中&#39; (uploading) to accurately describe the action. filepond with japanese locale shows &#39;読込中&#39; during file upload, misleading users into thinking a read is occurring. change labelfileprocessing from &#39;読込中&#39; to &#39;アップロード中&#39; in the japanese locale. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/filepond-ja-file-processing-label.html">Fix ja-ja labelFileProcessing (読込中 -&gt; アップロード中)</a></h3>
+  <h3 class="entry-title"><a href="e/filepond-ja-file-processing-label.html">FilePond Japanese label: 読込中 should be アップロード中 (uploading)</a></h3>
+  
   <p class="lib-line"><span class="lib">filepond</span> &middot; <a href="https://github.com/pqina/filepond">pqina/filepond</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2067,14 +2157,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#filepond-ja-file-processing-label">#filepond-ja-file-processing-label</a>
   </div>
 </article>
-<article class="entry" id="arco-design-ja-jp-locale" data-cat="locale-leftover" data-lib="arco-design" data-search="fix(locale): correct ja-jp translation errors arco-design arco-design/arco-design arco design japanese (ja-jp) locale contains multiple translation errors across component strings. arco design components with ja-jp locale show incorrect japanese translations. correct translation errors in arco-design/arco-design/components/_utils/locale/ja-jp.ts. locale data react pull request">
+<article class="entry" id="arco-design-ja-jp-locale" data-cat="locale-leftover" data-lib="arco-design" data-search="arco design japanese (ja-jp) locale translation errors fix(locale): correct ja-jp translation errors arco-design arco-design/arco-design arco design japanese (ja-jp) locale contains multiple translation errors across component strings. arco design components with ja-jp locale show incorrect japanese translations. correct translation errors in arco-design/arco-design/components/_utils/locale/ja-jp.ts. locale data react pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/arco-design-ja-jp-locale.html">fix(locale): correct ja-JP translation errors</a></h3>
+  <h3 class="entry-title"><a href="e/arco-design-ja-jp-locale.html">Arco Design Japanese (ja-JP) locale translation errors</a></h3>
+  
   <p class="lib-line"><span class="lib">arco-design</span> &middot; <a href="https://github.com/arco-design/arco-design">arco-design/arco-design</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2093,14 +2184,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#arco-design-ja-jp-locale">#arco-design-ja-jp-locale</a>
   </div>
 </article>
-<article class="entry" id="jsoneditor-ja-incomplete" data-cat="locale-leftover" data-lib="jsoneditor" data-search="fix(i18n): complete japanese (ja) translation jsoneditor josdejong/jsoneditor jsoneditor&#39;s japanese locale is incomplete; many ui strings remain in english when ja locale is selected. jsoneditor with locale:&#39;ja&#39; shows english strings for missing japanese translations. fill all missing japanese translation keys in the ja locale file. locale data js pull request">
+<article class="entry" id="jsoneditor-ja-incomplete" data-cat="locale-leftover" data-lib="jsoneditor" data-search="jsoneditor japanese locale is incomplete (strings fall back to english) fix(i18n): complete japanese (ja) translation jsoneditor josdejong/jsoneditor jsoneditor&#39;s japanese locale is incomplete; many ui strings remain in english when ja locale is selected. jsoneditor with locale:&#39;ja&#39; shows english strings for missing japanese translations. fill all missing japanese translation keys in the ja locale file. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/jsoneditor-ja-incomplete.html">fix(i18n): complete Japanese (ja) translation</a></h3>
+  <h3 class="entry-title"><a href="e/jsoneditor-ja-incomplete.html">jsoneditor Japanese locale is incomplete (strings fall back to English)</a></h3>
+  
   <p class="lib-line"><span class="lib">jsoneditor</span> &middot; <a href="https://github.com/josdejong/jsoneditor">josdejong/jsoneditor</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2119,14 +2211,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#jsoneditor-ja-incomplete">#jsoneditor-ja-incomplete</a>
   </div>
 </article>
-<article class="entry" id="quasar-ja-editor-tree-labels" data-cat="locale-leftover" data-lib="quasar" data-search="fix(lang): correct japanese (ja) mistranslations in editor/tree labels quasar quasarframework/quasar quasar framework japanese locale has mistranslations in editor toolbar labels and tree component strings. quasar editor toolbar or tree component in japanese shows incorrect label text. correct mistranslated japanese strings in quasar/lang/ja.js. locale data vue pull request">
+<article class="entry" id="quasar-ja-editor-tree-labels" data-cat="locale-leftover" data-lib="quasar" data-search="quasar japanese locale mistranslations in editor/tree labels fix(lang): correct japanese (ja) mistranslations in editor/tree labels quasar quasarframework/quasar quasar framework japanese locale has mistranslations in editor toolbar labels and tree component strings. quasar editor toolbar or tree component in japanese shows incorrect label text. correct mistranslated japanese strings in quasar/lang/ja.js. locale data vue pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">Vue</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/quasar-ja-editor-tree-labels.html">fix(lang): correct Japanese (ja) mistranslations in editor/tree labels</a></h3>
+  <h3 class="entry-title"><a href="e/quasar-ja-editor-tree-labels.html">Quasar Japanese locale mistranslations in editor/tree labels</a></h3>
+  
   <p class="lib-line"><span class="lib">quasar</span> &middot; <a href="https://github.com/quasarframework/quasar">quasarframework/quasar</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2145,14 +2238,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#quasar-ja-editor-tree-labels">#quasar-ja-editor-tree-labels</a>
   </div>
 </article>
-<article class="entry" id="uppy-ja-smartcount-folderadded" data-cat="locale-leftover" data-lib="uppy" data-search="fix(@uppy/locales): repair smart_count placeholder in ja_jp folderadded uppy transloadit/uppy uppy&#39;s japanese (ja_jp) locale has a broken smart_count plural placeholder in the &#39;folderadded&#39; string, causing pluralization to fail and show a raw placeholder. uppy file picker in japanese displays &#39;folderadded&#39; with a visible placeholder token instead of correct plural text. fix the smart_count placeholder syntax in ja_jp&#39;s folderadded locale string. locale data js pull request">
+<article class="entry" id="uppy-ja-smartcount-folderadded" data-cat="locale-leftover" data-lib="uppy" data-search="uppy japanese folderadded smart_count plural placeholder is broken fix(@uppy/locales): repair smart_count placeholder in ja_jp folderadded uppy transloadit/uppy uppy&#39;s japanese (ja_jp) locale has a broken smart_count plural placeholder in the &#39;folderadded&#39; string, causing pluralization to fail and show a raw placeholder. uppy file picker in japanese displays &#39;folderadded&#39; with a visible placeholder token instead of correct plural text. fix the smart_count placeholder syntax in ja_jp&#39;s folderadded locale string. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/uppy-ja-smartcount-folderadded.html">fix(@uppy/locales): repair smart_count placeholder in ja_JP folderAdded</a></h3>
+  <h3 class="entry-title"><a href="e/uppy-ja-smartcount-folderadded.html">Uppy Japanese folderAdded smart_count plural placeholder is broken</a></h3>
+  
   <p class="lib-line"><span class="lib">uppy</span> &middot; <a href="https://github.com/transloadit/uppy">transloadit/uppy</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2171,14 +2265,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#uppy-ja-smartcount-folderadded">#uppy-ja-smartcount-folderadded</a>
   </div>
 </article>
-<article class="entry" id="videojs-ja-pip-label" data-cat="locale-leftover" data-lib="video.js" data-search="fix(lang): add missing japanese (ja) translation for &#39;playing in picture-in-picture&#39; video.js videojs/video.js video.js japanese (ja) locale is missing the translation for the &#39;playing in picture-in-picture&#39; accessibility string, falling back to english. video.js in japanese locale; pip mode accessible label shows &#39;playing in picture-in-picture&#39; in english. add &#39;ピクチャーインピクチャーで再生中&#39; or equivalent to the ja.json locale. locale data js pull request">
+<article class="entry" id="videojs-ja-pip-label" data-cat="locale-leftover" data-lib="video.js" data-search="video.js is missing the japanese label for picture-in-picture fix(lang): add missing japanese (ja) translation for &#39;playing in picture-in-picture&#39; video.js videojs/video.js video.js japanese (ja) locale is missing the translation for the &#39;playing in picture-in-picture&#39; accessibility string, falling back to english. video.js in japanese locale; pip mode accessible label shows &#39;playing in picture-in-picture&#39; in english. add &#39;ピクチャーインピクチャーで再生中&#39; or equivalent to the ja.json locale. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/videojs-ja-pip-label.html">fix(lang): add missing Japanese (ja) translation for 'Playing in Picture-in-Picture'</a></h3>
+  <h3 class="entry-title"><a href="e/videojs-ja-pip-label.html">Video.js is missing the Japanese label for Picture-in-Picture</a></h3>
+  
   <p class="lib-line"><span class="lib">video.js</span> &middot; <a href="https://github.com/videojs/video.js">videojs/video.js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2197,14 +2292,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#videojs-ja-pip-label">#videojs-ja-pip-label</a>
   </div>
 </article>
-<article class="entry" id="memos-ja-missing-keys" data-cat="locale-leftover" data-lib="memos" data-search="i18n(ja): complete japanese translations — fill 24 missing keys memos usememos/memos memos japanese (ja) locale has 24 missing translation keys; these fall back to english in the ui. memos with japanese locale selected; 24 ui strings display in english. fill all 24 missing japanese translation keys in locales/ja.json. locale data react pull request">
+<article class="entry" id="memos-ja-missing-keys" data-cat="locale-leftover" data-lib="memos" data-search="memos japanese locale: 24 missing translation keys (fall back to english) i18n(ja): complete japanese translations — fill 24 missing keys memos usememos/memos memos japanese (ja) locale has 24 missing translation keys; these fall back to english in the ui. memos with japanese locale selected; 24 ui strings display in english. fill all 24 missing japanese translation keys in locales/ja.json. locale data react pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/memos-ja-missing-keys.html">i18n(ja): complete Japanese translations — fill 24 missing keys</a></h3>
+  <h3 class="entry-title"><a href="e/memos-ja-missing-keys.html">Memos Japanese locale: 24 missing translation keys (fall back to English)</a></h3>
+  
   <p class="lib-line"><span class="lib">memos</span> &middot; <a href="https://github.com/usememos/memos">usememos/memos</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2223,14 +2319,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#memos-ja-missing-keys">#memos-ja-missing-keys</a>
   </div>
 </article>
-<article class="entry" id="appwrite-ja-email-keys" data-cat="locale-leftover" data-lib="appwrite" data-search="i18n(ja): fill 48 missing email translation keys appwrite appwrite/appwrite appwrite japanese email templates have 48 missing translation keys, causing emails to be sent in english to japanese users. appwrite with japanese locale; email notifications contain 48 english fallback strings. translate all 48 missing keys in app/config/locale/translations/ja.json email templates. locale data i18n pull request">
+<article class="entry" id="appwrite-ja-email-keys" data-cat="locale-leftover" data-lib="appwrite" data-search="appwrite japanese emails: 48 missing translation keys (sent in english) i18n(ja): fill 48 missing email translation keys appwrite appwrite/appwrite appwrite japanese email templates have 48 missing translation keys, causing emails to be sent in english to japanese users. appwrite with japanese locale; email notifications contain 48 english fallback strings. translate all 48 missing keys in app/config/locale/translations/ja.json email templates. locale data i18n pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">i18n</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/appwrite-ja-email-keys.html">i18n(ja): fill 48 missing email translation keys</a></h3>
+  <h3 class="entry-title"><a href="e/appwrite-ja-email-keys.html">Appwrite Japanese emails: 48 missing translation keys (sent in English)</a></h3>
+  
   <p class="lib-line"><span class="lib">appwrite</span> &middot; <a href="https://github.com/appwrite/appwrite">appwrite/appwrite</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2249,14 +2346,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#appwrite-ja-email-keys">#appwrite-ja-email-keys</a>
   </div>
 </article>
-<article class="entry" id="medusa-ja-dashboard-keys" data-cat="locale-leftover" data-lib="medusa" data-search="i18n(ja): complete dashboard translations — fill 511 missing keys medusa medusajs/medusa medusa dashboard japanese (ja) locale has 511 missing translation keys, leaving most of the admin ui in english for japanese users. medusa admin dashboard with japanese locale; majority of ui strings display in english. translate all 511 missing keys in packages/admin-ui/ui/src/i18n/translations/ja.json. locale data react pull request">
+<article class="entry" id="medusa-ja-dashboard-keys" data-cat="locale-leftover" data-lib="medusa" data-search="medusa japanese dashboard: 511 missing translation keys i18n(ja): complete dashboard translations — fill 511 missing keys medusa medusajs/medusa medusa dashboard japanese (ja) locale has 511 missing translation keys, leaving most of the admin ui in english for japanese users. medusa admin dashboard with japanese locale; majority of ui strings display in english. translate all 511 missing keys in packages/admin-ui/ui/src/i18n/translations/ja.json. locale data react pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">React</span>
     
     <span class="badge badge--merged">merged</span>
   </div>
-  <h3 class="entry-title"><a href="e/medusa-ja-dashboard-keys.html">i18n(ja): complete dashboard translations — fill 511 missing keys</a></h3>
+  <h3 class="entry-title"><a href="e/medusa-ja-dashboard-keys.html">Medusa Japanese dashboard: 511 missing translation keys</a></h3>
+  
   <p class="lib-line"><span class="lib">medusa</span> &middot; <a href="https://github.com/medusajs/medusa">medusajs/medusa</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2275,14 +2373,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#medusa-ja-dashboard-keys">#medusa-ja-dashboard-keys</a>
   </div>
 </article>
-<article class="entry" id="clerk-ja-oauth-consent" data-cat="locale-leftover" data-lib="clerk" data-search="feat(localizations): translate oauthconsent section to japanese clerk clerk/javascript clerk&#39;s oauthconsent ui section lacks japanese translations, showing english strings to japanese users during oauth authorization. clerk oauth consent page with japanese locale; consent section displays in english. add japanese translations for all oauthconsent locale keys. locale data ts pull request">
+<article class="entry" id="clerk-ja-oauth-consent" data-cat="locale-leftover" data-lib="clerk" data-search="clerk oauth consent screen is not translated to japanese feat(localizations): translate oauthconsent section to japanese clerk clerk/javascript clerk&#39;s oauthconsent ui section lacks japanese translations, showing english strings to japanese users during oauth authorization. clerk oauth consent page with japanese locale; consent section displays in english. add japanese translations for all oauthconsent locale keys. locale data ts pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">TS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/clerk-ja-oauth-consent.html">feat(localizations): translate oauthConsent section to Japanese</a></h3>
+  <h3 class="entry-title"><a href="e/clerk-ja-oauth-consent.html">Clerk OAuth consent screen is not translated to Japanese</a></h3>
+  
   <p class="lib-line"><span class="lib">clerk</span> &middot; <a href="https://github.com/clerk/javascript">clerk/javascript</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2301,14 +2400,15 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#clerk-ja-oauth-consent">#clerk-ja-oauth-consent</a>
   </div>
 </article>
-<article class="entry" id="jp-prefectures-aichi-enname" data-cat="locale-leftover" data-lib="jp-prefectures.js" data-search="fix: correct enname of 愛知県 (aichi) from &#39;ehime&#39; to &#39;aichi&#39; jp-prefectures.js hatsu38/jp-prefectures.js jp-prefectures.js has the english name of aichi prefecture (愛知県) set to &#39;ehime&#39; (which is ehime prefecture / 愛媛県), causing incorrect prefecture mapping. jpprefectures.findbycode(23).enname returns &#39;ehime&#39; instead of &#39;aichi&#39;. change enname for 愛知県 (code 23) from &#39;ehime&#39; to &#39;aichi&#39;. locale data js pull request">
+<article class="entry" id="jp-prefectures-aichi-enname" data-cat="locale-leftover" data-lib="jp-prefectures.js" data-search="jp-prefectures.js: aichi (愛知県) english name wrongly set to &#39;ehime&#39; fix: correct enname of 愛知県 (aichi) from &#39;ehime&#39; to &#39;aichi&#39; jp-prefectures.js hatsu38/jp-prefectures.js jp-prefectures.js has the english name of aichi prefecture (愛知県) set to &#39;ehime&#39; (which is ehime prefecture / 愛媛県), causing incorrect prefecture mapping. jpprefectures.findbycode(23).enname returns &#39;ehime&#39; instead of &#39;aichi&#39;. change enname for 愛知県 (code 23) from &#39;ehime&#39; to &#39;aichi&#39;. locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/jp-prefectures-aichi-enname.html">fix: correct enName of 愛知県 (Aichi) from 'ehime' to 'aichi'</a></h3>
+  <h3 class="entry-title"><a href="e/jp-prefectures-aichi-enname.html">jp-prefectures.js: Aichi (愛知県) English name wrongly set to 'ehime'</a></h3>
+  
   <p class="lib-line"><span class="lib">jp-prefectures.js</span> &middot; <a href="https://github.com/hatsu38/jp-prefectures.js">hatsu38/jp-prefectures.js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2327,7 +2427,7 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#jp-prefectures-aichi-enname">#jp-prefectures-aichi-enname</a>
   </div>
 </article>
-<article class="entry" id="date-fns-gl-xuno-month-parse" data-cat="locale-leftover" data-lib="date-fns" data-search="galician formats june as xuño but cannot parse it back date-fns date-fns/date-fns in the gl (galician) locale the june parse pattern is /^xun/i. it matches the abbreviation &quot;xun&quot; but not the wide form &quot;xuño&quot;, because the third character is ñ, not n. so format then parse round-trips fail for june; the locale&#39;s own snapshot already records invalid date for june while the other eleven months parse. const s = format(new date(2021, 5, 1), &#39;mmmm&#39;, { locale: gl }); // &#39;xuño&#39;
+<article class="entry" id="date-fns-gl-xuno-month-parse" data-cat="locale-leftover" data-lib="date-fns" data-search="date-fns galician formats june as xuño but cannot parse it back galician formats june as xuño but cannot parse it back date-fns date-fns/date-fns in the gl (galician) locale the june parse pattern is /^xun/i. it matches the abbreviation &quot;xun&quot; but not the wide form &quot;xuño&quot;, because the third character is ñ, not n. so format then parse round-trips fail for june; the locale&#39;s own snapshot already records invalid date for june while the other eleven months parse. const s = format(new date(2021, 5, 1), &#39;mmmm&#39;, { locale: gl }); // &#39;xuño&#39;
 parse(s, &#39;mmmm&#39;, new date(), { locale: gl });               // invalid date widen the june pattern to /^xu[nñ]/i so it matches both &quot;xun&quot; and &quot;xuño&quot; while staying distinct from july (&quot;xul&quot;), mirroring locales such as catalan that already fold diacritics into their patterns (e.g. /^març/i). locale data js pull request">
   <div class="entry-top">
     <span class="tag">Locale data</span>
@@ -2335,7 +2435,8 @@ parse(s, &#39;mmmm&#39;, new date(), { locale: gl });               // invalid d
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/date-fns-gl-xuno-month-parse.html">Galician formats June as xuño but cannot parse it back</a></h3>
+  <h3 class="entry-title"><a href="e/date-fns-gl-xuno-month-parse.html">date-fns Galician formats June as xuño but cannot parse it back</a></h3>
+  
   <p class="lib-line"><span class="lib">date-fns</span> &middot; <a href="https://github.com/date-fns/date-fns">date-fns/date-fns</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2360,11 +2461,12 @@ parse(s, 'MMMM', new Date(), { locale: gl });               // Invalid Date</pre
 <section class="cat-section" data-cat-section="unicode-range">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-unicode-range">Unicode range</h2>
+      <h2 id="cat-unicode-range"><a href="category/unicode-range.html">Unicode range</a></h2>
       <span class="cat-n">1 entry</span>
+      <a class="cat-all" href="category/unicode-range.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted set. An alpha rule accepts a letter that the matching alphanumeric rule rejects, and common accented characters fail validation even though their unaccented neighbours pass.</p>
-    <article class="entry" id="validatorjs-el-gr-alphanumeric-range" data-cat="unicode-range" data-lib="validator.js" data-search="isalphanumeric el-gr range omits accented greek that isalpha accepts validator.js validatorjs/validator.js isalpha(&#39;el-gr&#39;) uses the greek range [α-ώ] (u+0391–u+03ce) but isalphanumeric(&#39;el-gr&#39;) still ends at ω ([0-9α-ω], u+03c9). so isalphanumeric rejects ό, ύ, ώ and the uppercase ό/ύ/ώ even though isalpha accepts them, and common words like νερό or πρώτα pass isalpha but fail isalphanumeric. isalpha(&#39;νερό&#39;, &#39;el-gr&#39;)        // true
+    <article class="entry" id="validatorjs-el-gr-alphanumeric-range" data-cat="unicode-range" data-lib="validator.js" data-search="validator.js isalphanumeric el-gr rejects accented greek that isalpha accepts isalphanumeric el-gr range omits accented greek that isalpha accepts validator.js validatorjs/validator.js isalpha(&#39;el-gr&#39;) uses the greek range [α-ώ] (u+0391–u+03ce) but isalphanumeric(&#39;el-gr&#39;) still ends at ω ([0-9α-ω], u+03c9). so isalphanumeric rejects ό, ύ, ώ and the uppercase ό/ύ/ώ even though isalpha accepts them, and common words like νερό or πρώτα pass isalpha but fail isalphanumeric. isalpha(&#39;νερό&#39;, &#39;el-gr&#39;)        // true
 isalphanumeric(&#39;νερό&#39;, &#39;el-gr&#39;) // false  &lt;- ό (u+03cc) sits past the range end ω bump the alphanumeric greek range to [0-9α-ώ] so it matches the alpha class. unicode range js pull request">
   <div class="entry-top">
     <span class="tag">Unicode range</span>
@@ -2372,7 +2474,8 @@ isalphanumeric(&#39;νερό&#39;, &#39;el-gr&#39;) // false  &lt;- ό (u+03cc) 
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/validatorjs-el-gr-alphanumeric-range.html">isAlphanumeric el-GR range omits accented Greek that isAlpha accepts</a></h3>
+  <h3 class="entry-title"><a href="e/validatorjs-el-gr-alphanumeric-range.html">validator.js isAlphanumeric el-GR rejects accented Greek that isAlpha accepts</a></h3>
+  
   <p class="lib-line"><span class="lib">validator.js</span> &middot; <a href="https://github.com/validatorjs/validator.js">validatorjs/validator.js</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2397,11 +2500,12 @@ isAlphanumeric('νερό', 'el-GR') // false  &lt;- ό (U+03CC) sits past the ra
 <section class="cat-section" data-cat-section="regex-roundtrip">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-regex-roundtrip">Regex roundtrip</h2>
+      <h2 id="cat-regex-roundtrip"><a href="category/regex-roundtrip.html">Regex roundtrip</a></h2>
       <span class="cat-n">1 entry</span>
+      <a class="cat-all" href="category/regex-roundtrip.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Parse to AST and back. A character that is special in one position (a leading caret, a hyphen) can be emitted unescaped and change what the pattern matches.</p>
-    <article class="entry" id="regexp-tree-leading-caret" data-cat="regex-roundtrip" data-lib="regexp-tree" data-search="generator emits a leading ^ unescaped, inverting [a^] into [^a] regexp-tree dmitrysoshnikov/regexp-tree optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class). const rt = require(&#39;regexp-tree&#39;)
+    <article class="entry" id="regexp-tree-leading-caret" data-cat="regex-roundtrip" data-lib="regexp-tree" data-search="regexp-tree emits a leading ^ unescaped, turning [a^] into [^a] generator emits a leading ^ unescaped, inverting [a^] into [^a] regexp-tree dmitrysoshnikov/regexp-tree optimizing or regenerating a character class can move a literal ^ to the front and emit it unescaped, flipping the meaning: [a^] round-trips to [^a] (a negated class). const rt = require(&#39;regexp-tree&#39;)
 rt.optimize(&#39;/[a^]/&#39;).tostring() // &#39;/[^a]/&#39;  &lt;- now matches the negation in the generator, escape a leading literal ^ in a non-negative character class so generate(parse(x)) preserves meaning. regex roundtrip js pull request">
   <div class="entry-top">
     <span class="tag">Regex roundtrip</span>
@@ -2409,7 +2513,8 @@ rt.optimize(&#39;/[a^]/&#39;).tostring() // &#39;/[^a]/&#39;  &lt;- now matches 
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/regexp-tree-leading-caret.html">Generator emits a leading ^ unescaped, inverting [a^] into [^a]</a></h3>
+  <h3 class="entry-title"><a href="e/regexp-tree-leading-caret.html">regexp-tree emits a leading ^ unescaped, turning [a^] into [^a]</a></h3>
+  
   <p class="lib-line"><span class="lib">regexp-tree</span> &middot; <a href="https://github.com/DmitrySoshnikov/regexp-tree">DmitrySoshnikov/regexp-tree</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2434,18 +2539,20 @@ rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pr
 <section class="cat-section" data-cat-section="codegen-escape">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-codegen-escape">Codegen escape</h2>
+      <h2 id="cat-codegen-escape"><a href="category/codegen-escape.html">Codegen escape</a></h2>
       <span class="cat-n">2 entries</span>
+      <a class="cat-all" href="category/codegen-escape.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Generators that interpolate text without escaping it. Special characters (including CJK and non-ASCII identifiers) leak into the output and break it.</p>
-    <article class="entry" id="json-schema-to-typescript-enum-escape" data-cat="codegen-escape" data-lib="json-schema-to-typescript" data-search="enum member names with special characters produce invalid typescript json-schema-to-typescript bcherny/json-schema-to-typescript enum member names containing special characters (including non-ascii / cjk) are emitted unescaped, so the generated enum does not compile. generate types from a schema whose enum values contain quotes or special characters; the emitted enum has invalid member identifiers and tsc errors. escape enum member names so special characters produce valid output. codegen escape ts pull request">
+    <article class="entry" id="json-schema-to-typescript-enum-escape" data-cat="codegen-escape" data-lib="json-schema-to-typescript" data-search="json-schema-to-typescript: enum names with special chars produce invalid typescript enum member names with special characters produce invalid typescript json-schema-to-typescript bcherny/json-schema-to-typescript enum member names containing special characters (including non-ascii / cjk) are emitted unescaped, so the generated enum does not compile. generate types from a schema whose enum values contain quotes or special characters; the emitted enum has invalid member identifiers and tsc errors. escape enum member names so special characters produce valid output. codegen escape ts pull request">
   <div class="entry-top">
     <span class="tag">Codegen escape</span>
     <span class="tag tag--stack">TS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/json-schema-to-typescript-enum-escape.html">Enum member names with special characters produce invalid TypeScript</a></h3>
+  <h3 class="entry-title"><a href="e/json-schema-to-typescript-enum-escape.html">json-schema-to-typescript: enum names with special chars produce invalid TypeScript</a></h3>
+  
   <p class="lib-line"><span class="lib">json-schema-to-typescript</span> &middot; <a href="https://github.com/bcherny/json-schema-to-typescript">bcherny/json-schema-to-typescript</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2464,14 +2571,15 @@ rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pr
     <a class="anchor-link" href="#json-schema-to-typescript-enum-escape">#json-schema-to-typescript-enum-escape</a>
   </div>
 </article>
-<article class="entry" id="markdoc-mid-line-hash-escape" data-cat="codegen-escape" data-lib="markdoc" data-search="formatter over-escapes a mid-line # (c# becomes c\#) markdoc markdoc/markdoc the formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: &#39;c# is a language&#39; becomes &#39;c\# is a language&#39;. format(parse(&#39;c# is a language&#39;)) // &#39;c\# is a language&#39; - the &#39;#&#39; is escaped mid-sentence anchor the heading alternative: change #+\s to ^#+\s, mirroring the already-anchored ^* and ^&gt; cases. codegen escape js pull request">
+<article class="entry" id="markdoc-mid-line-hash-escape" data-cat="codegen-escape" data-lib="markdoc" data-search="markdoc formatter over-escapes a mid-line # (c# becomes c\#) formatter over-escapes a mid-line # (c# becomes c\#) markdoc markdoc/markdoc the formatter over-escapes a # in the middle of a line because the heading branch of the escape regex is not anchored to line start: &#39;c# is a language&#39; becomes &#39;c\# is a language&#39;. format(parse(&#39;c# is a language&#39;)) // &#39;c\# is a language&#39; - the &#39;#&#39; is escaped mid-sentence anchor the heading alternative: change #+\s to ^#+\s, mirroring the already-anchored ^* and ^&gt; cases. codegen escape js pull request">
   <div class="entry-top">
     <span class="tag">Codegen escape</span>
     <span class="tag tag--stack">JS</span>
     
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/markdoc-mid-line-hash-escape.html">Formatter over-escapes a mid-line # (C# becomes C\#)</a></h3>
+  <h3 class="entry-title"><a href="e/markdoc-mid-line-hash-escape.html">Markdoc formatter over-escapes a mid-line # (C# becomes C\#)</a></h3>
+  
   <p class="lib-line"><span class="lib">markdoc</span> &middot; <a href="https://github.com/markdoc/markdoc">markdoc/markdoc</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -2495,11 +2603,12 @@ rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pr
 <section class="cat-section" data-cat-section="encoding">
   <div class="wrap">
     <div class="cat-head">
-      <h2 id="cat-encoding">Encoding &amp; BOM</h2>
+      <h2 id="cat-encoding"><a href="category/encoding.html">Encoding &amp; BOM</a></h2>
       <span class="cat-n">1 entry</span>
+      <a class="cat-all" href="category/encoding.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the first field name or CSV header key arrives with an invisible BOM glued to it and lookups by that key silently miss.</p>
-    <article class="entry" id="deno-std-csv-bom-stream" data-cat="encoding" data-lib="@std/csv" data-search="csvparsestream leaves a leading bom glued to the first header key @std/csv denoland/std the synchronous parse() strips a leading utf-8 byte-order mark (u+feff) but csvparsestream does not. when a csv begins with a bom, common output from excel and other windows tools, the first field name arrives as &quot;\ufeffname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups. const src = readablestream.from([&#39;\ufeffname,age\n&#39;, &#39;alice,34\n&#39;]);
+    <article class="entry" id="deno-std-csv-bom-stream" data-cat="encoding" data-lib="@std/csv" data-search="deno @std/csv csvparsestream leaves a bom glued to the first header key csvparsestream leaves a leading bom glued to the first header key @std/csv denoland/std the synchronous parse() strips a leading utf-8 byte-order mark (u+feff) but csvparsestream does not. when a csv begins with a bom, common output from excel and other windows tools, the first field name arrives as &quot;\ufeffname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups. const src = readablestream.from([&#39;\ufeffname,age\n&#39;, &#39;alice,34\n&#39;]);
 await array.fromasync(src.pipethrough(new csvparsestream({ skipfirstrow: true })));
 // [{ &#39;\ufeffname&#39;: &#39;alice&#39;, age: &#39;34&#39; }]  &lt;- bom leaked into the key strip the bom from the first line read by streamlinereader, matching what parse() already does via its byte_order_mark constant. encoding &amp; bom deno ts cited upstream issue">
   <div class="entry-top">
@@ -2508,7 +2617,8 @@ await array.fromasync(src.pipethrough(new csvparsestream({ skipfirstrow: true })
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h3 class="entry-title"><a href="e/deno-std-csv-bom-stream.html">CsvParseStream leaves a leading BOM glued to the first header key</a></h3>
+  <h3 class="entry-title"><a href="e/deno-std-csv-bom-stream.html">Deno @std/csv CsvParseStream leaves a BOM glued to the first header key</a></h3>
+  
   <p class="lib-line"><span class="lib">@std/csv</span> &middot; <a href="https://github.com/denoland/std">denoland/std</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Locale data — CJK / Unicode bugs, repros &amp; fixes (21 cases)</title>
+<meta name="description" content="21 real locale data bugs in open-source libraries. Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Locale data — CJK / Unicode bugs, repros &amp; fixes (21 cases)">
+<meta property="og:description" content="21 real locale data bugs in open-source libraries. Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Locale data — CJK / Unicode bugs, repros &amp; fixes (21 cases)">
+<meta name="twitter:description" content="21 real locale data bugs in open-source libraries. Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Locale data — CJK / Unicode Failure Corpus","description":"21 real locale data bugs in open-source libraries. Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"name":"Wrong Japanese expand/collapse labels in Ant Design Typography","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/ant-design-typography-ja-labels.html"},{"@type":"ListItem","position":2,"name":"naive-ui week date-picker placeholder left untranslated in Japanese","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-week-placeholder-ja.html"},{"@type":"ListItem","position":3,"name":"timeago.js Japanese future times say 以内 (within) instead of 後 (later)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/timeago-ja-future-go.html"},{"@type":"ListItem","position":4,"name":"cronstrue Japanese day-of-month step description is mistranslated","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cronstrue-ja-day-of-month-step.html"},{"@type":"ListItem","position":5,"name":"PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html"},{"@type":"ListItem","position":6,"name":"Vant Japanese (ja-JP) locale translation errors","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/vant-ja-jp-locale.html"},{"@type":"ListItem","position":7,"name":"MUI X Japanese (ja-JP) locale is incomplete / has wrong translations","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/mui-x-ja-jp-locale.html"},{"@type":"ListItem","position":8,"name":"Semi Design is missing Japanese text in the Upload crop modal","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/semi-design-ja-upload-crop.html"},{"@type":"ListItem","position":9,"name":"NG-ZORRO Japanese (ja_JP) missing quarter placeholders break the date picker","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/ng-zorro-ja-quarter-placeholders.html"},{"@type":"ListItem","position":10,"name":"FilePond Japanese label: 読込中 should be アップロード中 (uploading)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/filepond-ja-file-processing-label.html"},{"@type":"ListItem","position":11,"name":"Arco Design Japanese (ja-JP) locale translation errors","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/arco-design-ja-jp-locale.html"},{"@type":"ListItem","position":12,"name":"jsoneditor Japanese locale is incomplete (strings fall back to English)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jsoneditor-ja-incomplete.html"},{"@type":"ListItem","position":13,"name":"Quasar Japanese locale mistranslations in editor/tree labels","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/quasar-ja-editor-tree-labels.html"},{"@type":"ListItem","position":14,"name":"Uppy Japanese folderAdded smart_count plural placeholder is broken","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uppy-ja-smartcount-folderadded.html"},{"@type":"ListItem","position":15,"name":"Video.js is missing the Japanese label for Picture-in-Picture","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/videojs-ja-pip-label.html"},{"@type":"ListItem","position":16,"name":"Memos Japanese locale: 24 missing translation keys (fall back to English)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/memos-ja-missing-keys.html"},{"@type":"ListItem","position":17,"name":"Appwrite Japanese emails: 48 missing translation keys (sent in English)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/appwrite-ja-email-keys.html"},{"@type":"ListItem","position":18,"name":"Medusa Japanese dashboard: 511 missing translation keys","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/medusa-ja-dashboard-keys.html"},{"@type":"ListItem","position":19,"name":"Clerk OAuth consent screen is not translated to Japanese","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/clerk-ja-oauth-consent.html"},{"@type":"ListItem","position":20,"name":"jp-prefectures.js: Aichi (愛知県) English name wrongly set to 'ehime'","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jp-prefectures-aichi-enname.html"},{"@type":"ListItem","position":21,"name":"date-fns Galician formats June as xuño but cannot parse it back","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/date-fns-gl-xuno-month-parse.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Locale data","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>Locale data</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">Locale data</h1>
+    <p class="lede">Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back.</p>
+    <p class="counts"><b>21</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/ant-design-typography-ja-labels.html">Wrong Japanese expand/collapse labels in Ant Design Typography</a>
+  <p class="row-meta"><span class="lib">ant-design</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">The ja-JP labels for Typography's expand/collapse control were incorrect, so Japanese users saw the wrong 展開/折りたたみ text.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/naive-ui-week-placeholder-ja.html">naive-ui week date-picker placeholder left untranslated in Japanese</a>
+  <p class="row-meta"><span class="lib">naive-ui</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">weekPlaceholder was missing from the Japanese locale, so the week date-picker showed an English placeholder.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/timeago-ja-future-go.html">timeago.js Japanese future times say 以内 (within) instead of 後 (later)</a>
+  <p class="row-meta"><span class="lib">timeago.js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Future timestamps in the ja locale used 以内 (within) instead of 後 (later), so '3 minutes from now' rendered as 3分以内 (within 3 minutes), which means the opposite.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/cronstrue-ja-day-of-month-step.html">cronstrue Japanese day-of-month step description is mistranslated</a>
+  <p class="row-meta"><span class="lib">cronstrue</span> <span class="tag tag--stack">JS</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">The Japanese description for a day-of-month step was not scoped to a month, producing a mistranslated cron description.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/primelocale-ja-filterconstraint.html">PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約</a>
+  <p class="row-meta"><span class="lib">primelocale</span> <span class="tag tag--stack">i18n</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">PrimeLocale Japanese (ja) locale uses 成約 (meaning 'conclusion of a contract') for 'filterConstraint' aria label, which should be 制約 ('constraint/restriction').</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/vant-ja-jp-locale.html">Vant Japanese (ja-JP) locale translation errors</a>
+  <p class="row-meta"><span class="lib">vant</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Vant component library Japanese (ja-JP) locale contains incorrect translations for multiple UI strings.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/mui-x-ja-jp-locale.html">MUI X Japanese (ja-JP) locale is incomplete / has wrong translations</a>
+  <p class="row-meta"><span class="lib">mui-x</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">MUI X Japanese (ja-JP) locale has incomplete or incorrect translations for data grid, date picker, and time picker components.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/semi-design-ja-upload-crop.html">Semi Design is missing Japanese text in the Upload crop modal</a>
+  <p class="row-meta"><span class="lib">semi-design</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Semi Design's Japanese locale is missing translation strings for the Upload component's crop modal UI.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/ng-zorro-ja-quarter-placeholders.html">NG-ZORRO Japanese (ja_JP) missing quarter placeholders break the date picker</a>
+  <p class="row-meta"><span class="lib">ng-zorro-antd</span> <span class="tag tag--stack">Angular</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">NG-ZORRO Angular Japanese (ja_JP) locale is missing quarter placeholder strings, causing runtime errors or blank UI for date range pickers.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/filepond-ja-file-processing-label.html">FilePond Japanese label: 読込中 should be アップロード中 (uploading)</a>
+  <p class="row-meta"><span class="lib">filepond</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">FilePond Japanese locale uses '読込中' (loading/reading) for the file processing label, which should be 'アップロード中' (uploading) to accurately describe the action.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/arco-design-ja-jp-locale.html">Arco Design Japanese (ja-JP) locale translation errors</a>
+  <p class="row-meta"><span class="lib">arco-design</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Arco Design Japanese (ja-JP) locale contains multiple translation errors across component strings.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/jsoneditor-ja-incomplete.html">jsoneditor Japanese locale is incomplete (strings fall back to English)</a>
+  <p class="row-meta"><span class="lib">jsoneditor</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">jsoneditor's Japanese locale is incomplete; many UI strings remain in English when ja locale is selected.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/quasar-ja-editor-tree-labels.html">Quasar Japanese locale mistranslations in editor/tree labels</a>
+  <p class="row-meta"><span class="lib">quasar</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Quasar Framework Japanese locale has mistranslations in editor toolbar labels and tree component strings.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/uppy-ja-smartcount-folderadded.html">Uppy Japanese folderAdded smart_count plural placeholder is broken</a>
+  <p class="row-meta"><span class="lib">uppy</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Uppy's Japanese (ja_JP) locale has a broken smart_count plural placeholder in the 'folderAdded' string, causing pluralization to fail and show a raw placeholder.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/videojs-ja-pip-label.html">Video.js is missing the Japanese label for Picture-in-Picture</a>
+  <p class="row-meta"><span class="lib">video.js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Video.js Japanese (ja) locale is missing the translation for the 'Playing in Picture-in-Picture' accessibility string, falling back to English.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/memos-ja-missing-keys.html">Memos Japanese locale: 24 missing translation keys (fall back to English)</a>
+  <p class="row-meta"><span class="lib">memos</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Memos Japanese (ja) locale has 24 missing translation keys; these fall back to English in the UI.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/appwrite-ja-email-keys.html">Appwrite Japanese emails: 48 missing translation keys (sent in English)</a>
+  <p class="row-meta"><span class="lib">appwrite</span> <span class="tag tag--stack">i18n</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Appwrite Japanese email templates have 48 missing translation keys, causing emails to be sent in English to Japanese users.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/medusa-ja-dashboard-keys.html">Medusa Japanese dashboard: 511 missing translation keys</a>
+  <p class="row-meta"><span class="lib">medusa</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Medusa dashboard Japanese (ja) locale has 511 missing translation keys, leaving most of the admin UI in English for Japanese users.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/clerk-ja-oauth-consent.html">Clerk OAuth consent screen is not translated to Japanese</a>
+  <p class="row-meta"><span class="lib">clerk</span> <span class="tag tag--stack">TS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Clerk's oauthConsent UI section lacks Japanese translations, showing English strings to Japanese users during OAuth authorization.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/jp-prefectures-aichi-enname.html">jp-prefectures.js: Aichi (愛知県) English name wrongly set to 'ehime'</a>
+  <p class="row-meta"><span class="lib">jp-prefectures.js</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">jp-prefectures.js has the English name of Aichi prefecture (愛知県) set to 'ehime' (which is Ehime prefecture / 愛媛県), causing incorrect prefecture mapping.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/date-fns-gl-xuno-month-parse.html">date-fns Galician formats June as xuño but cannot parse it back</a>
+  <p class="row-meta"><span class="lib">date-fns</span> <span class="tag tag--stack">JS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">In the gl (Galician) locale the June parse pattern is /^xun/i. It matches the abbreviation &quot;xun&quot; but not the wide form &quot;xuño&quot;, because the third character is ñ, not n. So format then parse round-trips fail for June; the locale's own snapshot already records Invalid Date for June while the other eleven months parse.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

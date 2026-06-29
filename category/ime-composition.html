@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IME composition — CJK / Unicode bugs, repros &amp; fixes (36 cases)</title>
+<meta name="description" content="36 real ime composition bugs in open-source libraries. When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IME composition — CJK / Unicode bugs, repros &amp; fixes (36 cases)">
+<meta property="og:description" content="36 real ime composition bugs in open-source libraries. When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IME composition — CJK / Unicode bugs, repros &amp; fixes (36 cases)">
+<meta name="twitter:description" content="36 real ime composition bugs in open-source libraries. When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"IME composition — CJK / Unicode Failure Corpus","description":"36 real ime composition bugs in open-source libraries. When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":36,"itemListElement":[{"@type":"ListItem","position":1,"name":"naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/naive-ui-dynamic-tags-ime.html"},{"@type":"ListItem","position":2,"name":"React chat input sends the message on the Enter that confirms an IME conversion","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/llm-x-chat-enter-ime.html"},{"@type":"ListItem","position":3,"name":"Svelte command palette runs a command on the IME confirm Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/surf-command-palette-ime.html"},{"@type":"ListItem","position":4,"name":"Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-mentions-safari-ime-select.html"},{"@type":"ListItem","position":5,"name":"rc-select: the Enter that confirms IME composition also selects an option","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html"},{"@type":"ListItem","position":6,"name":"Element Plus time-picker reacts to keystrokes during IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/element-plus-time-picker-ime.html"},{"@type":"ListItem","position":7,"name":"Vuetify VAutocomplete keydown fires during IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/vuetify-autocomplete-ime.html"},{"@type":"ListItem","position":8,"name":"Nuxt UI defineShortcuts fire while typing with a Japanese IME","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/nuxt-ui-shortcuts-ime.html"},{"@type":"ListItem","position":9,"name":"Zag color-picker input handles Enter during IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zag-color-picker-channel-ime.html"},{"@type":"ListItem","position":10,"name":"Inline file rename submits during IME composition (Cherry Studio, Electron)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/cherry-studio-rename-ime.html"},{"@type":"ListItem","position":11,"name":"CopilotKit Angular chat submits on the Enter that confirms an IME candidate","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/copilotkit-angular-chat-ime.html"},{"@type":"ListItem","position":12,"name":"ChatUI composer sends on the Enter that confirms IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/chatui-composer-ime.html"},{"@type":"ListItem","position":13,"name":"SiYuan session rename input submits during IME composition (Enter)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/siyuan-session-rename-ime.html"},{"@type":"ListItem","position":14,"name":"llmchat: ignore the Enter that confirms IME composition in the chat input","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/llmchat-chat-enter-ime.html"},{"@type":"ListItem","position":15,"name":"AIaW (Vue) chat submits on the Enter that confirms IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/aiaw-chat-enter-ime.html"},{"@type":"ListItem","position":16,"name":"Obsidian Smart Composer chat submits on the IME Enter (macOS/Windows)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/obsidian-smart-composer-chat-ime.html"},{"@type":"ListItem","position":17,"name":"Onyx ListFieldInput accepts an entry on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/onyx-listfield-ime.html"},{"@type":"ListItem","position":18,"name":"RSuite InputPicker selects an item on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rsuite-inputpicker-ime.html"},{"@type":"ListItem","position":19,"name":"Dify tag input adds a tag on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/dify-tag-input-ime.html"},{"@type":"ListItem","position":20,"name":"Flowise text inputs fire on the Enter that confirms IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/flowise-text-inputs-ime.html"},{"@type":"ListItem","position":21,"name":"Langflow inline rename commits on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/langflow-inline-rename-ime.html"},{"@type":"ListItem","position":22,"name":"Plane select dropdown picks an item on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/plane-select-dropdown-ime.html"},{"@type":"ListItem","position":23,"name":"Twenty CRM chat send and rename fire on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/twenty-chat-rename-ime.html"},{"@type":"ListItem","position":24,"name":"Excalidraw search navigation fires arrow/Enter keys during IME composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/excalidraw-search-nav-ime.html"},{"@type":"ListItem","position":25,"name":"Payload CMS SearchInput submits on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/payload-searchinput-ime.html"},{"@type":"ListItem","position":26,"name":"Trilium kanban card/column title editing commits on the IME Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/trilium-board-title-ime.html"},{"@type":"ListItem","position":27,"name":"big-AGI custom instruction field submits on the IME confirmation Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/big-agi-custom-instruction-ime.html"},{"@type":"ListItem","position":28,"name":"LibreChat prompt name, label, and tag inputs fire on the IME Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/librechat-prompt-tags-ime.html"},{"@type":"ListItem","position":29,"name":"Jan rename and project dialogs accept a partial name on the IME Enter","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/jan-rename-dialog-ime.html"},{"@type":"ListItem","position":30,"name":"React onChange fires during IME composition in controlled inputs","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/react-controlled-ime-onchange.html"},{"@type":"ListItem","position":31,"name":".NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/maui-entry-completed-ime.html"},{"@type":"ListItem","position":32,"name":"compositionend vs input event order differs across browsers (isComposing guard)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/uievents-compositionend-input-order.html"},{"@type":"ListItem","position":33,"name":"insertCompositionText / isComposing can't single out the IME commit input event","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/input-events-insertcompositiontext.html"},{"@type":"ListItem","position":34,"name":"Zed Vim jk escape depends on the CJK IME input mode","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-vim-jk-escape-ime.html"},{"@type":"ListItem","position":35,"name":"Zed: text shifts vertically while composing with a Chinese IME on Windows","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-chinese-ime-text-shift.html"},{"@type":"ListItem","position":36,"name":"Warp does not render IME preedit (marked) text — blind composition","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/warp-marked-text-ime.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="landing">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../">CJK / Unicode Failure Corpus</a> <span>/</span> <span>IME composition</span></nav>
+    <p class="kicker">Category</p>
+    <h1 class="landing-title">IME composition</h1>
+    <p class="lede">When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji candidate). That same Enter often fires the component's own keydown / submit / select handler, so the form sends or an item is selected with half-finished text. The guard is one line: skip the handler while the composition is active (event.isComposing, or keyCode 229; in React read event.nativeEvent.isComposing).</p>
+    <p class="counts"><b>36</b> cases in the corpus</p>
+  </div>
+</header>
+<div class="rule"></div>
+<main>
+  <div class="wrap">
+    <ul class="rows">
+      <li class="row">
+  <a class="row-title" href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a>
+  <p class="row-meta"><span class="lib">naive-ui</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Pressing Enter to confirm a kana to kanji conversion in an n-dynamic-tags input creates a tag from the in-progress text instead of just finishing the conversion.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a>
+  <p class="row-meta"><span class="lib">llm-x</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Confirming a Japanese IME candidate with Enter in the chat box sends the message instead of committing the conversion.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a>
+  <p class="row-meta"><span class="lib">surf</span> <span class="tag tag--stack">Svelte</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Typing a CJK query in the command palette and pressing Enter to confirm the IME runs the highlighted command instead of finishing the conversion.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a>
+  <p class="row-meta"><span class="lib">rc-mentions</span> <span class="tag tag--stack">React</span><span class="tag tag--stack">Safari</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">On Safari/WebKit, composing an @-mention name in CJK and pressing Enter to confirm the IME replaces the text with whatever mention is highlighted.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a>
+  <p class="row-meta"><span class="lib">rc-select</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/element-plus-time-picker-ime.html">Element Plus time-picker reacts to keystrokes during IME composition</a>
+  <p class="row-meta"><span class="lib">element-plus</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The time-picker's key handler fires while an IME composition is active, so keystrokes meant for the IME mutate the time value.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/vuetify-autocomplete-ime.html">Vuetify VAutocomplete keydown fires during IME composition</a>
+  <p class="row-meta"><span class="lib">vuetify</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">VAutocomplete's keydown listener triggers during IME composition, so confirming a CJK query navigates or selects options.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/nuxt-ui-shortcuts-ime.html">Nuxt UI defineShortcuts fire while typing with a Japanese IME</a>
+  <p class="row-meta"><span class="lib">nuxt/ui</span> <span class="tag tag--stack">Vue</span><span class="tag tag--stack">Nuxt</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Single-key shortcuts registered with defineShortcuts fire while composing text, so romaji keystrokes trigger app shortcuts mid-composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/zag-color-picker-channel-ime.html">Zag color-picker input handles Enter during IME composition</a>
+  <p class="row-meta"><span class="lib">zag</span> <span class="tag tag--stack">headless</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">A color-picker channel input runs its Enter handler while an IME composition is active, committing before the composition ends.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/cherry-studio-rename-ime.html">Inline file rename submits during IME composition (Cherry Studio, Electron)</a>
+  <p class="row-meta"><span class="lib">cherry-studio</span> <span class="tag tag--stack">React</span><span class="tag tag--stack">Electron</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Renaming a file inline and pressing Enter to confirm a CJK name submits the rename mid-composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/copilotkit-angular-chat-ime.html">CopilotKit Angular chat submits on the Enter that confirms an IME candidate</a>
+  <p class="row-meta"><span class="lib">CopilotKit</span> <span class="tag tag--stack">Angular</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The Angular chat input submits the message on the Enter that confirms an IME composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/chatui-composer-ime.html">ChatUI composer sends on the Enter that confirms IME composition</a>
+  <p class="row-meta"><span class="lib">ChatUI</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The Composer sends the message on the Enter used to confirm an IME composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/siyuan-session-rename-ime.html">SiYuan session rename input submits during IME composition (Enter)</a>
+  <p class="row-meta"><span class="lib">siyuan</span>  <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Pressing Enter to confirm CJK composition in the agent session rename input also triggers submit/rename, discarding the composed text or submitting prematurely.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/llmchat-chat-enter-ime.html">llmchat: ignore the Enter that confirms IME composition in the chat input</a>
+  <p class="row-meta"><span class="lib">llmchat</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">CJK users pressing Enter to accept an IME candidate also submits the chat message, sending an empty or partial message.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/aiaw-chat-enter-ime.html">AIaW (Vue) chat submits on the Enter that confirms IME composition</a>
+  <p class="row-meta"><span class="lib">AIaW</span> <span class="tag tag--stack">Vue</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Confirming CJK IME candidate with Enter in AIaW chat input simultaneously submits the message.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/obsidian-smart-composer-chat-ime.html">Obsidian Smart Composer chat submits on the IME Enter (macOS/Windows)</a>
+  <p class="row-meta"><span class="lib">obsidian-smart-composer</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Obsidian Smart Composer chat submits messages on IME Enter key in macOS/Windows with CJK input methods.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/onyx-listfield-ime.html">Onyx ListFieldInput accepts an entry on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">onyx</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">ListFieldInput in Onyx web accepts a list entry on the IME confirmation Enter, adding an empty or partial item.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/rsuite-inputpicker-ime.html">RSuite InputPicker selects an item on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">rsuite</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">RSuite InputPicker selects the focused item when CJK IME confirmation Enter is pressed, skipping intended input.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/dify-tag-input-ime.html">Dify tag input adds a tag on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">dify</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Dify tag input adds a tag on IME confirmation Enter, creating malformed tags for CJK users.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/flowise-text-inputs-ime.html">Flowise text inputs fire on the Enter that confirms IME composition</a>
+  <p class="row-meta"><span class="lib">Flowise</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Multiple Flowise text inputs fire on IME Enter, interrupting CJK text composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/langflow-inline-rename-ime.html">Langflow inline rename commits on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">langflow</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Langflow inline rename inputs commit the rename on IME Enter, saving partial CJK names.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/plane-select-dropdown-ime.html">Plane select dropdown picks an item on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">plane</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Plane select dropdowns pick an item on IME confirmation Enter, making it impossible for CJK users to search.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/twenty-chat-rename-ime.html">Twenty CRM chat send and rename fire on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">twenty</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Twenty CRM chat-thread send and attachment rename both fire on IME Enter, breaking CJK workflows.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/excalidraw-search-nav-ime.html">Excalidraw search navigation fires arrow/Enter keys during IME composition</a>
+  <p class="row-meta"><span class="lib">excalidraw</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Excalidraw search navigation (arrow keys, Enter) fires during CJK IME composition, moving selection mid-composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/payload-searchinput-ime.html">Payload CMS SearchInput submits on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">payload</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Payload CMS SearchInput submits on IME confirmation Enter, bypassing the intended search query.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/trilium-board-title-ime.html">Trilium kanban card/column title editing commits on the IME Enter</a>
+  <p class="row-meta"><span class="lib">Trilium</span>  <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">Trilium kanban card and column title editing commits on IME Enter, saving partial CJK text.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/big-agi-custom-instruction-ime.html">big-AGI custom instruction field submits on the IME confirmation Enter</a>
+  <p class="row-meta"><span class="lib">big-AGI</span> <span class="tag tag--stack">React</span> <span class="badge badge--merged">merged</span></p>
+  <p class="row-sym">big-AGI custom instruction field fires on IME Enter, submitting partial CJK instructions.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/librechat-prompt-tags-ime.html">LibreChat prompt name, label, and tag inputs fire on the IME Enter</a>
+  <p class="row-meta"><span class="lib">LibreChat</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">LibreChat prompt name, label, and tag inputs all trigger on IME Enter, causing broken CJK input across multiple components.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/jan-rename-dialog-ime.html">Jan rename and project dialogs accept a partial name on the IME Enter</a>
+  <p class="row-meta"><span class="lib">jan</span> <span class="tag tag--stack">React</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Jan AI assistant rename and project dialogs accept partial CJK names when Enter confirms IME composition.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/react-controlled-ime-onchange.html">React onChange fires during IME composition in controlled inputs</a>
+  <p class="row-meta"><span class="lib">React</span> <span class="tag tag--stack">React</span> <span class="badge badge--closed">closed</span></p>
+  <p class="row-sym">In a controlled &lt;input&gt;/&lt;textarea&gt;, onChange fires for the intermediate keystrokes of an IME composition, so any onChange-driven search or filter runs on half-finished CJK text.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/maui-entry-completed-ime.html">.NET MAUI Entry.Completed fires on the Enter that confirms an IME candidate (Windows)</a>
+  <p class="row-meta"><span class="lib">dotnet/maui</span> <span class="tag tag--stack">MAUI</span><span class="tag tag--stack">Windows</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">On Windows, Entry.Completed is raised when the user presses Enter inside the IME conversion candidate window, so completion fires before the CJK conversion is committed.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/uievents-compositionend-input-order.html">compositionend vs input event order differs across browsers (isComposing guard)</a>
+  <p class="row-meta"><span class="lib">w3c/uievents</span> <span class="tag tag--stack">spec</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The spec orders input before compositionend (Chrome and Safari follow it), but Firefox and Edge fire input after compositionend, so isComposing-based guards behave differently per browser.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/input-events-insertcompositiontext.html">insertCompositionText / isComposing can't single out the IME commit input event</a>
+  <p class="row-meta"><span class="lib">w3c/input-events</span> <span class="tag tag--stack">spec</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Every input event during a composition, including the one that commits it on Enter, carries isComposing=true and inputType insertCompositionText, so code cannot detect the commit without also listening for compositionend.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/zed-vim-jk-escape-ime.html">Zed Vim jk escape depends on the CJK IME input mode</a>
+  <p class="row-meta"><span class="lib">zed</span> <span class="tag tag--stack">Zed</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">With Vim mode and a CJK IME, the jk insert-mode escape only fires while the IME is composing in Chinese mode; in direct English input it inserts a literal j and k instead of escaping.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/zed-chinese-ime-text-shift.html">Zed: text shifts vertically while composing with a Chinese IME on Windows</a>
+  <p class="row-meta"><span class="lib">zed</span> <span class="tag tag--stack">Zed</span><span class="tag tag--stack">Windows</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">While composing Chinese text with an IME on Windows, the line of text jumps vertically as the composition updates, which disrupts reading and editing.</p>
+</li>
+      <li class="row">
+  <a class="row-title" href="../e/warp-marked-text-ime.html">Warp does not render IME preedit (marked) text — blind composition</a>
+  <p class="row-meta"><span class="lib">Warp</span> <span class="tag tag--stack">Warp</span><span class="tag tag--stack">macOS</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">Warp does not render IME marked (preedit) text, so dead keys and CJK composition show nothing until committed and the user composes blind.</p>
+</li>
+    </ul>
+    <p class="browse-h">Other categories</p>
+    <div class="chips"><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/width-normalization.html">Width / normalization</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
+    <a class="detail-back" href="../">&larr; back to all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

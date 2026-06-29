@@ -3,38 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus</title>
-<meta name="description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<title>emoji-regex matches a text-presentation char followed by U+FE0E (VS15) — CJK Failure Corpus</title>
+<meta name="description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrong…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus">
-<meta property="og:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="emoji-regex matches a text-presentation char followed by U+FE0E (VS15) — CJK Failure Corpus">
+<meta property="og:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrong…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matches a character followed by a text variation selector (U+FE0E) - CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.">
+<meta name="twitter:title" content="emoji-regex matches a text-presentation char followed by U+FE0E (VS15) — CJK Failure Corpus">
+<meta name="twitter:description" content="emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrong…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Matches a character followed by a text variation selector (U+FE0E)","about":"Surrogate & grapheme","description":"emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"emoji-regex matches a text-presentation char followed by U+FE0E (VS15)","alternativeHeadline":"Matches a character followed by a text variation selector (U+FE0E)","name":"emoji-regex matches a text-presentation char followed by U+FE0E (VS15)","about":"Surrogate & grapheme","articleSection":"Surrogate & grapheme","keywords":"JS, emoji-regex, Surrogate & grapheme, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"emoji-regex: emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrong…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html","dateModified":"2026-06-29","citation":"https://github.com/mathiasbynens/emoji-regex/issues/61","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Surrogate & grapheme","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/surrogate-emoji.html"},{"@type":"ListItem","position":3,"name":"emoji-regex matches a text-presentation char followed by U+FE0E (VS15)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/emoji-regex-text-vs15.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Surrogate &amp; grapheme</p>
-    <a class="detail-back" href="../#emoji-regex-text-vs15">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="emoji-regex-text-vs15" data-cat="surrogate-emoji" data-lib="emoji-regex" data-search="matches a character followed by a text variation selector (u+fe0e) emoji-regex mathiasbynens/emoji-regex emoji-regex matches a base character even when it is followed by u+fe0e (the text variation selector), so text-presentation characters are wrongly classified as emoji. emojiregex().test(&#39;\u2757\ufe0e&#39;) returns true even though u+fe0e requests text presentation. exclude a match followed by vs-15 (u+fe0e); treat only a trailing vs-16 (u+fe0f) or no selector as emoji. surrogate &amp; grapheme js cited upstream issue">
+    <article class="entry" id="emoji-regex-text-vs15" data-cat="surrogate-emoji" data-lib="emoji-regex" data-search="emoji-regex matches a text-presentation char followed by u+fe0e (vs15) matches a character followed by a text variation selector (u+fe0e) emoji-regex mathiasbynens/emoji-regex emoji-regex matches a base character even when it is followed by u+fe0e (the text variation selector), so text-presentation characters are wrongly classified as emoji. emojiregex().test(&#39;\u2757\ufe0e&#39;) returns true even though u+fe0e requests text presentation. exclude a match followed by vs-15 (u+fe0e); treat only a trailing vs-16 (u+fe0f) or no selector as emoji. surrogate &amp; grapheme js cited upstream issue">
   <div class="entry-top">
     <span class="tag">Surrogate &amp; grapheme</span>
     <span class="tag tag--stack">JS</span>
     <span class="tag tag--cited">cited</span>
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Matches a character followed by a text variation selector (U+FE0E)</h1>
+  <h1 class="entry-title">emoji-regex matches a text-presentation char followed by U+FE0E (VS15)</h1>
+  <p class="entry-subtitle">Matches a character followed by a text variation selector (U+FE0E)</p>
   <p class="lib-line"><span class="lib">emoji-regex</span> &middot; <a href="https://github.com/mathiasbynens/emoji-regex">mathiasbynens/emoji-regex</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -53,6 +57,17 @@
     <a class="anchor-link" href="#emoji-regex-text-vs15">#emoji-regex-text-vs15</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/javascript.html">JavaScript</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/hepburn-katakana-n-apostrophe.html">Katakana ン loses the syllabic-n apostrophe in Hepburn romanization</a></li>
+      <li><a href="../e/romaji-conv-wi-we-kana.html">Historical kana ゐ/ゑ (wi/we) missing from romaji conversion</a></li>
+      <li><a href="../e/jaco-js-wo-voiced-mark.html">Reversed ヲ/ヺ dakuten mapping when adding voiced marks (jaco-js)</a></li>
+      <li><a href="../e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a></li>
+      <li><a href="../e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>

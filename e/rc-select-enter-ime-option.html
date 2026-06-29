@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enter that confirms an IME composition also selects the active option - CJK / Unicode Failure Corpus</title>
+<title>rc-select: the Enter that confirms IME composition also selects an option — CJK Failure Corpus</title>
 <meta name="description" content="rc-select: The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Enter that confirms an IME composition also selects the active option - CJK / Unicode Failure Corpus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rc-select: the Enter that confirms IME composition also selects an option — CJK Failure Corpus">
 <meta property="og:description" content="rc-select: The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Enter that confirms an IME composition also selects the active option - CJK / Unicode Failure Corpus">
+<meta name="twitter:title" content="rc-select: the Enter that confirms IME composition also selects an option — CJK Failure Corpus">
 <meta name="twitter:description" content="rc-select: The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Enter that confirms an IME composition also selects the active option","about":"IME composition","description":"rc-select: The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"rc-select: the Enter that confirms IME composition also selects an option","alternativeHeadline":"Enter that confirms an IME composition also selects the active option","name":"rc-select: the Enter that confirms IME composition also selects an option","about":"IME composition","articleSection":"IME composition","keywords":"React, rc-select, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"rc-select: The Enter used to commit an IME composition also selects the currently highlighted option in a searchable Select.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html","dateModified":"2026-06-29","citation":"https://github.com/react-component/select/pull/1236","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"rc-select: the Enter that confirms IME composition also selects an option","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/rc-select-enter-ime-option.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body class="detail">
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / IME composition</p>
-    <a class="detail-back" href="../#rc-select-enter-ime-option">&larr; back to the corpus</a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
   </div>
 </header>
 <main>
   <div class="wrap">
-    <article class="entry" id="rc-select-enter-ime-option" data-cat="ime-composition" data-lib="rc-select" data-search="enter that confirms an ime composition also selects the active option rc-select react-component/select the enter used to commit an ime composition also selects the currently highlighted option in a searchable select. 1. open a searchable &lt;select&gt;.
+    <article class="entry" id="rc-select-enter-ime-option" data-cat="ime-composition" data-lib="rc-select" data-search="rc-select: the enter that confirms ime composition also selects an option enter that confirms an ime composition also selects the active option rc-select react-component/select the enter used to commit an ime composition also selects the currently highlighted option in a searchable select. 1. open a searchable &lt;select&gt;.
 2. type a cjk query with the ime and press enter to confirm the conversion.
 3. the active option is selected with the unfinished query. track composition state (compositionstart/compositionend) and skip option selection while composing. ime composition react pull request">
   <div class="entry-top">
@@ -36,7 +39,8 @@
     
     <span class="badge badge--open">open</span>
   </div>
-  <h1 class="entry-title">Enter that confirms an IME composition also selects the active option</h1>
+  <h1 class="entry-title">rc-select: the Enter that confirms IME composition also selects an option</h1>
+  <p class="entry-subtitle">Enter that confirms an IME composition also selects the active option</p>
   <p class="lib-line"><span class="lib">rc-select</span> &middot; <a href="https://github.com/react-component/select">react-component/select</a></p>
   <div class="field">
     <span class="field-label">Symptom</span>
@@ -57,6 +61,17 @@
     <a class="anchor-link" href="#rc-select-enter-ime-option">#rc-select-enter-ime-option</a>
   </div>
 </article>
+    <p class="also-in">Also in: <a href="../stack/react.html">React</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/element-plus-time-picker-ime.html">Element Plus time-picker reacts to keystrokes during IME composition</a></li>
+    </ul>
+  </section>
     <a class="detail-back" href="../">&larr; all 89 entries</a>
   </div>
 </main>
