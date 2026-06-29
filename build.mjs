@@ -19,10 +19,13 @@ const CAT_ORDER = [
   "kana-romaji",
   "width-normalization",
   "surrogate-emoji",
+  "segmentation",
   "numeral",
   "locale-leftover",
+  "unicode-range",
   "regex-roundtrip",
   "codegen-escape",
+  "encoding",
 ];
 
 const esc = (s = "") =>

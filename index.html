@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CJK / Unicode Failure Corpus</title>
-<meta name="description" content="84 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta name="description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CJK / Unicode Failure Corpus">
-<meta property="og:description" content="84 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta property="og:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="84 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
+<meta name="twitter:description" content="89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"84 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"89 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable, filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
     <p class="kicker">A field guide to the Japan-shaped holes</p>
     <h1 class="title">CJK / Unicode<br>Failure Corpus</h1>
     <p class="lede">Real CJK, IME, and Unicode/text-handling bugs in open-source libraries. Repro, affected libs, and the fix. Each entry links to its fix and to <a class="fixtures-link" href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>, the CI fixtures that keep these regressions from coming back.</p>
-    <p class="counts"><b>84</b> entries &nbsp;/&nbsp; <b>79</b> libraries &nbsp;/&nbsp; <b>14</b> already merged</p>
+    <p class="counts"><b>89</b> entries &nbsp;/&nbsp; <b>84</b> libraries &nbsp;/&nbsp; <b>15</b> already merged</p>
     <p class="source-note">Most entries are pull requests authored by greymoth, taken verbatim from the GitHub API. A few are cited upstream issues from the wider ecosystem that document the same failures; those are marked cited and link to the original report.</p>
   </div>
 </header>
@@ -35,11 +35,11 @@
     <input id="q" type="search" placeholder="Search symptom, library, repro, fix..." aria-label="Search the corpus" autocomplete="off">
     <select id="f-cat" class="filter" aria-label="Filter by category">
       <option value="">All categories</option>
-      <option value="ime-composition">IME composition</option><option value="kana-romaji">Kana / romaji</option><option value="width-normalization">Width / normalization</option><option value="surrogate-emoji">Surrogate &amp; grapheme</option><option value="numeral">Numerals</option><option value="locale-leftover">Locale data</option><option value="regex-roundtrip">Regex roundtrip</option><option value="codegen-escape">Codegen escape</option>
+      <option value="ime-composition">IME composition</option><option value="kana-romaji">Kana / romaji</option><option value="width-normalization">Width / normalization</option><option value="surrogate-emoji">Surrogate &amp; grapheme</option><option value="segmentation">Segmentation / word count</option><option value="numeral">Numerals</option><option value="locale-leftover">Locale data</option><option value="unicode-range">Unicode range</option><option value="regex-roundtrip">Regex roundtrip</option><option value="codegen-escape">Codegen escape</option><option value="encoding">Encoding &amp; BOM</option>
     </select>
     <select id="f-lib" class="filter" aria-label="Filter by library">
       <option value="">All libraries</option>
-      <option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="microsoft/terminal">microsoft/terminal</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
+      <option value="@std/csv">@std/csv</option><option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="date-fns">date-fns</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emdash">emdash</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="microsoft/terminal">microsoft/terminal</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="omi">omi</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="validator.js">validator.js</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
     </select>
     <span class="result-count" id="rc"></span>
   </div>
@@ -306,7 +306,7 @@
     <span class="tag">IME composition</span>
     <span class="tag tag--stack">headless</span>
     
-    <span class="badge badge--open">open</span>
+    <span class="badge badge--merged">merged</span>
   </div>
   <h3 class="entry-title"><a href="e/zag-color-picker-channel-ime.html">color-picker channel input handles Enter during IME composition</a></h3>
   <p class="lib-line"><span class="lib">zag</span> &middot; <a href="https://github.com/chakra-ui/zag">chakra-ui/zag</a></p>
@@ -325,7 +325,7 @@
     <p>Guard the channel input's Enter handler with isComposing.</p>
   </div>
   <div class="entry-foot">
-    <a class="pr-link" href="https://github.com/chakra-ui/zag/pull/3198">Fix PR &rarr;</a>
+    <a class="pr-link" href="https://github.com/chakra-ui/zag/pull/3198">Merged PR &rarr;</a>
     <a class="anchor-link" href="#zag-color-picker-channel-ime">#zag-color-picker-channel-ime</a>
   </div>
 </article>
@@ -1672,6 +1672,67 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
 </article>
   </div>
 </section>
+<section class="cat-section" data-cat-section="segmentation">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-segmentation">Segmentation / word count</h2>
+      <span class="cat-n">2 entries</span>
+    </div>
+    <p class="cat-blurb">Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces between words, so an entire Japanese or Chinese paragraph counts as one word: content gates reject valid answers and &quot;min read&quot; labels read as 1. The fix counts CJK characters separately from space-delimited words.</p>
+    <article class="entry" id="omi-onboarding-cjk-wordcount" data-cat="segmentation" data-lib="omi" data-search="onboarding answer gate counts a spaceless cjk answer as one word omi basedhardware/omi onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for cjk text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the llm check, and the question stays marked unanswered for japanese, chinese, and korean speakers. len(&#39;東京に住んでいます&#39;.split())  # 1, so word_count &gt;= 2 is false and the answer is rejected use the existing cjk-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-cjk text, so english input is unchanged. segmentation / word count python pull request">
+  <div class="entry-top">
+    <span class="tag">Segmentation / word count</span>
+    <span class="tag tag--stack">Python</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/omi-onboarding-cjk-wordcount.html">Onboarding answer gate counts a spaceless CJK answer as one word</a></h3>
+  <p class="lib-line"><span class="lib">omi</span> &middot; <a href="https://github.com/BasedHardware/omi">BasedHardware/omi</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese, Chinese, and Korean speakers.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">len('東京に住んでいます'.split())  # 1, so word_count &gt;= 2 is False and the answer is rejected</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Use the existing CJK-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-CJK text, so English input is unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/BasedHardware/omi/pull/8601">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#omi-onboarding-cjk-wordcount">#omi-onboarding-cjk-wordcount</a>
+  </div>
+</article>
+<article class="entry" id="emdash-readingtime-cjk-wordcount" data-cat="segmentation" data-lib="emdash" data-search="editor footer treats a whole cjk paragraph as one word and one minute read emdash emdash-cms/emdash the editor footer&#39;s word count and reading time come from tiptap&#39;s charactercount, whose default wordcounter splits on spaces. cjk scripts have no spaces between words, so a long japanese or chinese draft shows &quot;1 word&quot; and &quot;1 min read&quot; even though the published page, which already counts cjk separately, reports the correct time. type a cjk paragraph into the editor; charactercount&#39;s default text.split(&#39; &#39;) returns 1, so the footer reports 1 word and 1 min read. configure charactercount with a wordcounter that counts cjk characters individually, and derive reading time from the text using the same word/cjk split and rates (200 words/min, 500 cjk chars/min) as the published reading-time util, so the editor and the rendered page agree. segmentation / word count tiptap pull request">
+  <div class="entry-top">
+    <span class="tag">Segmentation / word count</span>
+    <span class="tag tag--stack">TipTap</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/emdash-readingtime-cjk-wordcount.html">Editor footer treats a whole CJK paragraph as one word and one minute read</a></h3>
+  <p class="lib-line"><span class="lib">emdash</span> &middot; <a href="https://github.com/emdash-cms/emdash">emdash-cms/emdash</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The editor footer's word count and reading time come from TipTap's CharacterCount, whose default wordCounter splits on spaces. CJK scripts have no spaces between words, so a long Japanese or Chinese draft shows &quot;1 word&quot; and &quot;1 min read&quot; even though the published page, which already counts CJK separately, reports the correct time.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">Type a CJK paragraph into the editor; CharacterCount's default text.split(' ') returns 1, so the footer reports 1 word and 1 min read.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Configure CharacterCount with a wordCounter that counts CJK characters individually, and derive reading time from the text using the same word/CJK split and rates (200 words/min, 500 CJK chars/min) as the published reading-time util, so the editor and the rendered page agree.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/emdash-cms/emdash/pull/1661">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#emdash-readingtime-cjk-wordcount">#emdash-readingtime-cjk-wordcount</a>
+  </div>
+</article>
+  </div>
+</section>
 <section class="cat-section" data-cat-section="numeral">
   <div class="wrap">
     <div class="cat-head">
@@ -1739,9 +1800,9 @@ kanji2number('萬')  # not recognized as 10000</pre>
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-locale-leftover">Locale data</h2>
-      <span class="cat-n">20 entries</span>
+      <span class="cat-n">21 entries</span>
     </div>
-    <p class="cat-blurb">Missing or wrong ja-JP strings: untranslated placeholders, mistranslations that flip meaning, labels left in English.</p>
+    <p class="cat-blurb">Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back.</p>
     <article class="entry" id="ant-design-typography-ja-labels" data-cat="locale-leftover" data-lib="ant-design" data-search="wrong ja-jp typography expand/collapse labels ant-design ant-design/ant-design the ja-jp labels for typography&#39;s expand/collapse control were incorrect, so japanese users saw the wrong 展開/折りたたみ text. 1. set configprovider locale to ja_jp.
 2. render &lt;typography.paragraph ellipsis={{ expandable: true }}&gt;.
 3. the expand/collapse label is wrong. correct the ja-jp expand/collapse label strings. locale data react pull request">
@@ -2266,6 +2327,71 @@ kanji2number('萬')  # not recognized as 10000</pre>
     <a class="anchor-link" href="#jp-prefectures-aichi-enname">#jp-prefectures-aichi-enname</a>
   </div>
 </article>
+<article class="entry" id="date-fns-gl-xuno-month-parse" data-cat="locale-leftover" data-lib="date-fns" data-search="galician formats june as xuño but cannot parse it back date-fns date-fns/date-fns in the gl (galician) locale the june parse pattern is /^xun/i. it matches the abbreviation &quot;xun&quot; but not the wide form &quot;xuño&quot;, because the third character is ñ, not n. so format then parse round-trips fail for june; the locale&#39;s own snapshot already records invalid date for june while the other eleven months parse. const s = format(new date(2021, 5, 1), &#39;mmmm&#39;, { locale: gl }); // &#39;xuño&#39;
+parse(s, &#39;mmmm&#39;, new date(), { locale: gl });               // invalid date widen the june pattern to /^xu[nñ]/i so it matches both &quot;xun&quot; and &quot;xuño&quot; while staying distinct from july (&quot;xul&quot;), mirroring locales such as catalan that already fold diacritics into their patterns (e.g. /^març/i). locale data js pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/date-fns-gl-xuno-month-parse.html">Galician formats June as xuño but cannot parse it back</a></h3>
+  <p class="lib-line"><span class="lib">date-fns</span> &middot; <a href="https://github.com/date-fns/date-fns">date-fns/date-fns</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>In the gl (Galician) locale the June parse pattern is /^xun/i. It matches the abbreviation &quot;xun&quot; but not the wide form &quot;xuño&quot;, because the third character is ñ, not n. So format then parse round-trips fail for June; the locale's own snapshot already records Invalid Date for June while the other eleven months parse.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">const s = format(new Date(2021, 5, 1), 'MMMM', { locale: gl }); // 'xuño'
+parse(s, 'MMMM', new Date(), { locale: gl });               // Invalid Date</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Widen the June pattern to /^xu[nñ]/i so it matches both &quot;xun&quot; and &quot;xuño&quot; while staying distinct from July (&quot;xul&quot;), mirroring locales such as Catalan that already fold diacritics into their patterns (e.g. /^març/i).</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/date-fns/date-fns/pull/4231">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#date-fns-gl-xuno-month-parse">#date-fns-gl-xuno-month-parse</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="unicode-range">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-unicode-range">Unicode range</h2>
+      <span class="cat-n">1 entry</span>
+    </div>
+    <p class="cat-blurb">Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted set. An alpha rule accepts a letter that the matching alphanumeric rule rejects, and common accented characters fail validation even though their unaccented neighbours pass.</p>
+    <article class="entry" id="validatorjs-el-gr-alphanumeric-range" data-cat="unicode-range" data-lib="validator.js" data-search="isalphanumeric el-gr range omits accented greek that isalpha accepts validator.js validatorjs/validator.js isalpha(&#39;el-gr&#39;) uses the greek range [α-ώ] (u+0391–u+03ce) but isalphanumeric(&#39;el-gr&#39;) still ends at ω ([0-9α-ω], u+03c9). so isalphanumeric rejects ό, ύ, ώ and the uppercase ό/ύ/ώ even though isalpha accepts them, and common words like νερό or πρώτα pass isalpha but fail isalphanumeric. isalpha(&#39;νερό&#39;, &#39;el-gr&#39;)        // true
+isalphanumeric(&#39;νερό&#39;, &#39;el-gr&#39;) // false  &lt;- ό (u+03cc) sits past the range end ω bump the alphanumeric greek range to [0-9α-ώ] so it matches the alpha class. unicode range js pull request">
+  <div class="entry-top">
+    <span class="tag">Unicode range</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/validatorjs-el-gr-alphanumeric-range.html">isAlphanumeric el-GR range omits accented Greek that isAlpha accepts</a></h3>
+  <p class="lib-line"><span class="lib">validator.js</span> &middot; <a href="https://github.com/validatorjs/validator.js">validatorjs/validator.js</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>isAlpha('el-GR') uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric('el-GR') still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumeric.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">isAlpha('νερό', 'el-GR')        // true
+isAlphanumeric('νερό', 'el-GR') // false  &lt;- ό (U+03CC) sits past the range end ω</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Bump the alphanumeric Greek range to [0-9Α-ώ] so it matches the alpha class.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/validatorjs/validator.js/pull/2789">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#validatorjs-el-gr-alphanumeric-range">#validatorjs-el-gr-alphanumeric-range</a>
+  </div>
+</article>
   </div>
 </section>
 <section class="cat-section" data-cat-section="regex-roundtrip">
@@ -2362,6 +2488,45 @@ rt.optimize('/[a^]/').toString() // '/[^a]/'  &lt;- now matches the negation</pr
   <div class="entry-foot">
     <a class="pr-link" href="https://github.com/markdoc/markdoc/pull/627">Fix PR &rarr;</a>
     <a class="anchor-link" href="#markdoc-mid-line-hash-escape">#markdoc-mid-line-hash-escape</a>
+  </div>
+</article>
+  </div>
+</section>
+<section class="cat-section" data-cat-section="encoding">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 id="cat-encoding">Encoding &amp; BOM</h2>
+      <span class="cat-n">1 entry</span>
+    </div>
+    <p class="cat-blurb">Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the first field name or CSV header key arrives with an invisible BOM glued to it and lookups by that key silently miss.</p>
+    <article class="entry" id="deno-std-csv-bom-stream" data-cat="encoding" data-lib="@std/csv" data-search="csvparsestream leaves a leading bom glued to the first header key @std/csv denoland/std the synchronous parse() strips a leading utf-8 byte-order mark (u+feff) but csvparsestream does not. when a csv begins with a bom, common output from excel and other windows tools, the first field name arrives as &quot;\ufeffname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups. const src = readablestream.from([&#39;\ufeffname,age\n&#39;, &#39;alice,34\n&#39;]);
+await array.fromasync(src.pipethrough(new csvparsestream({ skipfirstrow: true })));
+// [{ &#39;\ufeffname&#39;: &#39;alice&#39;, age: &#39;34&#39; }]  &lt;- bom leaked into the key strip the bom from the first line read by streamlinereader, matching what parse() already does via its byte_order_mark constant. encoding &amp; bom deno ts cited upstream issue">
+  <div class="entry-top">
+    <span class="tag">Encoding &amp; BOM</span>
+    <span class="tag tag--stack">Deno</span><span class="tag tag--stack">TS</span>
+    <span class="tag tag--cited">cited</span>
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/deno-std-csv-bom-stream.html">CsvParseStream leaves a leading BOM glued to the first header key</a></h3>
+  <p class="lib-line"><span class="lib">@std/csv</span> &middot; <a href="https://github.com/denoland/std">denoland/std</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as &quot;\uFEFFname&quot; instead of &quot;name&quot;, silently corrupting header-based lookups.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">const src = ReadableStream.from(['\uFEFFname,age\n', 'Alice,34\n']);
+await Array.fromAsync(src.pipeThrough(new CsvParseStream({ skipFirstRow: true })));
+// [{ '\uFEFFname': 'Alice', age: '34' }]  &lt;- BOM leaked into the key</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Strip the BOM from the first line read by StreamLineReader, matching what parse() already does via its BYTE_ORDER_MARK constant.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/denoland/std/pull/7183">Upstream issue &rarr;</a>
+    <a class="anchor-link" href="#deno-std-csv-bom-stream">#deno-std-csv-bom-stream</a>
   </div>
 </article>
   </div>

@@ -24,7 +24,7 @@
     },
     "locale-leftover": {
       "label": "Locale data",
-      "blurb": "Missing or wrong ja-JP strings: untranslated placeholders, mistranslations that flip meaning, labels left in English."
+      "blurb": "Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back."
     },
     "codegen-escape": {
       "label": "Codegen escape",
@@ -37,6 +37,18 @@
     "surrogate-emoji": {
       "label": "Surrogate & grapheme",
       "blurb": "Code that walks text by UTF-16 code unit or bare code point instead of by grapheme cluster. Surrogate pairs and non-BMP characters get split, ZWJ emoji and variation selectors are mis-detected, and combining marks or conjunct clusters drift away from their base."
+    },
+    "segmentation": {
+      "label": "Segmentation / word count",
+      "blurb": "Word counts and reading-time estimates that split on spaces. CJK scripts put no spaces between words, so an entire Japanese or Chinese paragraph counts as one word: content gates reject valid answers and \"min read\" labels read as 1. The fix counts CJK characters separately from space-delimited words."
+    },
+    "unicode-range": {
+      "label": "Unicode range",
+      "blurb": "Character-class ranges that drift out of sync, so valid non-ASCII letters fall just outside the accepted set. An alpha rule accepts a letter that the matching alphanumeric rule rejects, and common accented characters fail validation even though their unaccented neighbours pass."
+    },
+    "encoding": {
+      "label": "Encoding & BOM",
+      "blurb": "Byte-order marks and charset edges. One code path strips a leading U+FEFF and a sibling does not, so the first field name or CSV header key arrives with an invisible BOM glued to it and lookups by that key silently miss."
     }
   },
   "entries": [
@@ -168,7 +180,7 @@
       "library": "zag",
       "repo": "chakra-ui/zag",
       "url": "https://github.com/chakra-ui/zag/pull/3198",
-      "status": "open",
+      "status": "merged",
       "category": "ime-composition",
       "stack": [
         "headless"
@@ -1355,6 +1367,87 @@
       "symptom": "emoji-regex matches a base character even when it is followed by U+FE0E (the text variation selector), so text-presentation characters are wrongly classified as emoji.",
       "repro": "emojiRegex().test('\\u2757\\uFE0E') returns true even though U+FE0E requests text presentation.",
       "fix": "Exclude a match followed by VS-15 (U+FE0E); treat only a trailing VS-16 (U+FE0F) or no selector as emoji.",
+      "authored": false
+    },
+    {
+      "id": "omi-onboarding-cjk-wordcount",
+      "title": "Onboarding answer gate counts a spaceless CJK answer as one word",
+      "library": "omi",
+      "repo": "BasedHardware/omi",
+      "url": "https://github.com/BasedHardware/omi/pull/8601",
+      "status": "open",
+      "category": "segmentation",
+      "stack": [
+        "Python"
+      ],
+      "symptom": "Onboarding decides whether a spoken answer has enough content with len(transcript.split()) >= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese, Chinese, and Korean speakers.",
+      "repro": "len('東京に住んでいます'.split())  # 1, so word_count >= 2 is False and the answer is rejected",
+      "fix": "Use the existing CJK-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-CJK text, so English input is unchanged.",
+      "authored": true
+    },
+    {
+      "id": "emdash-readingtime-cjk-wordcount",
+      "title": "Editor footer treats a whole CJK paragraph as one word and one minute read",
+      "library": "emdash",
+      "repo": "emdash-cms/emdash",
+      "url": "https://github.com/emdash-cms/emdash/pull/1661",
+      "status": "open",
+      "category": "segmentation",
+      "stack": [
+        "TipTap"
+      ],
+      "symptom": "The editor footer's word count and reading time come from TipTap's CharacterCount, whose default wordCounter splits on spaces. CJK scripts have no spaces between words, so a long Japanese or Chinese draft shows \"1 word\" and \"1 min read\" even though the published page, which already counts CJK separately, reports the correct time.",
+      "repro": "Type a CJK paragraph into the editor; CharacterCount's default text.split(' ') returns 1, so the footer reports 1 word and 1 min read.",
+      "fix": "Configure CharacterCount with a wordCounter that counts CJK characters individually, and derive reading time from the text using the same word/CJK split and rates (200 words/min, 500 CJK chars/min) as the published reading-time util, so the editor and the rendered page agree.",
+      "authored": true
+    },
+    {
+      "id": "validatorjs-el-gr-alphanumeric-range",
+      "title": "isAlphanumeric el-GR range omits accented Greek that isAlpha accepts",
+      "library": "validator.js",
+      "repo": "validatorjs/validator.js",
+      "url": "https://github.com/validatorjs/validator.js/pull/2789",
+      "status": "open",
+      "category": "unicode-range",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "isAlpha('el-GR') uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric('el-GR') still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumeric.",
+      "repro": "isAlpha('νερό', 'el-GR')        // true\nisAlphanumeric('νερό', 'el-GR') // false  <- ό (U+03CC) sits past the range end ω",
+      "fix": "Bump the alphanumeric Greek range to [0-9Α-ώ] so it matches the alpha class.",
+      "authored": true
+    },
+    {
+      "id": "date-fns-gl-xuno-month-parse",
+      "title": "Galician formats June as xuño but cannot parse it back",
+      "library": "date-fns",
+      "repo": "date-fns/date-fns",
+      "url": "https://github.com/date-fns/date-fns/pull/4231",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "JS"
+      ],
+      "symptom": "In the gl (Galician) locale the June parse pattern is /^xun/i. It matches the abbreviation \"xun\" but not the wide form \"xuño\", because the third character is ñ, not n. So format then parse round-trips fail for June; the locale's own snapshot already records Invalid Date for June while the other eleven months parse.",
+      "repro": "const s = format(new Date(2021, 5, 1), 'MMMM', { locale: gl }); // 'xuño'\nparse(s, 'MMMM', new Date(), { locale: gl });               // Invalid Date",
+      "fix": "Widen the June pattern to /^xu[nñ]/i so it matches both \"xun\" and \"xuño\" while staying distinct from July (\"xul\"), mirroring locales such as Catalan that already fold diacritics into their patterns (e.g. /^març/i).",
+      "authored": true
+    },
+    {
+      "id": "deno-std-csv-bom-stream",
+      "title": "CsvParseStream leaves a leading BOM glued to the first header key",
+      "library": "@std/csv",
+      "repo": "denoland/std",
+      "url": "https://github.com/denoland/std/pull/7183",
+      "status": "open",
+      "category": "encoding",
+      "stack": [
+        "Deno",
+        "TS"
+      ],
+      "symptom": "The synchronous parse() strips a leading UTF-8 byte-order mark (U+FEFF) but CsvParseStream does not. When a CSV begins with a BOM, common output from Excel and other Windows tools, the first field name arrives as \"\\uFEFFname\" instead of \"name\", silently corrupting header-based lookups.",
+      "repro": "const src = ReadableStream.from(['\\uFEFFname,age\\n', 'Alice,34\\n']);\nawait Array.fromAsync(src.pipeThrough(new CsvParseStream({ skipFirstRow: true })));\n// [{ '\\uFEFFname': 'Alice', age: '34' }]  <- BOM leaked into the key",
+      "fix": "Strip the BOM from the first line read by StreamLineReader, matching what parse() already does via its BYTE_ORDER_MARK constant.",
       "authored": false
     }
   ]

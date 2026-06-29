@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>isAlphanumeric el-GR range omits accented Greek that isAlpha accepts - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="validator.js: isAlpha(&#39;el-GR&#39;) uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric(&#39;el-GR&#39;) still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumer">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/validatorjs-el-gr-alphanumeric-range.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="isAlphanumeric el-GR range omits accented Greek that isAlpha accepts - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="validator.js: isAlpha(&#39;el-GR&#39;) uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric(&#39;el-GR&#39;) still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumer">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/validatorjs-el-gr-alphanumeric-range.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="isAlphanumeric el-GR range omits accented Greek that isAlpha accepts - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="validator.js: isAlpha(&#39;el-GR&#39;) uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric(&#39;el-GR&#39;) still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumer">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"isAlphanumeric el-GR range omits accented Greek that isAlpha accepts","about":"Unicode range","description":"validator.js: isAlpha('el-GR') uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric('el-GR') still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumer","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/validatorjs-el-gr-alphanumeric-range.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Unicode range</p>
+    <a class="detail-back" href="../#validatorjs-el-gr-alphanumeric-range">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="validatorjs-el-gr-alphanumeric-range" data-cat="unicode-range" data-lib="validator.js" data-search="isalphanumeric el-gr range omits accented greek that isalpha accepts validator.js validatorjs/validator.js isalpha(&#39;el-gr&#39;) uses the greek range [α-ώ] (u+0391–u+03ce) but isalphanumeric(&#39;el-gr&#39;) still ends at ω ([0-9α-ω], u+03c9). so isalphanumeric rejects ό, ύ, ώ and the uppercase ό/ύ/ώ even though isalpha accepts them, and common words like νερό or πρώτα pass isalpha but fail isalphanumeric. isalpha(&#39;νερό&#39;, &#39;el-gr&#39;)        // true
+isalphanumeric(&#39;νερό&#39;, &#39;el-gr&#39;) // false  &lt;- ό (u+03cc) sits past the range end ω bump the alphanumeric greek range to [0-9α-ώ] so it matches the alpha class. unicode range js pull request">
+  <div class="entry-top">
+    <span class="tag">Unicode range</span>
+    <span class="tag tag--stack">JS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">isAlphanumeric el-GR range omits accented Greek that isAlpha accepts</h1>
+  <p class="lib-line"><span class="lib">validator.js</span> &middot; <a href="https://github.com/validatorjs/validator.js">validatorjs/validator.js</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>isAlpha('el-GR') uses the Greek range [Α-ώ] (U+0391–U+03CE) but isAlphanumeric('el-GR') still ends at ω ([0-9Α-ω], U+03C9). So isAlphanumeric rejects ό, ύ, ώ and the uppercase Ό/Ύ/Ώ even though isAlpha accepts them, and common words like νερό or πρώτα pass isAlpha but fail isAlphanumeric.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">isAlpha('νερό', 'el-GR')        // true
+isAlphanumeric('νερό', 'el-GR') // false  &lt;- ό (U+03CC) sits past the range end ω</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Bump the alphanumeric Greek range to [0-9Α-ώ] so it matches the alpha class.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/validatorjs/validator.js/pull/2789">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#validatorjs-el-gr-alphanumeric-range">#validatorjs-el-gr-alphanumeric-range</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

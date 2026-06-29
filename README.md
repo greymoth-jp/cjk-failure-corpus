@@ -14,9 +14,12 @@ Most entries are pull requests authored by greymoth; their titles, repos, URLs, 
 - **Kana / romaji** — transliteration tables that drop or reverse kana. Round-trip is the oracle.
 - **Width / normalization** — full-width to half-width, long-vowel marks, kana range boundaries.
 - **Surrogate & grapheme** — code that walks text by code unit instead of grapheme cluster, so surrogate pairs split, ZWJ emoji and variation selectors are mis-detected, and combining marks drift from their base.
+- **Segmentation / word count** — word counts and reading-time estimates that split on spaces, so a whole CJK paragraph counts as one word and a "min read" reads as 1.
 - **Numerals** — kanji numbers, including the daiji forms used in legal and financial text.
-- **Locale data** — missing or wrong `ja-JP` strings, including mistranslations that flip meaning.
+- **Locale data** — missing or wrong `ja-JP` strings, plus parse tables that drop a locale's diacritics so a month formats but will not parse back.
+- **Unicode range** — character-class ranges that drift apart, so an accented letter one rule accepts another rule rejects.
 - **Regex roundtrip / codegen escape** — characters that are special in one position leaking into generated output and breaking it.
+- **Encoding & BOM** — a byte-order mark that one code path strips and a sibling leaves glued to the first field name.
 
 The full dataset is in [`data/corpus.json`](data/corpus.json).
 

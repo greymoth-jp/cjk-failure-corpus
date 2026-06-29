@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboarding answer gate counts a spaceless CJK answer as one word - CJK / Unicode Failure Corpus</title>
+<meta name="description" content="omi: Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/omi-onboarding-cjk-wordcount.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Onboarding answer gate counts a spaceless CJK answer as one word - CJK / Unicode Failure Corpus">
+<meta property="og:description" content="omi: Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/omi-onboarding-cjk-wordcount.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Onboarding answer gate counts a spaceless CJK answer as one word - CJK / Unicode Failure Corpus">
+<meta name="twitter:description" content="omi: Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Onboarding answer gate counts a spaceless CJK answer as one word","about":"Segmentation / word count","description":"omi: Onboarding decides whether a spoken answer has enough content with len(transcript.split()) >= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/omi-onboarding-cjk-wordcount.html","isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker"><a href="../" style="color:inherit;text-decoration:none">CJK / Unicode Failure Corpus</a> / Segmentation / word count</p>
+    <a class="detail-back" href="../#omi-onboarding-cjk-wordcount">&larr; back to the corpus</a>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="omi-onboarding-cjk-wordcount" data-cat="segmentation" data-lib="omi" data-search="onboarding answer gate counts a spaceless cjk answer as one word omi basedhardware/omi onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for cjk text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the llm check, and the question stays marked unanswered for japanese, chinese, and korean speakers. len(&#39;東京に住んでいます&#39;.split())  # 1, so word_count &gt;= 2 is false and the answer is rejected use the existing cjk-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-cjk text, so english input is unchanged. segmentation / word count python pull request">
+  <div class="entry-top">
+    <span class="tag">Segmentation / word count</span>
+    <span class="tag tag--stack">Python</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Onboarding answer gate counts a spaceless CJK answer as one word</h1>
+  <p class="lib-line"><span class="lib">omi</span> &middot; <a href="https://github.com/BasedHardware/omi">BasedHardware/omi</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>Onboarding decides whether a spoken answer has enough content with len(transcript.split()) &gt;= 2. str.split() returns 1 for CJK text that has no spaces, so a full answer like 東京に住んでいます is counted as a single word, never reaches the LLM check, and the question stays marked unanswered for Japanese, Chinese, and Korean speakers.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">len('東京に住んでいます'.split())  # 1, so word_count &gt;= 2 is False and the answer is rejected</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Use the existing CJK-aware _word_count helper (already used by should_discard_conversation) instead of plain split(); it falls back to split() for non-CJK text, so English input is unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/BasedHardware/omi/pull/8601">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#omi-onboarding-cjk-wordcount">#omi-onboarding-cjk-wordcount</a>
+  </div>
+</article>
+    <a class="detail-back" href="../">&larr; all 89 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>
