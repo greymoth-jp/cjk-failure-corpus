@@ -93,6 +93,10 @@
     "kaplay-styled-text-grapheme": "kaplay styled-text styles desync after emoji / astral CJK (grapheme vs UTF-16)",
     "material-ui-zhcn-pagination": "MUI Pagination aria-labels fall back to English in the zh-CN locale",
     "select2-ja-removeitem-search": "Select2 Japanese locale is missing the removeItem / search ARIA labels",
-    "naive-ui-week-placeholder-cjk": "naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)"
+    "naive-ui-week-placeholder-cjk": "naive-ui weekPlaceholder untranslated in Korean and Traditional Chinese (Select Week)",
+    "blocknote-input-rules-enter-ime": "BlockNote: input rules fire on the Enter that confirms an IME conversion (React)",
+    "misskey-chat-enter-ime": "Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)",
+    "micro-command-bar-suggestion-width": "micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)",
+    "growi-distance-date-locale": "GROWI shows relative dates in English (\"3 days\" not \"3日\"): no locale passed to date-fns"
   }
 }

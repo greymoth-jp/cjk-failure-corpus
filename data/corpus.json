@@ -1513,6 +1513,68 @@
       "repro": "Use the date picker in week mode under the koKR or zhTW locale; the placeholder renders \"Select Week\" in English.",
       "fix": "Translate weekPlaceholder to 주 선택 (koKR, following the existing 월 선택 / 년 선택 pattern) and 選擇週 (zhTW, the Traditional form of zhCN's 选择周), propagating the jaJP fix from #8114 to the remaining CJK locales.",
       "authored": true
+    },
+    {
+      "id": "blocknote-input-rules-enter-ime",
+      "title": "Input rules fire on the Enter that confirms an IME composition",
+      "library": "BlockNote",
+      "repo": "TypeCellOS/BlockNote",
+      "url": "https://github.com/TypeCellOS/BlockNote/pull/2879",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "React",
+        "TS"
+      ],
+      "symptom": "The input-rules-on-Enter handler does not check event.isComposing, so it also runs on the Enter that commits an IME composition. A matching rule (for example the # heading rule) fires mid-conversion and the preventDefault disrupts the commit.",
+      "repro": "1. In a BlockNote editor, type # with no trailing space.\n2. Switch to a Japanese IME and type some hiragana.\n3. Press Enter to confirm a kanji candidate.\n4. The heading input rule fires on the IME-commit Enter, so the candidate does not commit normally.",
+      "fix": "Return early from the inputRulesEnter handler while event.isComposing is true (keyCode 229), the same guard the editor's other Enter handlers already use."
+    },
+    {
+      "id": "misskey-chat-enter-ime",
+      "title": "Chat composer sends the message on the Enter that confirms an IME conversion",
+      "library": "Misskey",
+      "repo": "misskey-dev/misskey",
+      "url": "https://github.com/misskey-dev/misskey/pull/17646",
+      "status": "open",
+      "category": "ime-composition",
+      "stack": [
+        "Vue"
+      ],
+      "symptom": "With send-on-Enter enabled, the chat composer's onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion sends the in-progress text and clears the input.",
+      "repro": "1. Open the chat room composer with send-on-Enter enabled.\n2. With a Japanese IME, type some hiragana and press Space to get conversion candidates.\n3. Press Enter to choose a candidate.\n4. The unconfirmed text is sent instead of the conversion committing.",
+      "fix": "Return early in the keydown handler while the IME is composing (ev.isComposing || ev.key === 'Process' || ev.keyCode === 229), matching MkInput, MkTextarea, and MkCodeEditor."
+    },
+    {
+      "id": "micro-command-bar-suggestion-width",
+      "title": "Command-bar autocomplete scrolls by character count, so wide CJK suggestions get clipped",
+      "library": "micro",
+      "repo": "micro-editor/micro",
+      "url": "https://github.com/micro-editor/micro/pull/4135",
+      "status": "open",
+      "category": "width-normalization",
+      "stack": [
+        "Go"
+      ],
+      "symptom": "The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a suggestion containing full-width CJK characters can be left partly or fully off screen.",
+      "repro": "1. Trigger command-bar autocomplete with suggestions like [\"日本語テスト\", \"ok\", \"end\"] in a 14-column strip.\n2. Select the second suggestion.\n3. 日本語テスト is 6 characters but 12 display columns, so hscroll stays at 0 and ok is clipped at the right edge.",
+      "fix": "Measure the scroll offset with runewidth.StringWidth so it matches totalSize and the renderer. ASCII-only suggestions are unchanged."
+    },
+    {
+      "id": "growi-distance-date-locale",
+      "title": "Relative dates render in English for everyone (no locale passed to date-fns)",
+      "library": "GROWI",
+      "repo": "growilabs/growi",
+      "url": "https://github.com/growilabs/growi/pull/11376",
+      "status": "open",
+      "category": "locale-leftover",
+      "stack": [
+        "React",
+        "i18n"
+      ],
+      "symptom": "FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user's language. A Japanese user sees \"3 days\" instead of \"3日\" in comments, in-app notifications, and Recent Changes.",
+      "repro": "1. Set the UI language to Japanese.\n2. Open page comments, in-app notifications, or the Recent Changes sidebar.\n3. The relative timestamps read \"3 days\" instead of \"3日\".",
+      "fix": "Pass the resolved date-fns locale to formatDistanceStrict ({ locale: getLocale(i18n.language) }), the same approach RecentActivity/ActivityListItem already uses. English output is unchanged."
     }
   ]
 }

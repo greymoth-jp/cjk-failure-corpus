@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count) — CJK Failure Corpus</title>
+<meta name="description" content="micro: The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a sugges…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count) — CJK Failure Corpus">
+<meta property="og:description" content="micro: The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a sugges…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count) — CJK Failure Corpus">
+<meta name="twitter:description" content="micro: The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a sugges…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)","alternativeHeadline":"Command-bar autocomplete scrolls by character count, so wide CJK suggestions get clipped","name":"micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)","about":"Width / normalization","articleSection":"Width / normalization","keywords":"Go, micro, Width / normalization, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"micro: The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a sugges…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html","dateModified":"2026-06-30","citation":"https://github.com/micro-editor/micro/pull/4135","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Width / normalization","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html"},{"@type":"ListItem","position":3,"name":"micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/width-normalization.html">Width / normalization</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="micro-command-bar-suggestion-width" data-cat="width-normalization" data-lib="micro" data-search="micro editor: command-bar autocomplete clips wide cjk suggestions (display width vs character count) command-bar autocomplete scrolls by character count, so wide cjk suggestions get clipped micro micro-editor/micro the info-bar autocomplete strip scrolls by character count (charactercountinstring) while the renderer draws by display width (runewidth), so a suggestion containing full-width cjk characters can be left partly or fully off screen. 1. trigger command-bar autocomplete with suggestions like [&quot;日本語テスト&quot;, &quot;ok&quot;, &quot;end&quot;] in a 14-column strip.
+2. select the second suggestion.
+3. 日本語テスト is 6 characters but 12 display columns, so hscroll stays at 0 and ok is clipped at the right edge. measure the scroll offset with runewidth.stringwidth so it matches totalsize and the renderer. ascii-only suggestions are unchanged. width / normalization go pull request">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">Go</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)</h1>
+  <p class="entry-subtitle">Command-bar autocomplete scrolls by character count, so wide CJK suggestions get clipped</p>
+  <p class="lib-line"><span class="lib">micro</span> &middot; <a href="https://github.com/micro-editor/micro">micro-editor/micro</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a suggestion containing full-width CJK characters can be left partly or fully off screen.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Trigger command-bar autocomplete with suggestions like [&quot;日本語テスト&quot;, &quot;ok&quot;, &quot;end&quot;] in a 14-column strip.
+2. Select the second suggestion.
+3. 日本語テスト is 6 characters but 12 display columns, so hscroll stays at 0 and ok is clipped at the right edge.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Measure the scroll offset with runewidth.StringWidth so it matches totalSize and the renderer. ASCII-only suggestions are unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/micro-editor/micro/pull/4135">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#micro-command-bar-suggestion-width">#micro-command-bar-suggestion-width</a>
+  </div>
+</article>
+    
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/normal-jp-choonpu-hi-bi.html">Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ</a></li>
+      <li><a href="../e/moji-range-boundaries.html">Full-width/kana conversion drops the first and last char of each range (moji)</a></li>
+      <li><a href="../e/charabia-halfwidth-katakana-script.html">Meilisearch charabia mis-detects half-width katakana script (Japanese search)</a></li>
+      <li><a href="../e/tabled-combining-mark-wrap.html">tabled splits combining marks from their base grapheme when wrapping width</a></li>
+      <li><a href="../e/zed-block-cursor-ambiguous-width.html">Zed block cursor is misaligned over ambiguous-width Unicode characters</a></li>
+    </ul>
+  </section>
+    <a class="detail-back" href="../">&larr; all 97 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

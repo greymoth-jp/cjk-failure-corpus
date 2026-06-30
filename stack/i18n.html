@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (2 cases)</title>
-<meta name="description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
+<title>Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (3 cases)</title>
+<meta name="description" content="3 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (2 cases)">
-<meta property="og:description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
+<meta property="og:title" content="Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (3 cases)">
+<meta property="og:description" content="3 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (2 cases)">
-<meta name="twitter:description" content="2 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
+<meta name="twitter:title" content="Localization (i18n) — CJK, IME &amp; Unicode bugs and fixes (3 cases)">
+<meta name="twitter:description" content="3 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Localization (i18n) — CJK / Unicode Failure Corpus","description":"2 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":2,"itemListElement":[{"@type":"ListItem","position":1,"name":"PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html"},{"@type":"ListItem","position":2,"name":"Appwrite Japanese emails: 48 missing translation keys (sent in English)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/appwrite-ja-email-keys.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Localization (i18n) — CJK / Unicode Failure Corpus","description":"3 real CJK, IME, and Unicode/text-handling bugs found in Localization (i18n) open-source projects, each with a minimal repro and the fix.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":3,"itemListElement":[{"@type":"ListItem","position":1,"name":"PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/primelocale-ja-filterconstraint.html"},{"@type":"ListItem","position":2,"name":"Appwrite Japanese emails: 48 missing translation keys (sent in English)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/appwrite-ja-email-keys.html"},{"@type":"ListItem","position":3,"name":"GROWI shows relative dates in English (\"3 days\" not \"3日\"): no locale passed to date-fns","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Localization (i18n)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/stack/i18n.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -26,13 +26,13 @@
     <p class="kicker">Stack</p>
     <h1 class="landing-title">Localization (i18n)</h1>
     <p class="lede">CJK, IME, and Unicode/text-handling failures found in Localization (i18n) open-source projects. Each links to a minimal repro and the fix.</p>
-    <p class="counts"><b>2</b> cases in the corpus</p>
+    <p class="counts"><b>3</b> cases in the corpus</p>
   </div>
 </header>
 <div class="rule"></div>
 <main>
   <div class="wrap">
-    <h2 class="row-cat"><a href="../category/locale-leftover.html">Locale data</a> <span class="cat-n">2</span></h2>
+    <h2 class="row-cat"><a href="../category/locale-leftover.html">Locale data</a> <span class="cat-n">3</span></h2>
       <ul class="rows">
         <li class="row">
   <a class="row-title" href="../e/primelocale-ja-filterconstraint.html">PrimeLocale Japanese: filterConstraint mistranslated 成約 → 制約</a>
@@ -44,10 +44,15 @@
   <p class="row-meta"><span class="lib">appwrite</span> <span class="tag tag--stack">i18n</span> <span class="badge badge--open">open</span></p>
   <p class="row-sym">Appwrite Japanese email templates have 48 missing translation keys, causing emails to be sent in English to Japanese users.</p>
 </li>
+        <li class="row">
+  <a class="row-title" href="../e/growi-distance-date-locale.html">GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns</a>
+  <p class="row-meta"><span class="lib">GROWI</span> <span class="tag tag--stack">React</span><span class="tag tag--stack">i18n</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user's language. A Japanese user sees &quot;3 days&quot; instead of &quot;3日&quot; in comments, in-app notifications, and Recent Changes.</p>
+</li>
       </ul>
     <p class="browse-h">Other stacks</p>
     <div class="chips"><a class="chip" href="../stack/react.html">React</a><a class="chip" href="../stack/javascript.html">JavaScript</a><a class="chip" href="../stack/vue.html">Vue</a><a class="chip" href="../stack/python.html">Python</a><a class="chip" href="../stack/typescript.html">TypeScript</a><a class="chip" href="../stack/rust.html">Rust</a><a class="chip" href="../stack/angular.html">Angular</a><a class="chip" href="../stack/windows.html">Windows</a><a class="chip" href="../stack/web-platform.html">Web platform specs</a><a class="chip" href="../stack/zed.html">Zed</a></div>
-    <a class="detail-back" href="../">&larr; back to all 93 entries</a>
+    <a class="detail-back" href="../">&larr; back to all 97 entries</a>
   </div>
 </main>
 <div class="rule"></div>

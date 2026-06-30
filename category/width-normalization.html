@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)</title>
-<meta name="description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<title>Width / normalization — CJK / Unicode bugs, repros &amp; fixes (6 cases)</title>
+<meta name="description" content="6 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)">
-<meta property="og:description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<meta property="og:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (6 cases)">
+<meta property="og:description" content="6 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (5 cases)">
-<meta name="twitter:description" content="5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
+<meta name="twitter:title" content="Width / normalization — CJK / Unicode bugs, repros &amp; fixes (6 cases)">
+<meta name="twitter:description" content="6 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Width / normalization — CJK / Unicode Failure Corpus","description":"5 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":5,"itemListElement":[{"@type":"ListItem","position":1,"name":"Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/normal-jp-choonpu-hi-bi.html"},{"@type":"ListItem","position":2,"name":"Full-width/kana conversion drops the first and last char of each range (moji)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html"},{"@type":"ListItem","position":3,"name":"Meilisearch charabia mis-detects half-width katakana script (Japanese search)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/charabia-halfwidth-katakana-script.html"},{"@type":"ListItem","position":4,"name":"tabled splits combining marks from their base grapheme when wrapping width","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html"},{"@type":"ListItem","position":5,"name":"Zed block cursor is misaligned over ambiguous-width Unicode characters","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-block-cursor-ambiguous-width.html"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Width / normalization — CJK / Unicode Failure Corpus","description":"6 real width / normalization bugs in open-source libraries. Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables an…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"mainEntity":{"@type":"ItemList","numberOfItems":6,"itemListElement":[{"@type":"ListItem","position":1,"name":"Long-vowel mark ー expands with the wrong vowel after katakana ヒ/ビ","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/normal-jp-choonpu-hi-bi.html"},{"@type":"ListItem","position":2,"name":"Full-width/kana conversion drops the first and last char of each range (moji)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/moji-range-boundaries.html"},{"@type":"ListItem","position":3,"name":"Meilisearch charabia mis-detects half-width katakana script (Japanese search)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/charabia-halfwidth-katakana-script.html"},{"@type":"ListItem","position":4,"name":"tabled splits combining marks from their base grapheme when wrapping width","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/tabled-combining-mark-wrap.html"},{"@type":"ListItem","position":5,"name":"Zed block cursor is misaligned over ambiguous-width Unicode characters","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/zed-block-cursor-ambiguous-width.html"},{"@type":"ListItem","position":6,"name":"micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/micro-command-bar-suggestion-width.html"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Width / normalization","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/width-normalization.html"}]}</script>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
@@ -26,7 +26,7 @@
     <p class="kicker">Category</p>
     <h1 class="landing-title">Width / normalization</h1>
     <p class="lede">Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables and missing digraphs silently corrupt text.</p>
-    <p class="counts"><b>5</b> cases in the corpus</p>
+    <p class="counts"><b>6</b> cases in the corpus</p>
   </div>
 </header>
 <div class="rule"></div>
@@ -58,10 +58,15 @@
   <p class="row-meta"><span class="lib">zed</span> <span class="tag tag--stack">Rust</span> <span class="badge badge--open">open</span></p>
   <p class="row-sym">In Zed editor, the block cursor over Unicode ambiguous-width characters (East Asian Width 'A' category, e.g., some symbols, box-drawing) is misaligned — the cursor glyph is not centered in the cell.</p>
 </li>
+      <li class="row">
+  <a class="row-title" href="../e/micro-command-bar-suggestion-width.html">micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)</a>
+  <p class="row-meta"><span class="lib">micro</span> <span class="tag tag--stack">Go</span> <span class="badge badge--open">open</span></p>
+  <p class="row-sym">The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a suggestion containing full-width CJK characters can be left partly or fully off screen.</p>
+</li>
     </ul>
     <p class="browse-h">Other categories</p>
     <div class="chips"><a class="chip" href="../category/ime-composition.html">IME composition</a><a class="chip" href="../category/kana-romaji.html">Kana / romaji</a><a class="chip" href="../category/surrogate-emoji.html">Surrogate &amp; grapheme</a><a class="chip" href="../category/segmentation.html">Segmentation / word count</a><a class="chip" href="../category/numeral.html">Numerals</a><a class="chip" href="../category/locale-leftover.html">Locale data</a><a class="chip" href="../category/unicode-range.html">Unicode range</a><a class="chip" href="../category/regex-roundtrip.html">Regex roundtrip</a><a class="chip" href="../category/codegen-escape.html">Codegen escape</a><a class="chip" href="../category/encoding.html">Encoding &amp; BOM</a></div>
-    <a class="detail-back" href="../">&larr; back to all 93 entries</a>
+    <a class="detail-back" href="../">&larr; back to all 97 entries</a>
   </div>
 </main>
 <div class="rule"></div>

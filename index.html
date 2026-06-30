@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CJK / Unicode Failure Corpus</title>
-<meta name="description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta name="description" content="97 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CJK / Unicode Failure Corpus">
-<meta property="og:description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta property="og:description" content="97 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/">
 <meta property="og:site_name" content="CJK / Unicode Failure Corpus">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CJK / Unicode Failure Corpus">
-<meta name="twitter:description" content="93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
+<meta name="twitter:description" content="97 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.">
 <link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"93 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","description":"97 real CJK, IME, and Unicode/text-handling bugs in open-source libraries, each with a minimal repro, the affected library, and the fix. Searchable and filterable.","url":"https://greymoth-jp.github.io/cjk-failure-corpus/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -24,7 +24,7 @@
     <p class="kicker">A field guide to the Japan-shaped holes</p>
     <h1 class="title">CJK / Unicode<br>Failure Corpus</h1>
     <p class="lede">Real CJK, IME, and Unicode/text-handling bugs in open-source libraries. Repro, affected libs, and the fix. Each entry links to its fix and to <a class="fixtures-link" href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>, the CI fixtures that keep these regressions from coming back.</p>
-    <p class="counts"><b>93</b> entries &nbsp;/&nbsp; <b>87</b> libraries &nbsp;/&nbsp; <b>15</b> already merged</p>
+    <p class="counts"><b>97</b> entries &nbsp;/&nbsp; <b>91</b> libraries &nbsp;/&nbsp; <b>15</b> already merged</p>
     <p class="source-note">Most entries are pull requests authored by greymoth, taken verbatim from the GitHub API. A few are cited upstream issues from the wider ecosystem that document the same failures; those are marked cited and link to the original report.</p>
   </div>
 </header>
@@ -33,9 +33,9 @@
 <nav class="browse" aria-label="Browse the corpus">
   <div class="wrap">
     <p class="browse-h">Browse by category</p>
-    <div class="chips"><a class="chip" href="category/ime-composition.html">IME composition <span class="chip-n">36</span></a><a class="chip" href="category/kana-romaji.html">Kana / romaji <span class="chip-n">8</span></a><a class="chip" href="category/width-normalization.html">Width / normalization <span class="chip-n">5</span></a><a class="chip" href="category/surrogate-emoji.html">Surrogate &amp; grapheme <span class="chip-n">11</span></a><a class="chip" href="category/segmentation.html">Segmentation / word count <span class="chip-n">2</span></a><a class="chip" href="category/numeral.html">Numerals <span class="chip-n">2</span></a><a class="chip" href="category/locale-leftover.html">Locale data <span class="chip-n">24</span></a><a class="chip" href="category/unicode-range.html">Unicode range <span class="chip-n">1</span></a><a class="chip" href="category/regex-roundtrip.html">Regex roundtrip <span class="chip-n">1</span></a><a class="chip" href="category/codegen-escape.html">Codegen escape <span class="chip-n">2</span></a><a class="chip" href="category/encoding.html">Encoding &amp; BOM <span class="chip-n">1</span></a></div>
+    <div class="chips"><a class="chip" href="category/ime-composition.html">IME composition <span class="chip-n">38</span></a><a class="chip" href="category/kana-romaji.html">Kana / romaji <span class="chip-n">8</span></a><a class="chip" href="category/width-normalization.html">Width / normalization <span class="chip-n">6</span></a><a class="chip" href="category/surrogate-emoji.html">Surrogate &amp; grapheme <span class="chip-n">11</span></a><a class="chip" href="category/segmentation.html">Segmentation / word count <span class="chip-n">2</span></a><a class="chip" href="category/numeral.html">Numerals <span class="chip-n">2</span></a><a class="chip" href="category/locale-leftover.html">Locale data <span class="chip-n">25</span></a><a class="chip" href="category/unicode-range.html">Unicode range <span class="chip-n">1</span></a><a class="chip" href="category/regex-roundtrip.html">Regex roundtrip <span class="chip-n">1</span></a><a class="chip" href="category/codegen-escape.html">Codegen escape <span class="chip-n">2</span></a><a class="chip" href="category/encoding.html">Encoding &amp; BOM <span class="chip-n">1</span></a></div>
     <p class="browse-h">Browse by stack</p>
-    <div class="chips"><a class="chip" href="stack/react.html">React <span class="chip-n">27</span></a><a class="chip" href="stack/javascript.html">JavaScript <span class="chip-n">26</span></a><a class="chip" href="stack/vue.html">Vue <span class="chip-n">9</span></a><a class="chip" href="stack/python.html">Python <span class="chip-n">6</span></a><a class="chip" href="stack/typescript.html">TypeScript <span class="chip-n">5</span></a><a class="chip" href="stack/rust.html">Rust <span class="chip-n">3</span></a><a class="chip" href="stack/angular.html">Angular <span class="chip-n">2</span></a><a class="chip" href="stack/i18n.html">Localization (i18n) <span class="chip-n">2</span></a><a class="chip" href="stack/windows.html">Windows <span class="chip-n">2</span></a><a class="chip" href="stack/web-platform.html">Web platform specs <span class="chip-n">2</span></a><a class="chip" href="stack/zed.html">Zed <span class="chip-n">2</span></a></div>
+    <div class="chips"><a class="chip" href="stack/react.html">React <span class="chip-n">29</span></a><a class="chip" href="stack/javascript.html">JavaScript <span class="chip-n">26</span></a><a class="chip" href="stack/vue.html">Vue <span class="chip-n">10</span></a><a class="chip" href="stack/python.html">Python <span class="chip-n">6</span></a><a class="chip" href="stack/typescript.html">TypeScript <span class="chip-n">6</span></a><a class="chip" href="stack/rust.html">Rust <span class="chip-n">3</span></a><a class="chip" href="stack/i18n.html">Localization (i18n) <span class="chip-n">3</span></a><a class="chip" href="stack/angular.html">Angular <span class="chip-n">2</span></a><a class="chip" href="stack/windows.html">Windows <span class="chip-n">2</span></a><a class="chip" href="stack/web-platform.html">Web platform specs <span class="chip-n">2</span></a><a class="chip" href="stack/zed.html">Zed <span class="chip-n">2</span></a></div>
   </div>
 </nav>
 <div class="rule"></div>
@@ -49,7 +49,7 @@
     </select>
     <select id="f-lib" class="filter" aria-label="Filter by library">
       <option value="">All libraries</option>
-      <option value="@std/csv">@std/csv</option><option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="date-fns">date-fns</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emdash">emdash</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="kaplay">kaplay</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="material-ui">material-ui</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="microsoft/terminal">microsoft/terminal</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="omi">omi</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="select2">select2</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="validator.js">validator.js</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
+      <option value="@std/csv">@std/csv</option><option value="AIaW">AIaW</option><option value="ant-design">ant-design</option><option value="appwrite">appwrite</option><option value="arco-design">arco-design</option><option value="big-AGI">big-AGI</option><option value="BlockNote">BlockNote</option><option value="charabia">charabia</option><option value="ChatUI">ChatUI</option><option value="cherry-studio">cherry-studio</option><option value="clerk">clerk</option><option value="cli-table3">cli-table3</option><option value="CopilotKit">CopilotKit</option><option value="cronstrue">cronstrue</option><option value="date-fns">date-fns</option><option value="dify">dify</option><option value="dotnet/maui">dotnet/maui</option><option value="element-plus">element-plus</option><option value="emdash">emdash</option><option value="emoji-regex">emoji-regex</option><option value="excalidraw">excalidraw</option><option value="filepond">filepond</option><option value="Flowise">Flowise</option><option value="formatjs">formatjs</option><option value="grapheme-splitter">grapheme-splitter</option><option value="GROWI">GROWI</option><option value="hepburn">hepburn</option><option value="jaco-js">jaco-js</option><option value="jaconv">jaconv</option><option value="jan">jan</option><option value="jp-prefectures.js">jp-prefectures.js</option><option value="json-schema-to-typescript">json-schema-to-typescript</option><option value="jsoneditor">jsoneditor</option><option value="kana-romaji">kana-romaji</option><option value="Kanjize">Kanjize</option><option value="kaplay">kaplay</option><option value="langflow">langflow</option><option value="LibreChat">LibreChat</option><option value="llm-x">llm-x</option><option value="llmchat">llmchat</option><option value="lodash">lodash</option><option value="markdoc">markdoc</option><option value="markdown-it">markdown-it</option><option value="material-ui">material-ui</option><option value="medusa">medusa</option><option value="memos">memos</option><option value="micro">micro</option><option value="microsoft/terminal">microsoft/terminal</option><option value="Misskey">Misskey</option><option value="moji">moji</option><option value="mui-x">mui-x</option><option value="naive-ui">naive-ui</option><option value="ng-zorro-antd">ng-zorro-antd</option><option value="normal-jp">normal-jp</option><option value="nuxt/ui">nuxt/ui</option><option value="obsidian-smart-composer">obsidian-smart-composer</option><option value="omi">omi</option><option value="onyx">onyx</option><option value="opentype.js">opentype.js</option><option value="payload">payload</option><option value="plane">plane</option><option value="primelocale">primelocale</option><option value="pykakasi">pykakasi</option><option value="quasar">quasar</option><option value="rc-mentions">rc-mentions</option><option value="rc-select">rc-select</option><option value="React">React</option><option value="regexp-tree">regexp-tree</option><option value="romaji-conv">romaji-conv</option><option value="rsuite">rsuite</option><option value="select2">select2</option><option value="semi-design">semi-design</option><option value="siyuan">siyuan</option><option value="slate">slate</option><option value="surf">surf</option><option value="tabled">tabled</option><option value="timeago.js">timeago.js</option><option value="Trilium">Trilium</option><option value="twenty">twenty</option><option value="unidecode">unidecode</option><option value="uppy">uppy</option><option value="validator.js">validator.js</option><option value="vant">vant</option><option value="video.js">video.js</option><option value="vuetify">vuetify</option><option value="w3c/input-events">w3c/input-events</option><option value="w3c/uievents">w3c/uievents</option><option value="Warp">Warp</option><option value="wenmode">wenmode</option><option value="zag">zag</option><option value="zed">zed</option>
     </select>
     <span class="result-count" id="rc"></span>
   </div>
@@ -60,7 +60,7 @@
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-ime-composition"><a href="category/ime-composition.html">IME composition</a></h2>
-      <span class="cat-n">36 entries</span>
+      <span class="cat-n">38 entries</span>
       <a class="cat-all" href="category/ime-composition.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">When a Japanese/Chinese/Korean user types, they press Enter to confirm an IME conversion (pick a kanji candidate). That same Enter often fires the component's own keydown / submit / select handler, so the form sends or an item is selected with half-finished text. The guard is one line: skip the handler while the composition is active (event.isComposing, or keyCode 229; in React read event.nativeEvent.isComposing).</p>
@@ -1086,6 +1086,72 @@
     <a class="anchor-link" href="#warp-marked-text-ime">#warp-marked-text-ime</a>
   </div>
 </article>
+<article class="entry" id="blocknote-input-rules-enter-ime" data-cat="ime-composition" data-lib="BlockNote" data-search="blocknote: input rules fire on the enter that confirms an ime conversion (react) input rules fire on the enter that confirms an ime composition blocknote typecellos/blocknote the input-rules-on-enter handler does not check event.iscomposing, so it also runs on the enter that commits an ime composition. a matching rule (for example the # heading rule) fires mid-conversion and the preventdefault disrupts the commit. 1. in a blocknote editor, type # with no trailing space.
+2. switch to a japanese ime and type some hiragana.
+3. press enter to confirm a kanji candidate.
+4. the heading input rule fires on the ime-commit enter, so the candidate does not commit normally. return early from the inputrulesenter handler while event.iscomposing is true (keycode 229), the same guard the editor&#39;s other enter handlers already use. ime composition react ts pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">React</span><span class="tag tag--stack">TS</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/blocknote-input-rules-enter-ime.html">BlockNote: input rules fire on the Enter that confirms an IME conversion (React)</a></h3>
+  
+  <p class="lib-line"><span class="lib">BlockNote</span> &middot; <a href="https://github.com/TypeCellOS/BlockNote">TypeCellOS/BlockNote</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The input-rules-on-Enter handler does not check event.isComposing, so it also runs on the Enter that commits an IME composition. A matching rule (for example the # heading rule) fires mid-conversion and the preventDefault disrupts the commit.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. In a BlockNote editor, type # with no trailing space.
+2. Switch to a Japanese IME and type some hiragana.
+3. Press Enter to confirm a kanji candidate.
+4. The heading input rule fires on the IME-commit Enter, so the candidate does not commit normally.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Return early from the inputRulesEnter handler while event.isComposing is true (keyCode 229), the same guard the editor's other Enter handlers already use.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/TypeCellOS/BlockNote/pull/2879">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#blocknote-input-rules-enter-ime">#blocknote-input-rules-enter-ime</a>
+  </div>
+</article>
+<article class="entry" id="misskey-chat-enter-ime" data-cat="ime-composition" data-lib="Misskey" data-search="misskey chat sends the message on the enter that confirms a japanese ime conversion (vue) chat composer sends the message on the enter that confirms an ime conversion misskey misskey-dev/misskey with send-on-enter enabled, the chat composer&#39;s onkeydown calls send() without checking the ime, so the enter that confirms a japanese conversion sends the in-progress text and clears the input. 1. open the chat room composer with send-on-enter enabled.
+2. with a japanese ime, type some hiragana and press space to get conversion candidates.
+3. press enter to choose a candidate.
+4. the unconfirmed text is sent instead of the conversion committing. return early in the keydown handler while the ime is composing (ev.iscomposing || ev.key === &#39;process&#39; || ev.keycode === 229), matching mkinput, mktextarea, and mkcodeeditor. ime composition vue pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/misskey-chat-enter-ime.html">Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)</a></h3>
+  
+  <p class="lib-line"><span class="lib">Misskey</span> &middot; <a href="https://github.com/misskey-dev/misskey">misskey-dev/misskey</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>With send-on-Enter enabled, the chat composer's onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion sends the in-progress text and clears the input.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open the chat room composer with send-on-Enter enabled.
+2. With a Japanese IME, type some hiragana and press Space to get conversion candidates.
+3. Press Enter to choose a candidate.
+4. The unconfirmed text is sent instead of the conversion committing.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Return early in the keydown handler while the IME is composing (ev.isComposing || ev.key === 'Process' || ev.keyCode === 229), matching MkInput, MkTextarea, and MkCodeEditor.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/misskey-dev/misskey/pull/17646">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#misskey-chat-enter-ime">#misskey-chat-enter-ime</a>
+  </div>
+</article>
   </div>
 </section>
 <section class="cat-section" data-cat-section="kana-romaji">
@@ -1324,7 +1390,7 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-width-normalization"><a href="category/width-normalization.html">Width / normalization</a></h2>
-      <span class="cat-n">5 entries</span>
+      <span class="cat-n">6 entries</span>
       <a class="cat-all" href="category/width-normalization.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Full-width to half-width, long-vowel marks, and kana range boundaries. Off-by-one range tables and missing digraphs silently corrupt text.</p>
@@ -1461,6 +1527,37 @@ jaconv.kana2alphabet('ヶ')  # small ke not handled</pre>
   <div class="entry-foot">
     <a class="pr-link" href="https://github.com/zed-industries/zed/pull/60017">Fix PR &rarr;</a>
     <a class="anchor-link" href="#zed-block-cursor-ambiguous-width">#zed-block-cursor-ambiguous-width</a>
+  </div>
+</article>
+<article class="entry" id="micro-command-bar-suggestion-width" data-cat="width-normalization" data-lib="micro" data-search="micro editor: command-bar autocomplete clips wide cjk suggestions (display width vs character count) command-bar autocomplete scrolls by character count, so wide cjk suggestions get clipped micro micro-editor/micro the info-bar autocomplete strip scrolls by character count (charactercountinstring) while the renderer draws by display width (runewidth), so a suggestion containing full-width cjk characters can be left partly or fully off screen. 1. trigger command-bar autocomplete with suggestions like [&quot;日本語テスト&quot;, &quot;ok&quot;, &quot;end&quot;] in a 14-column strip.
+2. select the second suggestion.
+3. 日本語テスト is 6 characters but 12 display columns, so hscroll stays at 0 and ok is clipped at the right edge. measure the scroll offset with runewidth.stringwidth so it matches totalsize and the renderer. ascii-only suggestions are unchanged. width / normalization go pull request">
+  <div class="entry-top">
+    <span class="tag">Width / normalization</span>
+    <span class="tag tag--stack">Go</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/micro-command-bar-suggestion-width.html">micro editor: command-bar autocomplete clips wide CJK suggestions (display width vs character count)</a></h3>
+  
+  <p class="lib-line"><span class="lib">micro</span> &middot; <a href="https://github.com/micro-editor/micro">micro-editor/micro</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>The info-bar autocomplete strip scrolls by character count (CharacterCountInString) while the renderer draws by display width (runewidth), so a suggestion containing full-width CJK characters can be left partly or fully off screen.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Trigger command-bar autocomplete with suggestions like [&quot;日本語テスト&quot;, &quot;ok&quot;, &quot;end&quot;] in a 14-column strip.
+2. Select the second suggestion.
+3. 日本語テスト is 6 characters but 12 display columns, so hscroll stays at 0 and ok is clipped at the right edge.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Measure the scroll offset with runewidth.StringWidth so it matches totalSize and the renderer. ASCII-only suggestions are unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/micro-editor/micro/pull/4135">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#micro-command-bar-suggestion-width">#micro-command-bar-suggestion-width</a>
   </div>
 </article>
   </div>
@@ -1906,7 +2003,7 @@ kanji2number('萬')  # not recognized as 10000</pre>
   <div class="wrap">
     <div class="cat-head">
       <h2 id="cat-locale-leftover"><a href="category/locale-leftover.html">Locale data</a></h2>
-      <span class="cat-n">24 entries</span>
+      <span class="cat-n">25 entries</span>
       <a class="cat-all" href="category/locale-leftover.html">open category page &rarr;</a>
     </div>
     <p class="cat-blurb">Missing or wrong locale data: untranslated placeholders, mistranslations that flip meaning, labels left in English, and parse tables that drop a locale's diacritics so a formatted month will not parse back.</p>
@@ -2562,6 +2659,37 @@ parse(s, 'MMMM', new Date(), { locale: gl });               // Invalid Date</pre
   <div class="entry-foot">
     <a class="pr-link" href="https://github.com/tusen-ai/naive-ui/pull/8116">Fix PR &rarr;</a>
     <a class="anchor-link" href="#naive-ui-week-placeholder-cjk">#naive-ui-week-placeholder-cjk</a>
+  </div>
+</article>
+<article class="entry" id="growi-distance-date-locale" data-cat="locale-leftover" data-lib="GROWI" data-search="growi shows relative dates in english (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns relative dates render in english for everyone (no locale passed to date-fns) growi growilabs/growi formatteddistancedate calls formatdistancestrict without a locale, so relative times render in english regardless of the user&#39;s language. a japanese user sees &quot;3 days&quot; instead of &quot;3日&quot; in comments, in-app notifications, and recent changes. 1. set the ui language to japanese.
+2. open page comments, in-app notifications, or the recent changes sidebar.
+3. the relative timestamps read &quot;3 days&quot; instead of &quot;3日&quot;. pass the resolved date-fns locale to formatdistancestrict ({ locale: getlocale(i18n.language) }), the same approach recentactivity/activitylistitem already uses. english output is unchanged. locale data react i18n pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">React</span><span class="tag tag--stack">i18n</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h3 class="entry-title"><a href="e/growi-distance-date-locale.html">GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns</a></h3>
+  
+  <p class="lib-line"><span class="lib">GROWI</span> &middot; <a href="https://github.com/growilabs/growi">growilabs/growi</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user's language. A Japanese user sees &quot;3 days&quot; instead of &quot;3日&quot; in comments, in-app notifications, and Recent Changes.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Set the UI language to Japanese.
+2. Open page comments, in-app notifications, or the Recent Changes sidebar.
+3. The relative timestamps read &quot;3 days&quot; instead of &quot;3日&quot;.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Pass the resolved date-fns locale to formatDistanceStrict ({ locale: getLocale(i18n.language) }), the same approach RecentActivity/ActivityListItem already uses. English output is unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/growilabs/growi/pull/11376">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#growi-distance-date-locale">#growi-distance-date-locale</a>
   </div>
 </article>
   </div>

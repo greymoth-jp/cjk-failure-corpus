@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue) — CJK Failure Corpus</title>
+<meta name="description" content="Misskey: With send-on-Enter enabled, the chat composer&#39;s onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion se…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/misskey-chat-enter-ime.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue) — CJK Failure Corpus">
+<meta property="og:description" content="Misskey: With send-on-Enter enabled, the chat composer&#39;s onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion se…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/misskey-chat-enter-ime.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue) — CJK Failure Corpus">
+<meta name="twitter:description" content="Misskey: With send-on-Enter enabled, the chat composer&#39;s onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion se…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)","alternativeHeadline":"Chat composer sends the message on the Enter that confirms an IME conversion","name":"Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)","about":"IME composition","articleSection":"IME composition","keywords":"Vue, Misskey, IME composition, CJK, Unicode, i18n, Japanese","inLanguage":"en","description":"Misskey: With send-on-Enter enabled, the chat composer's onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion se…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/misskey-chat-enter-ime.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/misskey-chat-enter-ime.html","dateModified":"2026-06-30","citation":"https://github.com/misskey-dev/misskey/pull/17646","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"IME composition","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/ime-composition.html"},{"@type":"ListItem","position":3,"name":"Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/misskey-chat-enter-ime.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/ime-composition.html">IME composition</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="misskey-chat-enter-ime" data-cat="ime-composition" data-lib="Misskey" data-search="misskey chat sends the message on the enter that confirms a japanese ime conversion (vue) chat composer sends the message on the enter that confirms an ime conversion misskey misskey-dev/misskey with send-on-enter enabled, the chat composer&#39;s onkeydown calls send() without checking the ime, so the enter that confirms a japanese conversion sends the in-progress text and clears the input. 1. open the chat room composer with send-on-enter enabled.
+2. with a japanese ime, type some hiragana and press space to get conversion candidates.
+3. press enter to choose a candidate.
+4. the unconfirmed text is sent instead of the conversion committing. return early in the keydown handler while the ime is composing (ev.iscomposing || ev.key === &#39;process&#39; || ev.keycode === 229), matching mkinput, mktextarea, and mkcodeeditor. ime composition vue pull request">
+  <div class="entry-top">
+    <span class="tag">IME composition</span>
+    <span class="tag tag--stack">Vue</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">Misskey chat sends the message on the Enter that confirms a Japanese IME conversion (Vue)</h1>
+  <p class="entry-subtitle">Chat composer sends the message on the Enter that confirms an IME conversion</p>
+  <p class="lib-line"><span class="lib">Misskey</span> &middot; <a href="https://github.com/misskey-dev/misskey">misskey-dev/misskey</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>With send-on-Enter enabled, the chat composer's onKeydown calls send() without checking the IME, so the Enter that confirms a Japanese conversion sends the in-progress text and clears the input.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Open the chat room composer with send-on-Enter enabled.
+2. With a Japanese IME, type some hiragana and press Space to get conversion candidates.
+3. Press Enter to choose a candidate.
+4. The unconfirmed text is sent instead of the conversion committing.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Return early in the keydown handler while the IME is composing (ev.isComposing || ev.key === 'Process' || ev.keyCode === 229), matching MkInput, MkTextarea, and MkCodeEditor.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/misskey-dev/misskey/pull/17646">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#misskey-chat-enter-ime">#misskey-chat-enter-ime</a>
+  </div>
+</article>
+    <p class="also-in">Also in: <a href="../stack/vue.html">Vue</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/naive-ui-dynamic-tags-ime.html">naive-ui: Enter during IME composition adds a tag (Vue dynamic tags)</a></li>
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/surf-command-palette-ime.html">Svelte command palette runs a command on the IME confirm Enter</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+    </ul>
+  </section>
+    <a class="detail-back" href="../">&larr; all 97 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>

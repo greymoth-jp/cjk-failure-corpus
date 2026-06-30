@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns — CJK Failure Corpus</title>
+<meta name="description" content="GROWI: FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user&#39;s language. A Japanese u…">
+<link rel="canonical" href="https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns — CJK Failure Corpus">
+<meta property="og:description" content="GROWI: FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user&#39;s language. A Japanese u…">
+<meta property="og:url" content="https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html">
+<meta property="og:site_name" content="CJK / Unicode Failure Corpus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns — CJK Failure Corpus">
+<meta name="twitter:description" content="GROWI: FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user&#39;s language. A Japanese u…">
+<link rel="preload" href="/cjk-failure-corpus/fonts/CourierPrime-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"GROWI shows relative dates in English (\"3 days\" not \"3日\"): no locale passed to date-fns","alternativeHeadline":"Relative dates render in English for everyone (no locale passed to date-fns)","name":"GROWI shows relative dates in English (\"3 days\" not \"3日\"): no locale passed to date-fns","about":"Locale data","articleSection":"Locale data","keywords":"React, i18n, GROWI, Locale data, CJK, Unicode, Japanese","inLanguage":"en","description":"GROWI: FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user's language. A Japanese u…","url":"https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html","mainEntityOfPage":"https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html","dateModified":"2026-06-30","citation":"https://github.com/growilabs/growi/pull/11376","author":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"publisher":{"@type":"Organization","name":"greymoth","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"},"isPartOf":{"@type":"CollectionPage","name":"CJK / Unicode Failure Corpus","url":"https://greymoth-jp.github.io/cjk-failure-corpus/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CJK / Unicode Failure Corpus","item":"https://greymoth-jp.github.io/cjk-failure-corpus/"},{"@type":"ListItem","position":2,"name":"Locale data","item":"https://greymoth-jp.github.io/cjk-failure-corpus/category/locale-leftover.html"},{"@type":"ListItem","position":3,"name":"GROWI shows relative dates in English (\"3 days\" not \"3日\"): no locale passed to date-fns","item":"https://greymoth-jp.github.io/cjk-failure-corpus/e/growi-distance-date-locale.html"}]}</script>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="detail">
+<header class="masthead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../">CJK / Unicode Failure Corpus</a> <span>/</span>
+      <a href="../category/locale-leftover.html">Locale data</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <article class="entry" id="growi-distance-date-locale" data-cat="locale-leftover" data-lib="GROWI" data-search="growi shows relative dates in english (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns relative dates render in english for everyone (no locale passed to date-fns) growi growilabs/growi formatteddistancedate calls formatdistancestrict without a locale, so relative times render in english regardless of the user&#39;s language. a japanese user sees &quot;3 days&quot; instead of &quot;3日&quot; in comments, in-app notifications, and recent changes. 1. set the ui language to japanese.
+2. open page comments, in-app notifications, or the recent changes sidebar.
+3. the relative timestamps read &quot;3 days&quot; instead of &quot;3日&quot;. pass the resolved date-fns locale to formatdistancestrict ({ locale: getlocale(i18n.language) }), the same approach recentactivity/activitylistitem already uses. english output is unchanged. locale data react i18n pull request">
+  <div class="entry-top">
+    <span class="tag">Locale data</span>
+    <span class="tag tag--stack">React</span><span class="tag tag--stack">i18n</span>
+    
+    <span class="badge badge--open">open</span>
+  </div>
+  <h1 class="entry-title">GROWI shows relative dates in English (&quot;3 days&quot; not &quot;3日&quot;): no locale passed to date-fns</h1>
+  <p class="entry-subtitle">Relative dates render in English for everyone (no locale passed to date-fns)</p>
+  <p class="lib-line"><span class="lib">GROWI</span> &middot; <a href="https://github.com/growilabs/growi">growilabs/growi</a></p>
+  <div class="field">
+    <span class="field-label">Symptom</span>
+    <p>FormattedDistanceDate calls formatDistanceStrict without a locale, so relative times render in English regardless of the user's language. A Japanese user sees &quot;3 days&quot; instead of &quot;3日&quot; in comments, in-app notifications, and Recent Changes.</p>
+  </div>
+  <div class="field">
+    <span class="field-label">Minimal repro</span>
+    <pre class="repro">1. Set the UI language to Japanese.
+2. Open page comments, in-app notifications, or the Recent Changes sidebar.
+3. The relative timestamps read &quot;3 days&quot; instead of &quot;3日&quot;.</pre>
+  </div>
+  <div class="field">
+    <span class="field-label">Fix</span>
+    <p>Pass the resolved date-fns locale to formatDistanceStrict ({ locale: getLocale(i18n.language) }), the same approach RecentActivity/ActivityListItem already uses. English output is unchanged.</p>
+  </div>
+  <div class="entry-foot">
+    <a class="pr-link" href="https://github.com/growilabs/growi/pull/11376">Fix PR &rarr;</a>
+    <a class="anchor-link" href="#growi-distance-date-locale">#growi-distance-date-locale</a>
+  </div>
+</article>
+    <p class="also-in">Also in: <a href="../stack/react.html">React</a> &middot; <a href="../stack/i18n.html">Localization (i18n)</a></p>
+    <section class="related">
+    <p class="related-h">Related failures</p>
+    <ul class="related-list">
+      <li><a href="../e/llm-x-chat-enter-ime.html">React chat input sends the message on the Enter that confirms an IME conversion</a></li>
+      <li><a href="../e/rc-mentions-safari-ime-select.html">Safari: Enter confirming a CJK @-mention picks the wrong option (rc-mentions)</a></li>
+      <li><a href="../e/rc-select-enter-ime-option.html">rc-select: the Enter that confirms IME composition also selects an option</a></li>
+      <li><a href="../e/cherry-studio-rename-ime.html">Inline file rename submits during IME composition (Cherry Studio, Electron)</a></li>
+      <li><a href="../e/chatui-composer-ime.html">ChatUI composer sends on the Enter that confirms IME composition</a></li>
+    </ul>
+  </section>
+    <a class="detail-back" href="../">&larr; all 97 entries</a>
+  </div>
+</main>
+<div class="rule"></div>
+<footer>
+  <div class="wrap"><p class="mark">greymoth</p><p>Part of the <a href="../">CJK / Unicode Failure Corpus</a>. CI fixtures: <a href="https://github.com/greymoth-jp/cjk-agent-fixtures">cjk-agent-fixtures</a>.</p></div>
+</footer>
+</body>
+</html>
